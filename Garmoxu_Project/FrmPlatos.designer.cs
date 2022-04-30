@@ -215,8 +215,8 @@
             // 
             // TxtNombre
             // 
-            this.TxtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.TxtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtNombre.BackColor = System.Drawing.SystemColors.Window;
             this.TxtNombre.BorderColor = System.Drawing.Color.MediumSlateBlue;
@@ -336,7 +336,11 @@
             // 
             // LstPlatos
             // 
+            this.LstPlatos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
+            this.LstPlatos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.LstPlatos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LstPlatos.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LstPlatos.ForeColor = System.Drawing.Color.White;
             this.LstPlatos.HideSelection = false;
             this.LstPlatos.LargeImageList = this.ImgImagenesPlatos;
             this.LstPlatos.Location = new System.Drawing.Point(31, 91);

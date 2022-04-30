@@ -331,6 +331,11 @@ namespace Garmoxu_Project
             AbrirFormulario(new FrmClientes(ConexionBD));
         }
 
+        private void BtnCategoria_Click(object sender, EventArgs e)
+        {
+            AbrirFormulario(new FrmCategoria(ConexionBD, Instance));
+        }
+
         private void BtnUsers_Click(object sender, EventArgs e)
         {
             AbrirFormulario(new FrmUsuarios(ConexionBD, this, UsuarioActual));

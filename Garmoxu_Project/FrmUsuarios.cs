@@ -54,14 +54,12 @@ namespace Garmoxu_Project
 
         #region FrontEnd
         #region Boton Cerrar
-        // Cambia de color cuando el raton esta encima del Button.
         private void BtnCerrar_MouseEnter(object sender, EventArgs e)
         {
             //BtnCerrar.IconColor = Color.LimeGreen;
             BtnCerrar.IconChar = FontAwesome.Sharp.IconChar.DoorOpen;
         }
 
-        // Cambia de color cuando el raton deja de estar encima del boton.
         private void BtnCerrar_MouseLeave(object sender, EventArgs e)
         {
             //BtnCerrar.IconColor = Color.DarkGray;
@@ -69,18 +67,39 @@ namespace Garmoxu_Project
         }
         #endregion
 
-        #region Boton Guardar
-        private void BtnGuardar_MouseEnter(object sender, EventArgs e)
+        #region Boton Buscar
+        private void BtnBuscar_MouseEnter(object sender, EventArgs e)
         {
-            BtnGuardar.Font = new Font("Source Sans Pro", (BtnGuardar.Font.Size + 1), FontStyle.Bold);
-            BtnGuardar.BorderSize = 3;
+            BtnBuscar.IconColor = Color.DeepSkyBlue;
         }
 
-        // Cambia de color cuando el raton deja de estar encima del boton.
-        private void BtnGuardar_MouseLeave(object sender, EventArgs e)
+        private void BtnBuscar_MouseLeave(object sender, EventArgs e)
         {
-            BtnGuardar.Font = new Font("Source Sans Pro", (BtnGuardar.Font.Size - 1), FontStyle.Bold);
-            BtnGuardar.BorderSize = 0;
+            BtnBuscar.IconColor = Color.MediumSlateBlue;
+        }
+        #endregion
+
+        #region Boton Añadir
+        private void BtnNuevo_MouseEnter(object sender, EventArgs e)
+        {
+            BtnNuevo.IconColor = Color.PaleGreen;
+        }
+
+        private void BtnNuevo_MouseLeave(object sender, EventArgs e)
+        {
+            BtnNuevo.IconColor = Color.LimeGreen;
+        }
+        #endregion
+
+        #region Boton Quitar
+        private void BtnQuitar_MouseEnter(object sender, EventArgs e)
+        {
+            BtnQuitar.IconColor = Color.LightCoral;
+        }
+
+        private void BtnQuitar_MouseLeave(object sender, EventArgs e)
+        {
+            BtnQuitar.IconColor = Color.Crimson;
         }
         #endregion
         #endregion
@@ -200,12 +219,16 @@ namespace Garmoxu_Project
             if(DtgUsuarios.SelectedRows.Count < 1)
             {
                 BtnEliminar.Enabled = false;
+                BtnEliminar.BackColor = Color.Gray;
                 BtnQuitar.Enabled = false;
+                BtnQuitar.IconColor = Color.Gray;
             }
             else
             {
                 BtnEliminar.Enabled = true;
+                BtnEliminar.BackColor = Color.Crimson;
                 BtnQuitar.Enabled = true;
+                BtnQuitar.IconColor = Color.Crimson;
             }
         }
         #endregion
@@ -501,6 +524,7 @@ namespace Garmoxu_Project
                 this.Close();
         }
         #endregion
+
         #endregion
     }
 }

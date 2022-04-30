@@ -124,7 +124,10 @@ namespace Garmoxu_Project
         private void CboCategoria_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (CboCategoria.SelectedIndex != -1)
+            {
                 ChkCategoriaPlato.Checked = true;
+                BuscarPlatos();
+            }
             else
                 ChkCategoriaPlato.Checked = false;
         }
