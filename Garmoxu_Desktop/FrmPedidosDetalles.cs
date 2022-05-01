@@ -1099,7 +1099,6 @@ namespace Garmoxu_Desktop
                     AñadirCuerpoPdf(ref documentoPdf, clavePrimariaHistorial);
 
                     documentoPdf.Close();
-                    InformarAccionConExito();
                 }
             }
             catch (IOException ex)
@@ -1196,11 +1195,11 @@ namespace Garmoxu_Desktop
             CrearCelda(TextAlignment.RIGHT, 15, tablaPdf, clavePrimariaHistorial);
             CrearCelda(TextAlignment.LEFT, 15, tablaPdf, tipoPedido);
             CrearCelda(TextAlignment.RIGHT, 15, tablaPdf, datoPedido);
-            if (TabTipoDatosDetalles.SelectedIndex == 0)
-            {
-                CrearCelda(TextAlignment.LEFT, 15, tablaPdf, "Atendido por: ");
-                CrearCelda(TextAlignment.RIGHT, 15, tablaPdf, BuscarNombreUsuario());
-            }
+            //if (TabTipoDatosDetalles.SelectedIndex == 0)
+            //{
+            //    CrearCelda(TextAlignment.LEFT, 15, tablaPdf, "Atendido por: ");
+            //    CrearCelda(TextAlignment.RIGHT, 15, tablaPdf, BuscarNombreUsuario());
+            //}
             documentoPdf.Add(tablaPdf);
         }
 
@@ -1230,9 +1229,9 @@ namespace Garmoxu_Desktop
         private void AñadirTablaPlatos(ref Document documentoPdf)
         {
             Table cabecerasTablaPdf = new Table(4, false).UseAllAvailableWidth();
-            CrearCelda(40, TextAlignment.LEFT, 15, cabecerasTablaPdf, "Cant");
             CrearCelda(TextAlignment.LEFT, 15, cabecerasTablaPdf, "Artículo");
             CrearCelda(80, TextAlignment.RIGHT, 15, cabecerasTablaPdf, "P. Unitario");
+            CrearCelda(40, TextAlignment.RIGHT, 15, cabecerasTablaPdf, "Cant");
             CrearCelda(80, TextAlignment.RIGHT, 15, cabecerasTablaPdf, "P. Total");
             documentoPdf.Add(cabecerasTablaPdf);
 
@@ -1241,9 +1240,9 @@ namespace Garmoxu_Desktop
             Table tablaPdf = new Table(4, false).UseAllAvailableWidth();
             foreach (DataGridViewRow row in DtgPlatosPedidos.Rows)
             {
-                CrearCelda(40, TextAlignment.LEFT, 15, tablaPdf, row.Cells[2].Value.ToString());
                 CrearCelda(TextAlignment.LEFT, 15, tablaPdf, row.Cells[1].Value.ToString());
                 CrearCelda(80, TextAlignment.RIGHT, 15, tablaPdf, row.Cells[3].Value.ToString());
+                CrearCelda(40, TextAlignment.RIGHT, 15, tablaPdf, row.Cells[2].Value.ToString());
                 CrearCelda(80, TextAlignment.RIGHT, 15, tablaPdf, row.Cells[4].Value.ToString());
             }
             documentoPdf.Add(tablaPdf);

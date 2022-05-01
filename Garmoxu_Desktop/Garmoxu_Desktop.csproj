@@ -84,9 +84,6 @@
     <Reference Include="itext.svg, Version=7.2.2.0, Culture=neutral, PublicKeyToken=8354ae6d2174ddca, processorArchitecture=MSIL">
       <HintPath>..\packages\itext7.7.2.2\lib\net461\itext.svg.dll</HintPath>
     </Reference>
-    <Reference Include="iTextSharp.LGPLv2.Core, Version=1.7.5.0, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>packages\iTextSharp.LGPLv2.Core.1.7.5\lib\net40\iTextSharp.LGPLv2.Core.dll</HintPath>
-    </Reference>
     <Reference Include="MaterialSkin, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\MaterialSkin.0.2.1\lib\MaterialSkin.dll</HintPath>
     </Reference>
@@ -124,6 +121,7 @@
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
     </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
     <Reference Include="System.Core" />
     <Reference Include="System.Diagnostics.DiagnosticSource, Version=5.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Diagnostics.DiagnosticSource.5.0.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
@@ -159,147 +157,99 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Form1.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Form1.cs" />
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form2.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="Form2.cs" />
     <Compile Include="Form2.designer.cs">
       <DependentUpon>Form2.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmAjustes.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FrmAjustes.cs" />
     <Compile Include="FrmAjustes.designer.cs">
       <DependentUpon>FrmAjustes.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCategorias.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FrmCategorias.cs" />
     <Compile Include="FrmCategorias.designer.cs">
       <DependentUpon>FrmCategorias.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmCategoriasDetalles.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FrmCategoriasDetalles.cs" />
     <Compile Include="FrmCategoriasDetalles.designer.cs">
       <DependentUpon>FrmCategoriasDetalles.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmClientes.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FrmClientes.cs" />
     <Compile Include="FrmClientes.designer.cs">
       <DependentUpon>FrmClientes.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPedidosDetalles.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FrmPedidosDetalles.cs" />
     <Compile Include="FrmPedidosDetalles.designer.cs">
       <DependentUpon>FrmPedidosDetalles.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmReservasDetalles.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FrmReservasDetalles.cs" />
     <Compile Include="FrmReservasDetalles.designer.cs">
       <DependentUpon>FrmReservasDetalles.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmEstadisticas.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FrmEstadisticas.cs" />
     <Compile Include="FrmEstadisticas.designer.cs">
       <DependentUpon>FrmEstadisticas.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmHistorialPedidos.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FrmHistorialPedidos.cs" />
     <Compile Include="FrmHistorialPedidos.designer.cs">
       <DependentUpon>FrmHistorialPedidos.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmHistorialPedidosDetalles.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FrmHistorialPedidosDetalles.cs" />
     <Compile Include="FrmHistorialPedidosDetalles.designer.cs">
       <DependentUpon>FrmHistorialPedidosDetalles.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmInicioSesion.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FrmInicioSesion.cs" />
     <Compile Include="FrmInicioSesion.designer.cs">
       <DependentUpon>FrmInicioSesion.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMain.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FrmMain.cs" />
     <Compile Include="FrmMain.designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMessageBoxPersonalizado.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FrmMessageBoxPersonalizado.cs" />
     <Compile Include="FrmMessageBoxPersonalizado.designer.cs">
       <DependentUpon>FrmMessageBoxPersonalizado.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPedidosPagos.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FrmPedidosPagos.cs" />
     <Compile Include="FrmPedidosPagos.designer.cs">
       <DependentUpon>FrmPedidosPagos.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPedidos.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FrmPedidos.cs" />
     <Compile Include="FrmPedidos.designer.cs">
       <DependentUpon>FrmPedidos.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPedidosPlatosConsulta.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FrmPedidosPlatosConsulta.cs" />
     <Compile Include="FrmPedidosPlatosConsulta.designer.cs">
       <DependentUpon>FrmPedidosPlatosConsulta.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPedidosPlatosConsultaDetalles.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FrmPedidosPlatosConsultaDetalles.cs" />
     <Compile Include="FrmPedidosPlatosConsultaDetalles.designer.cs">
       <DependentUpon>FrmPedidosPlatosConsultaDetalles.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPlatos.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FrmPlatos.cs" />
     <Compile Include="FrmPlatos.designer.cs">
       <DependentUpon>FrmPlatos.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmPlatosDetalles.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FrmPlatosDetalles.cs" />
     <Compile Include="FrmPlatosDetalles.designer.cs">
       <DependentUpon>FrmPlatosDetalles.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmReservas.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FrmReservas.cs" />
     <Compile Include="FrmReservas.designer.cs">
       <DependentUpon>FrmReservas.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmUsuariosDetalles.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FrmUsuariosDetalles.cs" />
     <Compile Include="FrmUsuariosDetalles.designer.cs">
       <DependentUpon>FrmUsuariosDetalles.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmUsuarios.cs">
-      <SubType>Form</SubType>
-    </Compile>
+    <Compile Include="FrmUsuarios.cs" />
     <Compile Include="FrmUsuarios.designer.cs">
       <DependentUpon>FrmUsuarios.cs</DependentUpon>
     </Compile>
-    <Compile Include="MyGroupBox.cs">
-      <SubType>Component</SubType>
-    </Compile>
+    <Compile Include="MyGroupBox.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form2.resx">

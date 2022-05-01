@@ -1,7 +1,9 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\obj",
+    "\\obj\\Debug"
   ],
-  "SelectedNode": "\\FrmPedidos.cs",
+  "SelectedNode": "\\MyGroupBox.cs",
   "PreviewInSolutionExplorer": false
 }

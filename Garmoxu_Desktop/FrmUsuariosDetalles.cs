@@ -69,6 +69,21 @@ namespace Garmoxu_Desktop
         {
             BtnClose.IconColor = System.Drawing.Color.DarkGray;
         }
+
+        #region Bordeado del formulario
+        private const int CS_DROPSHADOW = 0x20000;
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+                cp.ExStyle = 0x00000200; // Borde 3D
+                //cp.Style |= 0x00800000; // Borde simple
+                cp.ClassStyle |= 0x00020000; // Shadow border
+                return cp;
+            }
+        }
+        #endregion
         #endregion
 
         #region Alta de usuario

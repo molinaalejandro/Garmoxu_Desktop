@@ -71,6 +71,7 @@ namespace Garmoxu_Desktop
             const int SC_RESTORE = 0xF120; //Restore form (Before)
             const int WM_NCHITTEST = 0x0084;//Win32, Mouse Input Notification: Determine what part of the window corresponds to a point, allows to resize the form.
             const int resizeAreaSize = 10;
+
             #region Form Resize
             // Resize/WM_NCHITTEST values
             const int HTCLIENT = 1; //Represents the client area of the window
@@ -123,6 +124,7 @@ namespace Garmoxu_Desktop
                 return;
             }
             #endregion
+
             //Remove border and keep snap window
             if (m.Msg == WM_NCCALCSIZE && m.WParam.ToInt32() == 1)
             {
