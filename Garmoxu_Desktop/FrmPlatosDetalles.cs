@@ -13,7 +13,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Garmoxu_Desktop
+namespace Garmoxu_Project
 {
     public partial class FrmPlatosDetalles : Form
     {

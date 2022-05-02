@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 using System.util;
 using System.Windows.Forms;
 
-namespace Garmoxu_Desktop
+namespace Garmoxu_Project
 {
     public partial class FrmInicioSesion : Form
     {
@@ -134,69 +134,6 @@ namespace Garmoxu_Desktop
                 //cp.ClassStyle |= 0x00020000; // Shadow border
                 return cp;
             }
-        }
-        #endregion
-
-        #region Animacion de la ventana
-        private const int AW_ACTIVATE = 0X20000; // Cuando se abre el formulario
-        private const int AW_HIDE = 0X10000; // Cuando se cierra el formulario
-
-        private const int AW_HOR_POSITIVE = 0X1; // Se desliza de izquierda a derecha
-        private const int AW_HOR_NEGATIVE = 0X2; // Se desliza de derecha a izquierda
-        private const int AW_VER_POSITIVE = 0X4; // Se desliza de arriba a abajo
-        private const int AW_VER_NEGATIVE = 0x8; // Se desliza de abajo a arriba
-        private const int AW_SLIDE = 0X40000; // Se desliza desde el lado que le hayas dicho (usar los AW_POSITIVE y AW_NEGATIVE)
-
-        private const int AW_BLEND = 0X80000; // Hace un fundido
-        private const int AW_CENTER = 0x10; // Aparece desde el centro expandiéndose hacia afuera
-        //[DllImport("user32.dll", CharSet = CharSet.Auto)]
-        //private static extern int AnimateWindow
-        //(IntPtr hwand, int dwTime, int dwFlags);
-
-        protected override void OnLoad(EventArgs e)
-        {
-            base.OnLoad(e);
-            //AnimateWindow(this.Handle, 1000, AW_ACTIVATE | AW_VER_POSITIVE | AW_SLIDE);
-            //AnimateWindow(this.Handle, 1000, AW_ACTIVATE | AW_HOR_POSITIVE | AW_SLIDE);
-            //AnimateWindow(this.Handle, 1000, AW_ACTIVATE | AW_BLEND);
-            //AnimateWindow(this.Handle, 1000, AW_ACTIVATE | AW_CENTER);
-
-            AnimateWindow(PnlMain.Handle, 2000, 327681);
-            //Animate(BtnMinimize, AW_ACTIVATE | AW_BLEND);
-            //Animate(TbxPassword, AW_ACTIVATE | AW_BLEND);
-            //Animate(BtnIniciar, AW_ACTIVATE | AW_BLEND);
-        }
-
-        private static int[] dirmap = { 1, 5, 4, 6, 2, 10, 8, 9 };
-        private static int[] effmap = { 0, 0x40000, 0x10, 0x80000 };
-
-        [DllImport("user32.dll")]
-        private static extern bool AnimateWindow(IntPtr handle, int msec, int flags);
-
-        public enum Effect { Roll, Slide, Center, Blend }
-
-        public static void Animate(Control ctl, Effect effect, int msec, int angle)
-        {
-            int flags = effmap[(int)effect];
-            if (ctl.Visible) { flags |= 0x10000; angle += 180; }
-            else
-            {
-                if (ctl.TopLevelControl == ctl) flags |= 0x20000;
-                else if (effect == Effect.Blend) throw new ArgumentException();
-            }
-            flags |= dirmap[(angle % 360) / 45];
-            bool ok = AnimateWindow(ctl.Handle, msec, flags);
-            if (!ok) throw new Exception("Animation failed");
-            ctl.Visible = !ctl.Visible;
-        }
-
-        private void AnimarCierre(CancelEventArgs e)
-        {
-            base.OnClosing(e);
-            //AnimateWindow(this.Handle, 1000, AW_HIDE | AW_VER_POSITIVE | AW_SLIDE);
-            //AnimateWindow(this.Handle, 1000, AW_HIDE | AW_HOR_POSITIVE | AW_SLIDE);
-            //AnimateWindow(this.Handle, 1000, AW_HIDE | AW_BLEND);
-            //AnimateWindow(this.Handle, 1000, AW_HIDE | AW_CENTER);
         }
         #endregion
 
@@ -525,7 +462,6 @@ namespace Garmoxu_Desktop
             {
                 CerrarConexionBD();
                 RegistrarCierreDeSesion();
-                AnimarCierre(e);
             }
             else
                 e.Cancel = true;

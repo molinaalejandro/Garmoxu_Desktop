@@ -1,4 +1,4 @@
-﻿namespace Garmoxu_Desktop
+﻿namespace Garmoxu_Project
 {
     partial class FrmMain
     {
@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.PnlTitle = new System.Windows.Forms.Panel();
             this.BtnCerrarSesion = new FontAwesome.Sharp.IconButton();
             this.PicLogo = new System.Windows.Forms.PictureBox();
@@ -74,9 +75,8 @@
             this.PnlTitle.Location = new System.Drawing.Point(0, 0);
             this.PnlTitle.Margin = new System.Windows.Forms.Padding(4);
             this.PnlTitle.Name = "PnlTitle";
-            this.PnlTitle.Size = new System.Drawing.Size(1685, 74);
+            this.PnlTitle.Size = new System.Drawing.Size(1428, 74);
             this.PnlTitle.TabIndex = 1;
-            this.PnlTitle.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitle_MouseDown);
             // 
             // BtnCerrarSesion
             // 
@@ -104,18 +104,18 @@
             // 
             // BtnMinimize
             // 
-            this.BtnMinimize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnMinimize.BackColor = System.Drawing.Color.Transparent;
+            this.BtnMinimize.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnMinimize.FlatAppearance.BorderSize = 0;
             this.BtnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnMinimize.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
             this.BtnMinimize.IconColor = System.Drawing.Color.White;
             this.BtnMinimize.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnMinimize.IconSize = 20;
-            this.BtnMinimize.Location = new System.Drawing.Point(1485, 0);
+            this.BtnMinimize.Location = new System.Drawing.Point(1227, 0);
             this.BtnMinimize.Margin = new System.Windows.Forms.Padding(4);
             this.BtnMinimize.Name = "BtnMinimize";
-            this.BtnMinimize.Size = new System.Drawing.Size(67, 37);
+            this.BtnMinimize.Size = new System.Drawing.Size(67, 74);
             this.BtnMinimize.TabIndex = 4;
             this.BtnMinimize.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnMinimize.UseVisualStyleBackColor = false;
@@ -125,39 +125,40 @@
             // 
             // BtnResize
             // 
-            this.BtnResize.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnResize.BackColor = System.Drawing.Color.Transparent;
+            this.BtnResize.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnResize.FlatAppearance.BorderSize = 0;
             this.BtnResize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnResize.IconChar = FontAwesome.Sharp.IconChar.WindowRestore;
             this.BtnResize.IconColor = System.Drawing.Color.White;
             this.BtnResize.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnResize.IconSize = 20;
-            this.BtnResize.Location = new System.Drawing.Point(1552, 0);
+            this.BtnResize.Location = new System.Drawing.Point(1294, 0);
             this.BtnResize.Margin = new System.Windows.Forms.Padding(4);
             this.BtnResize.Name = "BtnResize";
-            this.BtnResize.Size = new System.Drawing.Size(67, 37);
+            this.BtnResize.Size = new System.Drawing.Size(67, 74);
             this.BtnResize.TabIndex = 4;
             this.BtnResize.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnResize.UseVisualStyleBackColor = false;
+            this.BtnResize.Visible = false;
             this.BtnResize.Click += new System.EventHandler(this.btnResize_Click);
             this.BtnResize.MouseEnter += new System.EventHandler(this.BtnResize_MouseEnter);
             this.BtnResize.MouseLeave += new System.EventHandler(this.BtnResize_MouseLeave);
             // 
             // BtnClose
             // 
-            this.BtnClose.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.BtnClose.BackColor = System.Drawing.Color.Transparent;
+            this.BtnClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnClose.FlatAppearance.BorderSize = 0;
             this.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnClose.IconChar = FontAwesome.Sharp.IconChar.Times;
             this.BtnClose.IconColor = System.Drawing.Color.White;
             this.BtnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnClose.IconSize = 25;
-            this.BtnClose.Location = new System.Drawing.Point(1619, 0);
+            this.BtnClose.Location = new System.Drawing.Point(1361, 0);
             this.BtnClose.Margin = new System.Windows.Forms.Padding(4);
             this.BtnClose.Name = "BtnClose";
-            this.BtnClose.Size = new System.Drawing.Size(67, 37);
+            this.BtnClose.Size = new System.Drawing.Size(67, 74);
             this.BtnClose.TabIndex = 3;
             this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnClose.UseVisualStyleBackColor = false;
@@ -195,7 +196,7 @@
             this.PnlLateral.Location = new System.Drawing.Point(0, 74);
             this.PnlLateral.Margin = new System.Windows.Forms.Padding(4);
             this.PnlLateral.Name = "PnlLateral";
-            this.PnlLateral.Size = new System.Drawing.Size(267, 764);
+            this.PnlLateral.Size = new System.Drawing.Size(267, 750);
             this.PnlLateral.TabIndex = 7;
             // 
             // BtnClientes
@@ -257,7 +258,7 @@
             this.BtnUsuarios.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(196)))), ((int)(((byte)(255)))));
             this.BtnUsuarios.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnUsuarios.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnUsuarios.Location = new System.Drawing.Point(0, 640);
+            this.BtnUsuarios.Location = new System.Drawing.Point(0, 626);
             this.BtnUsuarios.Margin = new System.Windows.Forms.Padding(4);
             this.BtnUsuarios.Name = "BtnUsuarios";
             this.BtnUsuarios.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
@@ -281,7 +282,7 @@
             this.BtnAjustes.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(104)))), ((int)(((byte)(105)))), ((int)(((byte)(216)))));
             this.BtnAjustes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnAjustes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnAjustes.Location = new System.Drawing.Point(0, 702);
+            this.BtnAjustes.Location = new System.Drawing.Point(0, 688);
             this.BtnAjustes.Margin = new System.Windows.Forms.Padding(4);
             this.BtnAjustes.Name = "BtnAjustes";
             this.BtnAjustes.Padding = new System.Windows.Forms.Padding(13, 0, 0, 0);
@@ -503,7 +504,7 @@
             this.PnlMain.Location = new System.Drawing.Point(267, 74);
             this.PnlMain.Margin = new System.Windows.Forms.Padding(4);
             this.PnlMain.Name = "PnlMain";
-            this.PnlMain.Size = new System.Drawing.Size(1418, 764);
+            this.PnlMain.Size = new System.Drawing.Size(1161, 750);
             this.PnlMain.TabIndex = 8;
             // 
             // PnlBody
@@ -515,20 +516,23 @@
             this.PnlBody.Location = new System.Drawing.Point(0, 0);
             this.PnlBody.Margin = new System.Windows.Forms.Padding(4);
             this.PnlBody.Name = "PnlBody";
-            this.PnlBody.Size = new System.Drawing.Size(1685, 838);
+            this.PnlBody.Size = new System.Drawing.Size(1428, 824);
             this.PnlBody.TabIndex = 7;
             // 
             // FrmMain
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1685, 838);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(42)))), ((int)(((byte)(45)))));
+            this.ClientSize = new System.Drawing.Size(1428, 824);
             this.Controls.Add(this.PnlBody);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MinimumSize = new System.Drawing.Size(959, 514);
             this.Name = "FrmMain";
+            this.Text = "Menú principal - Garmoxu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
-            this.Resize += new System.EventHandler(this.Form1_Resize);
             this.PnlTitle.ResumeLayout(false);
             this.PnlTitle.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).EndInit();

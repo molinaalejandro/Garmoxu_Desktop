@@ -1,4 +1,4 @@
-﻿namespace Garmoxu_Desktop
+﻿namespace Garmoxu_Project
 {
     partial class FrmPlatos
     {

@@ -1,5 +1,5 @@
 ﻿
-namespace Garmoxu_Desktop
+namespace Garmoxu_Project
 {
     partial class FrmUsuarios
     {
@@ -226,6 +226,8 @@ namespace Garmoxu_Desktop
             // 
             // BtnNuevo
             // 
+            this.BtnNuevo.AutoSize = true;
+            this.BtnNuevo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BtnNuevo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnNuevo.FlatAppearance.BorderSize = 0;
             this.BtnNuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -358,7 +360,7 @@ namespace Garmoxu_Desktop
             this.PicUsuario.BorderSize = 0;
             this.PicUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PicUsuario.GradientAngle = 50F;
-            this.PicUsuario.Image = global::Garmoxu_Desktop.Properties.Resources.user_icon_004;
+            this.PicUsuario.Image = global::Garmoxu_Project.Properties.Resources.user_icon_004;
             this.PicUsuario.Location = new System.Drawing.Point(143, 3);
             this.PicUsuario.Name = "PicUsuario";
             this.PicUsuario.Size = new System.Drawing.Size(114, 114);
@@ -683,6 +685,7 @@ namespace Garmoxu_Desktop
             this.tableLayoutPanel3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.DtgUsuarios)).EndInit();
             this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel6.PerformLayout();
             this.PnlDetalles.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PicUsuario)).EndInit();

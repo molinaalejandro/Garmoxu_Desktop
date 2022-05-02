@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace Garmoxu_Desktop.Properties {
+namespace Garmoxu_Project.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

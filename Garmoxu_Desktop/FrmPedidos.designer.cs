@@ -1,4 +1,4 @@
-﻿namespace Garmoxu_Desktop
+﻿namespace Garmoxu_Project
 {
     partial class FrmPedidos
     {
@@ -37,11 +37,11 @@
             this.TabControl = new MaterialSkin.Controls.MaterialTabControl();
             this.TabSimple = new System.Windows.Forms.TabPage();
             this.PanelPedidos = new System.Windows.Forms.TableLayoutPanel();
-            this.GrpRecoger = new Garmoxu_Desktop.MyGroupBox();
+            this.GrpRecoger = new Garmoxu_Project.MyGroupBox();
             this.PnlRecoger = new System.Windows.Forms.FlowLayoutPanel();
-            this.GrpDomicilio = new Garmoxu_Desktop.MyGroupBox();
+            this.GrpDomicilio = new Garmoxu_Project.MyGroupBox();
             this.PnlDomicilio = new System.Windows.Forms.FlowLayoutPanel();
-            this.GrpLocal = new Garmoxu_Desktop.MyGroupBox();
+            this.GrpLocal = new Garmoxu_Project.MyGroupBox();
             this.PnlLocal = new System.Windows.Forms.FlowLayoutPanel();
             this.PnlFoot = new System.Windows.Forms.TableLayoutPanel();
             this.PnlNuevo = new System.Windows.Forms.Panel();

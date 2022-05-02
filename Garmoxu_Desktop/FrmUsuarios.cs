@@ -5,12 +5,13 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Garmoxu_Desktop
+namespace Garmoxu_Project
 {
     public partial class FrmUsuarios : Form
     {
@@ -52,7 +53,7 @@ namespace Garmoxu_Desktop
         #endregion
         #endregion
 
-        #region FrontEnd
+        #region Funciones y diseños de controles
         #region Boton Cerrar
         private void BtnCerrar_MouseEnter(object sender, EventArgs e)
         {
@@ -508,7 +509,6 @@ namespace Garmoxu_Desktop
         #endregion
 
         #region Cierre del formulario
-        #region Boton Cerrar
         private void BtnCerrar_Click(object sender, EventArgs e)
         {
             string v = string.Empty;
@@ -522,7 +522,6 @@ namespace Garmoxu_Desktop
             else
                 this.Close();
         }
-        #endregion
         #endregion
     }
 }

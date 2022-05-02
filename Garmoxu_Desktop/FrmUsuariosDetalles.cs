@@ -14,13 +14,14 @@ using System.Data;
 using System.Drawing;
 using System.IO;
 using System.Linq;
+using System.Runtime.InteropServices;
 using System.Security.Cryptography;
 using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Garmoxu_Desktop
+namespace Garmoxu_Project
 {
     public partial class FrmUsuariosDetalles : Form
     {
@@ -58,7 +59,36 @@ namespace Garmoxu_Desktop
         #endregion
         #endregion
 
-        #region FrontEnd
+        #region Funciones y diseño del formulario
+        #region Bordeado del formulario
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+
+                // Solo se acumulan modificaciones de diferente tipos, es decir,
+                // una de ExStyle, otra de Style y otra de ClassStyle. Pero, nunca
+                // se pueden acumular dos modificaciones del mismo tipo, por ejemplo,
+                // no se acumulan dos ExStyle, o aplicas uno, o aplicas el otro.
+
+                //cp.ExStyle = 0x00000100; // Aperentemente no hace nada
+                //cp.ExStyle = 0x00020000; // Borde simple fino arriba e izquierda y grueso abajo y derecha
+                //cp.ExStyle = 0x00000200; // Borde 3D arriba e izquierda
+                //cp.ExStyle = 0x00000001; // Borde 3D abajo y derecha
+                // https://docs.microsoft.com/en-us/windows/win32/winmsg/extended-window-styles
+
+                cp.Style |= 0x00800000; // Borde simple fino
+                // https://docs.microsoft.com/en-us/windows/win32/winmsg/window-styles
+
+                //cp.ClassStyle |= 0x00020000; // Shadow border
+                return cp;
+            }
+        }
+        #endregion
+        #endregion
+
+        #region Funciones y diseños de controles
         private void BtnClose_MouseEnter(object sender, EventArgs e)
         {
             BtnClose.IconColor = System.Drawing.Color.FromArgb(240, 41, 83);
@@ -69,21 +99,6 @@ namespace Garmoxu_Desktop
         {
             BtnClose.IconColor = System.Drawing.Color.DarkGray;
         }
-
-        #region Bordeado del formulario
-        private const int CS_DROPSHADOW = 0x20000;
-        protected override CreateParams CreateParams
-        {
-            get
-            {
-                CreateParams cp = base.CreateParams;
-                cp.ExStyle = 0x00000200; // Borde 3D
-                //cp.Style |= 0x00800000; // Borde simple
-                cp.ClassStyle |= 0x00020000; // Shadow border
-                return cp;
-            }
-        }
-        #endregion
         #endregion
 
         #region Alta de usuario
