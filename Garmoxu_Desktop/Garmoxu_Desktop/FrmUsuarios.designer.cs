@@ -360,7 +360,7 @@ namespace Garmoxu_Desktop
             this.PicUsuario.BorderSize = 0;
             this.PicUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PicUsuario.GradientAngle = 50F;
-            this.PicUsuario.Image = global::Garmoxu_Desktop.Properties.Resources.user_icon_004;
+            this.PicUsuario.Image = global::Garmoxu_Desktop.Properties.Resources.User_Default_Icon;
             this.PicUsuario.Location = new System.Drawing.Point(143, 3);
             this.PicUsuario.Name = "PicUsuario";
             this.PicUsuario.Size = new System.Drawing.Size(114, 114);

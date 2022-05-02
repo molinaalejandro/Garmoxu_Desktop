@@ -63,9 +63,9 @@ namespace Garmoxu_Desktop.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap noImage {
+        internal static System.Drawing.Bitmap No_Image_Found {
             get {
-                object obj = ResourceManager.GetObject("noImage", resourceCulture);
+                object obj = ResourceManager.GetObject("No_Image_Found", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -73,9 +73,9 @@ namespace Garmoxu_Desktop.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap user_icon_004 {
+        internal static System.Drawing.Bitmap User_Default_Icon {
             get {
-                object obj = ResourceManager.GetObject("user_icon_004", resourceCulture);
+                object obj = ResourceManager.GetObject("User_Default_Icon", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

@@ -293,7 +293,7 @@ namespace Garmoxu_Desktop
                 PicUsuario.Image = (Bitmap)((new ImageConverter()).ConvertFrom(imagenBytes));
             }
             else
-                PicUsuario.Image = Properties.Resources.user_icon_004;
+                PicUsuario.Image = Properties.Resources.User_Default_Icon;
         }
         #endregion
 
@@ -353,7 +353,7 @@ namespace Garmoxu_Desktop
             TxtUsuario.Texts = string.Empty;
             TgbRestablecerContraseña.Checked = false;
             CboTipoUsuario.Items.Clear();
-            PicUsuario.Image = Properties.Resources.user_icon_004;
+            PicUsuario.Image = Properties.Resources.User_Default_Icon;
         }
         #endregion
 

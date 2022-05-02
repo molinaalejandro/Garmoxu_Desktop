@@ -402,8 +402,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Garmoxu_Logo_Circle_New.ico" />
-    <None Include="Resources\user_icon_004.png" />
-    <None Include="Imagenes\noImage.jpg" />
+    <None Include="Resources\User_Default_Icon.png" />
+    <None Include="Resources\No_Image_Found.jpg" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
@@ -417,6 +417,7 @@
       <Install>false</Install>
     </BootstrapperPackage>
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.1\build\Microsoft.Extensions.Logging.Abstractions.targets" Condition="Exists('..\packages\Microsoft.Extensions.Logging.Abstractions.6.0.1\build\Microsoft.Extensions.Logging.Abstractions.targets')" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

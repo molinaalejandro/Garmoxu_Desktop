@@ -68,7 +68,7 @@ namespace Garmoxu_Desktop
             // 
             this.PicFotoPlato.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.PicFotoPlato.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PicFotoPlato.Image = global::Garmoxu_Desktop.Properties.Resources.noImage;
+            this.PicFotoPlato.Image = global::Garmoxu_Desktop.Properties.Resources.No_Image_Found;
             this.PicFotoPlato.Location = new System.Drawing.Point(58, 60);
             this.PicFotoPlato.Margin = new System.Windows.Forms.Padding(29, 30, 29, 30);
             this.PicFotoPlato.Name = "PicFotoPlato";

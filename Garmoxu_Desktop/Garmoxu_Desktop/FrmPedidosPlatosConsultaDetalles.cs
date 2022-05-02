@@ -76,7 +76,7 @@ namespace Garmoxu_Desktop
                 imagen = (Bitmap)((new ImageConverter()).ConvertFrom(imagenBytes));
             }
             else
-                imagen = Properties.Resources.noImage;
+                imagen = Properties.Resources.No_Image_Found;
 
             PicFotoPlato.Image = imagen;
             PicFotoPlato.SizeMode = PictureBoxSizeMode.StretchImage;

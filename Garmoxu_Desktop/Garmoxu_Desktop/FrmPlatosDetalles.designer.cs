@@ -215,8 +215,8 @@
             // PicFotoPlato
             // 
             this.PicFotoPlato.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.PicFotoPlato.Image = global::Garmoxu_Desktop.Properties.Resources.noImage;
-            this.PicFotoPlato.InitialImage = global::Garmoxu_Desktop.Properties.Resources.noImage;
+            this.PicFotoPlato.Image = global::Garmoxu_Desktop.Properties.Resources.No_Image_Found;
+            this.PicFotoPlato.InitialImage = global::Garmoxu_Desktop.Properties.Resources.No_Image_Found;
             this.PicFotoPlato.Location = new System.Drawing.Point(54, 82);
             this.PicFotoPlato.Margin = new System.Windows.Forms.Padding(4);
             this.PicFotoPlato.Name = "PicFotoPlato";

@@ -64,7 +64,7 @@ namespace Garmoxu_Desktop
                 return fotoconvertida;
             }
             else
-                return Properties.Resources.noImage;
+                return Properties.Resources.No_Image_Found;
         }
 
         private void CargarComboBoxCategorias()
