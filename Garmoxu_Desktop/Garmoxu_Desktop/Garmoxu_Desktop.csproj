@@ -25,7 +25,7 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>3</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
@@ -402,6 +402,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Garmoxu_Logo_Circle_New.ico" />
+    <None Include="Resources\Garmoxu_Logo_Circle_New.png" />
     <None Include="Resources\User_Default_Icon.png" />
     <None Include="Resources\No_Image_Found.jpg" />
   </ItemGroup>

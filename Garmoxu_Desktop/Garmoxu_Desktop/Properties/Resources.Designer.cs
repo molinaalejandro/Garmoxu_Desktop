@@ -63,6 +63,16 @@ namespace Garmoxu_Desktop.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Garmoxu_Logo_Circle_New {
+            get {
+                object obj = ResourceManager.GetObject("Garmoxu_Logo_Circle_New", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap No_Image_Found {
             get {
                 object obj = ResourceManager.GetObject("No_Image_Found", resourceCulture);

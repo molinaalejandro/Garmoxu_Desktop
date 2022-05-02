@@ -160,7 +160,7 @@ namespace Garmoxu_Desktop
             string nombreYApellidos = TxtNombre.Texts.Trim();
             string tipoUsuario = CboTipoUsuario.SelectedItem.ToString();
 
-            ruta += "\\Credenciales " + usuario + ".pdf";
+            ruta += "\\Credenciales " + usuario + " - " + nombreYApellidos + ".pdf";
             PdfWriter writerPdf = new PdfWriter(ruta);
             PdfDocument pdf = new PdfDocument(writerPdf);
             Document documentoPdf = new Document(pdf);
@@ -197,7 +197,7 @@ namespace Garmoxu_Desktop
         #region Cabecera
         private void AñadirCabeceraPdf(ref Document documentoPdf)
         {
-            string rutaImagenPdf = @"..\..\Imagenes\Garmoxu_Logo_Circle_New.png";
+            string rutaImagenPdf = @"..\..\Resources\Garmoxu_Logo_Circle_New.png";
             if (File.Exists(rutaImagenPdf))
             {
                 Table tablaPdf = new Table(2, false).UseAllAvailableWidth();

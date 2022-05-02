@@ -1121,7 +1121,7 @@ namespace Garmoxu_Desktop
         #region Cabecera
         private void AñadirCabeceraPdf(ref Document documentoPdf)
         {
-            string rutaImagenPdf = @"..\..\Imagenes\Garmoxu_Logo_Circle_New.png";
+            string rutaImagenPdf = @"..\..\Resources\Garmoxu_Logo_Circle_New.png";
             if (File.Exists(rutaImagenPdf))
             {
                 Table tablaPdf = new Table(2, false).UseAllAvailableWidth();
