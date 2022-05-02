@@ -41,7 +41,6 @@
             this.BtnEditar = new RJCodeAdvance.RJControls.RJButton();
             this.PicPerfil = new RJCodeAdvance.RJControls.RJCircularPictureBox();
             this.PnlHorario = new System.Windows.Forms.TableLayoutPanel();
-            this.BtnCerrarSesion = new RJCodeAdvance.RJControls.RJButton();
             this.GrpSalida = new Garmoxu_Desktop.MyGroupBox();
             this.DtpSalida = new RJCodeAdvance.RJControls.RJDatePicker();
             this.GrpEntrada = new Garmoxu_Desktop.MyGroupBox();
@@ -53,6 +52,7 @@
             this.myGroupBox3 = new Garmoxu_Desktop.MyGroupBox();
             this.RadOscuro = new RJCodeAdvance.RJControls.RJRadioButton();
             this.RadClaro = new RJCodeAdvance.RJControls.RJRadioButton();
+            this.BtnCerrarSesion = new RJCodeAdvance.RJControls.RJButton();
             this.PnlBody.SuspendLayout();
             this.PnlMid.SuspendLayout();
             this.PnlPerfil.SuspendLayout();
@@ -70,6 +70,7 @@
             // 
             // PnlBody
             // 
+            this.PnlBody.BackColor = System.Drawing.Color.Transparent;
             this.PnlBody.ColumnCount = 3;
             this.PnlBody.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 28F));
             this.PnlBody.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 44F));
@@ -128,6 +129,7 @@
             this.BtnClose.TabIndex = 6;
             this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnClose.UseVisualStyleBackColor = false;
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // PnlPerfil
             // 
@@ -265,24 +267,6 @@
             this.PnlHorario.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.PnlHorario.Size = new System.Drawing.Size(474, 77);
             this.PnlHorario.TabIndex = 1;
-            // 
-            // BtnCerrarSesion
-            // 
-            this.BtnCerrarSesion.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.BtnCerrarSesion.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.BtnCerrarSesion.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.BtnCerrarSesion.BorderRadius = 18;
-            this.BtnCerrarSesion.BorderSize = 0;
-            this.BtnCerrarSesion.FlatAppearance.BorderSize = 0;
-            this.BtnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCerrarSesion.ForeColor = System.Drawing.Color.White;
-            this.BtnCerrarSesion.Location = new System.Drawing.Point(13, 600);
-            this.BtnCerrarSesion.Name = "BtnCerrarSesion";
-            this.BtnCerrarSesion.Size = new System.Drawing.Size(150, 40);
-            this.BtnCerrarSesion.TabIndex = 5;
-            this.BtnCerrarSesion.Text = "Cerrar Sesion";
-            this.BtnCerrarSesion.TextColor = System.Drawing.Color.White;
-            this.BtnCerrarSesion.UseVisualStyleBackColor = false;
             // 
             // GrpSalida
             // 
@@ -435,6 +419,24 @@
             this.RadClaro.Text = "Claro";
             this.RadClaro.UnCheckedColor = System.Drawing.Color.Gray;
             this.RadClaro.UseVisualStyleBackColor = true;
+            // 
+            // BtnCerrarSesion
+            // 
+            this.BtnCerrarSesion.BackColor = System.Drawing.Color.MediumSlateBlue;
+            this.BtnCerrarSesion.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
+            this.BtnCerrarSesion.BorderColor = System.Drawing.Color.PaleVioletRed;
+            this.BtnCerrarSesion.BorderRadius = 18;
+            this.BtnCerrarSesion.BorderSize = 0;
+            this.BtnCerrarSesion.FlatAppearance.BorderSize = 0;
+            this.BtnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCerrarSesion.ForeColor = System.Drawing.Color.White;
+            this.BtnCerrarSesion.Location = new System.Drawing.Point(13, 600);
+            this.BtnCerrarSesion.Name = "BtnCerrarSesion";
+            this.BtnCerrarSesion.Size = new System.Drawing.Size(150, 40);
+            this.BtnCerrarSesion.TabIndex = 5;
+            this.BtnCerrarSesion.Text = "Cerrar Sesion";
+            this.BtnCerrarSesion.TextColor = System.Drawing.Color.White;
+            this.BtnCerrarSesion.UseVisualStyleBackColor = false;
             // 
             // FrmAjustes
             // 

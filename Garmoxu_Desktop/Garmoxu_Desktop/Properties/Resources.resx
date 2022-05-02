@@ -118,13 +118,25 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Garmoxu_Logo_Circle_New_Blue" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Garmoxu_Logo_Circle_New_Blue.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Garmoxu_Logo_Circle_New_Blue_Less_Opacity" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Garmoxu_Logo_Circle_New_Blue_Less_Opacity.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Garmoxu_Logo_Circle_New_Red_Less_Opacity" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Garmoxu_Logo_Circle_New_Red_Less_Opacity.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Garmoxu_Logo_Circle_Red_New" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Garmoxu_Logo_Circle_Red_New.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="No_Image_Found" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\No_Image_Found.jpg;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Power_On_Off" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Power_On_Off.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="User_Default_Icon" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\User_Default_Icon.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
-  </data>
-  <data name="Garmoxu_Logo_Circle_New" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Garmoxu_Logo_Circle_New.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>

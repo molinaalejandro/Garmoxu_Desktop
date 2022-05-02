@@ -57,13 +57,13 @@ namespace Garmoxu_Desktop
         #region Boton Cerrar
         private void BtnCerrar_MouseEnter(object sender, EventArgs e)
         {
-            //BtnCerrar.IconColor = Color.LimeGreen;
+            BtnCerrar.IconColor = Color.FromArgb(240, 41, 83);
             BtnCerrar.IconChar = FontAwesome.Sharp.IconChar.DoorOpen;
         }
 
         private void BtnCerrar_MouseLeave(object sender, EventArgs e)
         {
-            //BtnCerrar.IconColor = Color.DarkGray;
+            BtnCerrar.IconColor = Color.DarkGray;
             BtnCerrar.IconChar = FontAwesome.Sharp.IconChar.DoorClosed;
         }
         #endregion
@@ -260,6 +260,8 @@ namespace Garmoxu_Desktop
 
                 if (lector[3].ToString().Equals("True"))
                     TgbRestablecerContraseña.Checked = true;
+                else
+                    TgbRestablecerContraseña.Checked = false;
 
                 CargarImagen(lector);
             }
@@ -268,6 +270,7 @@ namespace Garmoxu_Desktop
 
         private void CargarTiposDeUsuario()
         {
+            CboTipoUsuario.Items.Clear();
             IdsTiposUsuario = new List<string>();
 
             string sql = "SELECT Nombre, IdTipoUsuario FROM TiposUsuarios ORDER BY Nombre ASC";
@@ -351,8 +354,8 @@ namespace Garmoxu_Desktop
         {
             TxtNombre.Texts = string.Empty;
             TxtUsuario.Texts = string.Empty;
-            TgbRestablecerContraseña.Checked = false;
-            CboTipoUsuario.Items.Clear();
+            //TgbRestablecerContraseña.Checked = false;
+            //CboTipoUsuario.Items.Clear();
             PicUsuario.Image = Properties.Resources.User_Default_Icon;
         }
         #endregion

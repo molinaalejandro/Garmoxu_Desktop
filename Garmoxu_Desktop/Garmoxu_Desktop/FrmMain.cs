@@ -36,7 +36,7 @@ namespace Garmoxu_Desktop
         public FrmMain(MySqlConnection conexionBD, string usuarioActual, int nivelPermisos, Image imagenUsuario, FrmInicioSesion instanciaInicioSesion)
         {
             InitializeComponent();
-            //FormBorderStyle = FormBorderStyle.None;
+            LblReloj.Text = DateTime.Now.ToString("HH:mm");
             Instance = this;
             InstanciaInicioSesion = instanciaInicioSesion;
             ConexionBD = conexionBD;
@@ -44,7 +44,7 @@ namespace Garmoxu_Desktop
             NivelPermisos = nivelPermisos;
             ImagenUsuario = imagenUsuario;
             PicUser.Image = ImagenUsuario;
-            MostrarMenuLateral();
+            //MostrarMenuLateral();
         }
 
         #region Funciones y diseño del formulario
@@ -187,18 +187,6 @@ namespace Garmoxu_Desktop
         {
             this.WindowState = FormWindowState.Minimized;
         }
-
-        private void BtnMinimize_MouseEnter(object sender, EventArgs e)
-        {
-            BtnMinimize.IconColor = Color.MediumSlateBlue;
-            //FABtnMinimize.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            BtnMinimize.FlatAppearance.MouseOverBackColor = Color.Transparent;
-        }
-
-        private void BtnMinimize_MouseLeave(object sender, EventArgs e)
-        {
-            BtnMinimize.IconColor = Color.White;
-        }
         #endregion
 
         #region BtnResize
@@ -215,18 +203,6 @@ namespace Garmoxu_Desktop
                 this.Size = formSize;
             }
         }
-
-        private void BtnResize_MouseEnter(object sender, EventArgs e)
-        {
-            BtnResize.IconColor = Color.FromArgb(64, 196, 255);
-            //BtnResize.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            BtnResize.FlatAppearance.MouseOverBackColor = Color.Transparent;
-        }
-
-        private void BtnResize_MouseLeave(object sender, EventArgs e)
-        {
-            BtnResize.IconColor = Color.White;
-        }
         #endregion
 
         #region BtnClose
@@ -234,77 +210,79 @@ namespace Garmoxu_Desktop
         {
             this.Close();
         }
-
-        private void BtnClose_MouseEnter(object sender, EventArgs e)
-        {
-            BtnClose.IconColor = Color.FromArgb(240, 41, 83);
-            //FABtnClose.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            BtnClose.FlatAppearance.MouseOverBackColor = Color.Transparent;
-        }
-
-        private void BtnClose_MouseLeave(object sender, EventArgs e)
-        {
-            BtnClose.IconColor = Color.White;
-        }
         #endregion
         #endregion
+        #endregion
+
+        #region Funciones y diseño de controles
+        //private void BtnPanel_MouseEnter(object sender, EventArgs e)
+        //{
+        //    BtnPanel.IconColor = Color.White;
+        //    BtnPanel.FlatAppearance.MouseOverBackColor = Color.Silver;
+        //}
+
+        //private void BtnPanel_MouseLeave(object sender, EventArgs e)
+        //{
+        //    BtnPanel.IconColor = Color.Silver;
+        //    BtnPanel.FlatAppearance.MouseOverBackColor = Color.Transparent;
+        //}
         #endregion
 
         #region Menu lateral
         #region Ocultar o mostrar Menu Lateral
         private void btnPanel_Click(object sender, EventArgs e)
         {
-            OcultarMenuLateral();
+            if (PnlLateral.Width > 200) //colapsa el menu lateral
+                OcultarMenuLateral();
+            else
+                MostrarMenuLateral(); //expande el menu lateral
         }
 
         private void OcultarMenuLateral()
         {
-            if (PnlLateral.Width > 200) //colapsa el menu lateral
+            PnlLateral.Width = 100;
+            PnlCabeceraMenu.ColumnStyles[0].SizeType = SizeType.AutoSize;
+            BtnPanel.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
+            PicUser.Visible = false;
+            BtnPanel.Dock = DockStyle.Top;
+            foreach (Button b in PnlLateral.Controls.OfType<Button>())
             {
-                PnlLateral.Width = 100;
-                PicUser.Visible = false;
-                BtnPanel.Dock = DockStyle.Top;
-                foreach (Button b in PnlLateral.Controls.OfType<Button>())
-                {
-                    b.TextImageRelation = TextImageRelation.ImageAboveText;
-                    b.Text = " ";
-                    b.ImageAlign = ContentAlignment.MiddleCenter;
-                    b.Padding = new Padding(0);
-                }
-                foreach (Button b in pnlSubMenu.Controls.OfType<Button>())
-                {
-                    b.TextImageRelation = TextImageRelation.Overlay;
-                    b.Text = " ";
-                    b.ImageAlign = ContentAlignment.MiddleCenter;
-                    b.Padding = new Padding(30, 0, 0, 0);
-                }
+                b.TextImageRelation = TextImageRelation.ImageAboveText;
+                b.Text = "";
+                b.ImageAlign = ContentAlignment.MiddleCenter;
+                b.Padding = new Padding(0);
             }
-            else //expande el menu lateral
-            {
-                MostrarMenuLateral();
-            }
+            //foreach (Button b in pnlSubMenu.Controls.OfType<Button>())
+            //{
+            //    b.TextImageRelation = TextImageRelation.Overlay;
+            //    b.Text = "";
+            //    b.ImageAlign = ContentAlignment.MiddleCenter;
+            //    b.Padding = new Padding(15, 0, 0, 0);
+            //}
         }
 
         private void MostrarMenuLateral()
         {
-            PnlLateral.Width = 201;
-            PicUser.Visible = true;
+            PnlLateral.Width = 250;
+            PnlCabeceraMenu.ColumnStyles[0].SizeType = SizeType.Percent;
+            BtnPanel.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
             BtnPanel.Dock = DockStyle.Right;
+            PicUser.Visible = true;
             foreach (Button b in PnlLateral.Controls.OfType<Button>())
             {
                 b.TextImageRelation = TextImageRelation.ImageBeforeText;
-                b.Text = "  " + b.Tag.ToString();
+                b.Text = b.Tag.ToString();
                 b.ImageAlign = ContentAlignment.MiddleLeft;
                 b.Padding = new Padding(20, 0, 0, 0);
             }
-            foreach (Button b in pnlSubMenu.Controls.OfType<Button>())
-            {
-                b.TextImageRelation = TextImageRelation.ImageBeforeText;
-                b.Text = " " + b.Tag.ToString();
-                b.ImageAlign = ContentAlignment.MiddleLeft;
-                b.TextAlign = ContentAlignment.MiddleLeft;
-                b.Padding = new Padding(50, 0, 0, 0);
-            }
+            //foreach (Button b in pnlSubMenu.Controls.OfType<Button>())
+            //{
+            //    b.TextImageRelation = TextImageRelation.ImageBeforeText;
+            //    b.Text = b.Tag.ToString();
+            //    b.ImageAlign = ContentAlignment.MiddleLeft;
+            //    b.TextAlign = ContentAlignment.MiddleLeft;
+            //    b.Padding = new Padding(35, 0, 0, 0);
+            //}
         }
         #endregion
 
@@ -318,15 +296,20 @@ namespace Garmoxu_Desktop
             AbrirFormulario(new FrmReservas(ConexionBD, Instance));
         }
 
-        private void BtnHistorialPedidos_Click(object sender, EventArgs e)
+        private void BtnHistorial_Click(object sender, EventArgs e)
         {
             AbrirFormulario(new FrmHistorialPedidos(ConexionBD, Instance));
         }
 
-        private void BtnEstadisticas_Click(object sender, EventArgs e)
-        {
-            AbrirFormulario(new FrmEstadisticas());
-        }
+        //private void BtnHistorialPedidos_Click(object sender, EventArgs e)
+        //{
+        //    AbrirFormulario(new FrmHistorialPedidos(ConexionBD, Instance));
+        //}
+
+        //private void BtnEstadisticas_Click(object sender, EventArgs e)
+        //{
+        //    AbrirFormulario(new FrmEstadisticas());
+        //}
 
         private void BtnPlatos_Click(object sender, EventArgs e)
         {
@@ -351,7 +334,7 @@ namespace Garmoxu_Desktop
         private void BtnAjustes_Click(object sender, EventArgs e)
         {
             //AbrirFormulario(new FrmAjustes());
-            FrmAjustes frmAjustes = new FrmAjustes();
+            FrmAjustes frmAjustes = new FrmAjustes(this, PnlTitle, PnlLateral, PnlMain);
             frmAjustes.TopLevel = false;
             frmAjustes.Dock = DockStyle.Fill;
             PnlBody.Controls.Add(frmAjustes);
@@ -363,20 +346,20 @@ namespace Garmoxu_Desktop
         }
 
         #region SubMenu del apartado Historial
-        private void BtnHistorial_Click(object sender, EventArgs e)
-        {
-            showSubMenu(pnlSubMenu);
-        }
+        //private void BtnHistorial_Click(object sender, EventArgs e)
+        //{
+        //    showSubMenu(pnlSubMenu);
+        //}
 
-        private void showSubMenu(Panel subMenu)
-        {
-            if (subMenu.Visible == false)
-            {
-                subMenu.Visible = true;
-            }
-            else
-                subMenu.Visible = false;
-        }
+        //private void showSubMenu(Panel subMenu)
+        //{
+        //    if (subMenu.Visible == false)
+        //    {
+        //        subMenu.Visible = true;
+        //    }
+        //    else
+        //        subMenu.Visible = false;
+        //}
         #endregion
 
         // Recibe un formulario para comprobar si está abierto, de ser así, lo trae al frente.
@@ -405,8 +388,29 @@ namespace Garmoxu_Desktop
         }
         #endregion
 
+        #region Reloj
+        private void TmrRelojMain_Tick(object sender, EventArgs e)
+        {
+            LblReloj.Text = DateTime.Now.ToString("HH:mm");
+        }
+        #endregion
+
         #region Cierre de sesion
-        private void BtnCerrarSesion_Click(object sender, EventArgs e)
+        private void PicUser_MouseEnter(object sender, EventArgs e)
+        {
+            PicUser.Image = Properties.Resources.Power_On_Off;
+            PicUser.BorderSize = 0;
+            PicUser.BackColor = Color.Transparent;
+        }
+
+        private void PicUser_MouseLeave(object sender, EventArgs e)
+        {
+            PicUser.Image = ImagenUsuario;
+            PicUser.BorderSize = 3;
+            PicUser.BackColor = Color.Silver;
+        }
+
+        private void PicUser_Click(object sender, EventArgs e)
         {
             DialogResult cerrarSesion = MessageBox.Show("¿Desea cerrar la sesión actual?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (cerrarSesion.Equals(DialogResult.Yes))
@@ -436,5 +440,15 @@ namespace Garmoxu_Desktop
             }
         }
         #endregion
+
+        private void BtnEstadisticas_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void BtnHistorialPedidos_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

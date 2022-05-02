@@ -63,9 +63,39 @@ namespace Garmoxu_Desktop.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap Garmoxu_Logo_Circle_New {
+        internal static System.Drawing.Bitmap Garmoxu_Logo_Circle_New_Blue {
             get {
-                object obj = ResourceManager.GetObject("Garmoxu_Logo_Circle_New", resourceCulture);
+                object obj = ResourceManager.GetObject("Garmoxu_Logo_Circle_New_Blue", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Garmoxu_Logo_Circle_New_Blue_Less_Opacity {
+            get {
+                object obj = ResourceManager.GetObject("Garmoxu_Logo_Circle_New_Blue_Less_Opacity", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Garmoxu_Logo_Circle_New_Red_Less_Opacity {
+            get {
+                object obj = ResourceManager.GetObject("Garmoxu_Logo_Circle_New_Red_Less_Opacity", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Garmoxu_Logo_Circle_Red_New {
+            get {
+                object obj = ResourceManager.GetObject("Garmoxu_Logo_Circle_Red_New", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
@@ -76,6 +106,16 @@ namespace Garmoxu_Desktop.Properties {
         internal static System.Drawing.Bitmap No_Image_Found {
             get {
                 object obj = ResourceManager.GetObject("No_Image_Found", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Power_On_Off {
+            get {
+                object obj = ResourceManager.GetObject("Power_On_Off", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
