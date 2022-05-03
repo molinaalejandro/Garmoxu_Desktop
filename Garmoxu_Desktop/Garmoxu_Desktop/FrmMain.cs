@@ -333,13 +333,12 @@ namespace Garmoxu_Desktop
 
         private void BtnAjustes_Click(object sender, EventArgs e)
         {
-            //AbrirFormulario(new FrmAjustes());
             FrmAjustes frmAjustes = new FrmAjustes(this, PnlTitle, PnlLateral, PnlMain);
             frmAjustes.TopLevel = false;
-            frmAjustes.Dock = DockStyle.Fill;
             PnlBody.Controls.Add(frmAjustes);
-            frmAjustes.Show();
+            frmAjustes.Dock = DockStyle.Fill;
             frmAjustes.BringToFront();
+            frmAjustes.Show();
             PnlTitle.Visible = false;
             PnlLateral.Visible = false;
             PnlMain.Visible = false;
@@ -440,15 +439,5 @@ namespace Garmoxu_Desktop
             }
         }
         #endregion
-
-        private void BtnEstadisticas_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void BtnHistorialPedidos_Click(object sender, EventArgs e)
-        {
-
-        }
     }
 }

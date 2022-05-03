@@ -31,13 +31,20 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMain));
             this.PnlLateral = new System.Windows.Forms.Panel();
+            this.BtnCliente = new FontAwesome.Sharp.IconButton();
+            this.BtnCategoria = new FontAwesome.Sharp.IconButton();
+            this.BtnPlatos = new FontAwesome.Sharp.IconButton();
+            this.BtnHistorial = new FontAwesome.Sharp.IconButton();
+            this.BtnReservas = new FontAwesome.Sharp.IconButton();
+            this.BtnPedidos = new FontAwesome.Sharp.IconButton();
             this.BtnUsers = new FontAwesome.Sharp.IconButton();
             this.BtnAjustes = new FontAwesome.Sharp.IconButton();
             this.PnlEncabezado = new System.Windows.Forms.Panel();
+            this.PnlCabeceraMenu = new System.Windows.Forms.TableLayoutPanel();
+            this.PicUser = new RJCodeAdvance.RJControls.RJCircularPictureBox();
+            this.BtnPanel = new FontAwesome.Sharp.IconButton();
             this.PnlBody = new System.Windows.Forms.Panel();
             this.PnlMain = new System.Windows.Forms.Panel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.PicLogo = new System.Windows.Forms.PictureBox();
             this.PnlTitle = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.LblTitulo = new System.Windows.Forms.Label();
@@ -47,26 +54,19 @@
             this.BtnMinimize = new FontAwesome.Sharp.IconButton();
             this.BtnResize = new FontAwesome.Sharp.IconButton();
             this.TmrRelojMain = new System.Windows.Forms.Timer(this.components);
-            this.BtnReservas = new FontAwesome.Sharp.IconButton();
-            this.BtnPedidos = new FontAwesome.Sharp.IconButton();
-            this.BtnHistorial = new FontAwesome.Sharp.IconButton();
-            this.BtnPlatos = new FontAwesome.Sharp.IconButton();
-            this.BtnCategoria = new FontAwesome.Sharp.IconButton();
-            this.PnlCabeceraMenu = new System.Windows.Forms.TableLayoutPanel();
-            this.BtnPanel = new FontAwesome.Sharp.IconButton();
-            this.PicUser = new RJCodeAdvance.RJControls.RJCircularPictureBox();
-            this.BtnCliente = new FontAwesome.Sharp.IconButton();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.PicLogo = new System.Windows.Forms.PictureBox();
             this.PnlLateral.SuspendLayout();
             this.PnlEncabezado.SuspendLayout();
+            this.PnlCabeceraMenu.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicUser)).BeginInit();
             this.PnlBody.SuspendLayout();
             this.PnlMain.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).BeginInit();
             this.PnlTitle.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.PnlCabeceraMenu.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PicUser)).BeginInit();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // PnlLateral
@@ -87,6 +87,144 @@
             this.PnlLateral.Name = "PnlLateral";
             this.PnlLateral.Size = new System.Drawing.Size(250, 795);
             this.PnlLateral.TabIndex = 7;
+            // 
+            // BtnCliente
+            // 
+            this.BtnCliente.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnCliente.FlatAppearance.BorderSize = 0;
+            this.BtnCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCliente.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCliente.ForeColor = System.Drawing.Color.White;
+            this.BtnCliente.IconChar = FontAwesome.Sharp.IconChar.Portrait;
+            this.BtnCliente.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(255)))));
+            this.BtnCliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnCliente.Location = new System.Drawing.Point(0, 465);
+            this.BtnCliente.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnCliente.Name = "BtnCliente";
+            this.BtnCliente.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.BtnCliente.Size = new System.Drawing.Size(250, 62);
+            this.BtnCliente.TabIndex = 33;
+            this.BtnCliente.Tag = "Clientes";
+            this.BtnCliente.Text = "Clientes";
+            this.BtnCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnCliente.UseVisualStyleBackColor = true;
+            this.BtnCliente.Click += new System.EventHandler(this.BtnCliente_Click);
+            // 
+            // BtnCategoria
+            // 
+            this.BtnCategoria.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnCategoria.FlatAppearance.BorderSize = 0;
+            this.BtnCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCategoria.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnCategoria.ForeColor = System.Drawing.Color.White;
+            this.BtnCategoria.IconChar = FontAwesome.Sharp.IconChar.Tag;
+            this.BtnCategoria.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(93)))), ((int)(((byte)(169)))));
+            this.BtnCategoria.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnCategoria.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnCategoria.Location = new System.Drawing.Point(0, 403);
+            this.BtnCategoria.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnCategoria.Name = "BtnCategoria";
+            this.BtnCategoria.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.BtnCategoria.Size = new System.Drawing.Size(250, 62);
+            this.BtnCategoria.TabIndex = 32;
+            this.BtnCategoria.Tag = "Categorías";
+            this.BtnCategoria.Text = "Categorías";
+            this.BtnCategoria.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnCategoria.UseVisualStyleBackColor = true;
+            this.BtnCategoria.Click += new System.EventHandler(this.BtnCategoria_Click);
+            // 
+            // BtnPlatos
+            // 
+            this.BtnPlatos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnPlatos.FlatAppearance.BorderSize = 0;
+            this.BtnPlatos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnPlatos.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnPlatos.ForeColor = System.Drawing.Color.White;
+            this.BtnPlatos.IconChar = FontAwesome.Sharp.IconChar.Hamburger;
+            this.BtnPlatos.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(171)))), ((int)(((byte)(88)))));
+            this.BtnPlatos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnPlatos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPlatos.Location = new System.Drawing.Point(0, 341);
+            this.BtnPlatos.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnPlatos.Name = "BtnPlatos";
+            this.BtnPlatos.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.BtnPlatos.Size = new System.Drawing.Size(250, 62);
+            this.BtnPlatos.TabIndex = 31;
+            this.BtnPlatos.Tag = "Platos";
+            this.BtnPlatos.Text = "Platos";
+            this.BtnPlatos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnPlatos.UseVisualStyleBackColor = true;
+            this.BtnPlatos.Click += new System.EventHandler(this.BtnPlatos_Click);
+            // 
+            // BtnHistorial
+            // 
+            this.BtnHistorial.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnHistorial.FlatAppearance.BorderSize = 0;
+            this.BtnHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnHistorial.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnHistorial.ForeColor = System.Drawing.Color.White;
+            this.BtnHistorial.IconChar = FontAwesome.Sharp.IconChar.Tasks;
+            this.BtnHistorial.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(219)))), ((int)(((byte)(59)))));
+            this.BtnHistorial.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnHistorial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnHistorial.Location = new System.Drawing.Point(0, 279);
+            this.BtnHistorial.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnHistorial.Name = "BtnHistorial";
+            this.BtnHistorial.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.BtnHistorial.Size = new System.Drawing.Size(250, 62);
+            this.BtnHistorial.TabIndex = 28;
+            this.BtnHistorial.Tag = "Historial";
+            this.BtnHistorial.Text = "Historial";
+            this.BtnHistorial.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnHistorial.UseVisualStyleBackColor = true;
+            this.BtnHistorial.Click += new System.EventHandler(this.BtnHistorial_Click);
+            // 
+            // BtnReservas
+            // 
+            this.BtnReservas.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnReservas.FlatAppearance.BorderSize = 0;
+            this.BtnReservas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnReservas.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnReservas.ForeColor = System.Drawing.Color.White;
+            this.BtnReservas.IconChar = FontAwesome.Sharp.IconChar.CalendarAlt;
+            this.BtnReservas.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(215)))), ((int)(((byte)(255)))));
+            this.BtnReservas.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnReservas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnReservas.Location = new System.Drawing.Point(0, 217);
+            this.BtnReservas.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnReservas.Name = "BtnReservas";
+            this.BtnReservas.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.BtnReservas.Size = new System.Drawing.Size(250, 62);
+            this.BtnReservas.TabIndex = 24;
+            this.BtnReservas.Tag = "Reservas";
+            this.BtnReservas.Text = "Reservas";
+            this.BtnReservas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnReservas.UseVisualStyleBackColor = true;
+            this.BtnReservas.Click += new System.EventHandler(this.BtnReservas_Click);
+            // 
+            // BtnPedidos
+            // 
+            this.BtnPedidos.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnPedidos.FlatAppearance.BorderSize = 0;
+            this.BtnPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnPedidos.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnPedidos.ForeColor = System.Drawing.Color.White;
+            this.BtnPedidos.IconChar = FontAwesome.Sharp.IconChar.PencilAlt;
+            this.BtnPedidos.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(2)))));
+            this.BtnPedidos.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnPedidos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnPedidos.Location = new System.Drawing.Point(0, 155);
+            this.BtnPedidos.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnPedidos.Name = "BtnPedidos";
+            this.BtnPedidos.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.BtnPedidos.Size = new System.Drawing.Size(250, 62);
+            this.BtnPedidos.TabIndex = 21;
+            this.BtnPedidos.Tag = "Pedidos";
+            this.BtnPedidos.Text = "Pedidos";
+            this.BtnPedidos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnPedidos.UseVisualStyleBackColor = true;
+            this.BtnPedidos.Click += new System.EventHandler(this.BtnPedidos_Click);
             // 
             // BtnUsers
             // 
@@ -144,6 +282,65 @@
             this.PnlEncabezado.Size = new System.Drawing.Size(250, 155);
             this.PnlEncabezado.TabIndex = 11;
             // 
+            // PnlCabeceraMenu
+            // 
+            this.PnlCabeceraMenu.ColumnCount = 2;
+            this.PnlCabeceraMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.PnlCabeceraMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.PnlCabeceraMenu.Controls.Add(this.PicUser, 0, 0);
+            this.PnlCabeceraMenu.Controls.Add(this.BtnPanel, 1, 0);
+            this.PnlCabeceraMenu.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PnlCabeceraMenu.Location = new System.Drawing.Point(0, 0);
+            this.PnlCabeceraMenu.Name = "PnlCabeceraMenu";
+            this.PnlCabeceraMenu.RowCount = 1;
+            this.PnlCabeceraMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.PnlCabeceraMenu.Size = new System.Drawing.Size(250, 155);
+            this.PnlCabeceraMenu.TabIndex = 1;
+            // 
+            // PicUser
+            // 
+            this.PicUser.BackColor = System.Drawing.Color.Silver;
+            this.PicUser.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
+            this.PicUser.BorderColor = System.Drawing.Color.Silver;
+            this.PicUser.BorderColor2 = System.Drawing.Color.Silver;
+            this.PicUser.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.PicUser.BorderSize = 3;
+            this.PicUser.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PicUser.GradientAngle = 50F;
+            this.PicUser.Image = global::Garmoxu_Desktop.Properties.Resources.User_Default_Icon;
+            this.PicUser.Location = new System.Drawing.Point(25, 0);
+            this.PicUser.Margin = new System.Windows.Forms.Padding(25, 0, 3, 0);
+            this.PicUser.Name = "PicUser";
+            this.PicUser.Size = new System.Drawing.Size(147, 147);
+            this.PicUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PicUser.TabIndex = 24;
+            this.PicUser.TabStop = false;
+            this.PicUser.Click += new System.EventHandler(this.PicUser_Click);
+            this.PicUser.MouseEnter += new System.EventHandler(this.PicUser_MouseEnter);
+            this.PicUser.MouseLeave += new System.EventHandler(this.PicUser_MouseLeave);
+            // 
+            // BtnPanel
+            // 
+            this.BtnPanel.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnPanel.FlatAppearance.BorderSize = 0;
+            this.BtnPanel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(74)))), ((int)(((byte)(78)))));
+            this.BtnPanel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
+            this.BtnPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnPanel.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.BtnPanel.ForeColor = System.Drawing.Color.White;
+            this.BtnPanel.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
+            this.BtnPanel.IconColor = System.Drawing.Color.Silver;
+            this.BtnPanel.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnPanel.Location = new System.Drawing.Point(175, 0);
+            this.BtnPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnPanel.Name = "BtnPanel";
+            this.BtnPanel.Size = new System.Drawing.Size(75, 155);
+            this.BtnPanel.TabIndex = 22;
+            this.BtnPanel.Tag = "";
+            this.BtnPanel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.BtnPanel.UseVisualStyleBackColor = true;
+            this.BtnPanel.Click += new System.EventHandler(this.btnPanel_Click);
+            // 
             // PnlBody
             // 
             this.PnlBody.Controls.Add(this.PnlMain);
@@ -166,35 +363,6 @@
             this.PnlMain.Name = "PnlMain";
             this.PnlMain.Size = new System.Drawing.Size(1160, 795);
             this.PnlMain.TabIndex = 8;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.Controls.Add(this.PicLogo, 1, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1160, 795);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // PicLogo
-            // 
-            this.PicLogo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PicLogo.Image = global::Garmoxu_Desktop.Properties.Resources.Garmoxu_Logo_Circle_New_Red_Less_Opacity;
-            this.PicLogo.Location = new System.Drawing.Point(174, 119);
-            this.PicLogo.Margin = new System.Windows.Forms.Padding(0);
-            this.PicLogo.Name = "PicLogo";
-            this.PicLogo.Size = new System.Drawing.Size(812, 556);
-            this.PicLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PicLogo.TabIndex = 6;
-            this.PicLogo.TabStop = false;
             // 
             // PnlTitle
             // 
@@ -296,6 +464,7 @@
             this.BtnClose.TabIndex = 11;
             this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnClose.UseVisualStyleBackColor = false;
+            this.BtnClose.Click += new System.EventHandler(this.btnClose_Click);
             // 
             // BtnMinimize
             // 
@@ -348,202 +517,34 @@
             this.TmrRelojMain.Interval = 1000;
             this.TmrRelojMain.Tick += new System.EventHandler(this.TmrRelojMain_Tick);
             // 
-            // BtnReservas
+            // tableLayoutPanel1
             // 
-            this.BtnReservas.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnReservas.FlatAppearance.BorderSize = 0;
-            this.BtnReservas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnReservas.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnReservas.ForeColor = System.Drawing.Color.White;
-            this.BtnReservas.IconChar = FontAwesome.Sharp.IconChar.CalendarAlt;
-            this.BtnReservas.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(215)))), ((int)(((byte)(255)))));
-            this.BtnReservas.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnReservas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnReservas.Location = new System.Drawing.Point(0, 217);
-            this.BtnReservas.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnReservas.Name = "BtnReservas";
-            this.BtnReservas.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.BtnReservas.Size = new System.Drawing.Size(250, 62);
-            this.BtnReservas.TabIndex = 24;
-            this.BtnReservas.Tag = "Reservas";
-            this.BtnReservas.Text = "Reservas";
-            this.BtnReservas.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnReservas.UseVisualStyleBackColor = true;
-            this.BtnReservas.Click += new System.EventHandler(this.BtnReservas_Click);
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel1.Controls.Add(this.PicLogo, 1, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1160, 795);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // BtnPedidos
+            // PicLogo
             // 
-            this.BtnPedidos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnPedidos.FlatAppearance.BorderSize = 0;
-            this.BtnPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnPedidos.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnPedidos.ForeColor = System.Drawing.Color.White;
-            this.BtnPedidos.IconChar = FontAwesome.Sharp.IconChar.PencilAlt;
-            this.BtnPedidos.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(2)))));
-            this.BtnPedidos.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnPedidos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnPedidos.Location = new System.Drawing.Point(0, 155);
-            this.BtnPedidos.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnPedidos.Name = "BtnPedidos";
-            this.BtnPedidos.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.BtnPedidos.Size = new System.Drawing.Size(250, 62);
-            this.BtnPedidos.TabIndex = 21;
-            this.BtnPedidos.Tag = "Pedidos";
-            this.BtnPedidos.Text = "Pedidos";
-            this.BtnPedidos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnPedidos.UseVisualStyleBackColor = true;
-            this.BtnPedidos.Click += new System.EventHandler(this.BtnPedidos_Click);
-            // 
-            // BtnHistorial
-            // 
-            this.BtnHistorial.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnHistorial.FlatAppearance.BorderSize = 0;
-            this.BtnHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnHistorial.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnHistorial.ForeColor = System.Drawing.Color.White;
-            this.BtnHistorial.IconChar = FontAwesome.Sharp.IconChar.Tasks;
-            this.BtnHistorial.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(219)))), ((int)(((byte)(59)))));
-            this.BtnHistorial.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnHistorial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnHistorial.Location = new System.Drawing.Point(0, 279);
-            this.BtnHistorial.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnHistorial.Name = "BtnHistorial";
-            this.BtnHistorial.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.BtnHistorial.Size = new System.Drawing.Size(250, 62);
-            this.BtnHistorial.TabIndex = 28;
-            this.BtnHistorial.Tag = "Historial";
-            this.BtnHistorial.Text = "Historial";
-            this.BtnHistorial.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnHistorial.UseVisualStyleBackColor = true;
-            this.BtnHistorial.Click += new System.EventHandler(this.BtnHistorial_Click);
-            // 
-            // BtnPlatos
-            // 
-            this.BtnPlatos.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnPlatos.FlatAppearance.BorderSize = 0;
-            this.BtnPlatos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnPlatos.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnPlatos.ForeColor = System.Drawing.Color.White;
-            this.BtnPlatos.IconChar = FontAwesome.Sharp.IconChar.Hamburger;
-            this.BtnPlatos.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(171)))), ((int)(((byte)(88)))));
-            this.BtnPlatos.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnPlatos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnPlatos.Location = new System.Drawing.Point(0, 341);
-            this.BtnPlatos.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnPlatos.Name = "BtnPlatos";
-            this.BtnPlatos.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.BtnPlatos.Size = new System.Drawing.Size(250, 62);
-            this.BtnPlatos.TabIndex = 31;
-            this.BtnPlatos.Tag = "Platos";
-            this.BtnPlatos.Text = "Platos";
-            this.BtnPlatos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnPlatos.UseVisualStyleBackColor = true;
-            this.BtnPlatos.Click += new System.EventHandler(this.BtnPlatos_Click);
-            // 
-            // BtnCategoria
-            // 
-            this.BtnCategoria.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnCategoria.FlatAppearance.BorderSize = 0;
-            this.BtnCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCategoria.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCategoria.ForeColor = System.Drawing.Color.White;
-            this.BtnCategoria.IconChar = FontAwesome.Sharp.IconChar.Tag;
-            this.BtnCategoria.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(93)))), ((int)(((byte)(169)))));
-            this.BtnCategoria.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnCategoria.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCategoria.Location = new System.Drawing.Point(0, 403);
-            this.BtnCategoria.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnCategoria.Name = "BtnCategoria";
-            this.BtnCategoria.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.BtnCategoria.Size = new System.Drawing.Size(250, 62);
-            this.BtnCategoria.TabIndex = 32;
-            this.BtnCategoria.Tag = "Categorías";
-            this.BtnCategoria.Text = "Categorías";
-            this.BtnCategoria.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnCategoria.UseVisualStyleBackColor = true;
-            this.BtnCategoria.Click += new System.EventHandler(this.BtnCategoria_Click);
-            // 
-            // PnlCabeceraMenu
-            // 
-            this.PnlCabeceraMenu.ColumnCount = 2;
-            this.PnlCabeceraMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.PnlCabeceraMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.PnlCabeceraMenu.Controls.Add(this.PicUser, 0, 0);
-            this.PnlCabeceraMenu.Controls.Add(this.BtnPanel, 1, 0);
-            this.PnlCabeceraMenu.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlCabeceraMenu.Location = new System.Drawing.Point(0, 0);
-            this.PnlCabeceraMenu.Name = "PnlCabeceraMenu";
-            this.PnlCabeceraMenu.RowCount = 1;
-            this.PnlCabeceraMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.PnlCabeceraMenu.Size = new System.Drawing.Size(250, 155);
-            this.PnlCabeceraMenu.TabIndex = 1;
-            // 
-            // BtnPanel
-            // 
-            this.BtnPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnPanel.FlatAppearance.BorderSize = 0;
-            this.BtnPanel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(74)))), ((int)(((byte)(78)))));
-            this.BtnPanel.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
-            this.BtnPanel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnPanel.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnPanel.ForeColor = System.Drawing.Color.White;
-            this.BtnPanel.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
-            this.BtnPanel.IconColor = System.Drawing.Color.Silver;
-            this.BtnPanel.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnPanel.Location = new System.Drawing.Point(175, 0);
-            this.BtnPanel.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnPanel.Name = "BtnPanel";
-            this.BtnPanel.Size = new System.Drawing.Size(75, 155);
-            this.BtnPanel.TabIndex = 22;
-            this.BtnPanel.Tag = "";
-            this.BtnPanel.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnPanel.UseVisualStyleBackColor = true;
-            this.BtnPanel.Click += new System.EventHandler(this.btnPanel_Click);
-            // 
-            // PicUser
-            // 
-            this.PicUser.BackColor = System.Drawing.Color.Silver;
-            this.PicUser.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-            this.PicUser.BorderColor = System.Drawing.Color.Silver;
-            this.PicUser.BorderColor2 = System.Drawing.Color.Silver;
-            this.PicUser.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
-            this.PicUser.BorderSize = 3;
-            this.PicUser.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PicUser.GradientAngle = 50F;
-            this.PicUser.Image = global::Garmoxu_Desktop.Properties.Resources.User_Default_Icon;
-            this.PicUser.Location = new System.Drawing.Point(25, 0);
-            this.PicUser.Margin = new System.Windows.Forms.Padding(25, 0, 3, 0);
-            this.PicUser.Name = "PicUser";
-            this.PicUser.Size = new System.Drawing.Size(147, 147);
-            this.PicUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PicUser.TabIndex = 24;
-            this.PicUser.TabStop = false;
-            this.PicUser.Click += new System.EventHandler(this.PicUser_Click);
-            this.PicUser.MouseEnter += new System.EventHandler(this.PicUser_MouseEnter);
-            this.PicUser.MouseLeave += new System.EventHandler(this.PicUser_MouseLeave);
-            // 
-            // BtnCliente
-            // 
-            this.BtnCliente.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnCliente.FlatAppearance.BorderSize = 0;
-            this.BtnCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCliente.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCliente.ForeColor = System.Drawing.Color.White;
-            this.BtnCliente.IconChar = FontAwesome.Sharp.IconChar.Portrait;
-            this.BtnCliente.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(255)))));
-            this.BtnCliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCliente.Location = new System.Drawing.Point(0, 465);
-            this.BtnCliente.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnCliente.Name = "BtnCliente";
-            this.BtnCliente.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
-            this.BtnCliente.Size = new System.Drawing.Size(250, 62);
-            this.BtnCliente.TabIndex = 33;
-            this.BtnCliente.Tag = "Clientes";
-            this.BtnCliente.Text = "Cliente";
-            this.BtnCliente.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.BtnCliente.UseVisualStyleBackColor = true;
-            this.BtnCliente.Click += new System.EventHandler(this.BtnCliente_Click);
+            this.PicLogo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PicLogo.Image = global::Garmoxu_Desktop.Properties.Resources.Garmoxu_Logo_Circle_New_Red_Less_Opacity;
+            this.PicLogo.Location = new System.Drawing.Point(174, 119);
+            this.PicLogo.Margin = new System.Windows.Forms.Padding(0);
+            this.PicLogo.Name = "PicLogo";
+            this.PicLogo.Size = new System.Drawing.Size(812, 556);
+            this.PicLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PicLogo.TabIndex = 6;
+            this.PicLogo.TabStop = false;
             // 
             // FrmMain
             // 
@@ -560,16 +561,16 @@
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.PnlLateral.ResumeLayout(false);
             this.PnlEncabezado.ResumeLayout(false);
+            this.PnlCabeceraMenu.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PicUser)).EndInit();
             this.PnlBody.ResumeLayout(false);
             this.PnlMain.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).EndInit();
             this.PnlTitle.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
-            this.PnlCabeceraMenu.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PicUser)).EndInit();
+            this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -584,8 +585,6 @@
         private System.Windows.Forms.Panel PnlMain;
         private System.Windows.Forms.Panel PnlTitle;
         private System.Windows.Forms.Timer TmrRelojMain;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.PictureBox PicLogo;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.Label LblTitulo;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
@@ -602,5 +601,7 @@
         private RJCodeAdvance.RJControls.RJCircularPictureBox PicUser;
         private FontAwesome.Sharp.IconButton BtnPanel;
         private FontAwesome.Sharp.IconButton BtnCliente;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.PictureBox PicLogo;
     }
 }

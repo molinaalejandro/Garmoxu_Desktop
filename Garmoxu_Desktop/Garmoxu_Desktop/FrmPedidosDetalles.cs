@@ -1682,31 +1682,31 @@ namespace Garmoxu_Desktop
         #endregion
 
         #region Actualizacion automatica del numero de comensales 
-        private void CboMesasLocal_OnSelectedIndexChanged(object sender, EventArgs e)
-        {
-            Label lbl = new Label();
-            string idMesa = string.Empty;
-            switch (TabPrincipal.SelectedIndex)
-            {
-                case 0:
-                    lbl = LblComensalesTipos;
-                    idMesa = CboMesasLocalTipo.SelectedItem.ToString();
-                    break;
+        //private void CboMesasLocal_OnSelectedIndexChanged(object sender, EventArgs e)
+        //{
+        //    Label lbl = new Label();
+        //    string idMesa = string.Empty;
+        //    switch (TabPrincipal.SelectedIndex)
+        //    {
+        //        case 0:
+        //            lbl = LblComensalesTipos;
+        //            idMesa = CboMesasLocalTipo.SelectedItem.ToString();
+        //            break;
 
-                case 1:
-                    lbl = LblComensalesDetalles;
-                    idMesa = CboMesasLocalDetalles.SelectedItem.ToString();
-                    break;
-            }
+        //        case 1:
+        //            lbl = LblComensalesDetalles;
+        //            idMesa = CboMesasLocalDetalles.SelectedItem.ToString();
+        //            break;
+        //    }
 
-            string sql = "SELECT NumeroComensales FROM Mesas WHERE IdMesa = " + idMesa;
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
+        //    string sql = "SELECT NumeroComensales FROM Mesas WHERE IdMesa = " + idMesa;
+        //    MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
 
-            if (cmd.ExecuteScalar() != null)
-                lbl.Text = cmd.ExecuteScalar().ToString();
-            else
-                lbl.Text = string.Empty;
-        }
+        //    if (cmd.ExecuteScalar() != null)
+        //        lbl.Text = cmd.ExecuteScalar().ToString();
+        //    else
+        //        lbl.Text = string.Empty;
+        //}
         #endregion 
 
         #region Cierre del formulario

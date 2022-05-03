@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.TabPrincipal = new MaterialSkin.Controls.MaterialTabControl();
             this.TabTipo = new System.Windows.Forms.TabPage();
             this.PnlMainCliente = new System.Windows.Forms.TableLayoutPanel();
@@ -40,8 +40,6 @@
             this.TabTipoDatosTipo = new MaterialSkin.Controls.MaterialTabControl();
             this.TabLocal = new System.Windows.Forms.TabPage();
             this.CboMesasLocalTipo = new RJCodeAdvance.RJControls.RJComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.LblComensalesTipos = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.TabDomicilio = new System.Windows.Forms.TabPage();
             this.label5 = new System.Windows.Forms.Label();
@@ -70,8 +68,6 @@
             this.BtnBorrarPedido = new RJCodeAdvance.RJControls.RJButton();
             this.TabTipoDatosDetalles = new MaterialSkin.Controls.MaterialTabControl();
             this.TabLocalCambiar = new System.Windows.Forms.TabPage();
-            this.label2 = new System.Windows.Forms.Label();
-            this.LblComensalesDetalles = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.CboMesasLocalDetalles = new RJCodeAdvance.RJControls.RJComboBox();
             this.TabDomicilioCambiar = new System.Windows.Forms.TabPage();
@@ -290,8 +286,6 @@
             // 
             this.TabLocal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
             this.TabLocal.Controls.Add(this.CboMesasLocalTipo);
-            this.TabLocal.Controls.Add(this.label9);
-            this.TabLocal.Controls.Add(this.LblComensalesTipos);
             this.TabLocal.Controls.Add(this.label1);
             this.TabLocal.Location = new System.Drawing.Point(4, 25);
             this.TabLocal.Margin = new System.Windows.Forms.Padding(4);
@@ -319,27 +313,6 @@
             this.CboMesasLocalTipo.Size = new System.Drawing.Size(333, 38);
             this.CboMesasLocalTipo.TabIndex = 16;
             this.CboMesasLocalTipo.Texts = "";
-            this.CboMesasLocalTipo.OnSelectedIndexChanged += new System.EventHandler(this.CboMesasLocal_OnSelectedIndexChanged);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label9.Location = new System.Drawing.Point(509, 153);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(85, 17);
-            this.label9.TabIndex = 14;
-            this.label9.Text = "Comensales";
-            // 
-            // LblComensalesTipos
-            // 
-            this.LblComensalesTipos.AutoSize = true;
-            this.LblComensalesTipos.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblComensalesTipos.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LblComensalesTipos.Location = new System.Drawing.Point(507, 173);
-            this.LblComensalesTipos.Name = "LblComensalesTipos";
-            this.LblComensalesTipos.Size = new System.Drawing.Size(0, 29);
-            this.LblComensalesTipos.TabIndex = 13;
             // 
             // label1
             // 
@@ -779,8 +752,6 @@
             // TabLocalCambiar
             // 
             this.TabLocalCambiar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
-            this.TabLocalCambiar.Controls.Add(this.label2);
-            this.TabLocalCambiar.Controls.Add(this.LblComensalesDetalles);
             this.TabLocalCambiar.Controls.Add(this.label8);
             this.TabLocalCambiar.Controls.Add(this.CboMesasLocalDetalles);
             this.TabLocalCambiar.Location = new System.Drawing.Point(4, 25);
@@ -790,26 +761,6 @@
             this.TabLocalCambiar.Size = new System.Drawing.Size(1320, 95);
             this.TabLocalCambiar.TabIndex = 0;
             this.TabLocalCambiar.Text = "Local";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label2.Location = new System.Drawing.Point(384, 4);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(85, 17);
-            this.label2.TabIndex = 16;
-            this.label2.Text = "Comensales";
-            // 
-            // LblComensalesDetalles
-            // 
-            this.LblComensalesDetalles.AutoSize = true;
-            this.LblComensalesDetalles.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblComensalesDetalles.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.LblComensalesDetalles.Location = new System.Drawing.Point(382, 24);
-            this.LblComensalesDetalles.Name = "LblComensalesDetalles";
-            this.LblComensalesDetalles.Size = new System.Drawing.Size(0, 29);
-            this.LblComensalesDetalles.TabIndex = 15;
             // 
             // label8
             // 
@@ -839,7 +790,6 @@
             this.CboMesasLocalDetalles.Size = new System.Drawing.Size(333, 38);
             this.CboMesasLocalDetalles.TabIndex = 13;
             this.CboMesasLocalDetalles.Texts = "";
-            this.CboMesasLocalDetalles.OnSelectedIndexChanged += new System.EventHandler(this.CboMesasLocal_OnSelectedIndexChanged);
             // 
             // TabDomicilioCambiar
             // 
@@ -1061,14 +1011,14 @@
             this.DtgPlatosPedidos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
             this.DtgPlatosPedidos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.DtgPlatosPedidos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(41)))), ((int)(((byte)(83)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.PeachPuff;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.DtgPlatosPedidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(41)))), ((int)(((byte)(83)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.PeachPuff;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.DtgPlatosPedidos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.DtgPlatosPedidos.ColumnHeadersHeight = 29;
             this.DtgPlatosPedidos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.DtgPlatosPedidos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
@@ -1431,10 +1381,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn ClnCantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClnPrecioUnitario;
         private System.Windows.Forms.DataGridViewTextBoxColumn ClnPrecioFinal;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label LblComensalesTipos;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label LblComensalesDetalles;
         private RJCodeAdvance.RJControls.RJButton BtnConsultarPlatos;
         private RJCodeAdvance.RJControls.RJComboBox CboMesasLocalTipo;
     }
