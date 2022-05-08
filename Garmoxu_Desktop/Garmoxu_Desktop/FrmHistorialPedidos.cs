@@ -16,13 +16,15 @@ namespace Garmoxu_Desktop
         private MySqlConnection ConexionBD;
         private DataSet Ds;
         private FrmMain Instance;
+        private int NivelPermisos;
 
-        public FrmHistorialPedidos(MySqlConnection conexionBD, FrmMain instance)
+        public FrmHistorialPedidos(MySqlConnection conexionBD, FrmMain instance, int nivelPermisos)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             Instance = instance;
             ConexionBD = conexionBD;
+            NivelPermisos = nivelPermisos;
             CboTipo.SelectedIndex = 0;
             ChkTipo.Checked = false;
             BtnBuscar_Click(null, null);
@@ -108,7 +110,7 @@ namespace Garmoxu_Desktop
         private void DtgHistorial_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             string clavePrimaria = DtgHistorial.CurrentRow.Cells[0].Value.ToString();
-            FrmHistorialPedidosDetalles frm = new FrmHistorialPedidosDetalles(ConexionBD, clavePrimaria, Instance);
+            FrmHistorialPedidosDetalles frm = new FrmHistorialPedidosDetalles(ConexionBD, clavePrimaria, Instance, NivelPermisos);
             Instance.Enabled = false;
             frm.Show();
         }

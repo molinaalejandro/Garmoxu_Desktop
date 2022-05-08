@@ -368,6 +368,7 @@
             this.Controls.Add(this.PnlMain);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmPlatos";
+            this.Tag = "Platos";
             this.Text = "FrmPlatos";
             this.EnabledChanged += new System.EventHandler(this.FrmPlatos_EnabledChanged);
             this.PnlMain.ResumeLayout(false);

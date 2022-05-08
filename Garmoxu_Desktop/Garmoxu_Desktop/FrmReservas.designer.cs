@@ -389,6 +389,7 @@
             this.Controls.Add(this.PnlMain);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmReservas";
+            this.Tag = "Reservas";
             this.Text = "FrmReservas";
             this.EnabledChanged += new System.EventHandler(this.FrmReservas_EnabledChanged);
             this.PnlMain.ResumeLayout(false);

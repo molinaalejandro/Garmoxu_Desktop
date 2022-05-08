@@ -73,7 +73,7 @@
             this.PnlMain.Controls.Add(this.PnlClientes, 0, 0);
             this.PnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlMain.Location = new System.Drawing.Point(0, 0);
-            this.PnlMain.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PnlMain.Margin = new System.Windows.Forms.Padding(4);
             this.PnlMain.Name = "PnlMain";
             this.PnlMain.Padding = new System.Windows.Forms.Padding(27, 25, 27, 25);
             this.PnlMain.RowCount = 2;
@@ -92,11 +92,11 @@
             this.tableLayoutPanel1.Controls.Add(this.BtnCerrar, 0, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(31, 457);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 69F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 68F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1005, 68);
             this.tableLayoutPanel1.TabIndex = 4;
             // 
@@ -111,7 +111,7 @@
             this.BtnAbrirNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnAbrirNuevo.ForeColor = System.Drawing.Color.White;
             this.BtnAbrirNuevo.Location = new System.Drawing.Point(255, 4);
-            this.BtnAbrirNuevo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnAbrirNuevo.Margin = new System.Windows.Forms.Padding(4);
             this.BtnAbrirNuevo.Name = "BtnAbrirNuevo";
             this.BtnAbrirNuevo.Size = new System.Drawing.Size(219, 49);
             this.BtnAbrirNuevo.TabIndex = 7;
@@ -133,7 +133,7 @@
             this.BtnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCerrar.ForeColor = System.Drawing.Color.White;
             this.BtnCerrar.Location = new System.Drawing.Point(4, 4);
-            this.BtnCerrar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnCerrar.Margin = new System.Windows.Forms.Padding(4);
             this.BtnCerrar.Name = "BtnCerrar";
             this.BtnCerrar.Size = new System.Drawing.Size(243, 49);
             this.BtnCerrar.TabIndex = 0;
@@ -151,7 +151,7 @@
             this.PnlClientes.Controls.Add(this.PnlLista, 0, 0);
             this.PnlClientes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlClientes.Location = new System.Drawing.Point(31, 29);
-            this.PnlClientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PnlClientes.Margin = new System.Windows.Forms.Padding(4);
             this.PnlClientes.Name = "PnlClientes";
             this.PnlClientes.RowCount = 1;
             this.PnlClientes.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -163,7 +163,7 @@
             this.PnlDetalles.Controls.Add(this.Tbc);
             this.PnlDetalles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlDetalles.Location = new System.Drawing.Point(406, 4);
-            this.PnlDetalles.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PnlDetalles.Margin = new System.Windows.Forms.Padding(4);
             this.PnlDetalles.Name = "PnlDetalles";
             this.PnlDetalles.Size = new System.Drawing.Size(595, 412);
             this.PnlDetalles.TabIndex = 0;
@@ -174,7 +174,7 @@
             this.Tbc.Controls.Add(this.tabPage2);
             this.Tbc.Depth = 0;
             this.Tbc.Location = new System.Drawing.Point(4, 1);
-            this.Tbc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Tbc.Margin = new System.Windows.Forms.Padding(4);
             this.Tbc.MouseState = MaterialSkin.MouseState.HOVER;
             this.Tbc.Name = "Tbc";
             this.Tbc.SelectedIndex = 0;
@@ -192,9 +192,9 @@
             this.tabPage1.Controls.Add(this.TxtDireccionTB1);
             this.tabPage1.Controls.Add(this.TxtNombreTB1);
             this.tabPage1.Location = new System.Drawing.Point(4, 25);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage1.Size = new System.Drawing.Size(584, 380);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "tabPage1";
@@ -225,7 +225,7 @@
             this.BtnModificarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnModificarCliente.ForeColor = System.Drawing.Color.White;
             this.BtnModificarCliente.Location = new System.Drawing.Point(377, 320);
-            this.BtnModificarCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnModificarCliente.Margin = new System.Windows.Forms.Padding(4);
             this.BtnModificarCliente.Name = "BtnModificarCliente";
             this.BtnModificarCliente.Size = new System.Drawing.Size(200, 49);
             this.BtnModificarCliente.TabIndex = 7;
@@ -244,7 +244,7 @@
             this.TxtTelefonoTB1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtTelefonoTB1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.TxtTelefonoTB1.Location = new System.Drawing.Point(4, 9);
-            this.TxtTelefonoTB1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.TxtTelefonoTB1.Margin = new System.Windows.Forms.Padding(5);
             this.TxtTelefonoTB1.Multiline = false;
             this.TxtTelefonoTB1.Name = "TxtTelefonoTB1";
             this.TxtTelefonoTB1.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
@@ -281,7 +281,7 @@
             this.BtnBorrarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnBorrarCliente.ForeColor = System.Drawing.Color.White;
             this.BtnBorrarCliente.Location = new System.Drawing.Point(0, 324);
-            this.BtnBorrarCliente.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnBorrarCliente.Margin = new System.Windows.Forms.Padding(4);
             this.BtnBorrarCliente.Name = "BtnBorrarCliente";
             this.BtnBorrarCliente.Size = new System.Drawing.Size(200, 49);
             this.BtnBorrarCliente.TabIndex = 4;
@@ -300,7 +300,7 @@
             this.TxtDireccionTB1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtDireccionTB1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.TxtDireccionTB1.Location = new System.Drawing.Point(4, 50);
-            this.TxtDireccionTB1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.TxtDireccionTB1.Margin = new System.Windows.Forms.Padding(5);
             this.TxtDireccionTB1.Multiline = true;
             this.TxtDireccionTB1.Name = "TxtDireccionTB1";
             this.TxtDireccionTB1.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
@@ -322,7 +322,7 @@
             this.TxtNombreTB1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtNombreTB1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.TxtNombreTB1.Location = new System.Drawing.Point(5, 150);
-            this.TxtNombreTB1.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.TxtNombreTB1.Margin = new System.Windows.Forms.Padding(5);
             this.TxtNombreTB1.Multiline = false;
             this.TxtNombreTB1.Name = "TxtNombreTB1";
             this.TxtNombreTB1.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
@@ -341,9 +341,9 @@
             this.tabPage2.Controls.Add(this.TxtDireccionTB2);
             this.tabPage2.Controls.Add(this.TxtNombreTB2);
             this.tabPage2.Location = new System.Drawing.Point(4, 25);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage2.Size = new System.Drawing.Size(584, 380);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "tabPage2";
@@ -359,7 +359,7 @@
             this.TxtTelefonoTB2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtTelefonoTB2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.TxtTelefonoTB2.Location = new System.Drawing.Point(164, 48);
-            this.TxtTelefonoTB2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.TxtTelefonoTB2.Margin = new System.Windows.Forms.Padding(5);
             this.TxtTelefonoTB2.Multiline = false;
             this.TxtTelefonoTB2.Name = "TxtTelefonoTB2";
             this.TxtTelefonoTB2.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
@@ -382,7 +382,7 @@
             this.BtnGuardarDatos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnGuardarDatos.ForeColor = System.Drawing.Color.White;
             this.BtnGuardarDatos.Location = new System.Drawing.Point(231, 263);
-            this.BtnGuardarDatos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnGuardarDatos.Margin = new System.Windows.Forms.Padding(4);
             this.BtnGuardarDatos.Name = "BtnGuardarDatos";
             this.BtnGuardarDatos.Size = new System.Drawing.Size(219, 49);
             this.BtnGuardarDatos.TabIndex = 6;
@@ -401,7 +401,7 @@
             this.TxtDireccionTB2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtDireccionTB2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.TxtDireccionTB2.Location = new System.Drawing.Point(164, 96);
-            this.TxtDireccionTB2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.TxtDireccionTB2.Margin = new System.Windows.Forms.Padding(5);
             this.TxtDireccionTB2.Multiline = true;
             this.TxtDireccionTB2.Name = "TxtDireccionTB2";
             this.TxtDireccionTB2.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
@@ -423,7 +423,7 @@
             this.TxtNombreTB2.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtNombreTB2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.TxtNombreTB2.Location = new System.Drawing.Point(164, 196);
-            this.TxtNombreTB2.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.TxtNombreTB2.Margin = new System.Windows.Forms.Padding(5);
             this.TxtNombreTB2.Multiline = false;
             this.TxtNombreTB2.Name = "TxtNombreTB2";
             this.TxtNombreTB2.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
@@ -442,7 +442,7 @@
             this.PnlLista.Controls.Add(this.TxtBuscar);
             this.PnlLista.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlLista.Location = new System.Drawing.Point(4, 4);
-            this.PnlLista.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.PnlLista.Margin = new System.Windows.Forms.Padding(4);
             this.PnlLista.Name = "PnlLista";
             this.PnlLista.Size = new System.Drawing.Size(394, 412);
             this.PnlLista.TabIndex = 1;
@@ -453,8 +453,8 @@
             this.DtgClientes.AllowUserToDeleteRows = false;
             this.DtgClientes.AllowUserToOrderColumns = true;
             this.DtgClientes.AllowUserToResizeRows = false;
-            this.DtgClientes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.DtgClientes.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DtgClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DtgClientes.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
@@ -475,7 +475,7 @@
             this.DtgClientes.EnableHeadersVisualStyles = false;
             this.DtgClientes.GridColor = System.Drawing.Color.MediumSlateBlue;
             this.DtgClientes.Location = new System.Drawing.Point(7, 53);
-            this.DtgClientes.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.DtgClientes.Margin = new System.Windows.Forms.Padding(4);
             this.DtgClientes.Name = "DtgClientes";
             this.DtgClientes.ReadOnly = true;
             this.DtgClientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -506,7 +506,7 @@
             this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnBuscar.ForeColor = System.Drawing.Color.White;
             this.BtnBuscar.Location = new System.Drawing.Point(269, 5);
-            this.BtnBuscar.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.BtnBuscar.Margin = new System.Windows.Forms.Padding(4);
             this.BtnBuscar.Name = "BtnBuscar";
             this.BtnBuscar.Size = new System.Drawing.Size(120, 38);
             this.BtnBuscar.TabIndex = 1;
@@ -525,7 +525,7 @@
             this.TxtBuscar.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TxtBuscar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.TxtBuscar.Location = new System.Drawing.Point(5, 5);
-            this.TxtBuscar.Margin = new System.Windows.Forms.Padding(5, 5, 5, 5);
+            this.TxtBuscar.Margin = new System.Windows.Forms.Padding(5);
             this.TxtBuscar.Multiline = false;
             this.TxtBuscar.Name = "TxtBuscar";
             this.TxtBuscar.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
@@ -545,8 +545,9 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
             this.ClientSize = new System.Drawing.Size(1067, 554);
             this.Controls.Add(this.PnlMain);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmClientes";
+            this.Tag = "Clientes";
             this.Text = "FrmClientes";
             this.PnlMain.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

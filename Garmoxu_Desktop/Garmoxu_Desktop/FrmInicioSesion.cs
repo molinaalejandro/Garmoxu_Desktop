@@ -29,10 +29,11 @@ namespace Garmoxu_Desktop
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
             AbrirConexionBD();
-            CargarUsuarioRecordado();
 
 
-            TbxPassword.Text = "1234abcd";
+
+
+            TxtContraseña.Texts = "1234abcd";
         }
 
         #region Apertura del formulario
@@ -40,10 +41,17 @@ namespace Garmoxu_Desktop
         // Abre la conexion a la base de datos.
         private void AbrirConexionBD()
         {
+            // Conexión local
             string servidor = "localhost"; //Nombre o IP del servidor.
             string bd = "garmoxu"; //Nombre de la base de datos.
             string usuario = "root"; //Usuario de acceso.
             string password = "root"; //Contraseña de usuario de acceso.
+
+            // Conexión remota
+            //string servidor = "sql781.main-hosting.eu"; //Nombre o IP del servidor.
+            //string bd = "u184120704_garmoxudb"; //Nombre de la base de datos.
+            //string usuario = "u184120704_admindam"; //Usuario de acceso.
+            //string password = "damAdmin123"; //Contraseña de usuario de acceso.
 
             // Instancia de la conexión a la BD que recibe la cadena de conexión.
             ConexionBD = new MySqlConnection(
@@ -66,6 +74,12 @@ namespace Garmoxu_Desktop
         #endregion
 
         #region Carga de usuario recordado
+        private void FrmInicioSesion_Shown(object sender, EventArgs e)
+        {
+            if (string.IsNullOrEmpty(UsuarioActual))
+                CargarUsuarioRecordado();
+        }
+
         // Carga el último usuario que se ha querido recordar siempre que el fichero existe
         // y el usuario no esté vacio.
         private void CargarUsuarioRecordado()
@@ -78,8 +92,9 @@ namespace Garmoxu_Desktop
                     string usuarioRecordado = File.ReadAllText(ruta);
                     if (!string.IsNullOrEmpty(usuarioRecordado))
                     {
-                        TbxUser.Text = usuarioRecordado;
-                        TbxPassword.Focus();
+                        TxtUsuario.Texts = usuarioRecordado;
+                        //TxtContraseña.Focus();
+                        TxtContraseña.Focus();
                         ChkRemember.Checked = true;
                     }
                 }
@@ -92,6 +107,9 @@ namespace Garmoxu_Desktop
         {
             if (Visible)
                 UsuarioActual = string.Empty;
+            this.CenterToScreen();
+            if (BtnContraseña.IconChar.Equals(IconChar.Eye))
+                BtnPassword_Click(null, null);
         }
         #endregion
 
@@ -145,19 +163,19 @@ namespace Garmoxu_Desktop
             Application.Exit();
         }
 
-        //Cambia de color cuando el raton esta encima del boton
-        private void FABtnClose_MouseEnter(object sender, EventArgs e)
-        {
-            BtnClose.IconColor = Color.FromArgb(240, 41, 83);
-            //FABtnClose.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            BtnClose.FlatAppearance.MouseOverBackColor = Color.Transparent;
-        }
+        ////Cambia de color cuando el raton esta encima del boton
+        //private void BtnClose_MouseEnter(object sender, EventArgs e)
+        //{
+        //    BtnClose.IconColor = Color.FromArgb(240, 41, 83);
+        //    //FABtnClose.FlatAppearance.MouseDownBackColor = Color.Transparent;
+        //    BtnClose.FlatAppearance.MouseOverBackColor = Color.Transparent;
+        //}
 
-        //Cambia de color cuando el raton deja de estar encima del boton
-        private void FABtnClose_MouseLeave(object sender, EventArgs e)
-        {
-            BtnClose.IconColor = Color.White;
-        }
+        ////Cambia de color cuando el raton deja de estar encima del boton
+        //private void BtnClose_MouseLeave(object sender, EventArgs e)
+        //{
+        //    BtnClose.IconColor = Color.White;
+        //}
         #endregion
 
         #region Boton de Minimizar
@@ -167,19 +185,19 @@ namespace Garmoxu_Desktop
             this.WindowState = FormWindowState.Minimized;
         }
 
-        //Cambia de color cuando el raton esta encima del boton
-        private void FABtnMinimize_MouseEnter(object sender, EventArgs e)
-        {
-            BtnMinimize.IconColor = Color.MediumSlateBlue;
-            //FABtnMinimize.FlatAppearance.MouseDownBackColor = Color.Transparent;
-            BtnMinimize.FlatAppearance.MouseOverBackColor = Color.Transparent;
-        }
+        ////Cambia de color cuando el raton esta encima del boton
+        //private void FABtnMinimize_MouseEnter(object sender, EventArgs e)
+        //{
+        //    BtnMinimize.IconColor = Color.MediumSlateBlue;
+        //    //FABtnMinimize.FlatAppearance.MouseDownBackColor = Color.Transparent;
+        //    BtnMinimize.FlatAppearance.MouseOverBackColor = Color.Transparent;
+        //}
 
-        //Cambia de color cuando el raton deja de estar encima del boton
-        private void FABtnMinimize_MouseLeave(object sender, EventArgs e)
-        {
-            BtnMinimize.IconColor = Color.White;
-        }
+        ////Cambia de color cuando el raton deja de estar encima del boton
+        //private void FABtnMinimize_MouseLeave(object sender, EventArgs e)
+        //{
+        //    BtnMinimize.IconColor = Color.White;
+        //}
         #endregion
         #endregion
         #endregion
@@ -187,73 +205,80 @@ namespace Garmoxu_Desktop
         #region Inicio de sesion
         #region Nombre de usuario
         //Si el textbox esta en por defecto al acceder se eliminara el texto, funciona como un hint en Android xml
-        private void TbxUser_Enter(object sender, EventArgs e)
+        private void TxtUser_Enter(object sender, EventArgs e)
         {
-            if (TbxUser.Text.Equals("Nombre de usuario")) TbxUser.Text = String.Empty;
+            if (TxtUsuario.Texts.Equals("Nombre de usuario"))
+            {
+                TxtUsuario.Texts = String.Empty;
+            }
+            if(string.IsNullOrEmpty(TxtContraseña.Texts) || TxtContraseña.Texts.Equals("Contraseña"))
+                TxtContraseña.PasswordChar = false;
         }
 
         //Tras dejar el textbox en vacio e ir a otro control dejara por defecto la parabra, funciona como un hint en Android xml
-        private void TbxUser_Leave(object sender, EventArgs e)
+        private void TxtUser_Leave(object sender, EventArgs e)
         {
-            if (TbxUser.Text.Equals(String.Empty)) TbxUser.Text = "Nombre de usuario";
+            if (TxtUsuario.Texts.Equals(String.Empty))
+                TxtUsuario.Texts = "Nombre de usuario";
+            else
+                ValidarUsuarioExistente();
         }
 
         // Al hacer click en el botón verifica si existe el usuario, de ser así, cambia de color.
-        private void FABtnPerfil_Click(object sender, EventArgs e)
+        private void BtnPerfil_Click(object sender, EventArgs e)
         {
             ValidarUsuarioExistente();
         }
 
         private bool ValidarUsuarioExistente()
         {
-            string sql = "SELECT * FROM Usuarios WHERE NombreUsuario = '" + TbxUser.Text + "'";
+            string sql = "SELECT * FROM Usuarios WHERE NombreUsuario = '" + TxtUsuario.Texts + "'";
             MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
             bool usuarioEncontrado = cmd.ExecuteScalar() != null;
             if (usuarioEncontrado)
             {
-                BtnPerfil.IconColor = Color.Green;
-                LblUser.ForeColor = Color.Green;
+                BtnUsuario.IconColor = Color.FromArgb(100, 200, 100);
+                BtnUsuario.IconChar = IconChar.UserCheck;
                 return true;
             }
             else
             {
-                BtnPerfil.IconColor = Color.Red;
-                LblUser.ForeColor = Color.Red;
+                BtnUsuario.IconColor = Color.FromArgb(240, 83, 83);
+                BtnUsuario.IconChar = IconChar.UserTimes;
                 return false;
             }
         }
 
         //Cambia de color cuando el raton esta encima del Buton
-        private void FABtnPerfil_MouseEnter(object sender, EventArgs e)
+        private void BtnPerfil_MouseEnter(object sender, EventArgs e)
         {
-            if (!BtnPerfil.IconColor.Equals(Color.Red) && !BtnPerfil.IconColor.Equals(Color.Green))
-            {
-                BtnPerfil.FlatAppearance.MouseOverBackColor = Color.Transparent;
-                BtnPerfil.FlatAppearance.MouseDownBackColor = Color.Transparent;
-                BtnPerfil.IconColor = Color.FromArgb(171, 159, 244);
-            }
-            //else
-            //    BtnPerfil.IconColor = Color.IndianRed;
+            if (BtnUsuario.IconColor.Equals(Color.FromArgb(110, 110, 255)))
+                BtnUsuario.IconColor = Color.FromArgb(150, 150, 255);
+
+            if (BtnUsuario.IconColor.Equals(Color.FromArgb(100, 200, 100)))
+                BtnUsuario.IconColor = Color.FromArgb(140, 200, 140);
+
+            if (BtnUsuario.IconColor.Equals(Color.FromArgb(240, 83, 83)))
+                BtnUsuario.IconColor = Color.FromArgb(240, 123, 123);
         }
 
         //Cambia de color cuando el raton deja de estar encima del Buton
-        private void FABtnPerfil_MouseLeave(object sender, EventArgs e)
+        private void BtnPerfil_MouseLeave(object sender, EventArgs e)
         {
-            if (!BtnPerfil.IconColor.Equals(Color.Red) && !BtnPerfil.IconColor.Equals(Color.Green))
-                BtnPerfil.IconColor = Color.MediumSlateBlue;
+            if (BtnUsuario.IconColor.Equals(Color.FromArgb(150, 150, 255)))
+                BtnUsuario.IconColor = Color.FromArgb(110, 110, 255);
+
+            if (BtnUsuario.IconColor.Equals(Color.FromArgb(140, 200, 140)))
+                BtnUsuario.IconColor = Color.FromArgb(100, 200, 100);
+
+            if (BtnUsuario.IconColor.Equals(Color.FromArgb(240, 123, 123)))
+                BtnUsuario.IconColor = Color.FromArgb(240, 83, 83);
         }
 
-        private void TbxUser_KeyDown(object sender, KeyEventArgs e)
+        private void TxtUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter)
-            {
-                TbxPassword.Focus();
-                if (ValidarUsuarioExistente())
-                {
-                    e.Handled = true;
-                    e.SuppressKeyPress = true;
-                }
-            }
+            if (e.KeyChar.Equals((char)Keys.Enter))
+                IniciarSesion();
         }
         #endregion
 
@@ -261,100 +286,101 @@ namespace Garmoxu_Desktop
         // Al hacer click en el iconButton mostrar/ocultara la contraseña que se ha puesto en el textbox.
         private void BtnPassword_Click(object sender, EventArgs e)
         {
-            if (BtnPassword.IconChar.Equals(IconChar.EyeSlash))
+            if (BtnContraseña.IconChar.Equals(IconChar.EyeSlash))
             {
-                BtnPassword.IconChar = IconChar.Eye;
-                BtnPassword.IconColor = Color.MediumSlateBlue;
-                TbxPassword.UseSystemPasswordChar = false;
+                BtnContraseña.IconChar = IconChar.Eye;
+                BtnContraseña.IconColor = Color.CornflowerBlue;
+                TxtContraseña.PasswordChar = false;
             }
             else
             {
-                BtnPassword.IconChar = IconChar.EyeSlash;
-                BtnPassword.IconColor = Color.Gray;
-                if (!TbxPassword.Text.Equals("Contraseña"))
-                    TbxPassword.UseSystemPasswordChar = true;
+                BtnContraseña.IconChar = IconChar.EyeSlash;
+                BtnContraseña.IconColor = Color.Gray;
+                if (!TxtContraseña.Texts.Equals("Contraseña"))
+                    TxtContraseña.PasswordChar = true;
             }
         }
 
         // Cambia de color cuando el raton esta encima del Button.
         private void BtnPassword_MouseEnter(object sender, EventArgs e)
         {
-            BtnPassword.IconColor = Color.FromArgb(171, 159, 244);
+            BtnContraseña.IconColor = Color.FromArgb(171, 159, 244);
         }
 
         // Cambia de color cuando el raton deja de estar encima del Button.
         private void BtnPassword_MouseLeave(object sender, EventArgs e)
         {
-            if (BtnPassword.IconChar.Equals(IconChar.EyeSlash))
-                BtnPassword.IconColor = Color.Gray;
+            if (BtnContraseña.IconChar.Equals(IconChar.EyeSlash))
+                BtnContraseña.IconColor = Color.Gray;
             else
-                BtnPassword.IconColor = Color.MediumSlateBlue;
+                BtnContraseña.IconColor = Color.CornflowerBlue;
         }
 
         // Si el textbox esta en por defecto al acceder se eliminara el texto y lo pondra en modo contraseña,
         // funciona como un hint en Android xml
-        private void TbxPassword_Enter(object sender, EventArgs e)
+        private void TxtPassword_Enter(object sender, EventArgs e)
         {
-            if (TbxPassword.Text.Equals("Contraseña"))
+            if (TxtContraseña.Texts.Equals("Contraseña"))
             {
-                TbxPassword.Text = string.Empty;
-                if (BtnPassword.IconChar.Equals(IconChar.EyeSlash))
-                    TbxPassword.UseSystemPasswordChar = true;
+                TxtContraseña.Texts = string.Empty;
+                if (BtnContraseña.IconChar.Equals(IconChar.EyeSlash))
+                    TxtContraseña.PasswordChar = true;
             }
         }
 
         //Tras dejar el textbox en vacio e ir a otro control dejara por defecto la parabra, funciona como un hint en Android xml
-        private void TbxPassword_Leave(object sender, EventArgs e)
+        private void TxtPassword_Leave(object sender, EventArgs e)
         {
-            if (TbxPassword.Text.Equals(string.Empty))
+            if (TxtContraseña.Texts.Equals(string.Empty))
             {
-                TbxPassword.Text = "Contraseña";
-                TbxPassword.UseSystemPasswordChar = false;
-            }
+                TxtContraseña.Texts = "Contraseña";
+                TxtUsuario.Focus();
+                //TxtContraseña.PasswordChar = false;
+            }          
         }
 
-        //Al introducir el Key.Enter iniciara el metodo de IniciarSesion
-        private void TbxPassword_KeyDown(object sender, KeyEventArgs e)
+        private void TxtContraseña_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyCode == Keys.Enter) IniciarSesion();
+            if (e.KeyChar.Equals((char)Keys.Enter))
+                IniciarSesion();
         }
         #endregion
 
         #region Boton Inicio de sesion
         //Al hacer click al boton de iniciar activara el metodo de IniciarSesion
-        private void RJBtnIniciar_Click(object sender, EventArgs e)
+        private void BtnIniciar_Click(object sender, EventArgs e)
         {
             IniciarSesion();
         }
 
         private void IniciarSesion()
         {
-            string contraseñaActual = TbxPassword.Text;
+            string contraseñaActual = TxtContraseña.Texts;
 
             string contraseñaActualEncriptada = EncriptarContraseña(contraseñaActual);
 
-            string sql = "SELECT * FROM Usuarios WHERE NombreUsuario = '" + TbxUser.Text + "' " +
+            string sql = "SELECT * FROM Usuarios WHERE NombreUsuario = '" + TxtUsuario.Texts + "' " +
                 "AND Contraseña = '" + contraseñaActualEncriptada + "'";
             MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
             if (cmd.ExecuteScalar() != null)
             {
-                UsuarioActual = TbxUser.Text;
+                UsuarioActual = TxtUsuario.Texts;
                 RegistrarAcceso();
                 RecordarUsuario();
-                TbxPassword.Text = string.Empty;
+                TxtContraseña.Texts = string.Empty;
                 BtnPassword_Click(null, null);
-                TbxPassword.Focus();
+                TxtContraseña.Focus();
                 this.Hide();
                 CrearNuevaContraseña();
             }
             else
             {
                 MessageBox.Show("¡Las credenciales introducidas no son correctas!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                if (!contraseñaActual.Equals("Contraseña")) TbxPassword.Text = string.Empty;
-                if (TbxUser.Text.Equals("Nombre de usuario"))
-                    TbxUser.Focus();
+                if (!contraseñaActual.Equals("Contraseña")) TxtContraseña.Texts = string.Empty;
+                if (TxtUsuario.Texts.Equals("Nombre de usuario"))
+                    TxtUsuario.Focus();
                 else
-                    TbxPassword.Focus();
+                    TxtContraseña.Focus();
             }
         }
 
@@ -376,13 +402,13 @@ namespace Garmoxu_Desktop
 
         private void CrearNuevaContraseña()
         {
-            string sql = "SELECT RestablecerContraseña FROM Usuarios WHERE NombreUsuario = '" + TbxUser.Text + "'";
+            string sql = "SELECT RestablecerContraseña FROM Usuarios WHERE NombreUsuario = '" + TxtUsuario.Texts + "'";
             MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
             if (cmd.ExecuteScalar().ToString().Equals("True"))
             {
-                if (FrmMessageBoxPersonalizado.ShowMePassword(TbxUser.Text, ConexionBD).Equals(DialogResult.Yes))
+                if (FrmMessageBoxPersonalizado.ShowMePassword(TxtUsuario.Texts, ConexionBD).Equals(DialogResult.Yes))
                 {
-                    FrmMain f = new FrmMain(ConexionBD, TbxUser.Text, RecogerNivelDePermisos(), RecogerImagenDelUsuario(), this);
+                    FrmMain f = new FrmMain(ConexionBD, TxtUsuario.Texts, RecogerNivelDePermisos(), RecogerImagenDelUsuario(), this);
                     f.Show();
                 }
                 else
@@ -393,7 +419,7 @@ namespace Garmoxu_Desktop
             }
             else
             {
-                FrmMain f = new FrmMain(ConexionBD, TbxUser.Text, RecogerNivelDePermisos(), RecogerImagenDelUsuario(), this);
+                FrmMain f = new FrmMain(ConexionBD, TxtUsuario.Texts, RecogerNivelDePermisos(), RecogerImagenDelUsuario(), this);
                 f.Show();
             }
         }
@@ -446,7 +472,7 @@ namespace Garmoxu_Desktop
             else
             {
                 lector.Close();
-                return null;
+                return Properties.Resources.User_Default_Icon;
             }
         }
         #endregion
@@ -488,6 +514,11 @@ namespace Garmoxu_Desktop
             }
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
-        #endregion               
+        #endregion
+
+        private void tableLayoutPanel6_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

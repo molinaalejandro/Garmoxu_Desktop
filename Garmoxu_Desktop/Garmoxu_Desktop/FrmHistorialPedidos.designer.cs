@@ -162,8 +162,8 @@
             // 
             // DtpBuscar
             // 
-            this.DtpBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.DtpBuscar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DtpBuscar.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.DtpBuscar.BorderSize = 0;
@@ -191,8 +191,8 @@
             // 
             // CboTipo
             // 
-            this.CboTipo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.CboTipo.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.CboTipo.BackColor = System.Drawing.Color.WhiteSmoke;
             this.CboTipo.BorderColor = System.Drawing.Color.MediumSlateBlue;
@@ -245,8 +245,8 @@
             // 
             // TxtTelefono
             // 
-            this.TxtTelefono.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.TxtTelefono.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtTelefono.BackColor = System.Drawing.SystemColors.Window;
             this.TxtTelefono.BorderColor = System.Drawing.Color.MediumSlateBlue;
@@ -291,8 +291,8 @@
             this.DtgHistorial.AllowUserToDeleteRows = false;
             this.DtgHistorial.AllowUserToOrderColumns = true;
             this.DtgHistorial.AllowUserToResizeRows = false;
-            this.DtgHistorial.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.DtgHistorial.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DtgHistorial.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DtgHistorial.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
@@ -332,6 +332,7 @@
             this.Controls.Add(this.PnlMain);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmHistorialPedidos";
+            this.Tag = "Historial de pedidos";
             this.Text = "FrmHistorialPedidos";
             this.EnabledChanged += new System.EventHandler(this.FrmHistorialPedidos_EnabledChanged);
             this.PnlMain.ResumeLayout(false);

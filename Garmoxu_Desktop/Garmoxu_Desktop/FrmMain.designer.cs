@@ -39,34 +39,43 @@
             this.BtnPedidos = new FontAwesome.Sharp.IconButton();
             this.BtnUsers = new FontAwesome.Sharp.IconButton();
             this.BtnAjustes = new FontAwesome.Sharp.IconButton();
+            this.iconButton1 = new FontAwesome.Sharp.IconButton();
+            this.LblUsuarioActual = new System.Windows.Forms.Label();
             this.PnlEncabezado = new System.Windows.Forms.Panel();
             this.PnlCabeceraMenu = new System.Windows.Forms.TableLayoutPanel();
             this.PicUser = new RJCodeAdvance.RJControls.RJCircularPictureBox();
             this.BtnPanel = new FontAwesome.Sharp.IconButton();
             this.PnlBody = new System.Windows.Forms.Panel();
             this.PnlMain = new System.Windows.Forms.Panel();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.PicLogo = new System.Windows.Forms.PictureBox();
             this.PnlTitle = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.LblTitulo = new System.Windows.Forms.Label();
-            this.LblReloj = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.BtnClose = new FontAwesome.Sharp.IconButton();
             this.BtnMinimize = new FontAwesome.Sharp.IconButton();
             this.BtnResize = new FontAwesome.Sharp.IconButton();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.LblSeccion = new System.Windows.Forms.Label();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.LblFecha = new System.Windows.Forms.Label();
+            this.LblHora = new System.Windows.Forms.Label();
             this.TmrRelojMain = new System.Windows.Forms.Timer(this.components);
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.PicLogo = new System.Windows.Forms.PictureBox();
+            this.BtnCerrar = new FontAwesome.Sharp.IconButton();
             this.PnlLateral.SuspendLayout();
             this.PnlEncabezado.SuspendLayout();
             this.PnlCabeceraMenu.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicUser)).BeginInit();
             this.PnlBody.SuspendLayout();
             this.PnlMain.SuspendLayout();
+            this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).BeginInit();
             this.PnlTitle.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
-            this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).BeginInit();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
             this.SuspendLayout();
             // 
             // PnlLateral
@@ -80,6 +89,8 @@
             this.PnlLateral.Controls.Add(this.BtnPedidos);
             this.PnlLateral.Controls.Add(this.BtnUsers);
             this.PnlLateral.Controls.Add(this.BtnAjustes);
+            this.PnlLateral.Controls.Add(this.iconButton1);
+            this.PnlLateral.Controls.Add(this.LblUsuarioActual);
             this.PnlLateral.Controls.Add(this.PnlEncabezado);
             this.PnlLateral.Dock = System.Windows.Forms.DockStyle.Left;
             this.PnlLateral.Location = new System.Drawing.Point(0, 74);
@@ -90,6 +101,7 @@
             // 
             // BtnCliente
             // 
+            this.BtnCliente.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnCliente.Dock = System.Windows.Forms.DockStyle.Top;
             this.BtnCliente.FlatAppearance.BorderSize = 0;
             this.BtnCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -99,7 +111,7 @@
             this.BtnCliente.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(165)))), ((int)(((byte)(255)))));
             this.BtnCliente.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnCliente.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCliente.Location = new System.Drawing.Point(0, 465);
+            this.BtnCliente.Location = new System.Drawing.Point(0, 516);
             this.BtnCliente.Margin = new System.Windows.Forms.Padding(4);
             this.BtnCliente.Name = "BtnCliente";
             this.BtnCliente.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -113,6 +125,7 @@
             // 
             // BtnCategoria
             // 
+            this.BtnCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnCategoria.Dock = System.Windows.Forms.DockStyle.Top;
             this.BtnCategoria.FlatAppearance.BorderSize = 0;
             this.BtnCategoria.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -122,7 +135,7 @@
             this.BtnCategoria.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(199)))), ((int)(((byte)(93)))), ((int)(((byte)(169)))));
             this.BtnCategoria.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnCategoria.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnCategoria.Location = new System.Drawing.Point(0, 403);
+            this.BtnCategoria.Location = new System.Drawing.Point(0, 454);
             this.BtnCategoria.Margin = new System.Windows.Forms.Padding(4);
             this.BtnCategoria.Name = "BtnCategoria";
             this.BtnCategoria.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -136,6 +149,7 @@
             // 
             // BtnPlatos
             // 
+            this.BtnPlatos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnPlatos.Dock = System.Windows.Forms.DockStyle.Top;
             this.BtnPlatos.FlatAppearance.BorderSize = 0;
             this.BtnPlatos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -145,7 +159,7 @@
             this.BtnPlatos.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(219)))), ((int)(((byte)(171)))), ((int)(((byte)(88)))));
             this.BtnPlatos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnPlatos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnPlatos.Location = new System.Drawing.Point(0, 341);
+            this.BtnPlatos.Location = new System.Drawing.Point(0, 392);
             this.BtnPlatos.Margin = new System.Windows.Forms.Padding(4);
             this.BtnPlatos.Name = "BtnPlatos";
             this.BtnPlatos.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -159,6 +173,7 @@
             // 
             // BtnHistorial
             // 
+            this.BtnHistorial.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnHistorial.Dock = System.Windows.Forms.DockStyle.Top;
             this.BtnHistorial.FlatAppearance.BorderSize = 0;
             this.BtnHistorial.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -168,7 +183,7 @@
             this.BtnHistorial.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(219)))), ((int)(((byte)(59)))));
             this.BtnHistorial.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnHistorial.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnHistorial.Location = new System.Drawing.Point(0, 279);
+            this.BtnHistorial.Location = new System.Drawing.Point(0, 330);
             this.BtnHistorial.Margin = new System.Windows.Forms.Padding(4);
             this.BtnHistorial.Name = "BtnHistorial";
             this.BtnHistorial.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -182,6 +197,7 @@
             // 
             // BtnReservas
             // 
+            this.BtnReservas.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnReservas.Dock = System.Windows.Forms.DockStyle.Top;
             this.BtnReservas.FlatAppearance.BorderSize = 0;
             this.BtnReservas.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -191,7 +207,7 @@
             this.BtnReservas.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(215)))), ((int)(((byte)(255)))));
             this.BtnReservas.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnReservas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnReservas.Location = new System.Drawing.Point(0, 217);
+            this.BtnReservas.Location = new System.Drawing.Point(0, 268);
             this.BtnReservas.Margin = new System.Windows.Forms.Padding(4);
             this.BtnReservas.Name = "BtnReservas";
             this.BtnReservas.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -205,6 +221,7 @@
             // 
             // BtnPedidos
             // 
+            this.BtnPedidos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnPedidos.Dock = System.Windows.Forms.DockStyle.Top;
             this.BtnPedidos.FlatAppearance.BorderSize = 0;
             this.BtnPedidos.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -214,7 +231,7 @@
             this.BtnPedidos.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(2)))));
             this.BtnPedidos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnPedidos.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnPedidos.Location = new System.Drawing.Point(0, 155);
+            this.BtnPedidos.Location = new System.Drawing.Point(0, 206);
             this.BtnPedidos.Margin = new System.Windows.Forms.Padding(4);
             this.BtnPedidos.Name = "BtnPedidos";
             this.BtnPedidos.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -228,6 +245,7 @@
             // 
             // BtnUsers
             // 
+            this.BtnUsers.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnUsers.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BtnUsers.FlatAppearance.BorderSize = 0;
             this.BtnUsers.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -251,6 +269,7 @@
             // 
             // BtnAjustes
             // 
+            this.BtnAjustes.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnAjustes.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BtnAjustes.FlatAppearance.BorderSize = 0;
             this.BtnAjustes.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -272,6 +291,44 @@
             this.BtnAjustes.UseVisualStyleBackColor = true;
             this.BtnAjustes.Click += new System.EventHandler(this.BtnAjustes_Click);
             // 
+            // iconButton1
+            // 
+            this.iconButton1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.iconButton1.FlatAppearance.BorderSize = 0;
+            this.iconButton1.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.iconButton1.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.iconButton1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.iconButton1.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.iconButton1.ForeColor = System.Drawing.Color.White;
+            this.iconButton1.IconChar = FontAwesome.Sharp.IconChar.None;
+            this.iconButton1.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(212)))), ((int)(((byte)(212)))), ((int)(((byte)(2)))));
+            this.iconButton1.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.iconButton1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.iconButton1.Location = new System.Drawing.Point(0, 180);
+            this.iconButton1.Margin = new System.Windows.Forms.Padding(4);
+            this.iconButton1.Name = "iconButton1";
+            this.iconButton1.Padding = new System.Windows.Forms.Padding(20, 10, 0, 0);
+            this.iconButton1.Size = new System.Drawing.Size(250, 26);
+            this.iconButton1.TabIndex = 34;
+            this.iconButton1.Tag = "";
+            this.iconButton1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.iconButton1.UseVisualStyleBackColor = true;
+            // 
+            // LblUsuarioActual
+            // 
+            this.LblUsuarioActual.AutoSize = true;
+            this.LblUsuarioActual.Dock = System.Windows.Forms.DockStyle.Top;
+            this.LblUsuarioActual.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold);
+            this.LblUsuarioActual.ForeColor = System.Drawing.Color.Silver;
+            this.LblUsuarioActual.Location = new System.Drawing.Point(0, 155);
+            this.LblUsuarioActual.Margin = new System.Windows.Forms.Padding(0);
+            this.LblUsuarioActual.Name = "LblUsuarioActual";
+            this.LblUsuarioActual.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.LblUsuarioActual.Size = new System.Drawing.Size(101, 25);
+            this.LblUsuarioActual.TabIndex = 35;
+            this.LblUsuarioActual.Text = "Usuario";
+            this.LblUsuarioActual.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // PnlEncabezado
             // 
             this.PnlEncabezado.Controls.Add(this.PnlCabeceraMenu);
@@ -291,6 +348,7 @@
             this.PnlCabeceraMenu.Controls.Add(this.BtnPanel, 1, 0);
             this.PnlCabeceraMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlCabeceraMenu.Location = new System.Drawing.Point(0, 0);
+            this.PnlCabeceraMenu.Margin = new System.Windows.Forms.Padding(0);
             this.PnlCabeceraMenu.Name = "PnlCabeceraMenu";
             this.PnlCabeceraMenu.RowCount = 1;
             this.PnlCabeceraMenu.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -299,21 +357,22 @@
             // 
             // PicUser
             // 
-            this.PicUser.BackColor = System.Drawing.Color.Silver;
+            this.PicUser.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(130)))), ((int)(((byte)(255)))));
             this.PicUser.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
-            this.PicUser.BorderColor = System.Drawing.Color.Silver;
-            this.PicUser.BorderColor2 = System.Drawing.Color.Silver;
-            this.PicUser.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Dash;
+            this.PicUser.BorderColor = System.Drawing.Color.White;
+            this.PicUser.BorderColor2 = System.Drawing.Color.White;
+            this.PicUser.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
             this.PicUser.BorderSize = 3;
+            this.PicUser.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PicUser.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PicUser.GradientAngle = 50F;
             this.PicUser.Image = global::Garmoxu_Desktop.Properties.Resources.User_Default_Icon;
-            this.PicUser.Location = new System.Drawing.Point(25, 0);
-            this.PicUser.Margin = new System.Windows.Forms.Padding(25, 0, 3, 0);
+            this.PicUser.Location = new System.Drawing.Point(20, 0);
+            this.PicUser.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.PicUser.Name = "PicUser";
-            this.PicUser.Size = new System.Drawing.Size(147, 147);
+            this.PicUser.Size = new System.Drawing.Size(155, 155);
             this.PicUser.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PicUser.TabIndex = 24;
+            this.PicUser.TabIndex = 25;
             this.PicUser.TabStop = false;
             this.PicUser.Click += new System.EventHandler(this.PicUser_Click);
             this.PicUser.MouseEnter += new System.EventHandler(this.PicUser_MouseEnter);
@@ -321,6 +380,7 @@
             // 
             // BtnPanel
             // 
+            this.BtnPanel.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnPanel.FlatAppearance.BorderSize = 0;
             this.BtnPanel.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(74)))), ((int)(((byte)(78)))));
@@ -329,7 +389,7 @@
             this.BtnPanel.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnPanel.ForeColor = System.Drawing.Color.White;
             this.BtnPanel.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
-            this.BtnPanel.IconColor = System.Drawing.Color.Silver;
+            this.BtnPanel.IconColor = System.Drawing.Color.White;
             this.BtnPanel.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnPanel.Location = new System.Drawing.Point(175, 0);
             this.BtnPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -363,6 +423,36 @@
             this.PnlMain.Name = "PnlMain";
             this.PnlMain.Size = new System.Drawing.Size(1160, 795);
             this.PnlMain.TabIndex = 8;
+            this.PnlMain.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.PnlMain_ControlRemoved);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 3;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel1.Controls.Add(this.PicLogo, 1, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 3;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1160, 795);
+            this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // PicLogo
+            // 
+            this.PicLogo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PicLogo.Image = global::Garmoxu_Desktop.Properties.Resources.Garmoxu_Logo_Circle_New_Red_Less_Opacity;
+            this.PicLogo.Location = new System.Drawing.Point(174, 119);
+            this.PicLogo.Margin = new System.Windows.Forms.Padding(0);
+            this.PicLogo.Name = "PicLogo";
+            this.PicLogo.Size = new System.Drawing.Size(812, 556);
+            this.PicLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PicLogo.TabIndex = 6;
+            this.PicLogo.TabStop = false;
             // 
             // PnlTitle
             // 
@@ -378,12 +468,12 @@
             // tableLayoutPanel2
             // 
             this.tableLayoutPanel2.ColumnCount = 3;
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 80F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 60F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 20F));
             this.tableLayoutPanel2.Controls.Add(this.LblTitulo, 0, 0);
-            this.tableLayoutPanel2.Controls.Add(this.LblReloj, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel3, 2, 0);
+            this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel4, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
@@ -403,50 +493,33 @@
             this.LblTitulo.Location = new System.Drawing.Point(14, 0);
             this.LblTitulo.Margin = new System.Windows.Forms.Padding(14, 0, 4, 0);
             this.LblTitulo.Name = "LblTitulo";
-            this.LblTitulo.Size = new System.Drawing.Size(123, 74);
+            this.LblTitulo.Size = new System.Drawing.Size(264, 74);
             this.LblTitulo.TabIndex = 0;
             this.LblTitulo.Text = "Garmoxu";
             this.LblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // LblReloj
-            // 
-            this.LblReloj.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.LblReloj.AutoSize = true;
-            this.LblReloj.BackColor = System.Drawing.Color.Transparent;
-            this.LblReloj.Font = new System.Drawing.Font("Source Sans Pro", 24F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.LblReloj.ForeColor = System.Drawing.Color.White;
-            this.LblReloj.Location = new System.Drawing.Point(144, 0);
-            this.LblReloj.Name = "LblReloj";
-            this.LblReloj.Size = new System.Drawing.Size(1122, 74);
-            this.LblReloj.TabIndex = 5;
-            this.LblReloj.Text = "00:00";
-            this.LblReloj.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
             // tableLayoutPanel3
             // 
             this.tableLayoutPanel3.ColumnCount = 3;
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel3.Controls.Add(this.BtnClose, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.BtnMinimize, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.BtnResize, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(1272, 0);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(1131, 0);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(138, 74);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(279, 74);
             this.tableLayoutPanel3.TabIndex = 6;
             // 
             // BtnClose
             // 
             this.BtnClose.BackColor = System.Drawing.Color.Transparent;
-            this.BtnClose.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(42)))), ((int)(((byte)(45)))));
             this.BtnClose.FlatAppearance.BorderSize = 0;
             this.BtnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(71)))), ((int)(((byte)(83)))));
@@ -454,13 +527,13 @@
             this.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnClose.ForeColor = System.Drawing.Color.Silver;
             this.BtnClose.IconChar = FontAwesome.Sharp.IconChar.Times;
-            this.BtnClose.IconColor = System.Drawing.Color.Silver;
+            this.BtnClose.IconColor = System.Drawing.Color.White;
             this.BtnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnClose.IconSize = 25;
-            this.BtnClose.Location = new System.Drawing.Point(85, 0);
+            this.BtnClose.Location = new System.Drawing.Point(213, 0);
             this.BtnClose.Margin = new System.Windows.Forms.Padding(0);
             this.BtnClose.Name = "BtnClose";
-            this.BtnClose.Size = new System.Drawing.Size(53, 74);
+            this.BtnClose.Size = new System.Drawing.Size(66, 74);
             this.BtnClose.TabIndex = 11;
             this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnClose.UseVisualStyleBackColor = false;
@@ -469,7 +542,7 @@
             // BtnMinimize
             // 
             this.BtnMinimize.BackColor = System.Drawing.Color.Transparent;
-            this.BtnMinimize.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnMinimize.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnMinimize.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(42)))), ((int)(((byte)(45)))));
             this.BtnMinimize.FlatAppearance.BorderSize = 0;
             this.BtnMinimize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.CornflowerBlue;
@@ -477,13 +550,13 @@
             this.BtnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnMinimize.ForeColor = System.Drawing.Color.Silver;
             this.BtnMinimize.IconChar = FontAwesome.Sharp.IconChar.WindowMinimize;
-            this.BtnMinimize.IconColor = System.Drawing.Color.Silver;
+            this.BtnMinimize.IconColor = System.Drawing.Color.White;
             this.BtnMinimize.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnMinimize.IconSize = 20;
-            this.BtnMinimize.Location = new System.Drawing.Point(0, 0);
+            this.BtnMinimize.Location = new System.Drawing.Point(114, 0);
             this.BtnMinimize.Margin = new System.Windows.Forms.Padding(0);
             this.BtnMinimize.Name = "BtnMinimize";
-            this.BtnMinimize.Size = new System.Drawing.Size(52, 74);
+            this.BtnMinimize.Size = new System.Drawing.Size(66, 74);
             this.BtnMinimize.TabIndex = 10;
             this.BtnMinimize.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnMinimize.UseVisualStyleBackColor = false;
@@ -492,17 +565,17 @@
             // BtnResize
             // 
             this.BtnResize.BackColor = System.Drawing.Color.Transparent;
-            this.BtnResize.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnResize.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnResize.FlatAppearance.BorderSize = 0;
             this.BtnResize.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.BtnResize.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.BtnResize.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnResize.ForeColor = System.Drawing.Color.Silver;
             this.BtnResize.IconChar = FontAwesome.Sharp.IconChar.WindowRestore;
-            this.BtnResize.IconColor = System.Drawing.Color.Silver;
+            this.BtnResize.IconColor = System.Drawing.Color.White;
             this.BtnResize.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnResize.IconSize = 20;
-            this.BtnResize.Location = new System.Drawing.Point(52, 0);
+            this.BtnResize.Location = new System.Drawing.Point(180, 0);
             this.BtnResize.Margin = new System.Windows.Forms.Padding(0);
             this.BtnResize.Name = "BtnResize";
             this.BtnResize.Size = new System.Drawing.Size(33, 74);
@@ -511,40 +584,120 @@
             this.BtnResize.UseVisualStyleBackColor = false;
             this.BtnResize.Visible = false;
             // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 5;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
+            this.tableLayoutPanel4.Controls.Add(this.BtnCerrar, 5, 0);
+            this.tableLayoutPanel4.Controls.Add(this.LblSeccion, 2, 0);
+            this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 0, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(285, 3);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(840, 68);
+            this.tableLayoutPanel4.TabIndex = 7;
+            // 
+            // LblSeccion
+            // 
+            this.LblSeccion.AutoSize = true;
+            this.LblSeccion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LblSeccion.Font = new System.Drawing.Font("Source Sans Pro", 18F, System.Drawing.FontStyle.Bold);
+            this.LblSeccion.ForeColor = System.Drawing.Color.Silver;
+            this.LblSeccion.Location = new System.Drawing.Point(260, 0);
+            this.LblSeccion.Margin = new System.Windows.Forms.Padding(0);
+            this.LblSeccion.Name = "LblSeccion";
+            this.LblSeccion.Size = new System.Drawing.Size(320, 68);
+            this.LblSeccion.TabIndex = 56;
+            this.LblSeccion.Text = "Menú principal";
+            this.LblSeccion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Controls.Add(this.LblFecha, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.LblHora, 0, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 2;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(234, 62);
+            this.tableLayoutPanel5.TabIndex = 55;
+            // 
+            // LblFecha
+            // 
+            this.LblFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LblFecha.AutoSize = true;
+            this.LblFecha.BackColor = System.Drawing.Color.Transparent;
+            this.LblFecha.Font = new System.Drawing.Font("Source Sans Pro", 18F, System.Drawing.FontStyle.Bold);
+            this.LblFecha.ForeColor = System.Drawing.Color.Silver;
+            this.LblFecha.Location = new System.Drawing.Point(0, 31);
+            this.LblFecha.Margin = new System.Windows.Forms.Padding(0);
+            this.LblFecha.Name = "LblFecha";
+            this.LblFecha.Size = new System.Drawing.Size(234, 31);
+            this.LblFecha.TabIndex = 7;
+            this.LblFecha.Text = "15/06/2022";
+            this.LblFecha.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // LblHora
+            // 
+            this.LblHora.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LblHora.AutoSize = true;
+            this.LblHora.BackColor = System.Drawing.Color.Transparent;
+            this.LblHora.Font = new System.Drawing.Font("Source Sans Pro", 18F, System.Drawing.FontStyle.Bold);
+            this.LblHora.ForeColor = System.Drawing.Color.Silver;
+            this.LblHora.Location = new System.Drawing.Point(0, 0);
+            this.LblHora.Margin = new System.Windows.Forms.Padding(0);
+            this.LblHora.Name = "LblHora";
+            this.LblHora.Size = new System.Drawing.Size(234, 31);
+            this.LblHora.TabIndex = 6;
+            this.LblHora.Text = "00:00";
+            this.LblHora.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // TmrRelojMain
             // 
             this.TmrRelojMain.Enabled = true;
             this.TmrRelojMain.Interval = 1000;
             this.TmrRelojMain.Tick += new System.EventHandler(this.TmrRelojMain_Tick);
             // 
-            // tableLayoutPanel1
+            // BtnCerrar
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.Controls.Add(this.PicLogo, 1, 1);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 3;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1160, 795);
-            this.tableLayoutPanel1.TabIndex = 0;
-            // 
-            // PicLogo
-            // 
-            this.PicLogo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PicLogo.Image = global::Garmoxu_Desktop.Properties.Resources.Garmoxu_Logo_Circle_New_Red_Less_Opacity;
-            this.PicLogo.Location = new System.Drawing.Point(174, 119);
-            this.PicLogo.Margin = new System.Windows.Forms.Padding(0);
-            this.PicLogo.Name = "PicLogo";
-            this.PicLogo.Size = new System.Drawing.Size(812, 556);
-            this.PicLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PicLogo.TabIndex = 6;
-            this.PicLogo.TabStop = false;
+            this.BtnCerrar.BackColor = System.Drawing.Color.Transparent;
+            this.BtnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnCerrar.Dock = System.Windows.Forms.DockStyle.Left;
+            this.BtnCerrar.Enabled = false;
+            this.BtnCerrar.FlatAppearance.BorderSize = 0;
+            this.BtnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BtnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BtnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCerrar.ForeColor = System.Drawing.Color.Transparent;
+            this.BtnCerrar.IconChar = FontAwesome.Sharp.IconChar.TimesCircle;
+            this.BtnCerrar.IconColor = System.Drawing.Color.Silver;
+            this.BtnCerrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnCerrar.IconSize = 50;
+            this.BtnCerrar.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
+            this.BtnCerrar.Location = new System.Drawing.Point(600, 0);
+            this.BtnCerrar.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnCerrar.Name = "BtnCerrar";
+            this.BtnCerrar.Size = new System.Drawing.Size(92, 68);
+            this.BtnCerrar.TabIndex = 57;
+            this.BtnCerrar.TabStop = false;
+            this.BtnCerrar.UseVisualStyleBackColor = false;
+            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
+            this.BtnCerrar.MouseEnter += new System.EventHandler(this.BtnCerrar_MouseEnter);
+            this.BtnCerrar.MouseLeave += new System.EventHandler(this.BtnCerrar_MouseLeave);
             // 
             // FrmMain
             // 
@@ -556,21 +709,28 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmMain";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Tag = "Menú principal";
             this.Text = "Menú principal - Garmoxu";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.PnlLateral.ResumeLayout(false);
+            this.PnlLateral.PerformLayout();
             this.PnlEncabezado.ResumeLayout(false);
             this.PnlCabeceraMenu.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PicUser)).EndInit();
             this.PnlBody.ResumeLayout(false);
             this.PnlMain.ResumeLayout(false);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).EndInit();
             this.PnlTitle.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
             this.tableLayoutPanel3.ResumeLayout(false);
-            this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).EndInit();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -589,19 +749,26 @@
         private System.Windows.Forms.Label LblTitulo;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private FontAwesome.Sharp.IconButton BtnMinimize;
-        private FontAwesome.Sharp.IconButton BtnResize;
-        private System.Windows.Forms.Label LblReloj;
         private FontAwesome.Sharp.IconButton BtnClose;
-        private FontAwesome.Sharp.IconButton BtnReservas;
+        private FontAwesome.Sharp.IconButton BtnCliente;
         private FontAwesome.Sharp.IconButton BtnCategoria;
         private FontAwesome.Sharp.IconButton BtnPlatos;
         private FontAwesome.Sharp.IconButton BtnHistorial;
+        private FontAwesome.Sharp.IconButton BtnReservas;
         private FontAwesome.Sharp.IconButton BtnPedidos;
+        private FontAwesome.Sharp.IconButton iconButton1;
+        private System.Windows.Forms.Label LblUsuarioActual;
         private System.Windows.Forms.TableLayoutPanel PnlCabeceraMenu;
         private RJCodeAdvance.RJControls.RJCircularPictureBox PicUser;
         private FontAwesome.Sharp.IconButton BtnPanel;
-        private FontAwesome.Sharp.IconButton BtnCliente;
+        private FontAwesome.Sharp.IconButton BtnResize;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Label LblSeccion;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.Label LblFecha;
+        private System.Windows.Forms.Label LblHora;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.PictureBox PicLogo;
+        private FontAwesome.Sharp.IconButton BtnCerrar;
     }
 }

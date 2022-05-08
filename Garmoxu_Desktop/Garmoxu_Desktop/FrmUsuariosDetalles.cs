@@ -89,16 +89,16 @@ namespace Garmoxu_Desktop
         #endregion
 
         #region Funciones y diseños de controles
-        private void BtnClose_MouseEnter(object sender, EventArgs e)
-        {
-            BtnClose.IconColor = System.Drawing.Color.FromArgb(240, 41, 83);
-            BtnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-        }
+        //private void BtnClose_MouseEnter(object sender, EventArgs e)
+        //{
+        //    BtnClose.IconColor = System.Drawing.Color.FromArgb(240, 41, 83);
+        //    BtnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+        //}
 
-        private void BtnClose_MouseLeave(object sender, EventArgs e)
-        {
-            BtnClose.IconColor = System.Drawing.Color.DarkGray;
-        }
+        //private void BtnClose_MouseLeave(object sender, EventArgs e)
+        //{
+        //    BtnClose.IconColor = System.Drawing.Color.DarkGray;
+        //}
         #endregion
 
         #region Alta de usuario
@@ -108,28 +108,29 @@ namespace Garmoxu_Desktop
                 && ConfirmarAccion("dar de alta")
                 && ValidarUsuarioNoExistente())
             {
-                string contraseña = string.Empty;
-                GenerarContraseñaAleatoria(ref contraseña);
+                string contraseñaSinEncriptar = string.Empty;
+                string contraseñaEncriptada = GenerarContraseñaAleatoria(ref contraseñaSinEncriptar);
 
                 string sql = string.Format(
                 "INSERT INTO Usuarios (NombreUsuario, Contraseña, NombreEmpleado, ImagenUsuario, IdTipoUsuario) " +
                 "VALUES ('{0}', '{1}', '{2}', NULL, {3})",
-                TxtUsuario.Texts.Trim(), contraseña,
+                TxtUsuario.Texts.Trim(), contraseñaEncriptada,
                 TxtNombre.Texts.Trim(), IdsTiposUsuario[CboTipoUsuario.SelectedIndex]);
 
                 MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
                 cmd.ExecuteNonQuery();
 
-                ExportarAPdf(contraseña);
+                ExportarAPdf(contraseñaSinEncriptar);
                 InformarAccionConExito();
                 this.Close();
             }
         }
 
         #region Generación de contraseñas
-        private string GenerarContraseñaAleatoria(ref string contraseña)
+        private string GenerarContraseñaAleatoria(ref string contraseñaSinEncriptar)
         {
-            contraseña = System.Web.Security.Membership.GeneratePassword(10, 0);
+            string contraseña = System.Web.Security.Membership.GeneratePassword(10, 0);
+            contraseñaSinEncriptar = contraseña;
             return EncriptarContraseña(contraseña);
         }
 
@@ -197,13 +198,18 @@ namespace Garmoxu_Desktop
         #region Cabecera
         private void AñadirCabeceraPdf(ref Document documentoPdf)
         {
-            string rutaImagenPdf = @"..\..\Resources\Garmoxu_Logo_Circle_New.png";
+            string rutaImagenPdf = @"..\..\Resources\Garmoxu_Logo_Circle_Red_New.png";
             if (File.Exists(rutaImagenPdf))
             {
                 Table tablaPdf = new Table(2, false).UseAllAvailableWidth();
 
                 iText.Layout.Element.Image imagenPdf = new iText.Layout.Element.Image(
                     ImageDataFactory.Create(rutaImagenPdf)).ScaleAbsolute(50, 50);
+
+                //byte[] imagenCabecera = (byte[])(new ImageConverter()).ConvertTo(
+                //    Properties.Resources.Garmoxu_Logo_Circle_Red_New, typeof(byte[]));
+                //iText.Layout.Element.Image imagenPdf = new iText.Layout.Element.Image(
+                //    ImageDataFactory.Create(imagenCabecera)).ScaleAbsolute(50, 50);
 
                 Cell celda1Pdf = new Cell(1, 1)
                     .SetBorder(Border.NO_BORDER)

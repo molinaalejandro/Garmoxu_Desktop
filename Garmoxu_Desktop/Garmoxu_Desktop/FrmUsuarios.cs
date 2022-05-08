@@ -55,17 +55,17 @@ namespace Garmoxu_Desktop
 
         #region Funciones y diseños de controles
         #region Boton Cerrar
-        private void BtnCerrar_MouseEnter(object sender, EventArgs e)
-        {
-            BtnCerrar.IconColor = Color.FromArgb(240, 41, 83);
-            BtnCerrar.IconChar = FontAwesome.Sharp.IconChar.DoorOpen;
-        }
+        //private void BtnCerrar_MouseEnter(object sender, EventArgs e)
+        //{
+        //    BtnCerrar.IconColor = Color.FromArgb(240, 41, 83);
+        //    BtnCerrar.IconChar = FontAwesome.Sharp.IconChar.DoorOpen;
+        //}
 
-        private void BtnCerrar_MouseLeave(object sender, EventArgs e)
-        {
-            BtnCerrar.IconColor = Color.DarkGray;
-            BtnCerrar.IconChar = FontAwesome.Sharp.IconChar.DoorClosed;
-        }
+        //private void BtnCerrar_MouseLeave(object sender, EventArgs e)
+        //{
+        //    BtnCerrar.IconColor = Color.DarkGray;
+        //    BtnCerrar.IconChar = FontAwesome.Sharp.IconChar.DoorClosed;
+        //}
         #endregion
 
         #region Boton Buscar
@@ -137,8 +137,8 @@ namespace Garmoxu_Desktop
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
             FrmUsuariosDetalles f = new FrmUsuariosDetalles(ConexionBD, Instance);
-            f.Width = (Instance.Width / 4);
-            f.Height = (Instance.Height / 2);
+            f.Width = (Instance.Width / 4) + (Instance.Width / 20);
+            f.Height = (Instance.Height / 2)+ (Instance.Height / 10);
 
             Instance.Enabled = false;
             f.Show();
@@ -148,7 +148,7 @@ namespace Garmoxu_Desktop
         #region Busqueda de usuarios
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(TxtBuscar.Texts.Trim()))
+            if (string.IsNullOrEmpty(TxtBuscar.Texts.Trim()) || TxtBuscar.Texts.Trim().Equals("Nombre de usuario / empleado"))
                 CargarDatos();
             else
             {
@@ -306,7 +306,7 @@ namespace Garmoxu_Desktop
             string valores = string.Empty;
             if (ValidarUsuarioDisponible(DatosIniciales[0]) && ComprobarCamposNoVacios()
                 && ValidarFormatoNombreUsuario() && ComprobarDatosModificados(ref valores)
-                && ConfirmarAccion("guardar los cambios realizados"))
+                && ConfirmarAccion("guardar los cambios realizados") && ValidarUsuarioNoExistente())
             {
                 string sql = string.Format(
                     "UPDATE Usuarios SET {0} WHERE NombreUsuario = '{1}'",
@@ -399,6 +399,22 @@ namespace Garmoxu_Desktop
             string mensaje = "¡El nombre de usuario solo puede contener una secuencia de letras sin acentuación y números de 40 caracteres máximo!";
             MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             return false;
+        }
+
+        private bool ValidarUsuarioNoExistente()
+        {
+            string sql = "SELECT NombreUsuario FROM Usuarios WHERE NombreUsuario = '" + TxtUsuario.Texts + "'";
+            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
+
+            if (cmd.ExecuteScalar() == null)
+                return true;
+            else if(!cmd.ExecuteScalar().ToString().Equals(DatosIniciales[0]))
+            {
+                string mensaje = "¡El nombre de usuario ya está registrado!";
+                MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return false;
+            }
+            return true;
         }
 
         #region Comprobacion de datos modificados
@@ -514,16 +530,18 @@ namespace Garmoxu_Desktop
         #region Cierre del formulario
         private void BtnCerrar_Click(object sender, EventArgs e)
         {
+            this.Close();
+        }
+        private void FrmUsuarios_FormClosing(object sender, FormClosingEventArgs e)
+        {
             string v = string.Empty;
             if (PnlDetalles.Visible && ComprobarDatosModificados(ref v))
             {
                 string mensaje = "Se perderán todos los cambios no guardados. ¿Deseas continuar?";
                 DialogResult cerrarVentana = MessageBox.Show(mensaje, "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (cerrarVentana.Equals(DialogResult.Yes))
-                    this.Close();
+                if (!cerrarVentana.Equals(DialogResult.Yes))
+                    e.Cancel = true;
             }
-            else
-                this.Close();
         }
         #endregion
     }

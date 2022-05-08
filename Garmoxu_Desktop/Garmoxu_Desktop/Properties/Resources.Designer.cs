@@ -101,6 +101,16 @@ namespace Garmoxu_Desktop.Properties {
         }
         
         /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Icon similar a (Icono).
+        /// </summary>
+        internal static System.Drawing.Icon Garmoxu_Logo_Circle_Red_New_Icono {
+            get {
+                object obj = ResourceManager.GetObject("Garmoxu_Logo_Circle_Red_New_Icono", resourceCulture);
+                return ((System.Drawing.Icon)(obj));
+            }
+        }
+        
+        /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
         internal static System.Drawing.Bitmap No_Image_Found {

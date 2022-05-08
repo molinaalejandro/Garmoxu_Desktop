@@ -52,6 +52,7 @@
             this.Cantidad = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrecioFinalSinIVA = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.PrecioFinalConIVA = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.BtnPdf = new FontAwesome.Sharp.IconButton();
             ((System.ComponentModel.ISupportInitialize)(this.DtgPlatosPedidos)).BeginInit();
             this.SuspendLayout();
             // 
@@ -235,8 +236,8 @@
             this.DtgPlatosPedidos.AllowUserToDeleteRows = false;
             this.DtgPlatosPedidos.AllowUserToOrderColumns = true;
             this.DtgPlatosPedidos.AllowUserToResizeRows = false;
-            this.DtgPlatosPedidos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-            | System.Windows.Forms.AnchorStyles.Left)
+            this.DtgPlatosPedidos.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.DtgPlatosPedidos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DtgPlatosPedidos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
@@ -264,6 +265,7 @@
             this.DtgPlatosPedidos.GridColor = System.Drawing.Color.MediumSlateBlue;
             this.DtgPlatosPedidos.Location = new System.Drawing.Point(17, 134);
             this.DtgPlatosPedidos.Margin = new System.Windows.Forms.Padding(4);
+            this.DtgPlatosPedidos.MultiSelect = false;
             this.DtgPlatosPedidos.Name = "DtgPlatosPedidos";
             this.DtgPlatosPedidos.ReadOnly = true;
             this.DtgPlatosPedidos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -330,12 +332,28 @@
             this.PrecioFinalConIVA.Name = "PrecioFinalConIVA";
             this.PrecioFinalConIVA.ReadOnly = true;
             // 
+            // BtnPdf
+            // 
+            this.BtnPdf.BackColor = System.Drawing.Color.Transparent;
+            this.BtnPdf.FlatAppearance.BorderSize = 0;
+            this.BtnPdf.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnPdf.IconChar = FontAwesome.Sharp.IconChar.FilePdf;
+            this.BtnPdf.IconColor = System.Drawing.Color.White;
+            this.BtnPdf.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnPdf.Location = new System.Drawing.Point(730, 36);
+            this.BtnPdf.Name = "BtnPdf";
+            this.BtnPdf.Size = new System.Drawing.Size(78, 44);
+            this.BtnPdf.TabIndex = 24;
+            this.BtnPdf.UseVisualStyleBackColor = false;
+            this.BtnPdf.Click += new System.EventHandler(this.BtnPdf_Click);
+            // 
             // FrmHistorialPedidosDetalles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
             this.ClientSize = new System.Drawing.Size(864, 655);
+            this.Controls.Add(this.BtnPdf);
             this.Controls.Add(this.DtgPlatosPedidos);
             this.Controls.Add(this.LblPrecioSinIVA);
             this.Controls.Add(this.label14);
@@ -386,5 +404,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Cantidad;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioFinalSinIVA;
         private System.Windows.Forms.DataGridViewTextBoxColumn PrecioFinalConIVA;
+        private FontAwesome.Sharp.IconButton BtnPdf;
     }
 }

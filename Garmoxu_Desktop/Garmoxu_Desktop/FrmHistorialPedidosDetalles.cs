@@ -1,10 +1,19 @@
-﻿using MaterialSkin.Controls;
+﻿using iText.IO.Image;
+using iText.Kernel.Pdf;
+using iText.Kernel.Pdf.Canvas.Draw;
+using iText.Layout;
+using iText.Layout.Borders;
+using iText.Layout.Element;
+using iText.Layout.Properties;
+using MaterialSkin.Controls;
 using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,17 +26,22 @@ namespace Garmoxu_Desktop
         MySqlConnection ConexionBD;
         private FrmMain Instance;
         private string ClavePrimaria;
+        private int IVA = 10;
+        private int NivelPermisos;
 
-        public FrmHistorialPedidosDetalles(MySqlConnection conexion, String clavePrimaria, FrmMain instance)
+        public FrmHistorialPedidosDetalles(MySqlConnection conexion, String clavePrimaria, FrmMain instance, int nivelPermisos)
         {
             InitializeComponent();
             ConexionBD = conexion;
             ClavePrimaria = clavePrimaria;
             Instance = instance;
+            NivelPermisos = nivelPermisos;
             CargarDatosPedido();
+            LimitarPermisos();
         }
 
         #region Apertura del formulario
+        #region Cargar datos del pedido
         public void CargarDatosPedido()
         {
             string sql = "SELECT * FROM HistorialPedidos WHERE IdPedido = " + ClavePrimaria;
@@ -100,6 +114,255 @@ namespace Garmoxu_Desktop
             //    row.Cells[7].Value = finalSinIVA;
             //}
         }
+        #endregion
+
+        #region Limitación de permisos
+        private void LimitarPermisos()
+        {
+            if (NivelPermisos == 0)
+            {
+                BtnBorrar.Enabled = false;
+            }
+        }
+        #endregion
+        #endregion
+
+        #region Exportación a PDF
+        private void BtnPdf_Click(object sender, EventArgs e)
+        {
+            if (ConfirmarAccion("exportar a formato PDF"))
+            {
+                ExportarFacturaPdf(ClavePrimaria);
+                InformarAccionConExito();
+            }
+        }
+
+        private void ExportarFacturaPdf(string clavePrimariaHistorial)
+        {
+            try
+            {
+                string ruta = RecogerRuta();
+                if (!string.IsNullOrEmpty(ruta))
+                {
+                    ruta += "\\Factura " + clavePrimariaHistorial + " " + DateTime.Now.ToString("dd-MM-yyyy HH-mm tt", CultureInfo.InvariantCulture) + ".pdf";
+                    PdfWriter writerPdf = new PdfWriter(ruta);
+                    PdfDocument pdf = new PdfDocument(writerPdf);
+                    Document documentoPdf = new Document(pdf);
+
+                    AñadirCabeceraPdf(ref documentoPdf);
+                    AñadirTitulo(ref documentoPdf);
+                    AñadirCuerpoPdf(ref documentoPdf, clavePrimariaHistorial);
+
+                    documentoPdf.Close();
+                }
+            }
+            catch (IOException ex)
+            {
+                string mensaje = "¡No se ha podido generar la factura en PDF debido a que existe un archivo con el mismo nombre que ya está en uso!";
+                MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private string RecogerRuta()
+        {
+            FolderBrowserDialog fbd = new FolderBrowserDialog();
+            fbd.Description = "Seleccione un directorio para exportar en formato PDF los datos del pedido.";
+            if (fbd.ShowDialog().Equals(DialogResult.OK))
+                return fbd.SelectedPath;
+            else
+                return string.Empty;
+        }
+
+        #region Cabecera
+        private void AñadirCabeceraPdf(ref Document documentoPdf)
+        {
+            string rutaImagenPdf = @"..\..\Resources\Garmoxu_Logo_Circle_Red_New.png";
+            if (File.Exists(rutaImagenPdf))
+            {
+                Table tablaPdf = new Table(2, false).UseAllAvailableWidth();
+
+                iText.Layout.Element.Image imagenPdf = new iText.Layout.Element.Image(
+                    ImageDataFactory.Create(rutaImagenPdf)).ScaleAbsolute(50, 50);
+
+                Cell celda1Pdf = new Cell(1, 1)
+                    .SetBorder(Border.NO_BORDER)
+                    .SetTextAlignment(TextAlignment.CENTER)
+                    .SetVerticalAlignment(VerticalAlignment.MIDDLE)
+                    .Add(imagenPdf);
+                tablaPdf.AddCell(celda1Pdf);
+
+                string fechaActual = DateTime.Parse(LblFecha.Text + " " + LblHora.Text)
+                    .ToString("dddd dd/MM/yyyy HH:mm");
+                string fechaFormateada = fechaActual.Substring(0, 1).ToUpper() + fechaActual.Substring(1, fechaActual.Length - 1);
+                CrearCelda(TextAlignment.RIGHT, 15, tablaPdf, fechaFormateada);
+
+                documentoPdf.Add(tablaPdf);
+
+                documentoPdf.Add(new Paragraph("\n"));
+            }
+        }
+        #endregion
+
+        #region Titulo
+        private void AñadirTitulo(ref Document documentoPdf)
+        {
+            Paragraph restaurantePdf = new Paragraph(RecogerNombreRestaurante())
+                .SetTextAlignment(TextAlignment.CENTER)
+                .SetFontSize(30)
+                .SetBold();
+            documentoPdf.Add(restaurantePdf);
+            documentoPdf.Add(new LineSeparator(new SolidLine()));
+        }
+
+        private string RecogerNombreRestaurante()
+        {
+            string nombreRestaurante = string.Empty;
+            string rutaAjustes = @"Ajustes\Ajustes.csv";
+            if (File.Exists(rutaAjustes))
+                nombreRestaurante = File.ReadAllText(rutaAjustes).Split(';')[0];
+            return nombreRestaurante;
+        }
+        #endregion
+
+        #region Cuerpo
+        private void AñadirCuerpoPdf(ref Document documentoPdf, string clavePrimariaHistorial)
+        {
+            LineSeparator separador1Pdf = new LineSeparator(new DashedLine(1));
+            Paragraph saltoDeLineaPdf = new Paragraph("\n");
+
+            AñadirFacturaYTipoPedido(ref documentoPdf, clavePrimariaHistorial);
+            documentoPdf.Add(saltoDeLineaPdf);
+            documentoPdf.Add(separador1Pdf);
+            AñadirTablaPlatos(ref documentoPdf);
+            documentoPdf.Add(separador1Pdf);
+            AñadirTotal(ref documentoPdf);
+            AñadirDatosComplementarios(ref documentoPdf);
+        }
+
+        #region Factura y tipo de pedido
+        private void AñadirFacturaYTipoPedido(ref Document documentoPdf, string clavePrimariaHistorial)
+        {
+            string tipoPedido = string.Empty;
+            string datoPedido = string.Empty;
+            RecogerDatosTipoPedido(ref tipoPedido, ref datoPedido);
+
+            Table tablaPdf = new Table(2, false).UseAllAvailableWidth();
+            CrearCelda(TextAlignment.LEFT, 15, tablaPdf, "Factura simplificada:");
+            CrearCelda(TextAlignment.RIGHT, 15, tablaPdf, clavePrimariaHistorial);
+            CrearCelda(TextAlignment.LEFT, 15, tablaPdf, tipoPedido);
+            CrearCelda(TextAlignment.RIGHT, 15, tablaPdf, datoPedido);
+            //if (TabTipoDatosDetalles.SelectedIndex == 0)
+            //{
+            //    CrearCelda(TextAlignment.LEFT, 15, tablaPdf, "Atendido por: ");
+            //    CrearCelda(TextAlignment.RIGHT, 15, tablaPdf, BuscarNombreUsuario());
+            //}
+            documentoPdf.Add(tablaPdf);
+        }
+
+        private void RecogerDatosTipoPedido(ref string tipoPedido, ref string datoPedido)
+        {
+            if (!LblTipo.Text.Equals("Local"))
+            {
+                tipoPedido = "Teléfono cliente:";
+                datoPedido = LblTlf.Text;
+            }
+        }
+        #endregion
+
+        #region Platos
+        private void AñadirTablaPlatos(ref Document documentoPdf)
+        {
+            Table cabecerasTablaPdf = new Table(4, false).UseAllAvailableWidth();
+            CrearCelda(TextAlignment.LEFT, 15, cabecerasTablaPdf, "Artículo");
+            CrearCelda(80, TextAlignment.RIGHT, 15, cabecerasTablaPdf, "P. Unitario");
+            CrearCelda(40, TextAlignment.RIGHT, 15, cabecerasTablaPdf, "Cant");
+            CrearCelda(80, TextAlignment.RIGHT, 15, cabecerasTablaPdf, "P. Total");
+            documentoPdf.Add(cabecerasTablaPdf);
+
+            documentoPdf.Add(new LineSeparator(new DashedLine(1)));
+
+            Table tablaPdf = new Table(4, false).UseAllAvailableWidth();
+            foreach (DataGridViewRow row in DtgPlatosPedidos.Rows)
+            {
+                CrearCelda(TextAlignment.LEFT, 15, tablaPdf, row.Cells[1].Value.ToString());
+                CrearCelda(80, TextAlignment.RIGHT, 15, tablaPdf, row.Cells[3].Value.ToString());
+                CrearCelda(40, TextAlignment.RIGHT, 15, tablaPdf, row.Cells[4].Value.ToString());
+                CrearCelda(80, TextAlignment.RIGHT, 15, tablaPdf, row.Cells[6].Value.ToString());
+            }
+            documentoPdf.Add(tablaPdf);
+        }
+        #endregion
+
+        #region Total
+        private void AñadirTotal(ref Document documentoPdf)
+        {
+            decimal conIva = decimal.Parse(LblPrecioConIVA.Text.Remove(LblPrecioConIVA.Text.Length - 1));
+            decimal sinIva = decimal.Parse(LblPrecioSinIVA.Text.Remove(LblPrecioSinIVA.Text.Length - 1));
+
+            Table tablaPdf = new Table(2, false).UseAllAvailableWidth();
+            CrearCelda(TextAlignment.RIGHT, 15, tablaPdf, "Base imponible");
+            CrearCelda(80, TextAlignment.RIGHT, 15, tablaPdf, sinIva.ToString());
+            CrearCelda(TextAlignment.RIGHT, 15, tablaPdf, "I.V.A. " + IVA + "%");
+            CrearCelda(TextAlignment.RIGHT, 15, tablaPdf, (conIva - sinIva).ToString());
+            documentoPdf.Add(tablaPdf);
+
+            documentoPdf.Add(new LineSeparator(new DashedLine(1)));
+
+            Table tabla2Pdf = new Table(2, false).UseAllAvailableWidth();
+            CrearCelda(TextAlignment.RIGHT, 22, tabla2Pdf, "Total:").SetBold();
+            CrearCelda(100, TextAlignment.RIGHT, 22, tabla2Pdf, LblPrecioConIVA.Text).SetBold();
+            documentoPdf.Add(tabla2Pdf);
+        }
+        #endregion
+
+        #region Datos complementarios
+        private void AñadirDatosComplementarios(ref Document documentoPdf)
+        {
+            Paragraph saltoDeLineaPdf = new Paragraph("\n");
+            documentoPdf.Add(saltoDeLineaPdf);
+            documentoPdf.Add(saltoDeLineaPdf);
+
+            Paragraph agradecimientoPdf = new Paragraph("¡Gracias por su visita!")
+                .SetTextAlignment(TextAlignment.CENTER)
+                .SetFontSize(20);
+            documentoPdf.Add(agradecimientoPdf);
+        }
+
+        //private string BuscarNombreUsuario()
+        //{
+        //    string sql = "SELECT NombreEmpleado FROM Usuarios WHERE NombreUsuario = '" + UsuarioActual + "'";
+        //    MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
+        //    return cmd.ExecuteScalar().ToString();
+        //}
+        #endregion
+        #endregion
+
+        #region Crear celdas
+        private Cell CrearCelda(int width, TextAlignment aligmnent, int fontSize, Table table, string text)
+        {
+            Cell cell = new Cell(1, 1)
+                   .SetWidth(width)
+                   .SetBorder(Border.NO_BORDER)
+                   .SetTextAlignment(aligmnent)
+                   .SetVerticalAlignment(VerticalAlignment.MIDDLE)
+                   .Add(new Paragraph(text)
+                       .SetFontSize(fontSize));
+            table.AddCell(cell);
+            return cell;
+        }
+
+        private Cell CrearCelda(TextAlignment aligmnent, int fontSize, Table table, string text)
+        {
+            Cell cell = new Cell(1, 1)
+                   .SetBorder(Border.NO_BORDER)
+                   .SetTextAlignment(aligmnent)
+                   .SetVerticalAlignment(VerticalAlignment.MIDDLE)
+                   .Add(new Paragraph(text)
+                       .SetFontSize(fontSize));
+            table.AddCell(cell);
+            return cell;
+        }
+        #endregion
         #endregion
 
         #region Borrar pedido en historial

@@ -1121,7 +1121,7 @@ namespace Garmoxu_Desktop
         #region Cabecera
         private void AñadirCabeceraPdf(ref Document documentoPdf)
         {
-            string rutaImagenPdf = @"..\..\Resources\Garmoxu_Logo_Circle_New.png";
+            string rutaImagenPdf = @"..\..\Resources\Garmoxu_Logo_Circle_Red_New.png";
             if (File.Exists(rutaImagenPdf))
             {
                 Table tablaPdf = new Table(2, false).UseAllAvailableWidth();
@@ -1284,12 +1284,12 @@ namespace Garmoxu_Desktop
             documentoPdf.Add(agradecimientoPdf);
         }
 
-        private string BuscarNombreUsuario()
-        {
-            string sql = "SELECT NombreEmpleado FROM Usuarios WHERE NombreUsuario = '" + UsuarioActual + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            return cmd.ExecuteScalar().ToString();
-        }
+        //private string BuscarNombreUsuario()
+        //{
+        //    string sql = "SELECT NombreEmpleado FROM Usuarios WHERE NombreUsuario = '" + UsuarioActual + "'";
+        //    MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
+        //    return cmd.ExecuteScalar().ToString();
+        //}
         #endregion
         #endregion
 

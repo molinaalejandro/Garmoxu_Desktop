@@ -393,6 +393,7 @@
             this.Controls.Add(this.PnlMain);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmPedidos";
+            this.Tag = "Pedidos";
             this.Text = "FrmPedidos";
             this.PnlMain.ResumeLayout(false);
             this.PnlHeader.ResumeLayout(false);

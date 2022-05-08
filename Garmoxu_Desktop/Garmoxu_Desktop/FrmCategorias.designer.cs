@@ -262,6 +262,7 @@ namespace Garmoxu_Desktop
             this.Controls.Add(this.PnlMain);
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmCategorias";
+            this.Tag = "Categorias";
             this.Text = "FrmCategoria";
             this.EnabledChanged += new System.EventHandler(this.FrmCategoria_EnabledChanged);
             this.PnlMain.ResumeLayout(false);
