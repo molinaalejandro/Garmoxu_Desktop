@@ -39,7 +39,7 @@ namespace Garmoxu_Desktop
         private string HoraCierre;
         private bool ModoDiurno;
         private bool VentanaCompleta;
-        private int Iva;
+        private int IVA;
 
         public FrmMain(MySqlConnection conexionBD, string usuarioActual, int nivelPermisos, Image imagenUsuario, FrmInicioSesion instanciaInicioSesion)
         {
@@ -217,8 +217,8 @@ namespace Garmoxu_Desktop
         }
         #endregion
 
-        #region BtnClose
-        private void btnClose_Click(object sender, EventArgs e)
+        #region BtnCerrar
+        private void BtnCerrar_Click(object sender, EventArgs e)
         {
             this.Close();
         }
@@ -247,7 +247,7 @@ namespace Garmoxu_Desktop
             NombreRestaurante = string.Empty;
             HoraApertura = "08:00";
             HoraCierre = "00:00";
-            Iva = 10;
+            IVA = 10;
             VentanaCompleta = true;
             ModoDiurno = true;
 
@@ -266,7 +266,7 @@ namespace Garmoxu_Desktop
                     if (!string.IsNullOrEmpty(d2)) HoraCierre = d2;
 
                     string d3 = datosConfiguración[3];
-                    if (!string.IsNullOrEmpty(d2)) Iva = int.Parse(d3);
+                    if (!string.IsNullOrEmpty(d2)) IVA = int.Parse(d3);
 
                     string d4 = datosConfiguración[4];
                     if (!string.IsNullOrEmpty(d2)) VentanaCompleta = bool.Parse(d4);
@@ -391,7 +391,7 @@ namespace Garmoxu_Desktop
 
         private void BtnPedidos_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(new FrmPedidos(ConexionBD, Instance, UsuarioActual));
+            AbrirFormulario(new FrmPedidos(ConexionBD, Instance, UsuarioActual, IVA));
         }
 
         private void BtnReservas_Click(object sender, EventArgs e)
@@ -416,7 +416,7 @@ namespace Garmoxu_Desktop
 
         private void BtnPlatos_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(new FrmPlatos(ConexionBD, this));
+            AbrirFormulario(new FrmPlatos(ConexionBD, this, IVA));
         }
 
         private void BtnCliente_Click(object sender, EventArgs e)
@@ -437,7 +437,7 @@ namespace Garmoxu_Desktop
         private void BtnAjustes_Click(object sender, EventArgs e)
         {
             FrmAjustes frmAjustes = new FrmAjustes(this, InstanciaInicioSesion, ConexionBD, UsuarioActual, ImagenUsuario,
-                NivelPermisos, NombreRestaurante, HoraApertura, HoraCierre, Iva, VentanaCompleta, ModoDiurno, PnlTitle,
+                NivelPermisos, NombreRestaurante, HoraApertura, HoraCierre, IVA, VentanaCompleta, ModoDiurno, PnlTitle,
                 PnlLateral, PnlMain);
             frmAjustes.TopLevel = false;
             PnlBody.Controls.Add(frmAjustes);
@@ -472,9 +472,10 @@ namespace Garmoxu_Desktop
         private void AbrirFormulario(Form form)
         {
             LblSeccion.Text = form.Tag.ToString();
-            BtnCerrar.Enabled = true;
-            BtnCerrar.IconColor = Color.White;
-            BtnCerrar.Cursor = Cursors.Hand;
+            //BtnCerrarSeccion.Enabled = true;
+            BtnCerrarSeccion.Visible = true;
+            //BtnCerrarSeccion.IconColor = Color.White;
+            //BtnCerrarSeccion.Cursor = Cursors.Hand;
 
             Boolean encontrado = false;
             foreach (Form f in Application.OpenForms)
@@ -507,28 +508,28 @@ namespace Garmoxu_Desktop
         #endregion
 
         #region Cierre de formularios
-        private void BtnCerrar_Click(object sender, EventArgs e)
+        private void BtnCerrarSeccion_Click(object sender, EventArgs e)
         {
-            if (!BtnCerrar.IconColor.Equals(Color.Silver))
+            //if (!BtnCerrarSeccion.IconColor.Equals(Color.Silver))
                 ((Form)PnlMain.Controls[0]).Close();
         }
 
-        private void BtnCerrar_MouseEnter(object sender, EventArgs e)
+        private void BtnCerrarSeccion_MouseEnter(object sender, EventArgs e)
         {
-            if (!BtnCerrar.IconColor.Equals(Color.Silver))
-            {
-                BtnCerrar.IconColor = Color.FromArgb(255, 103, 103);
+            //if (!BtnCerrarSeccion.IconColor.Equals(Color.Silver))
+            //{
+                BtnCerrarSeccion.IconColor = Color.FromArgb(255, 103, 103);
                 //BtnCerrar.IconChar = FontAwesome.Sharp.IconChar.DoorOpen;
-            }
+            //}
         }
 
-        private void BtnCerrar_MouseLeave(object sender, EventArgs e)
+        private void BtnCerrarSeccion_MouseLeave(object sender, EventArgs e)
         {
-            if (!BtnCerrar.IconColor.Equals(Color.Silver))
-            {
-                BtnCerrar.IconColor = Color.White;
+            //if (!BtnCerrarSeccion.IconColor.Equals(Color.Silver))
+            //{
+                BtnCerrarSeccion.IconColor = Color.White;
                 //BtnCerrar.IconChar = FontAwesome.Sharp.IconChar.DoorClosed;
-            }
+            //}
         }
 
         private void PnlMain_ControlRemoved(object sender, ControlEventArgs e)
@@ -536,9 +537,10 @@ namespace Garmoxu_Desktop
             if (PnlMain.Controls.Count < 2)
             {
                 LblSeccion.Text = this.Tag.ToString();
-                BtnCerrar.IconColor = Color.Silver;
+                //BtnCerrarSeccion.IconColor = Color.Silver;
+                BtnCerrarSeccion.Visible = false;
                 //BtnCerrar.IconChar = IconChar.DoorClosed;
-                BtnCerrar.Cursor = Cursors.Arrow;
+                //BtnCerrarSeccion.Cursor = Cursors.Arrow;
             }
             else
                 LblSeccion.Text = PnlMain.Controls[0].Tag.ToString();

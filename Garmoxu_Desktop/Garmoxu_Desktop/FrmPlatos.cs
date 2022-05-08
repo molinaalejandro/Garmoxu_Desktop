@@ -16,13 +16,15 @@ namespace Garmoxu_Desktop
     {
         private MySqlConnection ConexionBD;
         private FrmMain Instance;
+        private int IVA;
 
-        public FrmPlatos(MySqlConnection conexionBD, FrmMain instance)
+        public FrmPlatos(MySqlConnection conexionBD, FrmMain instance, int iva)
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
             ConexionBD = conexionBD;
             Instance = instance;
+            IVA = iva;
             CargarPlatos();
             CargarComboBoxCategorias();
         }
@@ -202,7 +204,7 @@ namespace Garmoxu_Desktop
         #region Alta de platos
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
-            FrmPlatosDetalles frm = new FrmPlatosDetalles(ConexionBD, string.Empty, Instance);
+            FrmPlatosDetalles frm = new FrmPlatosDetalles(ConexionBD, string.Empty, Instance, IVA);
             frm.Width = Instance.Width / 2;
             frm.Height = Instance.Height / 2 + Instance.Height / 3;
             Instance.Enabled = false;
@@ -215,7 +217,7 @@ namespace Garmoxu_Desktop
         private void LstPlatos_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             string clavePrimaria = LstPlatos.SelectedItems[0].Tag.ToString();
-            FrmPlatosDetalles frm = new FrmPlatosDetalles(ConexionBD, clavePrimaria, Instance);
+            FrmPlatosDetalles frm = new FrmPlatosDetalles(ConexionBD, clavePrimaria, Instance, IVA);
             frm.Width = Instance.Width / 2;
             frm.Height = Instance.Height / 2 + Instance.Height / 3;
             Instance.Enabled = false;

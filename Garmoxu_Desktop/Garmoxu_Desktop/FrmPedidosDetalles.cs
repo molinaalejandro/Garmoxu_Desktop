@@ -51,9 +51,9 @@ namespace Garmoxu_Desktop
 
         private string MetodoPago;
 
-        private const decimal IVA = 10.00m;
+        private int IVA;
 
-        public FrmPedidosDetalles(MySqlConnection conexionBD, string clavePrimariaPedidoEnCurso, FrmMain instance, string usuarioActual)
+        public FrmPedidosDetalles(MySqlConnection conexionBD, string clavePrimariaPedidoEnCurso, FrmMain instance, string usuarioActual, int iva)
         {
             InitializeComponent();
             ConexionBD = conexionBD;
@@ -61,6 +61,7 @@ namespace Garmoxu_Desktop
             Instance = instance;
             Instance.Enabled = false;
             UsuarioActual = usuarioActual;
+            IVA = iva;
             AsignarMesasLibres();
             AsignarEstadosPedido();
             InicializarListaDatosOpcionales();

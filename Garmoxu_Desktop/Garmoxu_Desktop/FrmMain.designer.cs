@@ -53,16 +53,16 @@
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.LblTitulo = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
-            this.BtnClose = new FontAwesome.Sharp.IconButton();
+            this.BtnCerrar = new FontAwesome.Sharp.IconButton();
             this.BtnMinimize = new FontAwesome.Sharp.IconButton();
             this.BtnResize = new FontAwesome.Sharp.IconButton();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
-            this.LblSeccion = new System.Windows.Forms.Label();
-            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
-            this.LblFecha = new System.Windows.Forms.Label();
             this.LblHora = new System.Windows.Forms.Label();
+            this.LblFecha = new System.Windows.Forms.Label();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.BtnCerrarSeccion = new FontAwesome.Sharp.IconButton();
+            this.LblSeccion = new System.Windows.Forms.Label();
             this.TmrRelojMain = new System.Windows.Forms.Timer(this.components);
-            this.BtnCerrar = new FontAwesome.Sharp.IconButton();
             this.PnlLateral.SuspendLayout();
             this.PnlEncabezado.SuspendLayout();
             this.PnlCabeceraMenu.SuspendLayout();
@@ -75,7 +75,7 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
-            this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // PnlLateral
@@ -93,10 +93,10 @@
             this.PnlLateral.Controls.Add(this.LblUsuarioActual);
             this.PnlLateral.Controls.Add(this.PnlEncabezado);
             this.PnlLateral.Dock = System.Windows.Forms.DockStyle.Left;
-            this.PnlLateral.Location = new System.Drawing.Point(0, 74);
+            this.PnlLateral.Location = new System.Drawing.Point(0, 75);
             this.PnlLateral.Margin = new System.Windows.Forms.Padding(4);
             this.PnlLateral.Name = "PnlLateral";
-            this.PnlLateral.Size = new System.Drawing.Size(250, 795);
+            this.PnlLateral.Size = new System.Drawing.Size(250, 794);
             this.PnlLateral.TabIndex = 7;
             // 
             // BtnCliente
@@ -255,7 +255,7 @@
             this.BtnUsers.IconColor = System.Drawing.Color.DodgerBlue;
             this.BtnUsers.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnUsers.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnUsers.Location = new System.Drawing.Point(0, 671);
+            this.BtnUsers.Location = new System.Drawing.Point(0, 670);
             this.BtnUsers.Margin = new System.Windows.Forms.Padding(4);
             this.BtnUsers.Name = "BtnUsers";
             this.BtnUsers.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -279,7 +279,7 @@
             this.BtnAjustes.IconColor = System.Drawing.Color.DarkGray;
             this.BtnAjustes.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnAjustes.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnAjustes.Location = new System.Drawing.Point(0, 733);
+            this.BtnAjustes.Location = new System.Drawing.Point(0, 732);
             this.BtnAjustes.Margin = new System.Windows.Forms.Padding(4);
             this.BtnAjustes.Name = "BtnAjustes";
             this.BtnAjustes.Padding = new System.Windows.Forms.Padding(20, 0, 0, 0);
@@ -418,10 +418,10 @@
             this.PnlMain.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
             this.PnlMain.Controls.Add(this.tableLayoutPanel1);
             this.PnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlMain.Location = new System.Drawing.Point(250, 74);
+            this.PnlMain.Location = new System.Drawing.Point(250, 75);
             this.PnlMain.Margin = new System.Windows.Forms.Padding(4);
             this.PnlMain.Name = "PnlMain";
-            this.PnlMain.Size = new System.Drawing.Size(1160, 795);
+            this.PnlMain.Size = new System.Drawing.Size(1160, 794);
             this.PnlMain.TabIndex = 8;
             this.PnlMain.ControlRemoved += new System.Windows.Forms.ControlEventHandler(this.PnlMain_ControlRemoved);
             // 
@@ -439,7 +439,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 70F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1160, 795);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1160, 794);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
             // PicLogo
@@ -449,7 +449,7 @@
             this.PicLogo.Location = new System.Drawing.Point(174, 119);
             this.PicLogo.Margin = new System.Windows.Forms.Padding(0);
             this.PicLogo.Name = "PicLogo";
-            this.PicLogo.Size = new System.Drawing.Size(812, 556);
+            this.PicLogo.Size = new System.Drawing.Size(812, 555);
             this.PicLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PicLogo.TabIndex = 6;
             this.PicLogo.TabStop = false;
@@ -462,7 +462,7 @@
             this.PnlTitle.Location = new System.Drawing.Point(0, 0);
             this.PnlTitle.Margin = new System.Windows.Forms.Padding(0);
             this.PnlTitle.Name = "PnlTitle";
-            this.PnlTitle.Size = new System.Drawing.Size(1410, 74);
+            this.PnlTitle.Size = new System.Drawing.Size(1410, 75);
             this.PnlTitle.TabIndex = 1;
             // 
             // tableLayoutPanel2
@@ -480,8 +480,9 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(1410, 74);
-            this.tableLayoutPanel2.TabIndex = 7;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 114F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1410, 75);
+            this.tableLayoutPanel2.TabIndex = 8;
             // 
             // LblTitulo
             // 
@@ -493,7 +494,7 @@
             this.LblTitulo.Location = new System.Drawing.Point(14, 0);
             this.LblTitulo.Margin = new System.Windows.Forms.Padding(14, 0, 4, 0);
             this.LblTitulo.Name = "LblTitulo";
-            this.LblTitulo.Size = new System.Drawing.Size(264, 74);
+            this.LblTitulo.Size = new System.Drawing.Size(264, 75);
             this.LblTitulo.TabIndex = 0;
             this.LblTitulo.Text = "Garmoxu";
             this.LblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -504,7 +505,7 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel3.Controls.Add(this.BtnClose, 2, 0);
+            this.tableLayoutPanel3.Controls.Add(this.BtnCerrar, 2, 0);
             this.tableLayoutPanel3.Controls.Add(this.BtnMinimize, 0, 0);
             this.tableLayoutPanel3.Controls.Add(this.BtnResize, 1, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -513,31 +514,31 @@
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(279, 74);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(279, 75);
             this.tableLayoutPanel3.TabIndex = 6;
             // 
-            // BtnClose
+            // BtnCerrar
             // 
-            this.BtnClose.BackColor = System.Drawing.Color.Transparent;
-            this.BtnClose.Dock = System.Windows.Forms.DockStyle.Right;
-            this.BtnClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(42)))), ((int)(((byte)(45)))));
-            this.BtnClose.FlatAppearance.BorderSize = 0;
-            this.BtnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(71)))), ((int)(((byte)(83)))));
-            this.BtnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(41)))), ((int)(((byte)(83)))));
-            this.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnClose.ForeColor = System.Drawing.Color.Silver;
-            this.BtnClose.IconChar = FontAwesome.Sharp.IconChar.Times;
-            this.BtnClose.IconColor = System.Drawing.Color.White;
-            this.BtnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnClose.IconSize = 25;
-            this.BtnClose.Location = new System.Drawing.Point(213, 0);
-            this.BtnClose.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnClose.Name = "BtnClose";
-            this.BtnClose.Size = new System.Drawing.Size(66, 74);
-            this.BtnClose.TabIndex = 11;
-            this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.BtnClose.UseVisualStyleBackColor = false;
-            this.BtnClose.Click += new System.EventHandler(this.btnClose_Click);
+            this.BtnCerrar.BackColor = System.Drawing.Color.Transparent;
+            this.BtnCerrar.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnCerrar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(42)))), ((int)(((byte)(45)))));
+            this.BtnCerrar.FlatAppearance.BorderSize = 0;
+            this.BtnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(71)))), ((int)(((byte)(83)))));
+            this.BtnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(41)))), ((int)(((byte)(83)))));
+            this.BtnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCerrar.ForeColor = System.Drawing.Color.Silver;
+            this.BtnCerrar.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.BtnCerrar.IconColor = System.Drawing.Color.White;
+            this.BtnCerrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnCerrar.IconSize = 25;
+            this.BtnCerrar.Location = new System.Drawing.Point(213, 0);
+            this.BtnCerrar.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnCerrar.Name = "BtnCerrar";
+            this.BtnCerrar.Size = new System.Drawing.Size(66, 75);
+            this.BtnCerrar.TabIndex = 12;
+            this.BtnCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnCerrar.UseVisualStyleBackColor = false;
+            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
             // 
             // BtnMinimize
             // 
@@ -556,7 +557,7 @@
             this.BtnMinimize.Location = new System.Drawing.Point(114, 0);
             this.BtnMinimize.Margin = new System.Windows.Forms.Padding(0);
             this.BtnMinimize.Name = "BtnMinimize";
-            this.BtnMinimize.Size = new System.Drawing.Size(66, 74);
+            this.BtnMinimize.Size = new System.Drawing.Size(66, 75);
             this.BtnMinimize.TabIndex = 10;
             this.BtnMinimize.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnMinimize.UseVisualStyleBackColor = false;
@@ -578,7 +579,7 @@
             this.BtnResize.Location = new System.Drawing.Point(180, 0);
             this.BtnResize.Margin = new System.Windows.Forms.Padding(0);
             this.BtnResize.Name = "BtnResize";
-            this.BtnResize.Size = new System.Drawing.Size(33, 74);
+            this.BtnResize.Size = new System.Drawing.Size(33, 75);
             this.BtnResize.TabIndex = 9;
             this.BtnResize.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnResize.UseVisualStyleBackColor = false;
@@ -587,67 +588,21 @@
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 5;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 35F));
-            this.tableLayoutPanel4.Controls.Add(this.BtnCerrar, 5, 0);
-            this.tableLayoutPanel4.Controls.Add(this.LblSeccion, 2, 0);
-            this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 0, 0);
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 0F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 0F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 25F));
+            this.tableLayoutPanel4.Controls.Add(this.LblHora, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.LblFecha, 5, 0);
+            this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel6, 2, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(285, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(840, 68);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(840, 69);
             this.tableLayoutPanel4.TabIndex = 7;
-            // 
-            // LblSeccion
-            // 
-            this.LblSeccion.AutoSize = true;
-            this.LblSeccion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LblSeccion.Font = new System.Drawing.Font("Source Sans Pro", 18F, System.Drawing.FontStyle.Bold);
-            this.LblSeccion.ForeColor = System.Drawing.Color.Silver;
-            this.LblSeccion.Location = new System.Drawing.Point(260, 0);
-            this.LblSeccion.Margin = new System.Windows.Forms.Padding(0);
-            this.LblSeccion.Name = "LblSeccion";
-            this.LblSeccion.Size = new System.Drawing.Size(320, 68);
-            this.LblSeccion.TabIndex = 56;
-            this.LblSeccion.Text = "Menú principal";
-            this.LblSeccion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            // 
-            // tableLayoutPanel5
-            // 
-            this.tableLayoutPanel5.ColumnCount = 1;
-            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Controls.Add(this.LblFecha, 0, 1);
-            this.tableLayoutPanel5.Controls.Add(this.LblHora, 0, 0);
-            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
-            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
-            this.tableLayoutPanel5.RowCount = 2;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(234, 62);
-            this.tableLayoutPanel5.TabIndex = 55;
-            // 
-            // LblFecha
-            // 
-            this.LblFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.LblFecha.AutoSize = true;
-            this.LblFecha.BackColor = System.Drawing.Color.Transparent;
-            this.LblFecha.Font = new System.Drawing.Font("Source Sans Pro", 18F, System.Drawing.FontStyle.Bold);
-            this.LblFecha.ForeColor = System.Drawing.Color.Silver;
-            this.LblFecha.Location = new System.Drawing.Point(0, 31);
-            this.LblFecha.Margin = new System.Windows.Forms.Padding(0);
-            this.LblFecha.Name = "LblFecha";
-            this.LblFecha.Size = new System.Drawing.Size(234, 31);
-            this.LblFecha.TabIndex = 7;
-            this.LblFecha.Text = "15/06/2022";
-            this.LblFecha.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             // 
             // LblHora
             // 
@@ -656,48 +611,99 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.LblHora.AutoSize = true;
             this.LblHora.BackColor = System.Drawing.Color.Transparent;
-            this.LblHora.Font = new System.Drawing.Font("Source Sans Pro", 18F, System.Drawing.FontStyle.Bold);
-            this.LblHora.ForeColor = System.Drawing.Color.Silver;
+            this.LblHora.Font = new System.Drawing.Font("Source Sans Pro", 22F, System.Drawing.FontStyle.Bold);
+            this.LblHora.ForeColor = System.Drawing.Color.White;
             this.LblHora.Location = new System.Drawing.Point(0, 0);
             this.LblHora.Margin = new System.Windows.Forms.Padding(0);
             this.LblHora.Name = "LblHora";
-            this.LblHora.Size = new System.Drawing.Size(234, 31);
-            this.LblHora.TabIndex = 6;
+            this.LblHora.Size = new System.Drawing.Size(210, 69);
+            this.LblHora.TabIndex = 60;
             this.LblHora.Text = "00:00";
             this.LblHora.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
+            // LblFecha
+            // 
+            this.LblFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.LblFecha.AutoSize = true;
+            this.LblFecha.BackColor = System.Drawing.Color.Transparent;
+            this.LblFecha.Font = new System.Drawing.Font("Source Sans Pro", 22F, System.Drawing.FontStyle.Bold);
+            this.LblFecha.ForeColor = System.Drawing.Color.White;
+            this.LblFecha.Location = new System.Drawing.Point(630, 0);
+            this.LblFecha.Margin = new System.Windows.Forms.Padding(0);
+            this.LblFecha.Name = "LblFecha";
+            this.LblFecha.Size = new System.Drawing.Size(210, 69);
+            this.LblFecha.TabIndex = 59;
+            this.LblFecha.Text = "15/06/2022";
+            this.LblFecha.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 4;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Controls.Add(this.BtnCerrarSeccion, 2, 0);
+            this.tableLayoutPanel6.Controls.Add(this.LblSeccion, 1, 0);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(213, 3);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 1;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 102F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 102F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(414, 63);
+            this.tableLayoutPanel6.TabIndex = 58;
+            // 
+            // BtnCerrarSeccion
+            // 
+            this.BtnCerrarSeccion.BackColor = System.Drawing.Color.Transparent;
+            this.BtnCerrarSeccion.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnCerrarSeccion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnCerrarSeccion.FlatAppearance.BorderSize = 0;
+            this.BtnCerrarSeccion.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BtnCerrarSeccion.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BtnCerrarSeccion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCerrarSeccion.ForeColor = System.Drawing.Color.White;
+            this.BtnCerrarSeccion.IconChar = FontAwesome.Sharp.IconChar.TimesCircle;
+            this.BtnCerrarSeccion.IconColor = System.Drawing.Color.White;
+            this.BtnCerrarSeccion.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.BtnCerrarSeccion.IconSize = 35;
+            this.BtnCerrarSeccion.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.BtnCerrarSeccion.Location = new System.Drawing.Point(316, 0);
+            this.BtnCerrarSeccion.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnCerrarSeccion.Name = "BtnCerrarSeccion";
+            this.BtnCerrarSeccion.Padding = new System.Windows.Forms.Padding(0, 0, 15, 0);
+            this.BtnCerrarSeccion.Size = new System.Drawing.Size(43, 63);
+            this.BtnCerrarSeccion.TabIndex = 58;
+            this.BtnCerrarSeccion.TabStop = false;
+            this.BtnCerrarSeccion.UseVisualStyleBackColor = false;
+            this.BtnCerrarSeccion.Visible = false;
+            this.BtnCerrarSeccion.Click += new System.EventHandler(this.BtnCerrarSeccion_Click);
+            this.BtnCerrarSeccion.MouseEnter += new System.EventHandler(this.BtnCerrarSeccion_MouseEnter);
+            this.BtnCerrarSeccion.MouseLeave += new System.EventHandler(this.BtnCerrarSeccion_MouseLeave);
+            // 
+            // LblSeccion
+            // 
+            this.LblSeccion.AutoSize = true;
+            this.LblSeccion.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LblSeccion.Font = new System.Drawing.Font("Source Sans Pro", 22F, System.Drawing.FontStyle.Bold);
+            this.LblSeccion.ForeColor = System.Drawing.Color.White;
+            this.LblSeccion.Location = new System.Drawing.Point(54, 0);
+            this.LblSeccion.Margin = new System.Windows.Forms.Padding(0);
+            this.LblSeccion.Name = "LblSeccion";
+            this.LblSeccion.Size = new System.Drawing.Size(262, 63);
+            this.LblSeccion.TabIndex = 57;
+            this.LblSeccion.Text = "Menú principal";
+            this.LblSeccion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // TmrRelojMain
             // 
             this.TmrRelojMain.Enabled = true;
             this.TmrRelojMain.Interval = 1000;
             this.TmrRelojMain.Tick += new System.EventHandler(this.TmrRelojMain_Tick);
-            // 
-            // BtnCerrar
-            // 
-            this.BtnCerrar.BackColor = System.Drawing.Color.Transparent;
-            this.BtnCerrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnCerrar.Dock = System.Windows.Forms.DockStyle.Left;
-            this.BtnCerrar.Enabled = false;
-            this.BtnCerrar.FlatAppearance.BorderSize = 0;
-            this.BtnCerrar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
-            this.BtnCerrar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-            this.BtnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCerrar.ForeColor = System.Drawing.Color.Transparent;
-            this.BtnCerrar.IconChar = FontAwesome.Sharp.IconChar.TimesCircle;
-            this.BtnCerrar.IconColor = System.Drawing.Color.Silver;
-            this.BtnCerrar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnCerrar.IconSize = 50;
-            this.BtnCerrar.ImageAlign = System.Drawing.ContentAlignment.BottomLeft;
-            this.BtnCerrar.Location = new System.Drawing.Point(600, 0);
-            this.BtnCerrar.Margin = new System.Windows.Forms.Padding(0);
-            this.BtnCerrar.Name = "BtnCerrar";
-            this.BtnCerrar.Size = new System.Drawing.Size(92, 68);
-            this.BtnCerrar.TabIndex = 57;
-            this.BtnCerrar.TabStop = false;
-            this.BtnCerrar.UseVisualStyleBackColor = false;
-            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
-            this.BtnCerrar.MouseEnter += new System.EventHandler(this.BtnCerrar_MouseEnter);
-            this.BtnCerrar.MouseLeave += new System.EventHandler(this.BtnCerrar_MouseLeave);
             // 
             // FrmMain
             // 
@@ -729,8 +735,8 @@
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
-            this.tableLayoutPanel5.ResumeLayout(false);
-            this.tableLayoutPanel5.PerformLayout();
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -745,11 +751,6 @@
         private System.Windows.Forms.Panel PnlMain;
         private System.Windows.Forms.Panel PnlTitle;
         private System.Windows.Forms.Timer TmrRelojMain;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
-        private System.Windows.Forms.Label LblTitulo;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private FontAwesome.Sharp.IconButton BtnMinimize;
-        private FontAwesome.Sharp.IconButton BtnClose;
         private FontAwesome.Sharp.IconButton BtnCliente;
         private FontAwesome.Sharp.IconButton BtnCategoria;
         private FontAwesome.Sharp.IconButton BtnPlatos;
@@ -761,14 +762,19 @@
         private System.Windows.Forms.TableLayoutPanel PnlCabeceraMenu;
         private RJCodeAdvance.RJControls.RJCircularPictureBox PicUser;
         private FontAwesome.Sharp.IconButton BtnPanel;
-        private FontAwesome.Sharp.IconButton BtnResize;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.Label LblSeccion;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
-        private System.Windows.Forms.Label LblFecha;
-        private System.Windows.Forms.Label LblHora;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.PictureBox PicLogo;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private System.Windows.Forms.Label LblTitulo;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private FontAwesome.Sharp.IconButton BtnMinimize;
+        private FontAwesome.Sharp.IconButton BtnResize;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private System.Windows.Forms.Label LblHora;
+        private System.Windows.Forms.Label LblFecha;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private FontAwesome.Sharp.IconButton BtnCerrarSeccion;
+        private System.Windows.Forms.Label LblSeccion;
         private FontAwesome.Sharp.IconButton BtnCerrar;
     }
 }

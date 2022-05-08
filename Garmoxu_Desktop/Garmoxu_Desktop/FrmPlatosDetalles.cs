@@ -26,14 +26,15 @@ namespace Garmoxu_Desktop
 
         private List<string> IdsCategorias;
 
-        private decimal IVA = 10;
+        private int IVA;
 
-        public FrmPlatosDetalles(MySqlConnection conexionBD, string clavePrimaria, FrmMain instance)
+        public FrmPlatosDetalles(MySqlConnection conexionBD, string clavePrimaria, FrmMain instance, int iva)
         {
             InitializeComponent();
             ConexionBD = conexionBD;
             Instance = instance;
             ClavePrimaria = clavePrimaria;
+            IVA = iva;
             CargarCategorias();
             CargarTipoFormulario();
         }

@@ -36,13 +36,16 @@ namespace Garmoxu_Desktop
         // Usuario actual con el que está logeado.
         private string UsuarioActual;
 
-        public FrmPedidos(MySqlConnection conexionBD, FrmMain instance, string usuarioActual)
+        private int IVA;
+
+        public FrmPedidos(MySqlConnection conexionBD, FrmMain instance, string usuarioActual, int iva)
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
             ConexionBD = conexionBD;
             Instance = instance;
             UsuarioActual = usuarioActual;
+            IVA = iva;
             IniciarPedidos();
         }
 
@@ -373,7 +376,7 @@ namespace Garmoxu_Desktop
         private void BtnPedidoEnCurso_Click(object sender, EventArgs e)
         {
             string clavePrimaria = ((RJCodeAdvance.RJControls.RJButton)sender).Tag.ToString();
-            FrmPedidosDetalles frm = new FrmPedidosDetalles(ConexionBD, clavePrimaria, Instance, UsuarioActual);
+            FrmPedidosDetalles frm = new FrmPedidosDetalles(ConexionBD, clavePrimaria, Instance, UsuarioActual, IVA);
             frm.Show();
         }
 
@@ -405,7 +408,7 @@ namespace Garmoxu_Desktop
             MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
             if (cmd.ExecuteScalar() != null)
             {
-                FrmPedidosDetalles frm = new FrmPedidosDetalles(ConexionBD, cmd.ExecuteScalar().ToString(), Instance, UsuarioActual);
+                FrmPedidosDetalles frm = new FrmPedidosDetalles(ConexionBD, cmd.ExecuteScalar().ToString(), Instance, UsuarioActual, IVA);
                 frm.Show();
                 TxtBuscar.Text = string.Empty; //TxtBuscar.Texts
                 return true;
@@ -444,7 +447,7 @@ namespace Garmoxu_Desktop
         #region Botón Nuevo
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
-            NuevoPedido(new FrmPedidosDetalles(ConexionBD, "", Instance, UsuarioActual));
+            NuevoPedido(new FrmPedidosDetalles(ConexionBD, "", Instance, UsuarioActual, IVA));
         }
 
         private void NuevoPedido(Form f)

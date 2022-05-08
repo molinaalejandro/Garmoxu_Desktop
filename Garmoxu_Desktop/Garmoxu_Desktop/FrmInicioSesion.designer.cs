@@ -95,6 +95,7 @@
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel11.Size = new System.Drawing.Size(539, 66);
             this.tableLayoutPanel11.TabIndex = 55;
+            this.tableLayoutPanel11.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitle_MouseDown);
             // 
             // BtnMinimize
             // 
@@ -154,6 +155,7 @@
             this.label4.TabIndex = 52;
             this.label4.Text = "Iniciar sesión";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.label4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitle_MouseDown);
             // 
             // PnlMain
             // 

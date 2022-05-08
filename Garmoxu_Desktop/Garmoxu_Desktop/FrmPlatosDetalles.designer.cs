@@ -307,7 +307,7 @@
             this.Controls.Add(this.TxtIdPlato);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmPlatosDetalles";
-            this.Text = "FrmPlatosDetalles";
+            this.Text = "Detalles de plato - Garmoxu";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmPlatosDetalles_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.PicFotoPlato)).EndInit();
             this.ResumeLayout(false);
