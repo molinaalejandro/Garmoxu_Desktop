@@ -28,6 +28,7 @@ namespace Garmoxu_Desktop
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
+            //Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 150, 150));
             AbrirConexionBD();
 
 
@@ -35,6 +36,7 @@ namespace Garmoxu_Desktop
 
             TxtContraseña.Texts = "1234abcd";
         }
+
 
         #region Apertura del formulario
         #region Conexion BD
@@ -155,6 +157,19 @@ namespace Garmoxu_Desktop
         }
         #endregion
 
+        #region Redondeado del formulario
+        //[DllImport("Gdi32.dll", EntryPoint = "CreateRoundRectRgn")]
+        //private static extern IntPtr CreateRoundRectRgn
+        //(
+        //    int nLeftRect,     // x-coordinate of upper-left corner
+        //    int nTopRect,      // y-coordinate of upper-left corner
+        //    int nRightRect,    // x-coordinate of lower-right corner
+        //    int nBottomRect,   // y-coordinate of lower-right corner
+        //    int nWidthEllipse, // width of ellipse
+        //    int nHeightEllipse // height of ellipse
+        //);
+        #endregion
+
         #region Botones de Title Bar
         #region Boton de Cerrar
         //Salir de la aplicacion
@@ -211,7 +226,7 @@ namespace Garmoxu_Desktop
             {
                 TxtUsuario.Texts = String.Empty;
             }
-            if(string.IsNullOrEmpty(TxtContraseña.Texts) || TxtContraseña.Texts.Equals("Contraseña"))
+            if (string.IsNullOrEmpty(TxtContraseña.Texts) || TxtContraseña.Texts.Equals("Contraseña"))
                 TxtContraseña.PasswordChar = false;
         }
 
@@ -336,7 +351,7 @@ namespace Garmoxu_Desktop
                 TxtContraseña.Texts = "Contraseña";
                 TxtUsuario.Focus();
                 //TxtContraseña.PasswordChar = false;
-            }          
+            }
         }
 
         private void TxtContraseña_KeyPress(object sender, KeyPressEventArgs e)

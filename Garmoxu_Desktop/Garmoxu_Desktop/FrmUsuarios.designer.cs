@@ -266,7 +266,7 @@ namespace Garmoxu_Desktop
             this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnBuscar.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal;
             this.BtnBuscar.IconChar = FontAwesome.Sharp.IconChar.Search;
-            this.BtnBuscar.IconColor = System.Drawing.Color.MediumSlateBlue;
+            this.BtnBuscar.IconColor = System.Drawing.Color.DodgerBlue;
             this.BtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnBuscar.Location = new System.Drawing.Point(430, 3);
             this.BtnBuscar.Name = "BtnBuscar";
@@ -640,7 +640,6 @@ namespace Garmoxu_Desktop
         #endregion
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.DataGridView DtgUsuarios;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
         private FontAwesome.Sharp.IconButton BtnNuevo;
         private FontAwesome.Sharp.IconButton BtnQuitar;
@@ -664,5 +663,6 @@ namespace Garmoxu_Desktop
         private RJCodeAdvance.RJControls.RJButton BtnEliminar;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private RJCodeAdvance.RJControls.RJComboBox CboTipoUsuario;
+        private System.Windows.Forms.DataGridView DtgUsuarios;
     }
 }

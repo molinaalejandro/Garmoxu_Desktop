@@ -345,10 +345,10 @@ namespace Garmoxu_Desktop
             this.BtnClose.IconColor = System.Drawing.Color.White;
             this.BtnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnClose.IconSize = 25;
-            this.BtnClose.Location = new System.Drawing.Point(611, 4);
-            this.BtnClose.Margin = new System.Windows.Forms.Padding(4);
+            this.BtnClose.Location = new System.Drawing.Point(615, 0);
+            this.BtnClose.Margin = new System.Windows.Forms.Padding(0);
             this.BtnClose.Name = "BtnClose";
-            this.BtnClose.Size = new System.Drawing.Size(67, 58);
+            this.BtnClose.Size = new System.Drawing.Size(67, 66);
             this.BtnClose.TabIndex = 2;
             this.BtnClose.TabStop = false;
             this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -364,7 +364,7 @@ namespace Garmoxu_Desktop
             this.label4.Location = new System.Drawing.Point(14, 0);
             this.label4.Margin = new System.Windows.Forms.Padding(14, 0, 0, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(593, 66);
+            this.label4.Size = new System.Drawing.Size(601, 66);
             this.label4.TabIndex = 52;
             this.label4.Text = "Crea un nuevo usuario";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;

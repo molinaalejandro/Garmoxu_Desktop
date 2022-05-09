@@ -49,7 +49,55 @@ namespace Garmoxu_Desktop
             IniciarPedidos();
         }
 
-        #region Pedidos
+        #region Funciones y diseños de controles
+        #region Boton Buscar
+        private void BtnBuscar_MouseEnter(object sender, EventArgs e)
+        {
+            BtnBuscar.IconColor = Color.DeepSkyBlue;
+        }
+
+        private void BtnBuscar_MouseLeave(object sender, EventArgs e)
+        {
+            BtnBuscar.IconColor = Color.MediumSlateBlue;
+        }
+        #endregion
+
+        #region Boton Añadir
+        private void BtnNuevo_MouseEnter(object sender, EventArgs e)
+        {
+            BtnNuevo.IconColor = Color.Tan;
+        }
+
+        private void BtnNuevo_MouseLeave(object sender, EventArgs e)
+        {
+            BtnNuevo.IconColor = Color.NavajoWhite;
+        }
+        #endregion
+
+        #region Text box Buscar
+        private void TxtBuscar_Enter(object sender, EventArgs e)
+        {
+            if (TxtBuscar.Texts.Trim().Equals("Nº mesa o teléfono de cliente"))
+            {
+                TxtBuscar.Texts = string.Empty;
+                TxtBuscar.ForeColor = Color.Gainsboro;
+                BtnBuscar.Enabled = true;
+            }
+        }
+
+        private void TxtBuscar_Leave(object sender, EventArgs e)
+        {
+            if (TxtBuscar.Texts.Trim().Equals(string.Empty))
+            {
+                TxtBuscar.Texts = "Nº mesa o teléfono de cliente";
+                TxtBuscar.ForeColor = Color.Gray;
+                BtnBuscar.Enabled = false;
+            }
+        }
+        #endregion
+        #endregion
+
+        #region Apertura del formulario
         #region Carga inicial de pedidos
         private void IniciarPedidos()
         {
@@ -96,28 +144,64 @@ namespace Garmoxu_Desktop
         {
             RJCodeAdvance.RJControls.RJButton btn = new RJCodeAdvance.RJControls.RJButton();
             btn.AutoSize = true;
-            btn.BackColor = Color.MediumSlateBlue;
-            btn.BackgroundColor = Color.MediumSlateBlue;
+
             btn.BorderColor = Color.White;
             btn.BorderRadius = 5;
             btn.BorderSize = 0;
             btn.Click += new EventHandler(BtnPedidoEnCurso_Click);
             btn.FlatAppearance.BorderSize = 0;
             btn.FlatStyle = FlatStyle.Flat;
-            btn.FlatAppearance.MouseOverBackColor = Color.MediumBlue;
-            btn.FlatAppearance.MouseDownBackColor = Color.MediumAquamarine;
-            btn.Font = new Font("Microsoft Sans Serif", 15F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            btn.ForeColor = Color.White;
+            btn.Font = new Font("Source Sans Pro", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn.Location = new Point(0, 0);
             btn.Margin = new Padding(30, 0, 0, 20);
             btn.Size = new Size(100, 50);
             btn.Tag = clavePrimaria;
             btn.Text = texto;
-            btn.TextColor = Color.White;
             btn.UseVisualStyleBackColor = false;
+
+            AsignarColoresBotonPedido(btn, pnl);
 
             pnl.Controls.Add(btn);
         }
+
+
+        private void AsignarColoresBotonPedido(RJButton btn, FlowLayoutPanel pnl) 
+        {
+            Color backColor = new Color();
+            Color overColor = new Color();
+            Color downColor = new Color();
+            Color textColor = new Color();
+
+            switch (pnl.Name)
+            {
+                case "PnlLocal":
+                    backColor = Color.FromArgb(190, 190, 110);
+                    overColor = Color.FromArgb(210, 210, 110);
+                    downColor = Color.FromArgb(240, 240, 110);
+                    textColor = Color.White;
+                    break;
+
+                case "PnlDomicilio":
+                    backColor = Color.DarkOrchid;
+                    overColor = Color.FromArgb(153, 110, 204);
+                    downColor = Color.FromArgb(183, 110, 204);
+                    textColor = Color.White;
+                    break;
+
+                case "PnlRecoger":
+                    backColor = Color.FromArgb(100, 149, 237);
+                    overColor = Color.FromArgb(140, 149, 237);
+                    downColor = Color.FromArgb(170, 149, 237);
+                    textColor = Color.White;
+                    break;
+            }
+
+            btn.BackgroundColor = backColor;
+            btn.FlatAppearance.MouseOverBackColor = overColor;
+            btn.FlatAppearance.MouseDownBackColor = downColor;
+            btn.TextColor = textColor;
+        }
+        #endregion
         #endregion
 
         #region Actualización de pedidos en tiempo real
@@ -396,11 +480,21 @@ namespace Garmoxu_Desktop
             if (e.KeyChar.Equals((char)Keys.Enter))
             {
                 e.Handled = true;
-                if (!ValidarDatoExistente("IdMesa") && !ValidarDatoExistente("TelefonoCliente"))
-                    MessageBox.Show("¡No se ha encontrado ningún pedido asociado a ese dato!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                BuscarPedido();
             }
         }
-        //<<Mirar
+
+        private void BtnBuscar_Click(object sender, EventArgs e)
+        {
+            BuscarPedido();
+        }
+
+        private void BuscarPedido()
+        {
+            if (!ValidarDatoExistente("IdMesa") && !ValidarDatoExistente("TelefonoCliente"))
+                MessageBox.Show("¡No se ha encontrado ningún pedido asociado a ese dato!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        }
+
         // Devuelve true y abre una ventana de detalles si el pedido con esa clave existe.
         private bool ValidarDatoExistente(String filtro)
         {
@@ -414,33 +508,6 @@ namespace Garmoxu_Desktop
                 return true;
             }
             return false;
-        }
-        #endregion
-
-        #region Botón Pedidos
-        private void BtnSimple_Click(object sender, EventArgs e)
-        {
-            if (PnlSubHeader.GetColumnWidths()[0] <= PnlSubHeader.GetColumnWidths()[1])
-            {
-                PnlSubHeader.BackColor = BtnSimple.BackColor;
-                PnlSubHeader.ColumnStyles[0].Width = 80;
-                PnlSubHeader.ColumnStyles[1].Width = 20;
-                TabControl.SelectedIndex = 0;
-            }
-        }
-
-        private void BtnSimple_MouseEnter(object sender, EventArgs e)
-        {
-            if (PnlSubHeader.GetColumnWidths()[0] > PnlSubHeader.GetColumnWidths()[1])
-            {
-                BtnSimple.FlatAppearance.MouseOverBackColor = BtnSimple.BackColor;
-                BtnSimple.FlatAppearance.MouseDownBackColor = BtnSimple.BackColor;
-            }
-            else
-            {
-                BtnSimple.FlatAppearance.MouseOverBackColor = Color.Empty;
-                BtnSimple.FlatAppearance.MouseDownBackColor = Color.Empty;
-            }
         }
         #endregion
 
@@ -459,42 +526,5 @@ namespace Garmoxu_Desktop
             f.Show();
         }
         #endregion
-
-        #region Botón Cerrar
-        private void BtnCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-        #endregion
-        #endregion
-
-        #region Mesas
-        #region Boton Mesas
-        private void BtnMapping_Click(object sender, EventArgs e)
-        {
-            if (PnlSubHeader.GetColumnWidths()[1] <= PnlSubHeader.GetColumnWidths()[0])
-            {
-                PnlSubHeader.BackColor = BtnMapping.BackColor;
-                PnlSubHeader.ColumnStyles[0].Width = 20;
-                PnlSubHeader.ColumnStyles[1].Width = 80;
-                TabControl.SelectedIndex = 1;
-            }
-        }
-
-        private void BtnMapping_MouseEnter(object sender, EventArgs e)
-        {
-            if (PnlSubHeader.GetColumnWidths()[1] > PnlSubHeader.GetColumnWidths()[0])
-            {
-                BtnMapping.FlatAppearance.MouseOverBackColor = BtnMapping.BackColor;
-                BtnMapping.FlatAppearance.MouseDownBackColor = BtnMapping.BackColor;
-            }
-            else
-            {
-                BtnMapping.FlatAppearance.MouseOverBackColor = Color.Empty;
-                BtnMapping.FlatAppearance.MouseDownBackColor = Color.Empty;
-            }
-        }
-        #endregion
-        #endregion       
     }
 }
