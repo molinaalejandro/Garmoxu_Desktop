@@ -100,7 +100,7 @@ namespace Garmoxu_Desktop
             this.BtnGuardar.BackColor = System.Drawing.Color.SeaGreen;
             this.BtnGuardar.BackgroundColor = System.Drawing.Color.SeaGreen;
             this.BtnGuardar.BorderColor = System.Drawing.Color.Black;
-            this.BtnGuardar.BorderRadius = 5;
+            this.BtnGuardar.BorderRadius = 15;
             this.BtnGuardar.BorderSize = 0;
             this.BtnGuardar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnGuardar.FlatAppearance.BorderSize = 0;
@@ -123,7 +123,7 @@ namespace Garmoxu_Desktop
             this.BtnCancelar.BackColor = System.Drawing.Color.Crimson;
             this.BtnCancelar.BackgroundColor = System.Drawing.Color.Crimson;
             this.BtnCancelar.BorderColor = System.Drawing.Color.Black;
-            this.BtnCancelar.BorderRadius = 5;
+            this.BtnCancelar.BorderRadius = 15;
             this.BtnCancelar.BorderSize = 0;
             this.BtnCancelar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnCancelar.FlatAppearance.BorderSize = 0;

@@ -42,6 +42,7 @@ namespace Garmoxu_Desktop
             this.BtnQuitar = new FontAwesome.Sharp.IconButton();
             this.TxtBuscar = new RJCodeAdvance.RJControls.RJTextBox();
             this.BtnBuscar = new FontAwesome.Sharp.IconButton();
+            this.GrpUsuario = new Garmoxu_Desktop.MyGroupBox();
             this.PnlDetalles = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.PicUsuario = new RJCodeAdvance.RJControls.RJCircularPictureBox();
@@ -64,6 +65,7 @@ namespace Garmoxu_Desktop
             this.tableLayoutPanel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.DtgUsuarios)).BeginInit();
             this.tableLayoutPanel6.SuspendLayout();
+            this.GrpUsuario.SuspendLayout();
             this.PnlDetalles.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicUsuario)).BeginInit();
@@ -81,7 +83,7 @@ namespace Garmoxu_Desktop
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 5F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 51F));
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel3, 2, 0);
-            this.tableLayoutPanel4.Controls.Add(this.PnlDetalles, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.GrpUsuario, 0, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(73, 53);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -278,6 +280,24 @@ namespace Garmoxu_Desktop
             this.BtnBuscar.MouseEnter += new System.EventHandler(this.BtnBuscar_MouseEnter);
             this.BtnBuscar.MouseLeave += new System.EventHandler(this.BtnBuscar_MouseLeave);
             // 
+            // GrpUsuario
+            // 
+            this.GrpUsuario.BorderColor = System.Drawing.Color.Silver;
+            this.GrpUsuario.Controls.Add(this.PnlDetalles);
+            this.GrpUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GrpUsuario.Font = new System.Drawing.Font("Source Sans Pro", 18F, System.Drawing.FontStyle.Bold);
+            this.GrpUsuario.ForeColor = System.Drawing.Color.Silver;
+            this.GrpUsuario.Location = new System.Drawing.Point(0, 0);
+            this.GrpUsuario.Margin = new System.Windows.Forms.Padding(0);
+            this.GrpUsuario.Name = "GrpUsuario";
+            this.GrpUsuario.Padding = new System.Windows.Forms.Padding(20, 0, 20, 35);
+            this.GrpUsuario.Size = new System.Drawing.Size(419, 579);
+            this.GrpUsuario.TabIndex = 20;
+            this.GrpUsuario.TabStop = false;
+            this.GrpUsuario.Text = "Usuario";
+            this.GrpUsuario.TextActivated = true;
+            this.GrpUsuario.Visible = false;
+            // 
             // PnlDetalles
             // 
             this.PnlDetalles.ColumnCount = 1;
@@ -285,13 +305,13 @@ namespace Garmoxu_Desktop
             this.PnlDetalles.Controls.Add(this.tableLayoutPanel2, 0, 0);
             this.PnlDetalles.Controls.Add(this.tableLayoutPanel9, 0, 1);
             this.PnlDetalles.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlDetalles.Location = new System.Drawing.Point(3, 3);
+            this.PnlDetalles.Location = new System.Drawing.Point(20, 38);
             this.PnlDetalles.Name = "PnlDetalles";
             this.PnlDetalles.RowCount = 2;
             this.PnlDetalles.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 26F));
             this.PnlDetalles.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 74F));
-            this.PnlDetalles.Size = new System.Drawing.Size(413, 573);
-            this.PnlDetalles.TabIndex = 20;
+            this.PnlDetalles.Size = new System.Drawing.Size(379, 506);
+            this.PnlDetalles.TabIndex = 21;
             this.PnlDetalles.Visible = false;
             // 
             // tableLayoutPanel2
@@ -308,23 +328,23 @@ namespace Garmoxu_Desktop
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 0F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 0F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(407, 142);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(373, 125);
             this.tableLayoutPanel2.TabIndex = 36;
             // 
             // PicUsuario
             // 
-            this.PicUsuario.BackColor = System.Drawing.Color.Silver;
+            this.PicUsuario.BackColor = System.Drawing.Color.LightGray;
             this.PicUsuario.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Triangle;
-            this.PicUsuario.BorderColor = System.Drawing.Color.Silver;
-            this.PicUsuario.BorderColor2 = System.Drawing.Color.Silver;
+            this.PicUsuario.BorderColor = System.Drawing.Color.White;
+            this.PicUsuario.BorderColor2 = System.Drawing.Color.DimGray;
             this.PicUsuario.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
             this.PicUsuario.BorderSize = 3;
             this.PicUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PicUsuario.GradientAngle = 50F;
             this.PicUsuario.Image = global::Garmoxu_Desktop.Properties.Resources.User_Default_Icon;
-            this.PicUsuario.Location = new System.Drawing.Point(145, 3);
+            this.PicUsuario.Location = new System.Drawing.Point(133, 3);
             this.PicUsuario.Name = "PicUsuario";
-            this.PicUsuario.Size = new System.Drawing.Size(116, 116);
+            this.PicUsuario.Size = new System.Drawing.Size(105, 105);
             this.PicUsuario.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.PicUsuario.TabIndex = 36;
             this.PicUsuario.TabStop = false;
@@ -346,7 +366,7 @@ namespace Garmoxu_Desktop
             this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel8, 0, 7);
             this.tableLayoutPanel9.Controls.Add(this.tableLayoutPanel10, 2, 7);
             this.tableLayoutPanel9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 151);
+            this.tableLayoutPanel9.Location = new System.Drawing.Point(3, 134);
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 9;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3F));
@@ -358,7 +378,7 @@ namespace Garmoxu_Desktop
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 18F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 11F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 32F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(407, 419);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(373, 369);
             this.tableLayoutPanel9.TabIndex = 25;
             // 
             // label1
@@ -367,9 +387,9 @@ namespace Garmoxu_Desktop
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Silver;
-            this.label1.Location = new System.Drawing.Point(3, 12);
+            this.label1.Location = new System.Drawing.Point(3, 11);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(177, 29);
+            this.label1.Size = new System.Drawing.Size(161, 25);
             this.label1.TabIndex = 38;
             this.label1.Text = "Nombre de usuario";
             // 
@@ -379,9 +399,9 @@ namespace Garmoxu_Desktop
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.Silver;
-            this.label3.Location = new System.Drawing.Point(226, 12);
+            this.label3.Location = new System.Drawing.Point(207, 11);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(178, 29);
+            this.label3.Size = new System.Drawing.Size(163, 25);
             this.label3.TabIndex = 37;
             this.label3.Text = "Nombre y apellidos";
             // 
@@ -395,7 +415,7 @@ namespace Garmoxu_Desktop
             this.TxtNombre.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtNombre.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
             this.TxtNombre.ForeColor = System.Drawing.Color.Gainsboro;
-            this.TxtNombre.Location = new System.Drawing.Point(223, 46);
+            this.TxtNombre.Location = new System.Drawing.Point(204, 41);
             this.TxtNombre.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.TxtNombre.Multiline = false;
             this.TxtNombre.Name = "TxtNombre";
@@ -403,7 +423,7 @@ namespace Garmoxu_Desktop
             this.TxtNombre.PasswordChar = false;
             this.TxtNombre.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtNombre.PlaceholderText = "";
-            this.TxtNombre.Size = new System.Drawing.Size(184, 55);
+            this.TxtNombre.Size = new System.Drawing.Size(169, 55);
             this.TxtNombre.TabIndex = 2;
             this.TxtNombre.Texts = "";
             this.TxtNombre.UnderlinedStyle = false;
@@ -418,7 +438,7 @@ namespace Garmoxu_Desktop
             this.TxtUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtUsuario.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
             this.TxtUsuario.ForeColor = System.Drawing.Color.Gainsboro;
-            this.TxtUsuario.Location = new System.Drawing.Point(0, 46);
+            this.TxtUsuario.Location = new System.Drawing.Point(0, 41);
             this.TxtUsuario.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.TxtUsuario.Multiline = false;
             this.TxtUsuario.Name = "TxtUsuario";
@@ -426,7 +446,7 @@ namespace Garmoxu_Desktop
             this.TxtUsuario.PasswordChar = false;
             this.TxtUsuario.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtUsuario.PlaceholderText = "";
-            this.TxtUsuario.Size = new System.Drawing.Size(183, 55);
+            this.TxtUsuario.Size = new System.Drawing.Size(167, 55);
             this.TxtUsuario.TabIndex = 1;
             this.TxtUsuario.Texts = "";
             this.TxtUsuario.UnderlinedStyle = false;
@@ -437,9 +457,9 @@ namespace Garmoxu_Desktop
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.Silver;
-            this.label2.Location = new System.Drawing.Point(3, 102);
+            this.label2.Location = new System.Drawing.Point(3, 90);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(177, 29);
+            this.label2.Size = new System.Drawing.Size(161, 25);
             this.label2.TabIndex = 26;
             this.label2.Text = "Tipo de usuario";
             // 
@@ -449,9 +469,9 @@ namespace Garmoxu_Desktop
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.Silver;
-            this.label5.Location = new System.Drawing.Point(226, 102);
+            this.label5.Location = new System.Drawing.Point(207, 90);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(178, 29);
+            this.label5.Size = new System.Drawing.Size(163, 25);
             this.label5.TabIndex = 25;
             this.label5.Text = "Restablecer contraseña";
             // 
@@ -467,7 +487,7 @@ namespace Garmoxu_Desktop
             this.CboTipoUsuario.IconColor = System.Drawing.Color.Gainsboro;
             this.CboTipoUsuario.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
             this.CboTipoUsuario.ListTextColor = System.Drawing.Color.DimGray;
-            this.CboTipoUsuario.Location = new System.Drawing.Point(3, 131);
+            this.CboTipoUsuario.Location = new System.Drawing.Point(3, 115);
             this.CboTipoUsuario.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
             this.CboTipoUsuario.MinimumSize = new System.Drawing.Size(200, 30);
             this.CboTipoUsuario.Name = "CboTipoUsuario";
@@ -483,12 +503,12 @@ namespace Garmoxu_Desktop
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 77F));
             this.tableLayoutPanel7.Controls.Add(this.TgbRestablecerContraseña, 0, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(226, 134);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(207, 118);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 2;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 90F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(178, 23);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(163, 19);
             this.tableLayoutPanel7.TabIndex = 30;
             // 
             // TgbRestablecerContraseña
@@ -517,11 +537,11 @@ namespace Garmoxu_Desktop
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel8.Controls.Add(this.BtnGuardar, 1, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 238);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 209);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(177, 40);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(161, 34);
             this.tableLayoutPanel8.TabIndex = 33;
             // 
             // BtnGuardar
@@ -529,17 +549,17 @@ namespace Garmoxu_Desktop
             this.BtnGuardar.BackColor = System.Drawing.Color.SeaGreen;
             this.BtnGuardar.BackgroundColor = System.Drawing.Color.SeaGreen;
             this.BtnGuardar.BorderColor = System.Drawing.Color.Black;
-            this.BtnGuardar.BorderRadius = 5;
+            this.BtnGuardar.BorderRadius = 15;
             this.BtnGuardar.BorderSize = 0;
             this.BtnGuardar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnGuardar.FlatAppearance.BorderSize = 0;
             this.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnGuardar.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
             this.BtnGuardar.ForeColor = System.Drawing.Color.White;
-            this.BtnGuardar.Location = new System.Drawing.Point(26, 0);
+            this.BtnGuardar.Location = new System.Drawing.Point(24, 0);
             this.BtnGuardar.Margin = new System.Windows.Forms.Padding(0);
             this.BtnGuardar.Name = "BtnGuardar";
-            this.BtnGuardar.Size = new System.Drawing.Size(123, 40);
+            this.BtnGuardar.Size = new System.Drawing.Size(112, 34);
             this.BtnGuardar.TabIndex = 23;
             this.BtnGuardar.TabStop = false;
             this.BtnGuardar.Text = "Guardar";
@@ -555,11 +575,11 @@ namespace Garmoxu_Desktop
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel10.Controls.Add(this.BtnEliminar, 1, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(226, 238);
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(207, 209);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 1;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(178, 40);
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(163, 34);
             this.tableLayoutPanel10.TabIndex = 32;
             // 
             // BtnEliminar
@@ -567,17 +587,17 @@ namespace Garmoxu_Desktop
             this.BtnEliminar.BackColor = System.Drawing.Color.Crimson;
             this.BtnEliminar.BackgroundColor = System.Drawing.Color.Crimson;
             this.BtnEliminar.BorderColor = System.Drawing.Color.Black;
-            this.BtnEliminar.BorderRadius = 5;
+            this.BtnEliminar.BorderRadius = 15;
             this.BtnEliminar.BorderSize = 0;
             this.BtnEliminar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnEliminar.FlatAppearance.BorderSize = 0;
             this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnEliminar.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
             this.BtnEliminar.ForeColor = System.Drawing.Color.White;
-            this.BtnEliminar.Location = new System.Drawing.Point(26, 0);
+            this.BtnEliminar.Location = new System.Drawing.Point(24, 0);
             this.BtnEliminar.Margin = new System.Windows.Forms.Padding(0);
             this.BtnEliminar.Name = "BtnEliminar";
-            this.BtnEliminar.Size = new System.Drawing.Size(124, 40);
+            this.BtnEliminar.Size = new System.Drawing.Size(114, 34);
             this.BtnEliminar.TabIndex = 23;
             this.BtnEliminar.TabStop = false;
             this.BtnEliminar.Text = "Eliminar";
@@ -623,6 +643,7 @@ namespace Garmoxu_Desktop
             ((System.ComponentModel.ISupportInitialize)(this.DtgUsuarios)).EndInit();
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
+            this.GrpUsuario.ResumeLayout(false);
             this.PnlDetalles.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PicUsuario)).EndInit();
@@ -645,6 +666,9 @@ namespace Garmoxu_Desktop
         private FontAwesome.Sharp.IconButton BtnQuitar;
         private RJCodeAdvance.RJControls.RJTextBox TxtBuscar;
         private FontAwesome.Sharp.IconButton BtnBuscar;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.DataGridView DtgUsuarios;
+        private MyGroupBox GrpUsuario;
         private System.Windows.Forms.TableLayoutPanel PnlDetalles;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private RJCodeAdvance.RJControls.RJCircularPictureBox PicUsuario;
@@ -655,14 +679,12 @@ namespace Garmoxu_Desktop
         private RJCodeAdvance.RJControls.RJTextBox TxtUsuario;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label5;
+        private RJCodeAdvance.RJControls.RJComboBox CboTipoUsuario;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private RJCodeAdvance.RJControls.RJToggleButton TgbRestablecerContraseña;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
         private RJCodeAdvance.RJControls.RJButton BtnGuardar;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
         private RJCodeAdvance.RJControls.RJButton BtnEliminar;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private RJCodeAdvance.RJControls.RJComboBox CboTipoUsuario;
-        private System.Windows.Forms.DataGridView DtgUsuarios;
     }
 }

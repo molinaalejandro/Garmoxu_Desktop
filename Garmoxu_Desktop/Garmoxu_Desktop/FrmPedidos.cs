@@ -77,7 +77,7 @@ namespace Garmoxu_Desktop
         #region Text box Buscar
         private void TxtBuscar_Enter(object sender, EventArgs e)
         {
-            if (TxtBuscar.Texts.Trim().Equals("Nº mesa o teléfono de cliente"))
+            if (TxtBuscar.Texts.Trim().Equals("Buscar por nº de mesa o teléfono de cliente"))
             {
                 TxtBuscar.Texts = string.Empty;
                 TxtBuscar.ForeColor = Color.Gainsboro;
@@ -89,7 +89,7 @@ namespace Garmoxu_Desktop
         {
             if (TxtBuscar.Texts.Trim().Equals(string.Empty))
             {
-                TxtBuscar.Texts = "Nº mesa o teléfono de cliente";
+                TxtBuscar.Texts = "Buscar por nº de mesa o teléfono de cliente";
                 TxtBuscar.ForeColor = Color.Gray;
                 BtnBuscar.Enabled = false;
             }
@@ -146,7 +146,7 @@ namespace Garmoxu_Desktop
             btn.AutoSize = true;
 
             btn.BorderColor = Color.White;
-            btn.BorderRadius = 5;
+            btn.BorderRadius = 15;
             btn.BorderSize = 0;
             btn.Click += new EventHandler(BtnPedidoEnCurso_Click);
             btn.FlatAppearance.BorderSize = 0;
@@ -521,8 +521,12 @@ namespace Garmoxu_Desktop
         {
             //No me deja dividir o multiplicar con decimales por algun motivo
             //La nueva esta al 75% del tamaño comparado con el Main
-            f.Width = (Instance.Width / 2) + (Instance.Width / 4);
-            f.Height = (Instance.Height / 2) + (Instance.Height / 4);
+            //f.Width = (Instance.Width / 2) + (Instance.Width / 4);
+            //f.Height = (Instance.Height / 2) + (Instance.Height / 4);
+
+            f.Width = (Instance.Width / 5) + (Instance.Width / 6);
+            f.Height = (Instance.Height / 3) + (Instance.Height / 3);
+
             f.Show();
         }
         #endregion

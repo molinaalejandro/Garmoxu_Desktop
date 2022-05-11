@@ -459,7 +459,7 @@
             this.BtnGuardar.BackColor = System.Drawing.Color.SeaGreen;
             this.BtnGuardar.BackgroundColor = System.Drawing.Color.SeaGreen;
             this.BtnGuardar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.BtnGuardar.BorderRadius = 5;
+            this.BtnGuardar.BorderRadius = 15;
             this.BtnGuardar.BorderSize = 0;
             this.BtnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnGuardar.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -482,7 +482,7 @@
             this.BtnCerrarSesion.BackColor = System.Drawing.Color.Crimson;
             this.BtnCerrarSesion.BackgroundColor = System.Drawing.Color.Crimson;
             this.BtnCerrarSesion.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.BtnCerrarSesion.BorderRadius = 5;
+            this.BtnCerrarSesion.BorderRadius = 15;
             this.BtnCerrarSesion.BorderSize = 0;
             this.BtnCerrarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnCerrarSesion.Dock = System.Windows.Forms.DockStyle.Fill;

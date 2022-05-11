@@ -56,6 +56,7 @@ namespace Garmoxu_Desktop
         public FrmPedidosDetalles(MySqlConnection conexionBD, string clavePrimariaPedidoEnCurso, FrmMain instance, string usuarioActual, int iva)
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
             ConexionBD = conexionBD;
             ClavePrimariaPedidoEnCurso = clavePrimariaPedidoEnCurso;
             Instance = instance;
@@ -66,6 +67,7 @@ namespace Garmoxu_Desktop
             AsignarEstadosPedido();
             InicializarListaDatosOpcionales();
             CargarTipoFormulario();
+            TxtCodigoPlato_Leave(null, null);
         }
 
         #region Apertura del formulario
@@ -77,12 +79,17 @@ namespace Garmoxu_Desktop
             if (!string.IsNullOrEmpty(ClavePrimariaPedidoEnCurso.Trim()))
             {
                 TabPrincipal.SelectedIndex = 1;
-                BtnConfirmar.Text = "Guardar cambios";
+                BtnConfirmar.Text = "Guardar";
+                LblTitulo.Text = "Consulta el pedido " + ClavePrimariaPedidoEnCurso;
                 AsignarDatosPedido();
             }
             else
             {
-                BtnBorrarPedido.Visible = false;
+                BtnCancelarPedido.Visible = false;
+                BtnConfirmar.Text = "Registrar";
+                tableLayoutPanel20.ColumnStyles[1].Width = 0;
+                tableLayoutPanel20.ColumnStyles[2].Width = 0;
+                BtnConfirmar.Margin = new Padding(BtnConfirmar.Width/2-178/2, 0, BtnConfirmar.Width/2 - 178/2, 0);
                 AsignarFechaHora();
                 CboTipo.SelectedIndex = 0;
             }
@@ -274,24 +281,105 @@ namespace Garmoxu_Desktop
         #endregion
         #endregion
 
+        #region Funciones y diseño del formulario
+        #region Bordeado del formulario
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+
+                // Solo se acumulan modificaciones de diferente tipos, es decir,
+                // una de ExStyle, otra de Style y otra de ClassStyle. Pero, nunca
+                // se pueden acumular dos modificaciones del mismo tipo, por ejemplo,
+                // no se acumulan dos ExStyle, o aplicas uno, o aplicas el otro.
+
+                //cp.ExStyle = 0x00000100; // Aperentemente no hace nada
+                //cp.ExStyle = 0x00020000; // Borde simple fino arriba e izquierda y grueso abajo y derecha
+                //cp.ExStyle = 0x00000200; // Borde 3D arriba e izquierda
+                //cp.ExStyle = 0x00000001; // Borde 3D abajo y derecha
+                // https://docs.microsoft.com/en-us/windows/win32/winmsg/extended-window-styles
+
+                cp.Style |= 0x00800000; // Borde simple fino
+                // https://docs.microsoft.com/en-us/windows/win32/winmsg/window-styles
+
+                //cp.ClassStyle |= 0x00020000; // Shadow border
+                return cp;
+            }
+        }
+        #endregion
+        #endregion
+
+        #region Funciones y diseños de controles
+        #region Boton Añadir Plato
+        private void BtnAñadirPlato_MouseEnter(object sender, EventArgs e)
+        {
+            BtnAñadirPlato.IconColor = Color.FromArgb(110, 255, 110);
+        }
+
+        private void BtnAñadirPlato_MouseLeave(object sender, EventArgs e)
+        {
+            BtnAñadirPlato.IconColor = Color.FromArgb(70, 225, 70);
+        }
+        #endregion
+
+        #region Boton Borrar Plato
+        private void BtnBorrarFilaPlato_MouseEnter(object sender, EventArgs e)
+        {
+            BtnBorrarFilaPlato.IconColor = Color.LightCoral;
+        }
+
+        private void BtnBorrarFilaPlato_MouseLeave(object sender, EventArgs e)
+        {
+            BtnBorrarFilaPlato.IconColor = Color.FromArgb(255, 70, 70);
+        }
+        #endregion
+
+        #region Boton Consultar Platos
+        private void BtnConsultarPlatos_MouseEnter(object sender, EventArgs e)
+        {
+            BtnConsultarPlatos.IconColor = Color.Wheat;
+            BtnConsultarPlatos.IconChar = FontAwesome.Sharp.IconChar.BookOpen;
+        }
+
+        private void BtnConsultarPlatos_MouseLeave(object sender, EventArgs e)
+        {
+            BtnConsultarPlatos.IconColor = Color.DarkKhaki;
+            BtnConsultarPlatos.IconChar = FontAwesome.Sharp.IconChar.Book;
+        }
+        #endregion
+        #endregion
+
         #region Selección de tipo de pedido
         #region Botones tipo de pedido
         // Cambia a las pestaña de pedido local.
         private void BtnLocal_Click(object sender, EventArgs e)
         {
             TabTipoDatosTipo.SelectedIndex = 0;
+            CambiarColoresBotonesTipo(sender);
         }
 
         // Cambia a las pestaña de pedido a domicilio.
         private void BtnDomicilio_Click(object sender, EventArgs e)
         {
             TabTipoDatosTipo.SelectedIndex = 1;
+            CambiarColoresBotonesTipo(sender);
         }
 
         // Cambia a las pestaña de pedido a recoger.
         private void BtnRecoger_Click(object sender, EventArgs e)
         {
             TabTipoDatosTipo.SelectedIndex = 2;
+            CambiarColoresBotonesTipo(sender);
+        }
+
+        private void CambiarColoresBotonesTipo(object sender)
+        {
+            BtnLocal.BackColor = Color.Gray;
+            BtnDomicilio.BackColor = Color.Gray;
+            BtnRecoger.BackColor = Color.Gray;
+
+            ((RJButton)sender).BackColor = Color.SlateBlue;
         }
 
         // Si pulsa enter en alguna de las últimas text box de las tab pages, ejecuta el botón siguiente.
@@ -315,6 +403,9 @@ namespace Garmoxu_Desktop
                 TabPrincipal.SelectedIndex = 1;
                 PasarDatosADetalles();
                 CboTipo.SelectedIndex = TabTipoDatosTipo.SelectedIndex;
+                LblTitulo.Text = "Crea un nuevo pedido";
+                this.Size = new Size(1463, 872);
+                this.CenterToScreen();
             }
         }
 
@@ -427,6 +518,24 @@ namespace Garmoxu_Desktop
         #endregion
 
         #region Inserción de platos
+        private void TxtCodigoPlato_Enter(object sender, EventArgs e)
+        {
+            if (TxtCodigoPlato.Texts.Trim().Equals("Introducir código de plato"))
+            {
+                TxtCodigoPlato.Texts = string.Empty;
+                TxtCodigoPlato.ForeColor = Color.Gainsboro;
+            }
+        }
+
+        private void TxtCodigoPlato_Leave(object sender, EventArgs e)
+        {
+            if (TxtCodigoPlato.Texts.Trim().Equals(string.Empty))
+            {
+                TxtCodigoPlato.Texts = "Introducir código de plato";
+                TxtCodigoPlato.ForeColor = Color.Gray;
+            }
+        }
+
         // Añade un plato.
         private void BtnAñadirPlato_Click(object sender, EventArgs e)
         {
@@ -462,7 +571,7 @@ namespace Garmoxu_Desktop
                 {
                     string[] datosPlatos = new string[3];
                     CargarPlatos(ref datosPlatos);
-                    DtgPlatosPedidos.Rows.Add(new object[] 
+                    DtgPlatosPedidos.Rows.Add(new object[]
                     {
                         datosPlatos[0], datosPlatos[1], NucCantidad.Value,
                         datosPlatos[2], decimal.Parse(datosPlatos[2])*NucCantidad.Value
@@ -508,7 +617,7 @@ namespace Garmoxu_Desktop
         {
             for (int i = 0; i < DtgPlatosPedidos.Rows.Count; i++)
             {
-                if (DtgPlatosPedidos.Rows[i].Cells[0].Value.ToString().Equals(TxtCodigoPlato.Texts.Trim().ToUpper()))
+                if (DtgPlatosPedidos.Rows[i].Cells[0].Value.ToString().Equals((object)TxtCodigoPlato.Texts.Trim().ToUpper()))
                     return i;
             }
             return -1;
@@ -1467,7 +1576,7 @@ namespace Garmoxu_Desktop
 
         #region Boton borrar pedido
         // Borra el pedido de la BBDD y libera la mesa si tenía alguna ocupada.
-        private void BtnBorrarPedido_Click(object sender, EventArgs e)
+        private void BtnCancelarPedido_Click(object sender, EventArgs e)
         {
             if (ValidarPedidoDisponible() && ConfirmarAccion("eliminar permanentemente"))
             {
@@ -1585,15 +1694,30 @@ namespace Garmoxu_Desktop
         // Asigna o borra los datos de las text box relacionadas con el cliente.
         private void AsignarDatosTlfCliente(TabControl tab, string[] datos)
         {
-            switch (tab.SelectedIndex)
+            switch (TabPrincipal.SelectedIndex)
             {
-                case 1:
-                    ((RJTextBox)tab.TabPages[1].Controls[tab.TabPages[1].Controls.Count - 2]).Texts = datos[0];
-                    ((RJTextBox)tab.TabPages[1].Controls[tab.TabPages[1].Controls.Count - 1]).Texts = datos[1];
+                case 0:
+                    if(tab.SelectedIndex == 1)
+                    {
+                        TxtDirDomicilioTipo.Texts = datos[0];
+                        TxtNombreDomicilioTipo.Texts = datos[1];
+                    }
+                    else
+                    {
+                        TxtNombreRecogerTipo.Texts = datos[0];
+                    }
                     break;
 
-                case 2:
-                    ((RJTextBox)tab.TabPages[2].Controls[tab.TabPages[2].Controls.Count - 1]).Texts = datos[1];
+                case 1:
+                    if (tab.SelectedIndex == 1)
+                    {
+                        TxtDirDomicilioDetalles.Texts = datos[0];
+                        TxtNombreDomicilioDetalles.Texts = datos[1];
+                    }
+                    else
+                    {
+                        TxtNombreRecogerDetalles.Texts = datos[0];
+                    }
                     break;
             }
         }
@@ -1761,7 +1885,7 @@ namespace Garmoxu_Desktop
                                 if (string.IsNullOrEmpty(lector[1].ToString())) nombre = string.Empty;
                                 else nombre = lector.GetString(1);
 
-                                if (!dir.Equals(TxtDirDomicilioDetalles.Texts.Trim()) 
+                                if (!dir.Equals(TxtDirDomicilioDetalles.Texts.Trim())
                                     || !nombre.Equals(TxtNombreDomicilioDetalles.Texts.Trim()))
                                     modificacionRealizada = true;
 

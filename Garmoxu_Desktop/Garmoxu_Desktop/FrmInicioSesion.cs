@@ -530,10 +530,5 @@ namespace Garmoxu_Desktop
             catch (Exception ex) { MessageBox.Show(ex.Message); }
         }
         #endregion
-
-        private void tableLayoutPanel6_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

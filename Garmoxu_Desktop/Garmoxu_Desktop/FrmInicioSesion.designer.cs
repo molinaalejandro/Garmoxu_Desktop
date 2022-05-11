@@ -439,7 +439,7 @@
             this.BtnIniciar.BackColor = System.Drawing.Color.SeaGreen;
             this.BtnIniciar.BackgroundColor = System.Drawing.Color.SeaGreen;
             this.BtnIniciar.BorderColor = System.Drawing.Color.SeaGreen;
-            this.BtnIniciar.BorderRadius = 5;
+            this.BtnIniciar.BorderRadius = 15;
             this.BtnIniciar.BorderSize = 0;
             this.BtnIniciar.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
             this.BtnIniciar.FlatAppearance.BorderSize = 0;
@@ -462,8 +462,8 @@
             this.ChkRemember.AutoSize = true;
             this.ChkRemember.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChkRemember.ForeColor = System.Drawing.Color.Silver;
-            this.ChkRemember.Location = new System.Drawing.Point(95, 87);
-            this.ChkRemember.Margin = new System.Windows.Forms.Padding(95, 3, 3, 3);
+            this.ChkRemember.Location = new System.Drawing.Point(97, 87);
+            this.ChkRemember.Margin = new System.Windows.Forms.Padding(97, 3, 3, 3);
             this.ChkRemember.Name = "ChkRemember";
             this.ChkRemember.Size = new System.Drawing.Size(184, 29);
             this.ChkRemember.TabIndex = 1;

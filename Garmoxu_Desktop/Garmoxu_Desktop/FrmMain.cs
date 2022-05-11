@@ -11,6 +11,7 @@ using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using System.IO;
 using FontAwesome.Sharp;
+using RJCodeAdvance.RJControls;
 
 namespace Garmoxu_Desktop
 {
@@ -283,12 +284,12 @@ namespace Garmoxu_Desktop
         private void LimitarPermisos()
         {
             if (NivelPermisos != 2)
-                BtnUsers.Visible = false;
+                BtnUsuarios.Visible = false;
 
             if (NivelPermisos == 0)
             {
-                BtnCliente.Visible = false;
-                BtnCategoria.Visible = false;
+                BtnClientes.Visible = false;
+                BtnCategorias.Visible = false;
                 BtnPlatos.Visible = false;
             }
         }
@@ -511,15 +512,15 @@ namespace Garmoxu_Desktop
         private void BtnCerrarSeccion_Click(object sender, EventArgs e)
         {
             //if (!BtnCerrarSeccion.IconColor.Equals(Color.Silver))
-                ((Form)PnlMain.Controls[0]).Close();
+            ((Form)PnlMain.Controls[0]).Close();
         }
 
         private void BtnCerrarSeccion_MouseEnter(object sender, EventArgs e)
         {
             //if (!BtnCerrarSeccion.IconColor.Equals(Color.Silver))
             //{
-                BtnCerrarSeccion.IconColor = Color.FromArgb(255, 103, 103);
-                //BtnCerrar.IconChar = FontAwesome.Sharp.IconChar.DoorOpen;
+            BtnCerrarSeccion.IconColor = Color.FromArgb(255, 103, 103);
+            //BtnCerrar.IconChar = FontAwesome.Sharp.IconChar.DoorOpen;
             //}
         }
 
@@ -527,8 +528,8 @@ namespace Garmoxu_Desktop
         {
             //if (!BtnCerrarSeccion.IconColor.Equals(Color.Silver))
             //{
-                BtnCerrarSeccion.IconColor = Color.White;
-                //BtnCerrar.IconChar = FontAwesome.Sharp.IconChar.DoorClosed;
+            BtnCerrarSeccion.IconColor = Color.White;
+            //BtnCerrar.IconChar = FontAwesome.Sharp.IconChar.DoorClosed;
             //}
         }
 
@@ -600,5 +601,25 @@ namespace Garmoxu_Desktop
                 CerrarSesion();
         }
         #endregion
+
+        private void FrmMain_EnabledChanged(object sender, EventArgs e)
+        {
+            IconButton[] botonesMenu = new IconButton[]
+            {
+                BtnPedidos, BtnReservas, BtnHistorial, BtnPlatos,
+                BtnCategorias, BtnClientes, BtnUsuarios, BtnAjustes
+            };
+
+            if (this.Enabled)
+            {
+                foreach (IconButton boton in botonesMenu)
+                    boton.BackColor = Color.FromArgb(41, 42, 45);
+            }
+            else
+            {
+                foreach (IconButton boton in botonesMenu)
+                    boton.BackColor = Color.Transparent;
+            }
+        }
     }
 }

@@ -254,6 +254,7 @@ namespace Garmoxu_Desktop
 
                 TxtUsuario.Texts = lector[0].ToString();
                 TxtNombre.Texts = lector[1].ToString();
+                GrpUsuario.Text = lector[1].ToString();
 
                 int indexTipoUsuario = IdsTiposUsuario.IndexOf(lector[2].ToString());
                 CboTipoUsuario.SelectedIndex = indexTipoUsuario;
@@ -339,6 +340,7 @@ namespace Garmoxu_Desktop
         private void HabilitarControles()
         {
             PnlDetalles.Visible = true;
+            GrpUsuario.Visible = true;
             DatosIniciales = new List<string>();
             LimpiarControles();
         }
@@ -346,6 +348,7 @@ namespace Garmoxu_Desktop
         private void DeshabilitarControles()
         {
             PnlDetalles.Visible = false;
+            GrpUsuario.Visible = false;
             DatosIniciales = null;
             LimpiarControles();
         }

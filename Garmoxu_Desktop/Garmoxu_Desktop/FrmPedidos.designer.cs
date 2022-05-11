@@ -164,7 +164,7 @@
             this.TxtBuscar.Size = new System.Drawing.Size(780, 51);
             this.TxtBuscar.TabIndex = 18;
             this.TxtBuscar.TabStop = false;
-            this.TxtBuscar.Texts = "Nº mesa o teléfono de cliente";
+            this.TxtBuscar.Texts = "Buscar por nº de mesa o teléfono de cliente";
             this.TxtBuscar.UnderlinedStyle = false;
             this.TxtBuscar.Enter += new System.EventHandler(this.TxtBuscar_Enter);
             this.TxtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtBuscar_KeyPress);
@@ -206,6 +206,7 @@
             this.GrpRecoger.TabIndex = 2;
             this.GrpRecoger.TabStop = false;
             this.GrpRecoger.Text = "Recoger";
+            this.GrpRecoger.TextActivated = true;
             // 
             // PnlRecoger
             // 
@@ -233,6 +234,7 @@
             this.GrpDomicilio.TabIndex = 1;
             this.GrpDomicilio.TabStop = false;
             this.GrpDomicilio.Text = "Domicilio";
+            this.GrpDomicilio.TextActivated = true;
             // 
             // PnlDomicilio
             // 
@@ -260,6 +262,7 @@
             this.GrpLocal.TabIndex = 0;
             this.GrpLocal.TabStop = false;
             this.GrpLocal.Text = "Local";
+            this.GrpLocal.TextActivated = true;
             // 
             // PnlLocal
             // 
