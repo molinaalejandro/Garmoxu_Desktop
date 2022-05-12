@@ -144,11 +144,12 @@ namespace Garmoxu_Desktop
 
                 //cp.ExStyle = 0x00000100; // Aperentemente no hace nada
                 //cp.ExStyle = 0x00020000; // Borde simple fino arriba e izquierda y grueso abajo y derecha
-                //cp.ExStyle = 0x00000200; // Borde 3D arriba e izquierda
+                cp.ExStyle = 0x00000200; // Borde 3D arriba e izquierda
                 //cp.ExStyle = 0x00000001; // Borde 3D abajo y derecha
                 // https://docs.microsoft.com/en-us/windows/win32/winmsg/extended-window-styles
 
-                cp.Style |= 0x00800000; // Borde simple fino
+                //cp.Style |= 0x00800000; // Borde simple fino
+                cp.Style |= 0x00400000; // Borde 3D abajo y derecha
                 // https://docs.microsoft.com/en-us/windows/win32/winmsg/window-styles
 
                 //cp.ClassStyle |= 0x00020000; // Shadow border

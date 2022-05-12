@@ -29,310 +29,243 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.PnlMain = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.BtnNuevo = new RJCodeAdvance.RJControls.RJButton();
-            this.BtnEliminar = new RJCodeAdvance.RJControls.RJButton();
-            this.BtnCerrar = new RJCodeAdvance.RJControls.RJButton();
-            this.PnlBusqueda = new System.Windows.Forms.TableLayoutPanel();
-            this.BtnBuscar = new RJCodeAdvance.RJControls.RJButton();
-            this.PnlCalendar = new System.Windows.Forms.Panel();
-            this.TxtNombre = new RJCodeAdvance.RJControls.RJTextBox();
-            this.ChkNombrePlato = new MaterialSkin.Controls.MaterialCheckBox();
-            this.PnlTipo = new System.Windows.Forms.Panel();
-            this.CboCategoria = new System.Windows.Forms.ComboBox();
-            this.ChkCategoriaPlato = new MaterialSkin.Controls.MaterialCheckBox();
-            this.PnlTelefono = new System.Windows.Forms.Panel();
-            this.TglDisponibilidad = new RJCodeAdvance.RJControls.RJToggleButton();
-            this.LblDisponibilidad = new MaterialSkin.Controls.MaterialLabel();
-            this.LstPlatos = new System.Windows.Forms.ListView();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPlatos));
             this.ImgImagenesPlatos = new System.Windows.Forms.ImageList(this.components);
-            this.PnlMain.SuspendLayout();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.TgbNombre = new RJCodeAdvance.RJControls.RJToggleButton();
+            this.TxtNombre = new RJCodeAdvance.RJControls.RJTextBox();
+            this.BtnNuevo = new FontAwesome.Sharp.IconButton();
+            this.BtnEliminar = new FontAwesome.Sharp.IconButton();
+            this.CboCategoria = new RJCodeAdvance.RJControls.RJComboBox();
+            this.BtnBuscar = new FontAwesome.Sharp.IconButton();
+            this.TgbDisponibilidad = new RJCodeAdvance.RJControls.RJToggleButton();
+            this.TgbCategoriaPlato = new RJCodeAdvance.RJControls.RJToggleButton();
+            this.myGroupBox1 = new Garmoxu_Desktop.MyGroupBox();
+            this.LstPlatos = new System.Windows.Forms.ListView();
+            this.LblDisponibilidad = new System.Windows.Forms.Label();
             this.tableLayoutPanel1.SuspendLayout();
-            this.PnlBusqueda.SuspendLayout();
-            this.PnlCalendar.SuspendLayout();
-            this.PnlTipo.SuspendLayout();
-            this.PnlTelefono.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.myGroupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // PnlMain
+            // ImgImagenesPlatos
             // 
-            this.PnlMain.ColumnCount = 1;
-            this.PnlMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.PnlMain.Controls.Add(this.tableLayoutPanel1, 0, 2);
-            this.PnlMain.Controls.Add(this.PnlBusqueda, 0, 0);
-            this.PnlMain.Controls.Add(this.LstPlatos, 0, 1);
-            this.PnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlMain.Location = new System.Drawing.Point(0, 0);
-            this.PnlMain.Margin = new System.Windows.Forms.Padding(4);
-            this.PnlMain.Name = "PnlMain";
-            this.PnlMain.Padding = new System.Windows.Forms.Padding(27, 25, 27, 25);
-            this.PnlMain.RowCount = 3;
-            this.PnlMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 62F));
-            this.PnlMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
-            this.PnlMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.PnlMain.Size = new System.Drawing.Size(1085, 608);
-            this.PnlMain.TabIndex = 2;
+            this.ImgImagenesPlatos.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.ImgImagenesPlatos.ImageSize = new System.Drawing.Size(128, 128);
+            this.ImgImagenesPlatos.TransparentColor = System.Drawing.Color.Transparent;
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Controls.Add(this.BtnNuevo, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.BtnEliminar, 0, 0);
-            this.tableLayoutPanel1.Controls.Add(this.BtnCerrar, 0, 0);
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.myGroupBox1, 0, 1);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(31, 512);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(70, 50, 70, 50);
             this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1023, 67);
-            this.tableLayoutPanel1.TabIndex = 4;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 17F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 83F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1085, 608);
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // BtnNuevo
+            // tableLayoutPanel4
             // 
-            this.BtnNuevo.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.BtnNuevo.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.BtnNuevo.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.BtnNuevo.BorderRadius = 0;
-            this.BtnNuevo.BorderSize = 0;
-            this.BtnNuevo.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnNuevo.FlatAppearance.BorderSize = 0;
-            this.BtnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnNuevo.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnNuevo.ForeColor = System.Drawing.Color.White;
-            this.BtnNuevo.Location = new System.Drawing.Point(686, 4);
-            this.BtnNuevo.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnNuevo.Name = "BtnNuevo";
-            this.BtnNuevo.Size = new System.Drawing.Size(333, 34);
-            this.BtnNuevo.TabIndex = 2;
-            this.BtnNuevo.Text = "Crear un nuevo plato";
-            this.BtnNuevo.TextColor = System.Drawing.Color.White;
-            this.BtnNuevo.UseVisualStyleBackColor = false;
-            this.BtnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
+            this.tableLayoutPanel4.ColumnCount = 9;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel4.Controls.Add(this.TgbNombre, 3, 0);
+            this.tableLayoutPanel4.Controls.Add(this.TxtNombre, 2, 0);
+            this.tableLayoutPanel4.Controls.Add(this.BtnNuevo, 0, 0);
+            this.tableLayoutPanel4.Controls.Add(this.BtnEliminar, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.BtnBuscar, 8, 0);
+            this.tableLayoutPanel4.Controls.Add(this.CboCategoria, 4, 0);
+            this.tableLayoutPanel4.Controls.Add(this.TgbCategoriaPlato, 5, 0);
+            this.tableLayoutPanel4.Controls.Add(this.TgbDisponibilidad, 7, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(73, 53);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 2;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(939, 80);
+            this.tableLayoutPanel4.TabIndex = 0;
             // 
-            // BtnEliminar
+            // TgbNombre
             // 
-            this.BtnEliminar.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.BtnEliminar.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.BtnEliminar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.BtnEliminar.BorderRadius = 0;
-            this.BtnEliminar.BorderSize = 0;
-            this.BtnEliminar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnEliminar.Enabled = false;
-            this.BtnEliminar.FlatAppearance.BorderSize = 0;
-            this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnEliminar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnEliminar.ForeColor = System.Drawing.Color.White;
-            this.BtnEliminar.Location = new System.Drawing.Point(345, 4);
-            this.BtnEliminar.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnEliminar.Name = "BtnEliminar";
-            this.BtnEliminar.Size = new System.Drawing.Size(333, 34);
-            this.BtnEliminar.TabIndex = 1;
-            this.BtnEliminar.Text = "Eliminar plato";
-            this.BtnEliminar.TextColor = System.Drawing.Color.White;
-            this.BtnEliminar.UseVisualStyleBackColor = false;
-            this.BtnEliminar.Click += new System.EventHandler(this.BtnEliminar_Click);
-            // 
-            // BtnCerrar
-            // 
-            this.BtnCerrar.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.BtnCerrar.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.BtnCerrar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.BtnCerrar.BorderRadius = 0;
-            this.BtnCerrar.BorderSize = 0;
-            this.BtnCerrar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnCerrar.FlatAppearance.BorderSize = 0;
-            this.BtnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCerrar.ForeColor = System.Drawing.Color.White;
-            this.BtnCerrar.Location = new System.Drawing.Point(4, 4);
-            this.BtnCerrar.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnCerrar.Name = "BtnCerrar";
-            this.BtnCerrar.Size = new System.Drawing.Size(333, 34);
-            this.BtnCerrar.TabIndex = 0;
-            this.BtnCerrar.Text = "Cerrar";
-            this.BtnCerrar.TextColor = System.Drawing.Color.White;
-            this.BtnCerrar.UseVisualStyleBackColor = false;
-            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
-            // 
-            // PnlBusqueda
-            // 
-            this.PnlBusqueda.ColumnCount = 5;
-            this.PnlBusqueda.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.PnlBusqueda.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26F));
-            this.PnlBusqueda.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26F));
-            this.PnlBusqueda.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3F));
-            this.PnlBusqueda.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.PnlBusqueda.Controls.Add(this.BtnBuscar, 4, 0);
-            this.PnlBusqueda.Controls.Add(this.PnlCalendar, 0, 0);
-            this.PnlBusqueda.Controls.Add(this.PnlTipo, 1, 0);
-            this.PnlBusqueda.Controls.Add(this.PnlTelefono, 2, 0);
-            this.PnlBusqueda.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlBusqueda.Location = new System.Drawing.Point(31, 29);
-            this.PnlBusqueda.Margin = new System.Windows.Forms.Padding(4);
-            this.PnlBusqueda.Name = "PnlBusqueda";
-            this.PnlBusqueda.RowCount = 1;
-            this.PnlBusqueda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.PnlBusqueda.Size = new System.Drawing.Size(1023, 54);
-            this.PnlBusqueda.TabIndex = 0;
-            // 
-            // BtnBuscar
-            // 
-            this.BtnBuscar.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.BtnBuscar.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.BtnBuscar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.BtnBuscar.BorderRadius = 0;
-            this.BtnBuscar.BorderSize = 0;
-            this.BtnBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnBuscar.FlatAppearance.BorderSize = 0;
-            this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnBuscar.ForeColor = System.Drawing.Color.White;
-            this.BtnBuscar.Location = new System.Drawing.Point(870, 4);
-            this.BtnBuscar.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnBuscar.Name = "BtnBuscar";
-            this.BtnBuscar.Size = new System.Drawing.Size(149, 46);
-            this.BtnBuscar.TabIndex = 0;
-            this.BtnBuscar.Text = "Buscar";
-            this.BtnBuscar.TextColor = System.Drawing.Color.White;
-            this.BtnBuscar.UseVisualStyleBackColor = false;
-            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
-            // 
-            // PnlCalendar
-            // 
-            this.PnlCalendar.Controls.Add(this.TxtNombre);
-            this.PnlCalendar.Controls.Add(this.ChkNombrePlato);
-            this.PnlCalendar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlCalendar.Location = new System.Drawing.Point(4, 4);
-            this.PnlCalendar.Margin = new System.Windows.Forms.Padding(4);
-            this.PnlCalendar.Name = "PnlCalendar";
-            this.PnlCalendar.Size = new System.Drawing.Size(298, 46);
-            this.PnlCalendar.TabIndex = 9;
+            this.TgbNombre.AutoSize = true;
+            this.TgbNombre.Checked = true;
+            this.TgbNombre.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.TgbNombre.Location = new System.Drawing.Point(379, 4);
+            this.TgbNombre.Margin = new System.Windows.Forms.Padding(4);
+            this.TgbNombre.MinimumSize = new System.Drawing.Size(60, 27);
+            this.TgbNombre.Name = "TgbNombre";
+            this.TgbNombre.OffBackColor = System.Drawing.Color.Gray;
+            this.TgbNombre.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.TgbNombre.OnBackColor = System.Drawing.Color.MediumSlateBlue;
+            this.TgbNombre.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.TgbNombre.Size = new System.Drawing.Size(60, 27);
+            this.TgbNombre.TabIndex = 52;
+            this.TgbNombre.UseVisualStyleBackColor = true;
             // 
             // TxtNombre
             // 
-            this.TxtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtNombre.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtNombre.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.TxtNombre.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.TxtNombre.BorderRadius = 0;
+            this.TxtNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.TxtNombre.BorderColor = System.Drawing.Color.Transparent;
+            this.TxtNombre.BorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.TxtNombre.BorderRadius = 10;
             this.TxtNombre.BorderSize = 2;
-            this.TxtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TxtNombre.Location = new System.Drawing.Point(52, 5);
-            this.TxtNombre.Margin = new System.Windows.Forms.Padding(5);
+            this.TxtNombre.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TxtNombre.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
+            this.TxtNombre.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtNombre.Location = new System.Drawing.Point(134, 5);
+            this.TxtNombre.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.TxtNombre.Multiline = false;
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
             this.TxtNombre.PasswordChar = false;
             this.TxtNombre.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtNombre.PlaceholderText = "";
-            this.TxtNombre.Size = new System.Drawing.Size(240, 39);
-            this.TxtNombre.TabIndex = 8;
-            this.TxtNombre.Texts = "Nombre";
+            this.TxtNombre.Size = new System.Drawing.Size(241, 55);
+            this.TxtNombre.TabIndex = 49;
+            this.TxtNombre.Texts = "";
             this.TxtNombre.UnderlinedStyle = false;
-            this.TxtNombre._TextChanged += new System.EventHandler(this.TxtNombre__TextChanged);
-            this.TxtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNombre_KeyPress);
             // 
-            // ChkNombrePlato
+            // BtnNuevo
             // 
-            this.ChkNombrePlato.AutoSize = true;
-            this.ChkNombrePlato.Depth = 0;
-            this.ChkNombrePlato.Font = new System.Drawing.Font("Roboto", 10F);
-            this.ChkNombrePlato.Location = new System.Drawing.Point(12, 6);
-            this.ChkNombrePlato.Margin = new System.Windows.Forms.Padding(0);
-            this.ChkNombrePlato.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.ChkNombrePlato.MouseState = MaterialSkin.MouseState.HOVER;
-            this.ChkNombrePlato.Name = "ChkNombrePlato";
-            this.ChkNombrePlato.Ripple = true;
-            this.ChkNombrePlato.Size = new System.Drawing.Size(26, 30);
-            this.ChkNombrePlato.TabIndex = 7;
-            this.ChkNombrePlato.UseVisualStyleBackColor = true;
+            this.BtnNuevo.AutoSize = true;
+            this.BtnNuevo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BtnNuevo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnNuevo.FlatAppearance.BorderSize = 0;
+            this.BtnNuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BtnNuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BtnNuevo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnNuevo.IconChar = FontAwesome.Sharp.IconChar.UserPlus;
+            this.BtnNuevo.IconColor = System.Drawing.Color.LimeGreen;
+            this.BtnNuevo.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnNuevo.IconSize = 55;
+            this.BtnNuevo.Location = new System.Drawing.Point(3, 3);
+            this.BtnNuevo.Name = "BtnNuevo";
+            this.BtnNuevo.Size = new System.Drawing.Size(61, 54);
+            this.BtnNuevo.TabIndex = 43;
+            this.BtnNuevo.TabStop = false;
+            this.BtnNuevo.UseVisualStyleBackColor = true;
             // 
-            // PnlTipo
+            // BtnEliminar
             // 
-            this.PnlTipo.Controls.Add(this.CboCategoria);
-            this.PnlTipo.Controls.Add(this.ChkCategoriaPlato);
-            this.PnlTipo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlTipo.Location = new System.Drawing.Point(310, 4);
-            this.PnlTipo.Margin = new System.Windows.Forms.Padding(4);
-            this.PnlTipo.Name = "PnlTipo";
-            this.PnlTipo.Size = new System.Drawing.Size(257, 46);
-            this.PnlTipo.TabIndex = 10;
+            this.BtnEliminar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnEliminar.FlatAppearance.BorderSize = 0;
+            this.BtnEliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BtnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnEliminar.IconChar = FontAwesome.Sharp.IconChar.UserMinus;
+            this.BtnEliminar.IconColor = System.Drawing.Color.Crimson;
+            this.BtnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnEliminar.IconSize = 55;
+            this.BtnEliminar.Location = new System.Drawing.Point(70, 3);
+            this.BtnEliminar.Name = "BtnEliminar";
+            this.BtnEliminar.Size = new System.Drawing.Size(61, 54);
+            this.BtnEliminar.TabIndex = 44;
+            this.BtnEliminar.TabStop = false;
+            this.BtnEliminar.UseVisualStyleBackColor = true;
             // 
             // CboCategoria
             // 
+            this.CboCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.CboCategoria.BorderColor = System.Drawing.Color.Transparent;
+            this.CboCategoria.BorderSize = 0;
             this.CboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CboCategoria.FormattingEnabled = true;
-            this.CboCategoria.Location = new System.Drawing.Point(64, 12);
-            this.CboCategoria.Margin = new System.Windows.Forms.Padding(4);
+            this.CboCategoria.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
+            this.CboCategoria.ForeColor = System.Drawing.Color.Gainsboro;
+            this.CboCategoria.IconColor = System.Drawing.Color.Gainsboro;
+            this.CboCategoria.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
+            this.CboCategoria.ListTextColor = System.Drawing.Color.DimGray;
+            this.CboCategoria.Location = new System.Drawing.Point(446, 0);
+            this.CboCategoria.Margin = new System.Windows.Forms.Padding(3, 0, 0, 0);
+            this.CboCategoria.MinimumSize = new System.Drawing.Size(200, 30);
             this.CboCategoria.Name = "CboCategoria";
-            this.CboCategoria.Size = new System.Drawing.Size(188, 24);
-            this.CboCategoria.TabIndex = 1;
-            this.CboCategoria.SelectedIndexChanged += new System.EventHandler(this.CboCategoria_SelectedIndexChanged);
+            this.CboCategoria.Size = new System.Drawing.Size(200, 54);
+            this.CboCategoria.TabIndex = 28;
+            this.CboCategoria.TabStop = false;
+            this.CboCategoria.Texts = "";
             // 
-            // ChkCategoriaPlato
+            // BtnBuscar
             // 
-            this.ChkCategoriaPlato.AutoSize = true;
-            this.ChkCategoriaPlato.Depth = 0;
-            this.ChkCategoriaPlato.Font = new System.Drawing.Font("Roboto", 10F);
-            this.ChkCategoriaPlato.Location = new System.Drawing.Point(12, 6);
-            this.ChkCategoriaPlato.Margin = new System.Windows.Forms.Padding(0);
-            this.ChkCategoriaPlato.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.ChkCategoriaPlato.MouseState = MaterialSkin.MouseState.HOVER;
-            this.ChkCategoriaPlato.Name = "ChkCategoriaPlato";
-            this.ChkCategoriaPlato.Ripple = true;
-            this.ChkCategoriaPlato.Size = new System.Drawing.Size(26, 30);
-            this.ChkCategoriaPlato.TabIndex = 0;
-            this.ChkCategoriaPlato.UseVisualStyleBackColor = true;
+            this.BtnBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.BtnBuscar.FlatAppearance.BorderSize = 0;
+            this.BtnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BtnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBuscar.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal;
+            this.BtnBuscar.IconChar = FontAwesome.Sharp.IconChar.Filter;
+            this.BtnBuscar.IconColor = System.Drawing.Color.Silver;
+            this.BtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnBuscar.Location = new System.Drawing.Point(820, 0);
+            this.BtnBuscar.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnBuscar.Name = "BtnBuscar";
+            this.BtnBuscar.Size = new System.Drawing.Size(119, 60);
+            this.BtnBuscar.TabIndex = 45;
+            this.BtnBuscar.TabStop = false;
+            this.BtnBuscar.UseVisualStyleBackColor = true;
             // 
-            // PnlTelefono
+            // TgbDisponibilidad
             // 
-            this.PnlTelefono.Controls.Add(this.TglDisponibilidad);
-            this.PnlTelefono.Controls.Add(this.LblDisponibilidad);
-            this.PnlTelefono.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlTelefono.Location = new System.Drawing.Point(575, 4);
-            this.PnlTelefono.Margin = new System.Windows.Forms.Padding(4);
-            this.PnlTelefono.Name = "PnlTelefono";
-            this.PnlTelefono.Size = new System.Drawing.Size(257, 46);
-            this.PnlTelefono.TabIndex = 11;
+            this.TgbDisponibilidad.AutoSize = true;
+            this.TgbDisponibilidad.Checked = true;
+            this.TgbDisponibilidad.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.TgbDisponibilidad.Location = new System.Drawing.Point(756, 4);
+            this.TgbDisponibilidad.Margin = new System.Windows.Forms.Padding(4);
+            this.TgbDisponibilidad.MinimumSize = new System.Drawing.Size(60, 27);
+            this.TgbDisponibilidad.Name = "TgbDisponibilidad";
+            this.TgbDisponibilidad.OffBackColor = System.Drawing.Color.Gray;
+            this.TgbDisponibilidad.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.TgbDisponibilidad.OnBackColor = System.Drawing.Color.MediumSlateBlue;
+            this.TgbDisponibilidad.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.TgbDisponibilidad.Size = new System.Drawing.Size(60, 27);
+            this.TgbDisponibilidad.TabIndex = 13;
+            this.TgbDisponibilidad.UseVisualStyleBackColor = true;
             // 
-            // TglDisponibilidad
+            // TgbCategoriaPlato
             // 
-            this.TglDisponibilidad.AutoSize = true;
-            this.TglDisponibilidad.Checked = true;
-            this.TglDisponibilidad.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.TglDisponibilidad.Location = new System.Drawing.Point(16, 11);
-            this.TglDisponibilidad.Margin = new System.Windows.Forms.Padding(4);
-            this.TglDisponibilidad.MinimumSize = new System.Drawing.Size(60, 27);
-            this.TglDisponibilidad.Name = "TglDisponibilidad";
-            this.TglDisponibilidad.OffBackColor = System.Drawing.Color.Gray;
-            this.TglDisponibilidad.OffToggleColor = System.Drawing.Color.Gainsboro;
-            this.TglDisponibilidad.OnBackColor = System.Drawing.Color.MediumSlateBlue;
-            this.TglDisponibilidad.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.TglDisponibilidad.Size = new System.Drawing.Size(60, 27);
-            this.TglDisponibilidad.TabIndex = 2;
-            this.TglDisponibilidad.UseVisualStyleBackColor = true;
+            this.TgbCategoriaPlato.AutoSize = true;
+            this.TgbCategoriaPlato.Checked = true;
+            this.TgbCategoriaPlato.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.TgbCategoriaPlato.Location = new System.Drawing.Point(688, 4);
+            this.TgbCategoriaPlato.Margin = new System.Windows.Forms.Padding(4);
+            this.TgbCategoriaPlato.MinimumSize = new System.Drawing.Size(60, 27);
+            this.TgbCategoriaPlato.Name = "TgbCategoriaPlato";
+            this.TgbCategoriaPlato.OffBackColor = System.Drawing.Color.Gray;
+            this.TgbCategoriaPlato.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.TgbCategoriaPlato.OnBackColor = System.Drawing.Color.MediumSlateBlue;
+            this.TgbCategoriaPlato.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.TgbCategoriaPlato.Size = new System.Drawing.Size(60, 27);
+            this.TgbCategoriaPlato.TabIndex = 51;
+            this.TgbCategoriaPlato.UseVisualStyleBackColor = true;
             // 
-            // LblDisponibilidad
+            // myGroupBox1
             // 
-            this.LblDisponibilidad.AutoSize = true;
-            this.LblDisponibilidad.Depth = 0;
-            this.LblDisponibilidad.Font = new System.Drawing.Font("Roboto", 11F);
-            this.LblDisponibilidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LblDisponibilidad.Location = new System.Drawing.Point(84, 11);
-            this.LblDisponibilidad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LblDisponibilidad.MouseState = MaterialSkin.MouseState.HOVER;
-            this.LblDisponibilidad.Name = "LblDisponibilidad";
-            this.LblDisponibilidad.Size = new System.Drawing.Size(132, 24);
-            this.LblDisponibilidad.TabIndex = 1;
-            this.LblDisponibilidad.Text = "Disponibilidad";
+            this.myGroupBox1.BorderColor = System.Drawing.Color.White;
+            this.myGroupBox1.Controls.Add(this.LstPlatos);
+            this.myGroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.myGroupBox1.Location = new System.Drawing.Point(73, 139);
+            this.myGroupBox1.Name = "myGroupBox1";
+            this.myGroupBox1.Padding = new System.Windows.Forms.Padding(20, 10, 20, 20);
+            this.myGroupBox1.Size = new System.Drawing.Size(939, 416);
+            this.myGroupBox1.TabIndex = 1;
+            this.myGroupBox1.TabStop = false;
+            this.myGroupBox1.Text = "Platos";
+            this.myGroupBox1.TextActivated = false;
             // 
             // LstPlatos
             // 
@@ -343,21 +276,25 @@
             this.LstPlatos.ForeColor = System.Drawing.Color.White;
             this.LstPlatos.HideSelection = false;
             this.LstPlatos.LargeImageList = this.ImgImagenesPlatos;
-            this.LstPlatos.Location = new System.Drawing.Point(31, 91);
-            this.LstPlatos.Margin = new System.Windows.Forms.Padding(4);
+            this.LstPlatos.Location = new System.Drawing.Point(20, 25);
+            this.LstPlatos.Margin = new System.Windows.Forms.Padding(4, 20, 4, 4);
             this.LstPlatos.MultiSelect = false;
             this.LstPlatos.Name = "LstPlatos";
-            this.LstPlatos.Size = new System.Drawing.Size(1023, 413);
-            this.LstPlatos.TabIndex = 3;
+            this.LstPlatos.Size = new System.Drawing.Size(899, 371);
+            this.LstPlatos.TabIndex = 7;
             this.LstPlatos.UseCompatibleStateImageBehavior = false;
-            this.LstPlatos.SelectedIndexChanged += new System.EventHandler(this.LstPlatos_SelectedIndexChanged);
-            this.LstPlatos.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LstPlatos_MouseDoubleClick);
             // 
-            // ImgImagenesPlatos
+            // LblDisponibilidad
             // 
-            this.ImgImagenesPlatos.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
-            this.ImgImagenesPlatos.ImageSize = new System.Drawing.Size(128, 128);
-            this.ImgImagenesPlatos.TransparentColor = System.Drawing.Color.Transparent;
+            this.LblDisponibilidad.AutoSize = true;
+            this.LblDisponibilidad.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LblDisponibilidad.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
+            this.LblDisponibilidad.ForeColor = System.Drawing.Color.White;
+            this.LblDisponibilidad.Location = new System.Drawing.Point(822, 0);
+            this.LblDisponibilidad.Name = "LblDisponibilidad";
+            this.LblDisponibilidad.Size = new System.Drawing.Size(102, 60);
+            this.LblDisponibilidad.TabIndex = 14;
+            this.LblDisponibilidad.Text = "Disponible";
             // 
             // FrmPlatos
             // 
@@ -365,44 +302,36 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
             this.ClientSize = new System.Drawing.Size(1085, 608);
-            this.Controls.Add(this.PnlMain);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmPlatos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "Platos";
-            this.Text = "FrmPlatos";
+            this.Text = "Gestión de platos - Garmoxu";
             this.EnabledChanged += new System.EventHandler(this.FrmPlatos_EnabledChanged);
-            this.PnlMain.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.PnlBusqueda.ResumeLayout(false);
-            this.PnlCalendar.ResumeLayout(false);
-            this.PnlCalendar.PerformLayout();
-            this.PnlTipo.ResumeLayout(false);
-            this.PnlTipo.PerformLayout();
-            this.PnlTelefono.ResumeLayout(false);
-            this.PnlTelefono.PerformLayout();
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
+            this.myGroupBox1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TableLayoutPanel PnlMain;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private RJCodeAdvance.RJControls.RJButton BtnCerrar;
-        private System.Windows.Forms.TableLayoutPanel PnlBusqueda;
-        private RJCodeAdvance.RJControls.RJButton BtnBuscar;
-        private System.Windows.Forms.Panel PnlCalendar;
-        private MaterialSkin.Controls.MaterialCheckBox ChkNombrePlato;
-        private System.Windows.Forms.Panel PnlTipo;
-        private MaterialSkin.Controls.MaterialCheckBox ChkCategoriaPlato;
-        private System.Windows.Forms.Panel PnlTelefono;
-        private RJCodeAdvance.RJControls.RJTextBox TxtNombre;
-        private MaterialSkin.Controls.MaterialLabel LblDisponibilidad;
-        private RJCodeAdvance.RJControls.RJButton BtnEliminar;
-        private RJCodeAdvance.RJControls.RJButton BtnNuevo;
-        private System.Windows.Forms.ListView LstPlatos;
         private System.Windows.Forms.ImageList ImgImagenesPlatos;
-        private System.Windows.Forms.ComboBox CboCategoria;
-        private RJCodeAdvance.RJControls.RJToggleButton TglDisponibilidad;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private MyGroupBox myGroupBox1;
+        private System.Windows.Forms.ListView LstPlatos;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private RJCodeAdvance.RJControls.RJToggleButton TgbNombre;
+        private RJCodeAdvance.RJControls.RJTextBox TxtNombre;
+        private FontAwesome.Sharp.IconButton BtnNuevo;
+        private FontAwesome.Sharp.IconButton BtnEliminar;
+        private RJCodeAdvance.RJControls.RJComboBox CboCategoria;
+        private FontAwesome.Sharp.IconButton BtnBuscar;
+        private RJCodeAdvance.RJControls.RJToggleButton TgbDisponibilidad;
+        private RJCodeAdvance.RJControls.RJToggleButton TgbCategoriaPlato;
+        private System.Windows.Forms.Label LblDisponibilidad;
     }
 }

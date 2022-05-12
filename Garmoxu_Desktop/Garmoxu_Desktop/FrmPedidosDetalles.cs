@@ -53,14 +53,17 @@ namespace Garmoxu_Desktop
 
         private int IVA;
 
+        private Form FrmShadow;
+
         public FrmPedidosDetalles(MySqlConnection conexionBD, string clavePrimariaPedidoEnCurso, FrmMain instance, string usuarioActual, int iva)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
+            SombrearPantalla();
             ConexionBD = conexionBD;
             ClavePrimariaPedidoEnCurso = clavePrimariaPedidoEnCurso;
             Instance = instance;
-            Instance.Enabled = false;
+            //Instance.Enabled = false;
             UsuarioActual = usuarioActual;
             IVA = iva;
             AsignarMesasLibres();
@@ -296,16 +299,35 @@ namespace Garmoxu_Desktop
 
                 //cp.ExStyle = 0x00000100; // Aperentemente no hace nada
                 //cp.ExStyle = 0x00020000; // Borde simple fino arriba e izquierda y grueso abajo y derecha
-                //cp.ExStyle = 0x00000200; // Borde 3D arriba e izquierda
+                cp.ExStyle = 0x00000200; // Borde 3D arriba e izquierda
                 //cp.ExStyle = 0x00000001; // Borde 3D abajo y derecha
                 // https://docs.microsoft.com/en-us/windows/win32/winmsg/extended-window-styles
 
-                cp.Style |= 0x00800000; // Borde simple fino
+                //cp.Style |= 0x00800000; // Borde simple fino
+                cp.Style |= 0x00400000; // Borde 3D abajo y derecha
                 // https://docs.microsoft.com/en-us/windows/win32/winmsg/window-styles
 
                 //cp.ClassStyle |= 0x00020000; // Shadow border
                 return cp;
             }
+        }
+        #endregion
+
+        #region Sombreado de pantalla
+        private void SombrearPantalla()
+        {
+            FrmShadow = new Form();
+            FrmShadow.ShowInTaskbar = false;
+            FrmShadow.Text = "";
+            FrmShadow.FormBorderStyle = FormBorderStyle.None;
+            FrmShadow.Size = Size;
+            FrmShadow.WindowState = FormWindowState.Maximized;
+            FrmShadow.BackColor = Color.Black;
+            FrmShadow.Opacity = 0.7;
+            FrmShadow.Show();
+            FrmShadow.Location = Location;
+            FrmShadow.Enabled = false;
+            FrmShadow.TopMost = true;
         }
         #endregion
         #endregion
@@ -927,8 +949,7 @@ namespace Garmoxu_Desktop
             }
             else
             {
-                ValidarCliente();
-                return true;
+                return ValidarCliente();
             }
         }
 
@@ -1100,7 +1121,7 @@ namespace Garmoxu_Desktop
                     string precioConIva = LblPrecioConIVA.Text.Remove(LblPrecioConIVA.Text.Length - 1);
                     FrmPedidosPagos frm = new FrmPedidosPagos(this, precioConIva, ClavePrimariaPedidoEnCurso);
                     frm.Width = Instance.Width / 2 - Instance.Width / 5;
-                    frm.Height = Instance.Height / 2 + Instance.Height / 6;
+                    frm.Height = Instance.Height / 2 + Instance.Height / 5;
                     frm.Show();
                     return false;
                 }
@@ -1704,7 +1725,7 @@ namespace Garmoxu_Desktop
                     }
                     else
                     {
-                        TxtNombreRecogerTipo.Texts = datos[0];
+                        TxtNombreRecogerTipo.Texts = datos[1];
                     }
                     break;
 
@@ -1716,7 +1737,7 @@ namespace Garmoxu_Desktop
                     }
                     else
                     {
-                        TxtNombreRecogerDetalles.Texts = datos[0];
+                        TxtNombreRecogerDetalles.Texts = datos[1];
                     }
                     break;
             }
@@ -1927,7 +1948,13 @@ namespace Garmoxu_Desktop
         // No poner muchas cosas aquí, ya que varias funciones llaman al this.Close() y se ejecuta lo que haya aquí.
         private void FrmDetallesPedido_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Instance.Enabled = true;
+            //Instance.Enabled = true;
+            QuitarSombreadoPantalla();
+        }
+
+        private void QuitarSombreadoPantalla()
+        {
+            if (FrmShadow != null) FrmShadow.Close();
         }
         #endregion
 

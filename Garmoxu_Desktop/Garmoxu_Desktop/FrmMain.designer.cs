@@ -703,7 +703,7 @@
             // TmrRelojMain
             // 
             this.TmrRelojMain.Enabled = true;
-            this.TmrRelojMain.Interval = 1000;
+            this.TmrRelojMain.Interval = 10000;
             this.TmrRelojMain.Tick += new System.EventHandler(this.TmrRelojMain_Tick);
             // 
             // FrmMain

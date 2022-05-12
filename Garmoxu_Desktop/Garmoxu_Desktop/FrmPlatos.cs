@@ -94,17 +94,17 @@ namespace Garmoxu_Desktop
         {
             string filtro = string.Empty;
 
-            if (ChkNombrePlato.Checked && !string.IsNullOrEmpty(TxtNombre.Texts.Replace(" ", "")))
+            if (TgbNombre.Checked && !string.IsNullOrEmpty(TxtNombre.Texts.Replace(" ", "")))
                 filtro = "pc.Nombre LIKE '%" + TxtNombre.Texts.Trim() + "%'";
 
-            if (ChkCategoriaPlato.Checked && CboCategoria.SelectedIndex != -1)
+            if (TgbCategoriaPlato.Checked && CboCategoria.SelectedIndex != -1)
             {
                 if (!string.IsNullOrEmpty(filtro.Trim()))
                     filtro += " AND ";
                 filtro += "c.Nombre = '" + CboCategoria.SelectedItem + "'";
             }
 
-            if (TglDisponibilidad.Checked)
+            if (TgbDisponibilidad.Checked)
             {
                 if (!string.IsNullOrEmpty(filtro.Trim()))
                     filtro += " AND ";
@@ -127,19 +127,19 @@ namespace Garmoxu_Desktop
         {
             if (CboCategoria.SelectedIndex != -1)
             {
-                ChkCategoriaPlato.Checked = true;
+                TgbCategoriaPlato.Checked = true;
                 BuscarPlatos();
             }
             else
-                ChkCategoriaPlato.Checked = false;
+                TgbCategoriaPlato.Checked = false;
         }
 
         private void TxtNombre__TextChanged(object sender, EventArgs e)
         {
             if (!string.IsNullOrEmpty(TxtNombre.Texts.Replace(" ", "")))
-                ChkNombrePlato.Checked = true;
+                TgbNombre.Checked = true;
             else
-                ChkNombrePlato.Checked = false;
+                TgbNombre.Checked = false;
         }
 
         private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
@@ -262,5 +262,10 @@ namespace Garmoxu_Desktop
             this.Close();
         }
         #endregion
+
+        private void tableLayoutPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 }

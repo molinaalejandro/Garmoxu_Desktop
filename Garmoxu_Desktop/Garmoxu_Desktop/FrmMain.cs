@@ -225,6 +225,28 @@ namespace Garmoxu_Desktop
         }
         #endregion
         #endregion
+
+        #region Cambios de enabled
+        private void FrmMain_EnabledChanged(object sender, EventArgs e)
+        {
+            IconButton[] botonesMenu = new IconButton[]
+            {
+                BtnPedidos, BtnReservas, BtnHistorial, BtnPlatos,
+                BtnCategorias, BtnClientes, BtnUsuarios, BtnAjustes
+            };
+
+            if (this.Enabled)
+            {
+                foreach (IconButton boton in botonesMenu)
+                    boton.BackColor = Color.FromArgb(41, 42, 45);
+            }
+            else
+            {
+                foreach (IconButton boton in botonesMenu)
+                    boton.BackColor = Color.Transparent;
+            }
+        }
+        #endregion
         #endregion
 
         #region Funciones y diseño de controles
@@ -601,25 +623,5 @@ namespace Garmoxu_Desktop
                 CerrarSesion();
         }
         #endregion
-
-        private void FrmMain_EnabledChanged(object sender, EventArgs e)
-        {
-            IconButton[] botonesMenu = new IconButton[]
-            {
-                BtnPedidos, BtnReservas, BtnHistorial, BtnPlatos,
-                BtnCategorias, BtnClientes, BtnUsuarios, BtnAjustes
-            };
-
-            if (this.Enabled)
-            {
-                foreach (IconButton boton in botonesMenu)
-                    boton.BackColor = Color.FromArgb(41, 42, 45);
-            }
-            else
-            {
-                foreach (IconButton boton in botonesMenu)
-                    boton.BackColor = Color.Transparent;
-            }
-        }
     }
 }

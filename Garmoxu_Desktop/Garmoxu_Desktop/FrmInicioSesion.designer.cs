@@ -278,7 +278,7 @@
             this.TxtUsuario.BorderRadius = 0;
             this.TxtUsuario.BorderSize = 2;
             this.TxtUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TxtUsuario.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
+            this.TxtUsuario.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
             this.TxtUsuario.ForeColor = System.Drawing.Color.Silver;
             this.TxtUsuario.Location = new System.Drawing.Point(0, 10);
             this.TxtUsuario.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
@@ -288,7 +288,7 @@
             this.TxtUsuario.PasswordChar = false;
             this.TxtUsuario.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtUsuario.PlaceholderText = "";
-            this.TxtUsuario.Size = new System.Drawing.Size(321, 34);
+            this.TxtUsuario.Size = new System.Drawing.Size(321, 37);
             this.TxtUsuario.TabIndex = 0;
             this.TxtUsuario.Texts = "Nombre de usuario";
             this.TxtUsuario.UnderlinedStyle = false;
@@ -368,7 +368,7 @@
             this.BtnContraseña.Location = new System.Drawing.Point(321, 0);
             this.BtnContraseña.Margin = new System.Windows.Forms.Padding(0);
             this.BtnContraseña.Name = "BtnContraseña";
-            this.BtnContraseña.Size = new System.Drawing.Size(40, 44);
+            this.BtnContraseña.Size = new System.Drawing.Size(40, 47);
             this.BtnContraseña.TabIndex = 0;
             this.BtnContraseña.TabStop = false;
             this.BtnContraseña.UseVisualStyleBackColor = true;
@@ -385,7 +385,7 @@
             this.TxtContraseña.BorderRadius = 0;
             this.TxtContraseña.BorderSize = 2;
             this.TxtContraseña.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TxtContraseña.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
+            this.TxtContraseña.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
             this.TxtContraseña.ForeColor = System.Drawing.Color.Silver;
             this.TxtContraseña.Location = new System.Drawing.Point(0, 10);
             this.TxtContraseña.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
@@ -395,7 +395,7 @@
             this.TxtContraseña.PasswordChar = false;
             this.TxtContraseña.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtContraseña.PlaceholderText = "";
-            this.TxtContraseña.Size = new System.Drawing.Size(321, 34);
+            this.TxtContraseña.Size = new System.Drawing.Size(321, 37);
             this.TxtContraseña.TabIndex = 1;
             this.TxtContraseña.Texts = "Contraseña";
             this.TxtContraseña.UnderlinedStyle = false;
@@ -444,12 +444,12 @@
             this.BtnIniciar.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
             this.BtnIniciar.FlatAppearance.BorderSize = 0;
             this.BtnIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnIniciar.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
+            this.BtnIniciar.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
             this.BtnIniciar.ForeColor = System.Drawing.Color.White;
             this.BtnIniciar.Location = new System.Drawing.Point(95, 34);
             this.BtnIniciar.Margin = new System.Windows.Forms.Padding(95, 4, 95, 4);
             this.BtnIniciar.Name = "BtnIniciar";
-            this.BtnIniciar.Size = new System.Drawing.Size(183, 46);
+            this.BtnIniciar.Size = new System.Drawing.Size(183, 55);
             this.BtnIniciar.TabIndex = 0;
             this.BtnIniciar.TabStop = false;
             this.BtnIniciar.Text = "Acceder";
@@ -462,7 +462,7 @@
             this.ChkRemember.AutoSize = true;
             this.ChkRemember.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ChkRemember.ForeColor = System.Drawing.Color.Silver;
-            this.ChkRemember.Location = new System.Drawing.Point(97, 87);
+            this.ChkRemember.Location = new System.Drawing.Point(97, 96);
             this.ChkRemember.Margin = new System.Windows.Forms.Padding(97, 3, 3, 3);
             this.ChkRemember.Name = "ChkRemember";
             this.ChkRemember.Size = new System.Drawing.Size(184, 29);

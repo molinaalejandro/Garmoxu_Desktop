@@ -315,7 +315,9 @@ namespace Garmoxu_Desktop
             this.Controls.Add(this.PnlMain);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmPedidosPlatosConsulta";
+            this.ShowInTaskbar = false;
             this.Text = "FrmPlatos";
+            this.TopMost = true;
             this.PnlMain.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.PnlBusqueda.ResumeLayout(false);

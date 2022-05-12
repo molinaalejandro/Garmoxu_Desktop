@@ -270,7 +270,10 @@ namespace Garmoxu_Desktop
             this.Controls.Add(this.TxtIdPlato);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmPedidosPlatosConsultaDetalles";
+            this.ShowInTaskbar = false;
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "FrmPlatosDetalles";
+            this.TopMost = true;
             ((System.ComponentModel.ISupportInitialize)(this.PicFotoPlato)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();

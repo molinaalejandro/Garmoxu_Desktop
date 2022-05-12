@@ -21,15 +21,18 @@ namespace Garmoxu_Desktop
         private string ImporteFinal;
         private string ClavePrimaria;
 
+        private Form FrmShadow;
+
         public FrmPedidosPagos(FrmPedidosDetalles instance, string importeFinal, string clavePrimaria)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             Instance = instance;
-            Instance.Enabled = false;
+            //Instance.Enabled = false;
             ImporteFinal = importeFinal;
             ClavePrimaria = clavePrimaria;
             CargarDatos();
+            SombrearPantalla();
         }
 
         #region Apertura del formulario
@@ -44,16 +47,52 @@ namespace Garmoxu_Desktop
         }
         #endregion
 
-        #region FrontEnd
-        private void BtnClose_MouseEnter(object sender, EventArgs e)
+        #region Funciones y diseño del formulario
+        #region Bordeado del formulario
+        protected override CreateParams CreateParams
         {
-            BtnClose.IconColor = Color.FromArgb(240, 41, 83);
-        }
+            get
+            {
+                CreateParams cp = base.CreateParams;
 
-        private void BtnClose_MouseLeave(object sender, EventArgs e)
-        {
-            BtnClose.IconColor = Color.DarkGray;
+                // Solo se acumulan modificaciones de diferente tipos, es decir,
+                // una de ExStyle, otra de Style y otra de ClassStyle. Pero, nunca
+                // se pueden acumular dos modificaciones del mismo tipo, por ejemplo,
+                // no se acumulan dos ExStyle, o aplicas uno, o aplicas el otro.
+
+                //cp.ExStyle = 0x00000100; // Aperentemente no hace nada
+                //cp.ExStyle = 0x00020000; // Borde simple fino arriba e izquierda y grueso abajo y derecha
+                cp.ExStyle = 0x00000200; // Borde 3D arriba e izquierda
+                //cp.ExStyle = 0x00000001; // Borde 3D abajo y derecha
+                // https://docs.microsoft.com/en-us/windows/win32/winmsg/extended-window-styles
+
+                //cp.Style |= 0x00800000; // Borde simple fino
+                cp.Style |= 0x00400000; // Borde 3D abajo y derecha
+                // https://docs.microsoft.com/en-us/windows/win32/winmsg/window-styles
+
+                //cp.ClassStyle |= 0x00020000; // Shadow border
+                return cp;
+            }
         }
+        #endregion
+
+        #region Sombreado de pantalla
+        private void SombrearPantalla()
+        {
+            FrmShadow = new Form();
+            FrmShadow.ShowInTaskbar = false;
+            FrmShadow.Text = "";
+            FrmShadow.FormBorderStyle = FormBorderStyle.None;
+            FrmShadow.Size = Size;
+            FrmShadow.WindowState = FormWindowState.Maximized;
+            FrmShadow.BackColor = Color.Black;
+            FrmShadow.Opacity = 0.7;
+            FrmShadow.Show();
+            FrmShadow.Location = Location;
+            FrmShadow.Enabled = false;
+            FrmShadow.TopMost = true;
+        }
+        #endregion
         #endregion
 
         #region Confirmar
@@ -134,6 +173,21 @@ namespace Garmoxu_Desktop
                 RdbEfectivo.Checked = false;
             }
         }
+
+        private void ZonaRdbTarjeta_Click(object sender, EventArgs e)
+        {
+            RdbTarjeta.Checked = true;
+        }
+
+        private void ZonaRdbEfectivo_Click(object sender, EventArgs e)
+        {
+            RdbEfectivo.Checked = true;
+        }
+
+        private void ZonaRdbTicket_Click(object sender, EventArgs e)
+        {
+            RdbTicket.Checked = true;
+        }
         #endregion
 
         #region Mensajes
@@ -169,7 +223,13 @@ namespace Garmoxu_Desktop
 
         private void FrmPago_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Instance.Enabled = true;
+            //Instance.Enabled = true;
+            QuitarSombreadoPantalla();
+        }
+
+        private void QuitarSombreadoPantalla()
+        {
+            if (FrmShadow != null) FrmShadow.Close();
         }
         #endregion
     }
