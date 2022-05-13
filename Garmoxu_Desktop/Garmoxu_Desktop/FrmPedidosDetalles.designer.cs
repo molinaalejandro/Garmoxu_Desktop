@@ -71,6 +71,29 @@
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
+            this.myGroupBox1 = new Garmoxu_Desktop.MyGroupBox();
+            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+            this.TabTipoDatosDetalles = new MaterialSkin.Controls.MaterialTabControl();
+            this.tabPage9 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
+            this.CboMesasLocalDetalles = new RJCodeAdvance.RJControls.RJComboBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.tabPage10 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
+            this.TxtNombreDomicilioDetalles = new RJCodeAdvance.RJControls.RJTextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.TxtDirDomicilioDetalles = new RJCodeAdvance.RJControls.RJTextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.TxtTlfDomicilioDetalles = new RJCodeAdvance.RJControls.RJTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tabPage11 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
+            this.TxtNombreRecogerDetalles = new RJCodeAdvance.RJControls.RJTextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.TxtTlfRecogerDetalles = new RJCodeAdvance.RJControls.RJTextBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.CboTipo = new RJCodeAdvance.RJControls.RJComboBox();
             this.tableLayoutPanel24 = new System.Windows.Forms.TableLayoutPanel();
             this.LblHora = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -106,29 +129,6 @@
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.myGroupBox1 = new Garmoxu_Desktop.MyGroupBox();
-            this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
-            this.TabTipoDatosDetalles = new MaterialSkin.Controls.MaterialTabControl();
-            this.tabPage9 = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
-            this.CboMesasLocalDetalles = new RJCodeAdvance.RJControls.RJComboBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.tabPage10 = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel18 = new System.Windows.Forms.TableLayoutPanel();
-            this.TxtNombreDomicilioDetalles = new RJCodeAdvance.RJControls.RJTextBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.TxtDirDomicilioDetalles = new RJCodeAdvance.RJControls.RJTextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.TxtTlfDomicilioDetalles = new RJCodeAdvance.RJControls.RJTextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.tabPage11 = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel19 = new System.Windows.Forms.TableLayoutPanel();
-            this.TxtNombreRecogerDetalles = new RJCodeAdvance.RJControls.RJTextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.TxtTlfRecogerDetalles = new RJCodeAdvance.RJControls.RJTextBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.CboTipo = new RJCodeAdvance.RJControls.RJComboBox();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
             this.PnlTitle.SuspendLayout();
@@ -149,15 +149,6 @@
             this.tabPage8.SuspendLayout();
             this.tableLayoutPanel15.SuspendLayout();
             this.tableLayoutPanel16.SuspendLayout();
-            this.tableLayoutPanel24.SuspendLayout();
-            this.tableLayoutPanel20.SuspendLayout();
-            this.tableLayoutPanel23.SuspendLayout();
-            this.tableLayoutPanel21.SuspendLayout();
-            this.tableLayoutPanel9.SuspendLayout();
-            this.tableLayoutPanel22.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.NucCantidad)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DtgPlatosPedidos)).BeginInit();
-            this.tableLayoutPanel11.SuspendLayout();
             this.myGroupBox1.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
             this.TabTipoDatosDetalles.SuspendLayout();
@@ -167,6 +158,15 @@
             this.tableLayoutPanel18.SuspendLayout();
             this.tabPage11.SuspendLayout();
             this.tableLayoutPanel19.SuspendLayout();
+            this.tableLayoutPanel24.SuspendLayout();
+            this.tableLayoutPanel20.SuspendLayout();
+            this.tableLayoutPanel23.SuspendLayout();
+            this.tableLayoutPanel21.SuspendLayout();
+            this.tableLayoutPanel9.SuspendLayout();
+            this.tableLayoutPanel22.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.NucCantidad)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgPlatosPedidos)).BeginInit();
+            this.tableLayoutPanel11.SuspendLayout();
             this.SuspendLayout();
             // 
             // tableLayoutPanel2
@@ -853,6 +853,405 @@
             this.tableLayoutPanel16.Size = new System.Drawing.Size(380, 670);
             this.tableLayoutPanel16.TabIndex = 0;
             // 
+            // myGroupBox1
+            // 
+            this.myGroupBox1.BorderColor = System.Drawing.Color.Silver;
+            this.myGroupBox1.Controls.Add(this.tableLayoutPanel10);
+            this.myGroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.myGroupBox1.Font = new System.Drawing.Font("Source Sans Pro", 19.2F, System.Drawing.FontStyle.Bold);
+            this.myGroupBox1.ForeColor = System.Drawing.Color.Silver;
+            this.myGroupBox1.Location = new System.Drawing.Point(0, 228);
+            this.myGroupBox1.Margin = new System.Windows.Forms.Padding(0);
+            this.myGroupBox1.Name = "myGroupBox1";
+            this.myGroupBox1.Padding = new System.Windows.Forms.Padding(15, 0, 20, 25);
+            this.myGroupBox1.Size = new System.Drawing.Size(380, 388);
+            this.myGroupBox1.TabIndex = 55;
+            this.myGroupBox1.TabStop = false;
+            this.myGroupBox1.Text = "Tipo pedido";
+            this.myGroupBox1.TextActivated = true;
+            // 
+            // tableLayoutPanel10
+            // 
+            this.tableLayoutPanel10.ColumnCount = 1;
+            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel10.Controls.Add(this.TabTipoDatosDetalles, 0, 2);
+            this.tableLayoutPanel10.Controls.Add(this.CboTipo, 0, 0);
+            this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(15, 41);
+            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
+            this.tableLayoutPanel10.RowCount = 3;
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel10.Size = new System.Drawing.Size(345, 322);
+            this.tableLayoutPanel10.TabIndex = 8;
+            // 
+            // TabTipoDatosDetalles
+            // 
+            this.TabTipoDatosDetalles.Controls.Add(this.tabPage9);
+            this.TabTipoDatosDetalles.Controls.Add(this.tabPage10);
+            this.TabTipoDatosDetalles.Controls.Add(this.tabPage11);
+            this.TabTipoDatosDetalles.Depth = 0;
+            this.TabTipoDatosDetalles.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TabTipoDatosDetalles.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold);
+            this.TabTipoDatosDetalles.Location = new System.Drawing.Point(0, 77);
+            this.TabTipoDatosDetalles.Margin = new System.Windows.Forms.Padding(0);
+            this.TabTipoDatosDetalles.MouseState = MaterialSkin.MouseState.HOVER;
+            this.TabTipoDatosDetalles.Name = "TabTipoDatosDetalles";
+            this.TabTipoDatosDetalles.Padding = new System.Drawing.Point(0, 0);
+            this.TabTipoDatosDetalles.SelectedIndex = 0;
+            this.TabTipoDatosDetalles.Size = new System.Drawing.Size(345, 245);
+            this.TabTipoDatosDetalles.TabIndex = 46;
+            // 
+            // tabPage9
+            // 
+            this.tabPage9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
+            this.tabPage9.Controls.Add(this.tableLayoutPanel17);
+            this.tabPage9.Controls.Add(this.label6);
+            this.tabPage9.Location = new System.Drawing.Point(4, 34);
+            this.tabPage9.Margin = new System.Windows.Forms.Padding(0);
+            this.tabPage9.Name = "tabPage9";
+            this.tabPage9.Size = new System.Drawing.Size(337, 207);
+            this.tabPage9.TabIndex = 0;
+            this.tabPage9.Text = "Local";
+            // 
+            // tableLayoutPanel17
+            // 
+            this.tableLayoutPanel17.ColumnCount = 1;
+            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel17.Controls.Add(this.CboMesasLocalDetalles, 0, 1);
+            this.tableLayoutPanel17.Controls.Add(this.label1, 0, 0);
+            this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel17.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel17.Name = "tableLayoutPanel17";
+            this.tableLayoutPanel17.RowCount = 3;
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(337, 207);
+            this.tableLayoutPanel17.TabIndex = 15;
+            // 
+            // CboMesasLocalDetalles
+            // 
+            this.CboMesasLocalDetalles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.CboMesasLocalDetalles.BorderColor = System.Drawing.Color.Transparent;
+            this.CboMesasLocalDetalles.BorderSize = 0;
+            this.CboMesasLocalDetalles.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CboMesasLocalDetalles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CboMesasLocalDetalles.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
+            this.CboMesasLocalDetalles.ForeColor = System.Drawing.Color.Gainsboro;
+            this.CboMesasLocalDetalles.IconColor = System.Drawing.Color.Gainsboro;
+            this.CboMesasLocalDetalles.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
+            this.CboMesasLocalDetalles.ListTextColor = System.Drawing.Color.DimGray;
+            this.CboMesasLocalDetalles.Location = new System.Drawing.Point(5, 38);
+            this.CboMesasLocalDetalles.Margin = new System.Windows.Forms.Padding(5);
+            this.CboMesasLocalDetalles.MinimumSize = new System.Drawing.Size(200, 30);
+            this.CboMesasLocalDetalles.Name = "CboMesasLocalDetalles";
+            this.CboMesasLocalDetalles.Size = new System.Drawing.Size(327, 47);
+            this.CboMesasLocalDetalles.TabIndex = 46;
+            this.CboMesasLocalDetalles.TabStop = false;
+            this.CboMesasLocalDetalles.Texts = "";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.Silver;
+            this.label1.Location = new System.Drawing.Point(3, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(331, 33);
+            this.label1.TabIndex = 45;
+            this.label1.Text = "Número de mesa";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label6.Location = new System.Drawing.Point(0, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(0, 25);
+            this.label6.TabIndex = 14;
+            // 
+            // tabPage10
+            // 
+            this.tabPage10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
+            this.tabPage10.Controls.Add(this.tableLayoutPanel18);
+            this.tabPage10.Location = new System.Drawing.Point(4, 34);
+            this.tabPage10.Margin = new System.Windows.Forms.Padding(0);
+            this.tabPage10.Name = "tabPage10";
+            this.tabPage10.Size = new System.Drawing.Size(337, 207);
+            this.tabPage10.TabIndex = 1;
+            this.tabPage10.Text = "Domicilio";
+            // 
+            // tableLayoutPanel18
+            // 
+            this.tableLayoutPanel18.ColumnCount = 1;
+            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel18.Controls.Add(this.TxtNombreDomicilioDetalles, 0, 7);
+            this.tableLayoutPanel18.Controls.Add(this.label5, 0, 6);
+            this.tableLayoutPanel18.Controls.Add(this.TxtDirDomicilioDetalles, 0, 4);
+            this.tableLayoutPanel18.Controls.Add(this.label4, 0, 3);
+            this.tableLayoutPanel18.Controls.Add(this.TxtTlfDomicilioDetalles, 0, 1);
+            this.tableLayoutPanel18.Controls.Add(this.label2, 0, 0);
+            this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel18.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel18.Name = "tableLayoutPanel18";
+            this.tableLayoutPanel18.RowCount = 9;
+            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel18.Size = new System.Drawing.Size(337, 207);
+            this.tableLayoutPanel18.TabIndex = 16;
+            // 
+            // TxtNombreDomicilioDetalles
+            // 
+            this.TxtNombreDomicilioDetalles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.TxtNombreDomicilioDetalles.BorderColor = System.Drawing.Color.Transparent;
+            this.TxtNombreDomicilioDetalles.BorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.TxtNombreDomicilioDetalles.BorderRadius = 10;
+            this.TxtNombreDomicilioDetalles.BorderSize = 2;
+            this.TxtNombreDomicilioDetalles.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TxtNombreDomicilioDetalles.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
+            this.TxtNombreDomicilioDetalles.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtNombreDomicilioDetalles.Location = new System.Drawing.Point(5, 274);
+            this.TxtNombreDomicilioDetalles.Margin = new System.Windows.Forms.Padding(5);
+            this.TxtNombreDomicilioDetalles.Multiline = false;
+            this.TxtNombreDomicilioDetalles.Name = "TxtNombreDomicilioDetalles";
+            this.TxtNombreDomicilioDetalles.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtNombreDomicilioDetalles.PasswordChar = false;
+            this.TxtNombreDomicilioDetalles.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TxtNombreDomicilioDetalles.PlaceholderText = "";
+            this.TxtNombreDomicilioDetalles.Size = new System.Drawing.Size(327, 55);
+            this.TxtNombreDomicilioDetalles.TabIndex = 52;
+            this.TxtNombreDomicilioDetalles.Texts = "";
+            this.TxtNombreDomicilioDetalles.UnderlinedStyle = false;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.BackColor = System.Drawing.Color.Transparent;
+            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label5.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.Silver;
+            this.label5.Location = new System.Drawing.Point(3, 236);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(331, 33);
+            this.label5.TabIndex = 50;
+            this.label5.Text = "Nombre cliente";
+            // 
+            // TxtDirDomicilioDetalles
+            // 
+            this.TxtDirDomicilioDetalles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.TxtDirDomicilioDetalles.BorderColor = System.Drawing.Color.Transparent;
+            this.TxtDirDomicilioDetalles.BorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.TxtDirDomicilioDetalles.BorderRadius = 10;
+            this.TxtDirDomicilioDetalles.BorderSize = 2;
+            this.TxtDirDomicilioDetalles.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TxtDirDomicilioDetalles.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
+            this.TxtDirDomicilioDetalles.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtDirDomicilioDetalles.Location = new System.Drawing.Point(5, 156);
+            this.TxtDirDomicilioDetalles.Margin = new System.Windows.Forms.Padding(5);
+            this.TxtDirDomicilioDetalles.Multiline = false;
+            this.TxtDirDomicilioDetalles.Name = "TxtDirDomicilioDetalles";
+            this.TxtDirDomicilioDetalles.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtDirDomicilioDetalles.PasswordChar = false;
+            this.TxtDirDomicilioDetalles.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TxtDirDomicilioDetalles.PlaceholderText = "";
+            this.TxtDirDomicilioDetalles.Size = new System.Drawing.Size(327, 55);
+            this.TxtDirDomicilioDetalles.TabIndex = 49;
+            this.TxtDirDomicilioDetalles.Texts = "";
+            this.TxtDirDomicilioDetalles.UnderlinedStyle = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.BackColor = System.Drawing.Color.Transparent;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.Silver;
+            this.label4.Location = new System.Drawing.Point(3, 118);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(331, 33);
+            this.label4.TabIndex = 48;
+            this.label4.Text = "Dirección cliente*";
+            // 
+            // TxtTlfDomicilioDetalles
+            // 
+            this.TxtTlfDomicilioDetalles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.TxtTlfDomicilioDetalles.BorderColor = System.Drawing.Color.Transparent;
+            this.TxtTlfDomicilioDetalles.BorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.TxtTlfDomicilioDetalles.BorderRadius = 10;
+            this.TxtTlfDomicilioDetalles.BorderSize = 2;
+            this.TxtTlfDomicilioDetalles.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TxtTlfDomicilioDetalles.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
+            this.TxtTlfDomicilioDetalles.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtTlfDomicilioDetalles.Location = new System.Drawing.Point(5, 38);
+            this.TxtTlfDomicilioDetalles.Margin = new System.Windows.Forms.Padding(5);
+            this.TxtTlfDomicilioDetalles.Multiline = false;
+            this.TxtTlfDomicilioDetalles.Name = "TxtTlfDomicilioDetalles";
+            this.TxtTlfDomicilioDetalles.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtTlfDomicilioDetalles.PasswordChar = false;
+            this.TxtTlfDomicilioDetalles.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TxtTlfDomicilioDetalles.PlaceholderText = "";
+            this.TxtTlfDomicilioDetalles.Size = new System.Drawing.Size(327, 55);
+            this.TxtTlfDomicilioDetalles.TabIndex = 47;
+            this.TxtTlfDomicilioDetalles.Texts = "";
+            this.TxtTlfDomicilioDetalles.UnderlinedStyle = false;
+            this.TxtTlfDomicilioDetalles._TextChanged += new System.EventHandler(this.TextBoxTlf__TextChanged);
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.Silver;
+            this.label2.Location = new System.Drawing.Point(3, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(331, 33);
+            this.label2.TabIndex = 46;
+            this.label2.Text = "Teléfono cliente*";
+            // 
+            // tabPage11
+            // 
+            this.tabPage11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
+            this.tabPage11.Controls.Add(this.tableLayoutPanel19);
+            this.tabPage11.Location = new System.Drawing.Point(4, 34);
+            this.tabPage11.Margin = new System.Windows.Forms.Padding(0);
+            this.tabPage11.Name = "tabPage11";
+            this.tabPage11.Size = new System.Drawing.Size(337, 207);
+            this.tabPage11.TabIndex = 2;
+            this.tabPage11.Text = "Recoger";
+            // 
+            // tableLayoutPanel19
+            // 
+            this.tableLayoutPanel19.ColumnCount = 1;
+            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel19.Controls.Add(this.TxtNombreRecogerDetalles, 0, 4);
+            this.tableLayoutPanel19.Controls.Add(this.label13, 0, 3);
+            this.tableLayoutPanel19.Controls.Add(this.TxtTlfRecogerDetalles, 0, 1);
+            this.tableLayoutPanel19.Controls.Add(this.label9, 0, 0);
+            this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel19.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel19.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel19.Name = "tableLayoutPanel19";
+            this.tableLayoutPanel19.RowCount = 6;
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel19.Size = new System.Drawing.Size(337, 207);
+            this.tableLayoutPanel19.TabIndex = 16;
+            // 
+            // TxtNombreRecogerDetalles
+            // 
+            this.TxtNombreRecogerDetalles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.TxtNombreRecogerDetalles.BorderColor = System.Drawing.Color.Transparent;
+            this.TxtNombreRecogerDetalles.BorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.TxtNombreRecogerDetalles.BorderRadius = 10;
+            this.TxtNombreRecogerDetalles.BorderSize = 2;
+            this.TxtNombreRecogerDetalles.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TxtNombreRecogerDetalles.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
+            this.TxtNombreRecogerDetalles.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtNombreRecogerDetalles.Location = new System.Drawing.Point(5, 156);
+            this.TxtNombreRecogerDetalles.Margin = new System.Windows.Forms.Padding(5);
+            this.TxtNombreRecogerDetalles.Multiline = false;
+            this.TxtNombreRecogerDetalles.Name = "TxtNombreRecogerDetalles";
+            this.TxtNombreRecogerDetalles.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtNombreRecogerDetalles.PasswordChar = false;
+            this.TxtNombreRecogerDetalles.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TxtNombreRecogerDetalles.PlaceholderText = "";
+            this.TxtNombreRecogerDetalles.Size = new System.Drawing.Size(327, 55);
+            this.TxtNombreRecogerDetalles.TabIndex = 55;
+            this.TxtNombreRecogerDetalles.Texts = "";
+            this.TxtNombreRecogerDetalles.UnderlinedStyle = false;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.BackColor = System.Drawing.Color.Transparent;
+            this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label13.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
+            this.label13.ForeColor = System.Drawing.Color.Silver;
+            this.label13.Location = new System.Drawing.Point(3, 118);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(331, 33);
+            this.label13.TabIndex = 53;
+            this.label13.Text = "Nombre cliente*";
+            // 
+            // TxtTlfRecogerDetalles
+            // 
+            this.TxtTlfRecogerDetalles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.TxtTlfRecogerDetalles.BorderColor = System.Drawing.Color.Transparent;
+            this.TxtTlfRecogerDetalles.BorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.TxtTlfRecogerDetalles.BorderRadius = 10;
+            this.TxtTlfRecogerDetalles.BorderSize = 2;
+            this.TxtTlfRecogerDetalles.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TxtTlfRecogerDetalles.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
+            this.TxtTlfRecogerDetalles.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtTlfRecogerDetalles.Location = new System.Drawing.Point(5, 38);
+            this.TxtTlfRecogerDetalles.Margin = new System.Windows.Forms.Padding(5);
+            this.TxtTlfRecogerDetalles.Multiline = false;
+            this.TxtTlfRecogerDetalles.Name = "TxtTlfRecogerDetalles";
+            this.TxtTlfRecogerDetalles.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtTlfRecogerDetalles.PasswordChar = false;
+            this.TxtTlfRecogerDetalles.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TxtTlfRecogerDetalles.PlaceholderText = "";
+            this.TxtTlfRecogerDetalles.Size = new System.Drawing.Size(327, 55);
+            this.TxtTlfRecogerDetalles.TabIndex = 51;
+            this.TxtTlfRecogerDetalles.Texts = "";
+            this.TxtTlfRecogerDetalles.UnderlinedStyle = false;
+            this.TxtTlfRecogerDetalles._TextChanged += new System.EventHandler(this.TextBoxTlf__TextChanged);
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.BackColor = System.Drawing.Color.Transparent;
+            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label9.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
+            this.label9.ForeColor = System.Drawing.Color.Silver;
+            this.label9.Location = new System.Drawing.Point(3, 0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(331, 33);
+            this.label9.TabIndex = 50;
+            this.label9.Text = "Teléfono cliente*";
+            // 
+            // CboTipo
+            // 
+            this.CboTipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.CboTipo.BorderColor = System.Drawing.Color.Transparent;
+            this.CboTipo.BorderSize = 0;
+            this.CboTipo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CboTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CboTipo.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
+            this.CboTipo.ForeColor = System.Drawing.Color.Gainsboro;
+            this.CboTipo.IconColor = System.Drawing.Color.Gainsboro;
+            this.CboTipo.Items.AddRange(new object[] {
+            "Local",
+            "Domicilio",
+            "Recoger"});
+            this.CboTipo.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
+            this.CboTipo.ListTextColor = System.Drawing.Color.DimGray;
+            this.CboTipo.Location = new System.Drawing.Point(5, 5);
+            this.CboTipo.Margin = new System.Windows.Forms.Padding(5);
+            this.CboTipo.MinimumSize = new System.Drawing.Size(200, 30);
+            this.CboTipo.Name = "CboTipo";
+            this.CboTipo.Size = new System.Drawing.Size(335, 47);
+            this.CboTipo.TabIndex = 45;
+            this.CboTipo.TabStop = false;
+            this.CboTipo.Texts = "";
+            this.CboTipo.OnSelectedIndexChanged += new System.EventHandler(this.CboTipo_OnSelectedIndexChanged);
+            // 
             // tableLayoutPanel24
             // 
             this.tableLayoutPanel24.ColumnCount = 2;
@@ -1439,405 +1838,6 @@
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
             this.dataGridViewTextBoxColumn5.Width = 125;
             // 
-            // myGroupBox1
-            // 
-            this.myGroupBox1.BorderColor = System.Drawing.Color.Silver;
-            this.myGroupBox1.Controls.Add(this.tableLayoutPanel10);
-            this.myGroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.myGroupBox1.Font = new System.Drawing.Font("Source Sans Pro", 19.2F, System.Drawing.FontStyle.Bold);
-            this.myGroupBox1.ForeColor = System.Drawing.Color.Silver;
-            this.myGroupBox1.Location = new System.Drawing.Point(0, 228);
-            this.myGroupBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.myGroupBox1.Name = "myGroupBox1";
-            this.myGroupBox1.Padding = new System.Windows.Forms.Padding(15, 0, 20, 25);
-            this.myGroupBox1.Size = new System.Drawing.Size(380, 388);
-            this.myGroupBox1.TabIndex = 55;
-            this.myGroupBox1.TabStop = false;
-            this.myGroupBox1.Text = "Tipo pedido";
-            this.myGroupBox1.TextActivated = true;
-            // 
-            // tableLayoutPanel10
-            // 
-            this.tableLayoutPanel10.ColumnCount = 1;
-            this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.Controls.Add(this.TabTipoDatosDetalles, 0, 2);
-            this.tableLayoutPanel10.Controls.Add(this.CboTipo, 0, 0);
-            this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(15, 41);
-            this.tableLayoutPanel10.Name = "tableLayoutPanel10";
-            this.tableLayoutPanel10.RowCount = 3;
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.Size = new System.Drawing.Size(345, 322);
-            this.tableLayoutPanel10.TabIndex = 8;
-            // 
-            // TabTipoDatosDetalles
-            // 
-            this.TabTipoDatosDetalles.Controls.Add(this.tabPage9);
-            this.TabTipoDatosDetalles.Controls.Add(this.tabPage10);
-            this.TabTipoDatosDetalles.Controls.Add(this.tabPage11);
-            this.TabTipoDatosDetalles.Depth = 0;
-            this.TabTipoDatosDetalles.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TabTipoDatosDetalles.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold);
-            this.TabTipoDatosDetalles.Location = new System.Drawing.Point(0, 77);
-            this.TabTipoDatosDetalles.Margin = new System.Windows.Forms.Padding(0);
-            this.TabTipoDatosDetalles.MouseState = MaterialSkin.MouseState.HOVER;
-            this.TabTipoDatosDetalles.Name = "TabTipoDatosDetalles";
-            this.TabTipoDatosDetalles.Padding = new System.Drawing.Point(0, 0);
-            this.TabTipoDatosDetalles.SelectedIndex = 0;
-            this.TabTipoDatosDetalles.Size = new System.Drawing.Size(345, 245);
-            this.TabTipoDatosDetalles.TabIndex = 46;
-            // 
-            // tabPage9
-            // 
-            this.tabPage9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
-            this.tabPage9.Controls.Add(this.tableLayoutPanel17);
-            this.tabPage9.Controls.Add(this.label6);
-            this.tabPage9.Location = new System.Drawing.Point(4, 34);
-            this.tabPage9.Margin = new System.Windows.Forms.Padding(0);
-            this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(337, 207);
-            this.tabPage9.TabIndex = 0;
-            this.tabPage9.Text = "Local";
-            // 
-            // tableLayoutPanel17
-            // 
-            this.tableLayoutPanel17.ColumnCount = 1;
-            this.tableLayoutPanel17.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel17.Controls.Add(this.CboMesasLocalDetalles, 0, 1);
-            this.tableLayoutPanel17.Controls.Add(this.label1, 0, 0);
-            this.tableLayoutPanel17.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel17.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel17.Name = "tableLayoutPanel17";
-            this.tableLayoutPanel17.RowCount = 3;
-            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel17.Size = new System.Drawing.Size(337, 207);
-            this.tableLayoutPanel17.TabIndex = 15;
-            // 
-            // CboMesasLocalDetalles
-            // 
-            this.CboMesasLocalDetalles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.CboMesasLocalDetalles.BorderColor = System.Drawing.Color.Transparent;
-            this.CboMesasLocalDetalles.BorderSize = 0;
-            this.CboMesasLocalDetalles.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CboMesasLocalDetalles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CboMesasLocalDetalles.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
-            this.CboMesasLocalDetalles.ForeColor = System.Drawing.Color.Gainsboro;
-            this.CboMesasLocalDetalles.IconColor = System.Drawing.Color.Gainsboro;
-            this.CboMesasLocalDetalles.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
-            this.CboMesasLocalDetalles.ListTextColor = System.Drawing.Color.DimGray;
-            this.CboMesasLocalDetalles.Location = new System.Drawing.Point(5, 38);
-            this.CboMesasLocalDetalles.Margin = new System.Windows.Forms.Padding(5);
-            this.CboMesasLocalDetalles.MinimumSize = new System.Drawing.Size(200, 30);
-            this.CboMesasLocalDetalles.Name = "CboMesasLocalDetalles";
-            this.CboMesasLocalDetalles.Size = new System.Drawing.Size(327, 47);
-            this.CboMesasLocalDetalles.TabIndex = 46;
-            this.CboMesasLocalDetalles.TabStop = false;
-            this.CboMesasLocalDetalles.Texts = "";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.Silver;
-            this.label1.Location = new System.Drawing.Point(3, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(331, 33);
-            this.label1.TabIndex = 45;
-            this.label1.Text = "Número de mesa";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label6.Location = new System.Drawing.Point(0, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(0, 25);
-            this.label6.TabIndex = 14;
-            // 
-            // tabPage10
-            // 
-            this.tabPage10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
-            this.tabPage10.Controls.Add(this.tableLayoutPanel18);
-            this.tabPage10.Location = new System.Drawing.Point(4, 34);
-            this.tabPage10.Margin = new System.Windows.Forms.Padding(0);
-            this.tabPage10.Name = "tabPage10";
-            this.tabPage10.Size = new System.Drawing.Size(337, 207);
-            this.tabPage10.TabIndex = 1;
-            this.tabPage10.Text = "Domicilio";
-            // 
-            // tableLayoutPanel18
-            // 
-            this.tableLayoutPanel18.ColumnCount = 1;
-            this.tableLayoutPanel18.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel18.Controls.Add(this.TxtNombreDomicilioDetalles, 0, 7);
-            this.tableLayoutPanel18.Controls.Add(this.label5, 0, 6);
-            this.tableLayoutPanel18.Controls.Add(this.TxtDirDomicilioDetalles, 0, 4);
-            this.tableLayoutPanel18.Controls.Add(this.label4, 0, 3);
-            this.tableLayoutPanel18.Controls.Add(this.TxtTlfDomicilioDetalles, 0, 1);
-            this.tableLayoutPanel18.Controls.Add(this.label2, 0, 0);
-            this.tableLayoutPanel18.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel18.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel18.Name = "tableLayoutPanel18";
-            this.tableLayoutPanel18.RowCount = 9;
-            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel18.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel18.Size = new System.Drawing.Size(337, 207);
-            this.tableLayoutPanel18.TabIndex = 16;
-            // 
-            // TxtNombreDomicilioDetalles
-            // 
-            this.TxtNombreDomicilioDetalles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.TxtNombreDomicilioDetalles.BorderColor = System.Drawing.Color.Transparent;
-            this.TxtNombreDomicilioDetalles.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.TxtNombreDomicilioDetalles.BorderRadius = 10;
-            this.TxtNombreDomicilioDetalles.BorderSize = 2;
-            this.TxtNombreDomicilioDetalles.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TxtNombreDomicilioDetalles.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtNombreDomicilioDetalles.ForeColor = System.Drawing.Color.Gainsboro;
-            this.TxtNombreDomicilioDetalles.Location = new System.Drawing.Point(5, 274);
-            this.TxtNombreDomicilioDetalles.Margin = new System.Windows.Forms.Padding(5);
-            this.TxtNombreDomicilioDetalles.Multiline = false;
-            this.TxtNombreDomicilioDetalles.Name = "TxtNombreDomicilioDetalles";
-            this.TxtNombreDomicilioDetalles.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
-            this.TxtNombreDomicilioDetalles.PasswordChar = false;
-            this.TxtNombreDomicilioDetalles.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TxtNombreDomicilioDetalles.PlaceholderText = "";
-            this.TxtNombreDomicilioDetalles.Size = new System.Drawing.Size(327, 55);
-            this.TxtNombreDomicilioDetalles.TabIndex = 52;
-            this.TxtNombreDomicilioDetalles.Texts = "";
-            this.TxtNombreDomicilioDetalles.UnderlinedStyle = false;
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label5.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.Silver;
-            this.label5.Location = new System.Drawing.Point(3, 236);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(331, 33);
-            this.label5.TabIndex = 50;
-            this.label5.Text = "Nombre cliente";
-            // 
-            // TxtDirDomicilioDetalles
-            // 
-            this.TxtDirDomicilioDetalles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.TxtDirDomicilioDetalles.BorderColor = System.Drawing.Color.Transparent;
-            this.TxtDirDomicilioDetalles.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.TxtDirDomicilioDetalles.BorderRadius = 10;
-            this.TxtDirDomicilioDetalles.BorderSize = 2;
-            this.TxtDirDomicilioDetalles.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TxtDirDomicilioDetalles.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtDirDomicilioDetalles.ForeColor = System.Drawing.Color.Gainsboro;
-            this.TxtDirDomicilioDetalles.Location = new System.Drawing.Point(5, 156);
-            this.TxtDirDomicilioDetalles.Margin = new System.Windows.Forms.Padding(5);
-            this.TxtDirDomicilioDetalles.Multiline = false;
-            this.TxtDirDomicilioDetalles.Name = "TxtDirDomicilioDetalles";
-            this.TxtDirDomicilioDetalles.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
-            this.TxtDirDomicilioDetalles.PasswordChar = false;
-            this.TxtDirDomicilioDetalles.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TxtDirDomicilioDetalles.PlaceholderText = "";
-            this.TxtDirDomicilioDetalles.Size = new System.Drawing.Size(327, 55);
-            this.TxtDirDomicilioDetalles.TabIndex = 49;
-            this.TxtDirDomicilioDetalles.Texts = "";
-            this.TxtDirDomicilioDetalles.UnderlinedStyle = false;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.Silver;
-            this.label4.Location = new System.Drawing.Point(3, 118);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(331, 33);
-            this.label4.TabIndex = 48;
-            this.label4.Text = "Dirección cliente*";
-            // 
-            // TxtTlfDomicilioDetalles
-            // 
-            this.TxtTlfDomicilioDetalles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.TxtTlfDomicilioDetalles.BorderColor = System.Drawing.Color.Transparent;
-            this.TxtTlfDomicilioDetalles.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.TxtTlfDomicilioDetalles.BorderRadius = 10;
-            this.TxtTlfDomicilioDetalles.BorderSize = 2;
-            this.TxtTlfDomicilioDetalles.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TxtTlfDomicilioDetalles.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtTlfDomicilioDetalles.ForeColor = System.Drawing.Color.Gainsboro;
-            this.TxtTlfDomicilioDetalles.Location = new System.Drawing.Point(5, 38);
-            this.TxtTlfDomicilioDetalles.Margin = new System.Windows.Forms.Padding(5);
-            this.TxtTlfDomicilioDetalles.Multiline = false;
-            this.TxtTlfDomicilioDetalles.Name = "TxtTlfDomicilioDetalles";
-            this.TxtTlfDomicilioDetalles.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
-            this.TxtTlfDomicilioDetalles.PasswordChar = false;
-            this.TxtTlfDomicilioDetalles.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TxtTlfDomicilioDetalles.PlaceholderText = "";
-            this.TxtTlfDomicilioDetalles.Size = new System.Drawing.Size(327, 55);
-            this.TxtTlfDomicilioDetalles.TabIndex = 47;
-            this.TxtTlfDomicilioDetalles.Texts = "";
-            this.TxtTlfDomicilioDetalles.UnderlinedStyle = false;
-            this.TxtTlfDomicilioDetalles._TextChanged += new System.EventHandler(this.TextBoxTlf__TextChanged);
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.Silver;
-            this.label2.Location = new System.Drawing.Point(3, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(331, 33);
-            this.label2.TabIndex = 46;
-            this.label2.Text = "Teléfono cliente*";
-            // 
-            // tabPage11
-            // 
-            this.tabPage11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
-            this.tabPage11.Controls.Add(this.tableLayoutPanel19);
-            this.tabPage11.Location = new System.Drawing.Point(4, 34);
-            this.tabPage11.Margin = new System.Windows.Forms.Padding(0);
-            this.tabPage11.Name = "tabPage11";
-            this.tabPage11.Size = new System.Drawing.Size(337, 207);
-            this.tabPage11.TabIndex = 2;
-            this.tabPage11.Text = "Recoger";
-            // 
-            // tableLayoutPanel19
-            // 
-            this.tableLayoutPanel19.ColumnCount = 1;
-            this.tableLayoutPanel19.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel19.Controls.Add(this.TxtNombreRecogerDetalles, 0, 4);
-            this.tableLayoutPanel19.Controls.Add(this.label13, 0, 3);
-            this.tableLayoutPanel19.Controls.Add(this.TxtTlfRecogerDetalles, 0, 1);
-            this.tableLayoutPanel19.Controls.Add(this.label9, 0, 0);
-            this.tableLayoutPanel19.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel19.Location = new System.Drawing.Point(0, 0);
-            this.tableLayoutPanel19.Margin = new System.Windows.Forms.Padding(0);
-            this.tableLayoutPanel19.Name = "tableLayoutPanel19";
-            this.tableLayoutPanel19.RowCount = 6;
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel19.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel19.Size = new System.Drawing.Size(337, 207);
-            this.tableLayoutPanel19.TabIndex = 16;
-            // 
-            // TxtNombreRecogerDetalles
-            // 
-            this.TxtNombreRecogerDetalles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.TxtNombreRecogerDetalles.BorderColor = System.Drawing.Color.Transparent;
-            this.TxtNombreRecogerDetalles.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.TxtNombreRecogerDetalles.BorderRadius = 10;
-            this.TxtNombreRecogerDetalles.BorderSize = 2;
-            this.TxtNombreRecogerDetalles.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TxtNombreRecogerDetalles.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtNombreRecogerDetalles.ForeColor = System.Drawing.Color.Gainsboro;
-            this.TxtNombreRecogerDetalles.Location = new System.Drawing.Point(5, 156);
-            this.TxtNombreRecogerDetalles.Margin = new System.Windows.Forms.Padding(5);
-            this.TxtNombreRecogerDetalles.Multiline = false;
-            this.TxtNombreRecogerDetalles.Name = "TxtNombreRecogerDetalles";
-            this.TxtNombreRecogerDetalles.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
-            this.TxtNombreRecogerDetalles.PasswordChar = false;
-            this.TxtNombreRecogerDetalles.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TxtNombreRecogerDetalles.PlaceholderText = "";
-            this.TxtNombreRecogerDetalles.Size = new System.Drawing.Size(327, 55);
-            this.TxtNombreRecogerDetalles.TabIndex = 55;
-            this.TxtNombreRecogerDetalles.Texts = "";
-            this.TxtNombreRecogerDetalles.UnderlinedStyle = false;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.BackColor = System.Drawing.Color.Transparent;
-            this.label13.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label13.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.label13.ForeColor = System.Drawing.Color.Silver;
-            this.label13.Location = new System.Drawing.Point(3, 118);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(331, 33);
-            this.label13.TabIndex = 53;
-            this.label13.Text = "Nombre cliente*";
-            // 
-            // TxtTlfRecogerDetalles
-            // 
-            this.TxtTlfRecogerDetalles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.TxtTlfRecogerDetalles.BorderColor = System.Drawing.Color.Transparent;
-            this.TxtTlfRecogerDetalles.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.TxtTlfRecogerDetalles.BorderRadius = 10;
-            this.TxtTlfRecogerDetalles.BorderSize = 2;
-            this.TxtTlfRecogerDetalles.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TxtTlfRecogerDetalles.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtTlfRecogerDetalles.ForeColor = System.Drawing.Color.Gainsboro;
-            this.TxtTlfRecogerDetalles.Location = new System.Drawing.Point(5, 38);
-            this.TxtTlfRecogerDetalles.Margin = new System.Windows.Forms.Padding(5);
-            this.TxtTlfRecogerDetalles.Multiline = false;
-            this.TxtTlfRecogerDetalles.Name = "TxtTlfRecogerDetalles";
-            this.TxtTlfRecogerDetalles.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
-            this.TxtTlfRecogerDetalles.PasswordChar = false;
-            this.TxtTlfRecogerDetalles.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TxtTlfRecogerDetalles.PlaceholderText = "";
-            this.TxtTlfRecogerDetalles.Size = new System.Drawing.Size(327, 55);
-            this.TxtTlfRecogerDetalles.TabIndex = 51;
-            this.TxtTlfRecogerDetalles.Texts = "";
-            this.TxtTlfRecogerDetalles.UnderlinedStyle = false;
-            this.TxtTlfRecogerDetalles._TextChanged += new System.EventHandler(this.TextBoxTlf__TextChanged);
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label9.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.label9.ForeColor = System.Drawing.Color.Silver;
-            this.label9.Location = new System.Drawing.Point(3, 0);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(331, 33);
-            this.label9.TabIndex = 50;
-            this.label9.Text = "Teléfono cliente*";
-            // 
-            // CboTipo
-            // 
-            this.CboTipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.CboTipo.BorderColor = System.Drawing.Color.Transparent;
-            this.CboTipo.BorderSize = 0;
-            this.CboTipo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CboTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CboTipo.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
-            this.CboTipo.ForeColor = System.Drawing.Color.Gainsboro;
-            this.CboTipo.IconColor = System.Drawing.Color.Gainsboro;
-            this.CboTipo.Items.AddRange(new object[] {
-            "Local",
-            "Domicilio",
-            "Recoger"});
-            this.CboTipo.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
-            this.CboTipo.ListTextColor = System.Drawing.Color.DimGray;
-            this.CboTipo.Location = new System.Drawing.Point(5, 5);
-            this.CboTipo.Margin = new System.Windows.Forms.Padding(5);
-            this.CboTipo.MinimumSize = new System.Drawing.Size(200, 30);
-            this.CboTipo.Name = "CboTipo";
-            this.CboTipo.Size = new System.Drawing.Size(335, 47);
-            this.CboTipo.TabIndex = 45;
-            this.CboTipo.TabStop = false;
-            this.CboTipo.Texts = "";
-            this.CboTipo.OnSelectedIndexChanged += new System.EventHandler(this.CboTipo_OnSelectedIndexChanged);
-            // 
             // FrmPedidosDetalles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -1879,18 +1879,6 @@
             this.tableLayoutPanel15.ResumeLayout(false);
             this.tableLayoutPanel16.ResumeLayout(false);
             this.tableLayoutPanel16.PerformLayout();
-            this.tableLayoutPanel24.ResumeLayout(false);
-            this.tableLayoutPanel24.PerformLayout();
-            this.tableLayoutPanel20.ResumeLayout(false);
-            this.tableLayoutPanel23.ResumeLayout(false);
-            this.tableLayoutPanel23.PerformLayout();
-            this.tableLayoutPanel21.ResumeLayout(false);
-            this.tableLayoutPanel9.ResumeLayout(false);
-            this.tableLayoutPanel22.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.NucCantidad)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.DtgPlatosPedidos)).EndInit();
-            this.tableLayoutPanel11.ResumeLayout(false);
-            this.tableLayoutPanel11.PerformLayout();
             this.myGroupBox1.ResumeLayout(false);
             this.tableLayoutPanel10.ResumeLayout(false);
             this.TabTipoDatosDetalles.ResumeLayout(false);
@@ -1904,6 +1892,18 @@
             this.tabPage11.ResumeLayout(false);
             this.tableLayoutPanel19.ResumeLayout(false);
             this.tableLayoutPanel19.PerformLayout();
+            this.tableLayoutPanel24.ResumeLayout(false);
+            this.tableLayoutPanel24.PerformLayout();
+            this.tableLayoutPanel20.ResumeLayout(false);
+            this.tableLayoutPanel23.ResumeLayout(false);
+            this.tableLayoutPanel23.PerformLayout();
+            this.tableLayoutPanel21.ResumeLayout(false);
+            this.tableLayoutPanel9.ResumeLayout(false);
+            this.tableLayoutPanel22.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.NucCantidad)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DtgPlatosPedidos)).EndInit();
+            this.tableLayoutPanel11.ResumeLayout(false);
+            this.tableLayoutPanel11.PerformLayout();
             this.ResumeLayout(false);
 
         }

@@ -252,7 +252,7 @@ namespace Garmoxu_Desktop
             this.TxtBuscar.Size = new System.Drawing.Size(323, 55);
             this.TxtBuscar.TabIndex = 0;
             this.TxtBuscar.TabStop = false;
-            this.TxtBuscar.Texts = "Nombre de usuario / empleado";
+            this.TxtBuscar.Texts = "Buscar por nombre de usuario / empleado";
             this.TxtBuscar.UnderlinedStyle = false;
             this.TxtBuscar.Enter += new System.EventHandler(this.TxtBuscar_Enter);
             this.TxtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtBuscar_KeyPress);
