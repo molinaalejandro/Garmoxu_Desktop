@@ -79,14 +79,14 @@
     </dependentAssembly>
   </dependency>
   <dependency>
-    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Garmoxu_Desktop.exe" size="2425824">
+    <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Garmoxu_Desktop.exe" size="2461152">
       <assemblyIdentity name="Garmoxu_Desktop" version="0.5.5.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>ir7h47xaJoff2OdkW+sE8njD+o7Rjg7P4BCSv8qX7/I=</dsig:DigestValue>
+        <dsig:DigestValue>BQmvvHL8sZP8TSNF5XML03teV3t1C7qAC9T6wvworXw=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>

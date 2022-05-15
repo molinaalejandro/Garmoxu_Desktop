@@ -95,6 +95,15 @@ namespace Garmoxu_Desktop
         #endregion
         #endregion
 
+        #region Funciones y diseños de controles
+        private void FrmPedidosPagos_Shown(object sender, EventArgs e)
+        {
+            RdbTarjeta.TabStop = false;
+            RdbEfectivo.TabStop = false;
+            RdbTicket.TabStop = false;
+        }
+        #endregion
+
         #region Confirmar
         private void BtnConfirmar_Click(object sender, EventArgs e)
         {
@@ -122,8 +131,6 @@ namespace Garmoxu_Desktop
                 RdbTarjeta.Checked = false;
                 RdbTicket.Checked = false;
             }
-
-            CalcularImporteDevuelto();
         }
 
         private void TxtCliente__TextChanged(object sender, EventArgs e)
@@ -133,15 +140,14 @@ namespace Garmoxu_Desktop
 
         private void CalcularImporteDevuelto()
         {
-            if (RdbEfectivo.Checked && ValidarFormatoImporteCliente())
+            TxtDevuelto.Texts = "0,00";
+            if (ValidarFormatoImporteCliente())
             {
                 string importeClienteFormateado = TxtCliente.Texts.Replace(".", ",");
                 decimal importeCliente = decimal.Parse(importeClienteFormateado);
                 decimal importeFinal = decimal.Parse(TxtImporte.Texts);
                 TxtDevuelto.Texts = (importeCliente - importeFinal) + string.Empty;
             }
-            else
-                TxtDevuelto.Texts = string.Empty;
         }
 
         private bool ValidarFormatoImporteCliente()
@@ -151,6 +157,7 @@ namespace Garmoxu_Desktop
             if (rgx.IsMatch(TxtCliente.Texts))
                 return true;
 
+            TxtDevuelto.Texts = string.Empty;
             return false;
         }
         #endregion

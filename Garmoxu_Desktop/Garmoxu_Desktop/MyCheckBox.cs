@@ -50,7 +50,7 @@ namespace Garmoxu_Desktop
             base.OnPaint(e);
 
             float borderSize = 3;
-            float radius = 2*2;
+            float radius = 5;
 
             float X = this.Padding.Left - this.Padding.Right;
             float Y = this.Padding.Top - this.Padding.Bottom;
@@ -77,8 +77,8 @@ namespace Garmoxu_Desktop
                 g.DrawString(
                     "\u2713", this.Font, 
                     new SolidBrush(this.ForeColor), 
-                    Padding.Left-Padding.Right+PaddingCheck.Left, 
-                    0-(Padding.Top-Padding.Bottom)-PaddingCheck.Top);
+                    X-1, 
+                    Y-5.5f);
             }
         }
 

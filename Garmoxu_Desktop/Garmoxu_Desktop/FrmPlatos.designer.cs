@@ -41,8 +41,8 @@
             this.CboCategoria = new RJCodeAdvance.RJControls.RJComboBox();
             this.BtnBuscar = new FontAwesome.Sharp.IconButton();
             this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
-            this.LblCategoria = new System.Windows.Forms.Label();
             this.ChkCategoría = new Garmoxu_Desktop.MyCheckBox();
+            this.LblCategoria = new System.Windows.Forms.Label();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
             this.ChkNombre = new Garmoxu_Desktop.MyCheckBox();
             this.LblNombre = new System.Windows.Forms.Label();
@@ -65,7 +65,7 @@
             // 
             this.LblDisponibilidad.AutoSize = true;
             this.LblDisponibilidad.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.LblDisponibilidad.ForeColor = System.Drawing.Color.Silver;
+            this.LblDisponibilidad.ForeColor = System.Drawing.Color.Gainsboro;
             this.LblDisponibilidad.Location = new System.Drawing.Point(693, 0);
             this.LblDisponibilidad.Margin = new System.Windows.Forms.Padding(30, 0, 3, 0);
             this.LblDisponibilidad.Name = "LblDisponibilidad";
@@ -145,6 +145,7 @@
             // 
             this.BtnNuevo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnNuevo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnNuevo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
             this.BtnNuevo.FlatAppearance.BorderSize = 0;
             this.BtnNuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.BtnNuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -168,6 +169,7 @@
             this.BtnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnEliminar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnEliminar.Enabled = false;
+            this.BtnEliminar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
             this.BtnEliminar.FlatAppearance.BorderSize = 0;
             this.BtnEliminar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.BtnEliminar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -239,12 +241,13 @@
             // 
             this.BtnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnBuscar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.White;
+            this.BtnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
             this.BtnBuscar.FlatAppearance.BorderSize = 0;
             this.BtnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.BtnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnBuscar.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal;
+            this.BtnBuscar.ForeColor = System.Drawing.Color.Transparent;
             this.BtnBuscar.IconChar = FontAwesome.Sharp.IconChar.Search;
             this.BtnBuscar.IconColor = System.Drawing.Color.MediumSlateBlue;
             this.BtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
@@ -268,8 +271,8 @@
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Controls.Add(this.LblCategoria, 0, 0);
             this.tableLayoutPanel2.Controls.Add(this.ChkCategoría, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.LblCategoria, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(336, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -278,12 +281,35 @@
             this.tableLayoutPanel2.Size = new System.Drawing.Size(324, 37);
             this.tableLayoutPanel2.TabIndex = 58;
             // 
+            // ChkCategoría
+            // 
+            this.ChkCategoría.BackColor = System.Drawing.Color.Transparent;
+            this.ChkCategoría.Background = System.Drawing.Color.Transparent;
+            this.ChkCategoría.BorderColor = System.Drawing.Color.Gainsboro;
+            this.ChkCategoría.BorderHeight = 15;
+            this.ChkCategoría.BorderWidth = 15;
+            this.ChkCategoría.Checked = false;
+            this.ChkCategoría.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ChkCategoría.Dock = System.Windows.Forms.DockStyle.Left;
+            this.ChkCategoría.EnterColor = System.Drawing.Color.White;
+            this.ChkCategoría.Font = new System.Drawing.Font("Source Sans Pro Black", 14F, System.Drawing.FontStyle.Bold);
+            this.ChkCategoría.ForeColor = System.Drawing.Color.White;
+            this.ChkCategoría.LeaveColor = System.Drawing.Color.Gainsboro;
+            this.ChkCategoría.Location = new System.Drawing.Point(162, 3);
+            this.ChkCategoría.Name = "ChkCategoría";
+            this.ChkCategoría.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
+            this.ChkCategoría.PaddingCheck = new System.Windows.Forms.Padding(0);
+            this.ChkCategoría.Size = new System.Drawing.Size(35, 31);
+            this.ChkCategoría.TabIndex = 57;
+            this.ChkCategoría.MouseEnter += new System.EventHandler(this.ChkCategoría_MouseEnter);
+            this.ChkCategoría.MouseLeave += new System.EventHandler(this.ChkCategoría_MouseLeave);
+            // 
             // LblCategoria
             // 
             this.LblCategoria.AutoSize = true;
             this.LblCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LblCategoria.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.LblCategoria.ForeColor = System.Drawing.Color.Silver;
+            this.LblCategoria.ForeColor = System.Drawing.Color.Gainsboro;
             this.LblCategoria.Location = new System.Drawing.Point(30, 0);
             this.LblCategoria.Margin = new System.Windows.Forms.Padding(30, 0, 3, 0);
             this.LblCategoria.Name = "LblCategoria";
@@ -294,29 +320,6 @@
             this.LblCategoria.Click += new System.EventHandler(this.LblCategoria_Click);
             this.LblCategoria.MouseEnter += new System.EventHandler(this.ChkCategoría_MouseEnter);
             this.LblCategoria.MouseLeave += new System.EventHandler(this.ChkCategoría_MouseLeave);
-            // 
-            // ChkCategoría
-            // 
-            this.ChkCategoría.BackColor = System.Drawing.Color.Transparent;
-            this.ChkCategoría.Background = System.Drawing.Color.Transparent;
-            this.ChkCategoría.BorderColor = System.Drawing.Color.Silver;
-            this.ChkCategoría.BorderHeight = 15;
-            this.ChkCategoría.BorderWidth = 15;
-            this.ChkCategoría.Checked = false;
-            this.ChkCategoría.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ChkCategoría.Dock = System.Windows.Forms.DockStyle.Left;
-            this.ChkCategoría.EnterColor = System.Drawing.Color.White;
-            this.ChkCategoría.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.ChkCategoría.ForeColor = System.Drawing.Color.Silver;
-            this.ChkCategoría.LeaveColor = System.Drawing.Color.Silver;
-            this.ChkCategoría.Location = new System.Drawing.Point(162, 3);
-            this.ChkCategoría.Name = "ChkCategoría";
-            this.ChkCategoría.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
-            this.ChkCategoría.PaddingCheck = new System.Windows.Forms.Padding(0);
-            this.ChkCategoría.Size = new System.Drawing.Size(35, 31);
-            this.ChkCategoría.TabIndex = 57;
-            this.ChkCategoría.MouseEnter += new System.EventHandler(this.ChkCategoría_MouseEnter);
-            this.ChkCategoría.MouseLeave += new System.EventHandler(this.ChkCategoría_MouseLeave);
             // 
             // tableLayoutPanel3
             // 
@@ -338,16 +341,16 @@
             // 
             this.ChkNombre.BackColor = System.Drawing.Color.Transparent;
             this.ChkNombre.Background = System.Drawing.Color.Transparent;
-            this.ChkNombre.BorderColor = System.Drawing.Color.Silver;
+            this.ChkNombre.BorderColor = System.Drawing.Color.Gainsboro;
             this.ChkNombre.BorderHeight = 15;
             this.ChkNombre.BorderWidth = 15;
             this.ChkNombre.Checked = false;
             this.ChkNombre.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ChkNombre.Dock = System.Windows.Forms.DockStyle.Left;
             this.ChkNombre.EnterColor = System.Drawing.Color.White;
-            this.ChkNombre.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.ChkNombre.ForeColor = System.Drawing.Color.Silver;
-            this.ChkNombre.LeaveColor = System.Drawing.Color.Silver;
+            this.ChkNombre.Font = new System.Drawing.Font("Source Sans Pro Black", 14F, System.Drawing.FontStyle.Bold);
+            this.ChkNombre.ForeColor = System.Drawing.Color.White;
+            this.ChkNombre.LeaveColor = System.Drawing.Color.Gainsboro;
             this.ChkNombre.Location = new System.Drawing.Point(197, 3);
             this.ChkNombre.Name = "ChkNombre";
             this.ChkNombre.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
@@ -363,7 +366,7 @@
             this.LblNombre.AutoSize = true;
             this.LblNombre.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LblNombre.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.LblNombre.ForeColor = System.Drawing.Color.Silver;
+            this.LblNombre.ForeColor = System.Drawing.Color.Gainsboro;
             this.LblNombre.Location = new System.Drawing.Point(20, 0);
             this.LblNombre.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
             this.LblNombre.Name = "LblNombre";

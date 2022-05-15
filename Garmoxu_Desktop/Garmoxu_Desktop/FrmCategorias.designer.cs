@@ -30,6 +30,7 @@ namespace Garmoxu_Desktop
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmCategorias));
             this.PnlMain = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.BtnCerrar = new RJCodeAdvance.RJControls.RJButton();
@@ -260,10 +261,11 @@ namespace Garmoxu_Desktop
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
             this.ClientSize = new System.Drawing.Size(943, 539);
             this.Controls.Add(this.PnlMain);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Name = "FrmCategorias";
             this.Tag = "Categorias";
-            this.Text = "FrmCategoria";
+            this.Text = "Gestión de categorías - Garmoxu";
             this.EnabledChanged += new System.EventHandler(this.FrmCategoria_EnabledChanged);
             this.PnlMain.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);

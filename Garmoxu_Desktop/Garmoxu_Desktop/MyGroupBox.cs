@@ -73,7 +73,7 @@ namespace Garmoxu_Desktop
             {
                 Rectangle textRect = e.ClipRectangle;
                 textRect.X = (textRect.X + 20);
-                textRect.Width = tSize.Width-(tSize.Width / 5);
+                textRect.Width = tSize.Width;
                 textRect.Height = tSize.Height;
                 e.Graphics.FillRectangle(new SolidBrush(this.BackColor), textRect);
                 e.Graphics.DrawString(this.Text, this.Font, new SolidBrush(this.ForeColor), textRect);

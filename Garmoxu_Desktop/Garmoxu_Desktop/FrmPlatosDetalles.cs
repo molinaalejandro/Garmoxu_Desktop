@@ -74,6 +74,7 @@ namespace Garmoxu_Desktop
             if (!string.IsNullOrEmpty(ClavePrimaria))
             {
                 LblTitulo.Text = "Consulta el plato " + ClavePrimaria;
+                BtnConfirmar.Text = "Guardar";
                 CargarDatos();
             }
         }
@@ -189,12 +190,26 @@ namespace Garmoxu_Desktop
             FrmShadow.FormBorderStyle = FormBorderStyle.None;
             FrmShadow.Size = Size;
             FrmShadow.WindowState = FormWindowState.Maximized;
-            FrmShadow.BackColor = System.Drawing.Color.Black;
+            FrmShadow.BackColor = Color.Black;
             FrmShadow.Opacity = 0.7;
-            FrmShadow.Show();
             FrmShadow.Location = Location;
             FrmShadow.Enabled = false;
             FrmShadow.TopMost = true;
+            FrmShadow.Show();
+        }
+        #endregion
+        #endregion
+
+        #region Funciones y diseño de controles
+        #region Picture Plato
+        private void PicFotoPlato_MouseEnter(object sender, EventArgs e)
+        {
+            PnlBordeImagen.BackColor = Color.Silver;
+        }
+
+        private void PicFotoPlato_MouseLeave(object sender, EventArgs e)
+        {
+            PnlBordeImagen.BackColor = Color.Transparent;
         }
         #endregion
         #endregion
@@ -573,10 +588,9 @@ namespace Garmoxu_Desktop
 
         private void QuitarSombreadoPantalla()
         {
-            if (FrmShadow != null) FrmShadow.Close();
+            //if (FrmShadow != null) FrmShadow.Close();
+            if (FrmShadow != null) FrmShadow.Hide();
         }
         #endregion Cierre del formulario
     }
 }
-
-

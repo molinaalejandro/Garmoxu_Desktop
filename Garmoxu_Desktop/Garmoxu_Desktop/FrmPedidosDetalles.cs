@@ -1146,8 +1146,8 @@ namespace Garmoxu_Desktop
                 {
                     string precioConIva = LblPrecioConIVA.Text.Remove(LblPrecioConIVA.Text.Length - 1);
                     FrmPedidosPagos frm = new FrmPedidosPagos(this, precioConIva, ClavePrimariaPedidoEnCurso);
-                    frm.Width = Instance.Width / 2 - Instance.Width / 5;
-                    frm.Height = Instance.Height / 2 + Instance.Height / 5;
+                    //frm.Width = Instance.Width / 2 - Instance.Width / 5;
+                    //frm.Height = Instance.Height / 2 + Instance.Height / 5;
                     frm.ShowDialog();
 
                     if (!string.IsNullOrEmpty(MetodoPago))

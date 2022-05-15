@@ -331,11 +331,11 @@ namespace Garmoxu_Desktop
 
             if (BitConverter.ToString(imgUser).Equals(BitConverter.ToString(imgResources)))
             {
-                PicUser.BorderSize = 0;
-                PicUser.Tag = "NoBorder";
+                PicUsuario.BorderSize = 0;
+                PicUsuario.Tag = "NoBorder";
             }
 
-            PicUser.Image = ImagenUsuario;
+            PicUsuario.Image = ImagenUsuario;
         }
 
         private void CargarNombreEmpleado()
@@ -369,9 +369,9 @@ namespace Garmoxu_Desktop
 
         #region Menu lateral
         #region Ocultar o mostrar Menu Lateral
-        private void BtnPanel_Click(object sender, EventArgs e)
+        private void BtnEsconderMenu_Click(object sender, EventArgs e)
         {
-            if (PnlLateral.Width > 200) //colapsa el menu lateral
+            if (PnlMenuLateral.Width > 200) //colapsa el menu lateral
                 OcultarMenuLateral();
             else
                 MostrarMenuLateral(); //expande el menu lateral
@@ -379,15 +379,15 @@ namespace Garmoxu_Desktop
 
         private void OcultarMenuLateral()
         {
-            PnlLateral.Width = 100;
-            PnlCabeceraMenu.ColumnStyles[0].SizeType = SizeType.AutoSize;
-            BtnPanel.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
-            PicUser.Visible = false;
+            PnlMenuLateral.Width = 100;
+            //PnlCabeceraMenu.ColumnStyles[0].SizeType = SizeType.AutoSize;
+            BtnEsconderMenu.IconChar = FontAwesome.Sharp.IconChar.ChevronRight;
+            BtnEsconderMenu.Dock = DockStyle.Top;
+            PicUsuario.Visible = false;
             LblUsuarioActual.Visible = false;
-            BtnPanel.Dock = DockStyle.Top;
-            foreach (Button b in PnlLateral.Controls.OfType<Button>())
+            foreach (Button b in PnlMenuLateral.Controls.OfType<Button>())
             {
-                b.TextImageRelation = TextImageRelation.ImageAboveText;
+                //b.TextImageRelation = TextImageRelation.ImageAboveText;
                 b.Text = "";
                 b.ImageAlign = ContentAlignment.MiddleCenter;
                 b.Padding = new Padding(0);
@@ -396,15 +396,15 @@ namespace Garmoxu_Desktop
 
         private void MostrarMenuLateral()
         {
-            PnlLateral.Width = 250;
-            PnlCabeceraMenu.ColumnStyles[0].SizeType = SizeType.Percent;
-            BtnPanel.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
-            BtnPanel.Dock = DockStyle.Right;
-            PicUser.Visible = true;
+            PnlMenuLateral.Width = 250;
+            //PnlCabeceraMenu.ColumnStyles[0].SizeType = SizeType.Percent;
+            BtnEsconderMenu.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
+            BtnEsconderMenu.Dock = DockStyle.Right;
+            PicUsuario.Visible = true;
             LblUsuarioActual.Visible = true;
-            foreach (Button b in PnlLateral.Controls.OfType<Button>())
+            foreach (Button b in PnlMenuLateral.Controls.OfType<Button>())
             {
-                b.TextImageRelation = TextImageRelation.ImageBeforeText;
+                //b.TextImageRelation = TextImageRelation.ImageBeforeText;
                 b.Text = b.Tag.ToString();
                 b.ImageAlign = ContentAlignment.MiddleLeft;
                 b.Padding = new Padding(20, 0, 0, 0);
@@ -459,18 +459,23 @@ namespace Garmoxu_Desktop
 
         private void BtnAjustes_Click(object sender, EventArgs e)
         {
+            //FrmAjustes frmAjustes = new FrmAjustes(this, InstanciaInicioSesion, ConexionBD, UsuarioActual, ImagenUsuario,
+            //    NivelPermisos, NombreRestaurante, HoraApertura, HoraCierre, IVA, VentanaCompleta, ModoDiurno, PnlTitleBar,
+            //    PnlMenuLateral, PnlBody);            
+            
             FrmAjustes frmAjustes = new FrmAjustes(this, InstanciaInicioSesion, ConexionBD, UsuarioActual, ImagenUsuario,
-                NivelPermisos, NombreRestaurante, HoraApertura, HoraCierre, IVA, VentanaCompleta, ModoDiurno, PnlTitle,
-                PnlLateral, PnlMain);
+                NivelPermisos, NombreRestaurante, HoraApertura, HoraCierre, IVA, VentanaCompleta, ModoDiurno);
+
             frmAjustes.TopLevel = false;
-            PnlBody.Controls.Add(frmAjustes);
+            PnlPrincipal.Controls.Add(frmAjustes);
             frmAjustes.Dock = DockStyle.Fill;
             frmAjustes.BringToFront();
             frmAjustes.WindowState = FormWindowState.Maximized;
             frmAjustes.Show();
-            PnlTitle.Visible = false;
-            PnlLateral.Visible = false;
-            PnlMain.Visible = false;
+            //PnlTitleBar.Visible = false;
+            //PnlMenuLateral.Visible = false;
+            //PnlFormularios.Visible = false;
+            //PnlBody.Visible = false;
         }
 
         #region SubMenu del apartado Historial
@@ -497,6 +502,7 @@ namespace Garmoxu_Desktop
             LblSeccion.Text = form.Tag.ToString();
             //BtnCerrarSeccion.Enabled = true;
             BtnCerrarSeccion.Visible = true;
+            LblSeccion.Cursor = Cursors.Hand;
             //BtnCerrarSeccion.IconColor = Color.White;
             //BtnCerrarSeccion.Cursor = Cursors.Hand;
 
@@ -515,7 +521,7 @@ namespace Garmoxu_Desktop
             {
                 form.TopLevel = false;
                 form.Dock = DockStyle.Fill;
-                PnlMain.Controls.Add(form);
+                PnlFormularios.Controls.Add(form);
                 form.Show();
                 form.BringToFront();
             }
@@ -533,17 +539,13 @@ namespace Garmoxu_Desktop
         #region Cierre de formularios
         private void BtnCerrarSeccion_Click(object sender, EventArgs e)
         {
-            //if (!BtnCerrarSeccion.IconColor.Equals(Color.Silver))
-            ((Form)PnlMain.Controls[0]).Close();
+            if (BtnCerrarSeccion.Visible)
+                ((Form)PnlFormularios.Controls[0]).Close();
         }
 
         private void BtnCerrarSeccion_MouseEnter(object sender, EventArgs e)
         {
-            //if (!BtnCerrarSeccion.IconColor.Equals(Color.Silver))
-            //{
             BtnCerrarSeccion.IconColor = Color.FromArgb(255, 103, 103);
-            //BtnCerrar.IconChar = FontAwesome.Sharp.IconChar.DoorOpen;
-            //}
         }
 
         private void BtnCerrarSeccion_MouseLeave(object sender, EventArgs e)
@@ -557,33 +559,34 @@ namespace Garmoxu_Desktop
 
         private void PnlMain_ControlRemoved(object sender, ControlEventArgs e)
         {
-            if (PnlMain.Controls.Count < 2)
+            if (PnlFormularios.Controls.Count < 2)
             {
                 LblSeccion.Text = this.Tag.ToString();
                 //BtnCerrarSeccion.IconColor = Color.Silver;
                 BtnCerrarSeccion.Visible = false;
+                LblSeccion.Cursor = Cursors.Arrow;
                 //BtnCerrar.IconChar = IconChar.DoorClosed;
                 //BtnCerrarSeccion.Cursor = Cursors.Arrow;
             }
             else
-                LblSeccion.Text = PnlMain.Controls[0].Tag.ToString();
+                LblSeccion.Text = PnlFormularios.Controls[0].Tag.ToString();
         }
         #endregion
 
         #region Cierre de sesion
         private void PicUser_MouseEnter(object sender, EventArgs e)
         {
-            PicUser.Image = Properties.Resources.Power_On_Off;
-            PicUser.BorderSize = 0;
-            PicUser.BackColor = Color.Transparent;
+            PicUsuario.Image = Properties.Resources.Power_On_Off;
+            PicUsuario.BorderSize = 0;
+            PicUsuario.BackColor = Color.Transparent;
         }
 
         private void PicUser_MouseLeave(object sender, EventArgs e)
         {
-            PicUser.Image = ImagenUsuario;
-            if (PicUser.Tag == null)
-                PicUser.BorderSize = 3;
-            PicUser.BackColor = Color.FromArgb(130, 130, 255);
+            PicUsuario.Image = ImagenUsuario;
+            if (PicUsuario.Tag == null)
+                PicUsuario.BorderSize = 3;
+            PicUsuario.BackColor = Color.FromArgb(130, 130, 255);
         }
 
         private void PicUser_Click(object sender, EventArgs e)
@@ -611,7 +614,7 @@ namespace Garmoxu_Desktop
 
         private void FrmMain_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (!InstanciaInicioSesion.Visible && PnlMain.Visible)
+            if (!InstanciaInicioSesion.Visible && PnlFormularios.Visible)
             {
                 InstanciaInicioSesion.Close();
 
@@ -619,7 +622,7 @@ namespace Garmoxu_Desktop
                 this.BringToFront();
                 e.Cancel = true;
             }
-            else if (!PnlMain.Visible)
+            else if (!PnlFormularios.Visible)
                 CerrarSesion();
         }
         #endregion

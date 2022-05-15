@@ -137,8 +137,8 @@ namespace Garmoxu_Desktop
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
             FrmUsuariosDetalles f = new FrmUsuariosDetalles(ConexionBD, Instance);
-            f.Width = (Instance.Width / 4) + (Instance.Width / 20);
-            f.Height = (Instance.Height / 2)+ (Instance.Height / 10);
+            //f.Width = (Instance.Width / 4) + (Instance.Width / 20);
+            //f.Height = (Instance.Height / 2)+ (Instance.Height / 10);
 
             Instance.Enabled = false;
             f.Show();

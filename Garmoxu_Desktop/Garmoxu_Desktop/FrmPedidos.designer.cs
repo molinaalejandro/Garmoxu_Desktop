@@ -36,7 +36,7 @@
             this.BtnBuscar = new FontAwesome.Sharp.IconButton();
             this.BtnNuevo = new FontAwesome.Sharp.IconButton();
             this.TxtBuscar = new RJCodeAdvance.RJControls.RJTextBox();
-            this.PanelPedidos = new System.Windows.Forms.TableLayoutPanel();
+            this.PnlPedidos = new System.Windows.Forms.TableLayoutPanel();
             this.GrpRecoger = new Garmoxu_Desktop.MyGroupBox();
             this.PnlRecoger = new System.Windows.Forms.FlowLayoutPanel();
             this.GrpDomicilio = new Garmoxu_Desktop.MyGroupBox();
@@ -45,7 +45,7 @@
             this.PnlLocal = new System.Windows.Forms.FlowLayoutPanel();
             this.PnlMain.SuspendLayout();
             this.PnlFoot.SuspendLayout();
-            this.PanelPedidos.SuspendLayout();
+            this.PnlPedidos.SuspendLayout();
             this.GrpRecoger.SuspendLayout();
             this.GrpDomicilio.SuspendLayout();
             this.GrpLocal.SuspendLayout();
@@ -62,17 +62,17 @@
             this.PnlMain.ColumnCount = 1;
             this.PnlMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.PnlMain.Controls.Add(this.PnlFoot, 0, 0);
-            this.PnlMain.Controls.Add(this.PanelPedidos, 0, 3);
+            this.PnlMain.Controls.Add(this.PnlPedidos, 0, 1);
             this.PnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlMain.Location = new System.Drawing.Point(0, 0);
             this.PnlMain.Margin = new System.Windows.Forms.Padding(4);
             this.PnlMain.Name = "PnlMain";
-            this.PnlMain.Padding = new System.Windows.Forms.Padding(70, 50, 70, 50);
-            this.PnlMain.RowCount = 4;
-            this.PnlMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7F));
+            this.PnlMain.Padding = new System.Windows.Forms.Padding(70, 50, 70, 20);
+            this.PnlMain.RowCount = 2;
+            this.PnlMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.PnlMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.PnlMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.PnlMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 0F));
-            this.PnlMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93F));
+            this.PnlMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.PnlMain.Size = new System.Drawing.Size(1100, 685);
             this.PnlMain.TabIndex = 0;
             // 
@@ -86,12 +86,12 @@
             this.PnlFoot.Controls.Add(this.BtnNuevo, 0, 0);
             this.PnlFoot.Controls.Add(this.TxtBuscar, 1, 0);
             this.PnlFoot.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlFoot.Location = new System.Drawing.Point(74, 54);
-            this.PnlFoot.Margin = new System.Windows.Forms.Padding(4);
+            this.PnlFoot.Location = new System.Drawing.Point(70, 50);
+            this.PnlFoot.Margin = new System.Windows.Forms.Padding(0);
             this.PnlFoot.Name = "PnlFoot";
             this.PnlFoot.RowCount = 1;
             this.PnlFoot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.PnlFoot.Size = new System.Drawing.Size(952, 31);
+            this.PnlFoot.Size = new System.Drawing.Size(960, 55);
             this.PnlFoot.TabIndex = 0;
             // 
             // BtnBuscar
@@ -110,10 +110,10 @@
             this.BtnBuscar.IconColor = System.Drawing.Color.DodgerBlue;
             this.BtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnBuscar.IconSize = 55;
-            this.BtnBuscar.Location = new System.Drawing.Point(891, 0);
+            this.BtnBuscar.Location = new System.Drawing.Point(899, 0);
             this.BtnBuscar.Margin = new System.Windows.Forms.Padding(0);
             this.BtnBuscar.Name = "BtnBuscar";
-            this.BtnBuscar.Size = new System.Drawing.Size(61, 31);
+            this.BtnBuscar.Size = new System.Drawing.Size(61, 55);
             this.BtnBuscar.TabIndex = 2;
             this.BtnBuscar.TabStop = false;
             this.BtnBuscar.UseVisualStyleBackColor = true;
@@ -138,7 +138,7 @@
             this.BtnNuevo.Location = new System.Drawing.Point(0, 0);
             this.BtnNuevo.Margin = new System.Windows.Forms.Padding(0);
             this.BtnNuevo.Name = "BtnNuevo";
-            this.BtnNuevo.Size = new System.Drawing.Size(61, 31);
+            this.BtnNuevo.Size = new System.Drawing.Size(61, 55);
             this.BtnNuevo.TabIndex = 0;
             this.BtnNuevo.TabStop = false;
             this.BtnNuevo.UseVisualStyleBackColor = true;
@@ -164,7 +164,7 @@
             this.TxtBuscar.PasswordChar = false;
             this.TxtBuscar.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtBuscar.PlaceholderText = "";
-            this.TxtBuscar.Size = new System.Drawing.Size(790, 51);
+            this.TxtBuscar.Size = new System.Drawing.Size(798, 51);
             this.TxtBuscar.TabIndex = 1;
             this.TxtBuscar.TabStop = false;
             this.TxtBuscar.Texts = "Buscar por nº de mesa o teléfono de cliente";
@@ -174,25 +174,25 @@
             this.TxtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtBuscar_KeyPress);
             this.TxtBuscar.Leave += new System.EventHandler(this.TxtBuscar_Leave);
             // 
-            // PanelPedidos
+            // PnlPedidos
             // 
-            this.PanelPedidos.BackColor = System.Drawing.Color.Transparent;
-            this.PanelPedidos.ColumnCount = 1;
-            this.PanelPedidos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.PanelPedidos.Controls.Add(this.GrpRecoger, 0, 2);
-            this.PanelPedidos.Controls.Add(this.GrpDomicilio, 0, 1);
-            this.PanelPedidos.Controls.Add(this.GrpLocal, 0, 0);
-            this.PanelPedidos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PanelPedidos.Location = new System.Drawing.Point(74, 113);
-            this.PanelPedidos.Margin = new System.Windows.Forms.Padding(4);
-            this.PanelPedidos.Name = "PanelPedidos";
-            this.PanelPedidos.RowCount = 4;
-            this.PanelPedidos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.PanelPedidos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.PanelPedidos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.PanelPedidos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 0F));
-            this.PanelPedidos.Size = new System.Drawing.Size(952, 518);
-            this.PanelPedidos.TabIndex = 1;
+            this.PnlPedidos.BackColor = System.Drawing.Color.Transparent;
+            this.PnlPedidos.ColumnCount = 1;
+            this.PnlPedidos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.PnlPedidos.Controls.Add(this.GrpRecoger, 0, 2);
+            this.PnlPedidos.Controls.Add(this.GrpDomicilio, 0, 1);
+            this.PnlPedidos.Controls.Add(this.GrpLocal, 0, 0);
+            this.PnlPedidos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PnlPedidos.Location = new System.Drawing.Point(74, 109);
+            this.PnlPedidos.Margin = new System.Windows.Forms.Padding(4);
+            this.PnlPedidos.Name = "PnlPedidos";
+            this.PnlPedidos.RowCount = 3;
+            this.PnlPedidos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.PnlPedidos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.PnlPedidos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
+            this.PnlPedidos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.PnlPedidos.Size = new System.Drawing.Size(952, 552);
+            this.PnlPedidos.TabIndex = 1;
             // 
             // GrpRecoger
             // 
@@ -204,11 +204,11 @@
             this.GrpRecoger.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GrpRecoger.Font = new System.Drawing.Font("Source Sans Pro", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GrpRecoger.ForeColor = System.Drawing.Color.Silver;
-            this.GrpRecoger.Location = new System.Drawing.Point(0, 344);
-            this.GrpRecoger.Margin = new System.Windows.Forms.Padding(0);
+            this.GrpRecoger.Location = new System.Drawing.Point(0, 388);
+            this.GrpRecoger.Margin = new System.Windows.Forms.Padding(0, 20, 0, 0);
             this.GrpRecoger.Name = "GrpRecoger";
             this.GrpRecoger.Padding = new System.Windows.Forms.Padding(20, 5, 20, 30);
-            this.GrpRecoger.Size = new System.Drawing.Size(952, 172);
+            this.GrpRecoger.Size = new System.Drawing.Size(952, 164);
             this.GrpRecoger.TabIndex = 2;
             this.GrpRecoger.TabStop = false;
             this.GrpRecoger.Text = "Recoger";
@@ -221,7 +221,7 @@
             this.PnlRecoger.Location = new System.Drawing.Point(20, 43);
             this.PnlRecoger.Margin = new System.Windows.Forms.Padding(0);
             this.PnlRecoger.Name = "PnlRecoger";
-            this.PnlRecoger.Size = new System.Drawing.Size(912, 99);
+            this.PnlRecoger.Size = new System.Drawing.Size(912, 91);
             this.PnlRecoger.TabIndex = 0;
             // 
             // GrpDomicilio
@@ -234,11 +234,11 @@
             this.GrpDomicilio.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GrpDomicilio.Font = new System.Drawing.Font("Source Sans Pro", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GrpDomicilio.ForeColor = System.Drawing.Color.Silver;
-            this.GrpDomicilio.Location = new System.Drawing.Point(0, 172);
-            this.GrpDomicilio.Margin = new System.Windows.Forms.Padding(0);
+            this.GrpDomicilio.Location = new System.Drawing.Point(0, 204);
+            this.GrpDomicilio.Margin = new System.Windows.Forms.Padding(0, 20, 0, 0);
             this.GrpDomicilio.Name = "GrpDomicilio";
             this.GrpDomicilio.Padding = new System.Windows.Forms.Padding(20, 5, 20, 30);
-            this.GrpDomicilio.Size = new System.Drawing.Size(952, 172);
+            this.GrpDomicilio.Size = new System.Drawing.Size(952, 164);
             this.GrpDomicilio.TabIndex = 1;
             this.GrpDomicilio.TabStop = false;
             this.GrpDomicilio.Text = "Domicilio";
@@ -251,7 +251,7 @@
             this.PnlDomicilio.Location = new System.Drawing.Point(20, 43);
             this.PnlDomicilio.Margin = new System.Windows.Forms.Padding(0);
             this.PnlDomicilio.Name = "PnlDomicilio";
-            this.PnlDomicilio.Size = new System.Drawing.Size(912, 99);
+            this.PnlDomicilio.Size = new System.Drawing.Size(912, 91);
             this.PnlDomicilio.TabIndex = 0;
             // 
             // GrpLocal
@@ -264,11 +264,11 @@
             this.GrpLocal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GrpLocal.Font = new System.Drawing.Font("Source Sans Pro", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GrpLocal.ForeColor = System.Drawing.Color.Silver;
-            this.GrpLocal.Location = new System.Drawing.Point(0, 0);
-            this.GrpLocal.Margin = new System.Windows.Forms.Padding(0);
+            this.GrpLocal.Location = new System.Drawing.Point(0, 20);
+            this.GrpLocal.Margin = new System.Windows.Forms.Padding(0, 20, 0, 0);
             this.GrpLocal.Name = "GrpLocal";
             this.GrpLocal.Padding = new System.Windows.Forms.Padding(20, 5, 20, 30);
-            this.GrpLocal.Size = new System.Drawing.Size(952, 172);
+            this.GrpLocal.Size = new System.Drawing.Size(952, 164);
             this.GrpLocal.TabIndex = 0;
             this.GrpLocal.TabStop = false;
             this.GrpLocal.Text = "Local";
@@ -282,7 +282,7 @@
             this.PnlLocal.Location = new System.Drawing.Point(20, 43);
             this.PnlLocal.Margin = new System.Windows.Forms.Padding(0);
             this.PnlLocal.Name = "PnlLocal";
-            this.PnlLocal.Size = new System.Drawing.Size(912, 99);
+            this.PnlLocal.Size = new System.Drawing.Size(912, 91);
             this.PnlLocal.TabIndex = 0;
             // 
             // FrmPedidos
@@ -302,7 +302,7 @@
             this.PnlMain.ResumeLayout(false);
             this.PnlFoot.ResumeLayout(false);
             this.PnlFoot.PerformLayout();
-            this.PanelPedidos.ResumeLayout(false);
+            this.PnlPedidos.ResumeLayout(false);
             this.GrpRecoger.ResumeLayout(false);
             this.GrpDomicilio.ResumeLayout(false);
             this.GrpLocal.ResumeLayout(false);
@@ -313,16 +313,16 @@
         #endregion
         public System.Windows.Forms.Timer TmrComprobarCambiosPedidos;
         private System.Windows.Forms.TableLayoutPanel PnlMain;
-        private System.Windows.Forms.TableLayoutPanel PanelPedidos;
-        private System.Windows.Forms.TableLayoutPanel PnlFoot;
-        private FontAwesome.Sharp.IconButton BtnNuevo;
-        private RJCodeAdvance.RJControls.RJTextBox TxtBuscar;
+        private System.Windows.Forms.TableLayoutPanel PnlPedidos;
         private MyGroupBox GrpRecoger;
         private System.Windows.Forms.FlowLayoutPanel PnlRecoger;
         private MyGroupBox GrpDomicilio;
         private System.Windows.Forms.FlowLayoutPanel PnlDomicilio;
         private MyGroupBox GrpLocal;
         private System.Windows.Forms.FlowLayoutPanel PnlLocal;
+        private System.Windows.Forms.TableLayoutPanel PnlFoot;
         private FontAwesome.Sharp.IconButton BtnBuscar;
+        private FontAwesome.Sharp.IconButton BtnNuevo;
+        private RJCodeAdvance.RJControls.RJTextBox TxtBuscar;
     }
 }

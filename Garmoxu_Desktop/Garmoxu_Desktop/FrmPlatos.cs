@@ -243,18 +243,28 @@ namespace Garmoxu_Desktop
             if (CboCategoria.SelectedIndex != -1)
             {
                 ChkCategoría.Checked = true;
+                ChkCategoría.Invalidate();
                 BuscarPlatos();
             }
             else
+            {
                 ChkCategoría.Checked = false;
+                ChkCategoría.Invalidate();
+            }
         }
 
         private void TxtNombre__TextChanged(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(TxtNombre.Texts.Trim()))
+            if (!string.IsNullOrEmpty(TxtNombre.Texts.Trim()) && !TxtNombre.Texts.Equals("Buscar por nombre de plato"))
+            {
                 ChkNombre.Checked = true;
+                ChkNombre.Invalidate();
+            }
             else
+            {
                 ChkNombre.Checked = false;
+                ChkNombre.Invalidate();
+            }
         }
 
         private void TgbDisponibilidad_CheckedChanged(object sender, EventArgs e)
@@ -341,12 +351,12 @@ namespace Garmoxu_Desktop
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
             FrmPlatosDetalles frm = new FrmPlatosDetalles(ConexionBD, string.Empty, Instance, IVA);
-            frm.Width = Instance.Width / 2;
-            frm.Height = Instance.Height / 2 + Instance.Height / 3 + Instance.Height / 30;
+            //frm.Width = Instance.Width / 2;
+            //frm.Height = Instance.Height / 2 + Instance.Height / 3 + Instance.Height / 30;
             //Instance.Enabled = false;
 
             frm.ShowDialog();
-            //BuscarPlatos();
+            BuscarPlatos();
         }
         #endregion
 
@@ -355,12 +365,11 @@ namespace Garmoxu_Desktop
         {
             string clavePrimaria = LstPlatos.SelectedItems[0].Tag.ToString();
             FrmPlatosDetalles frm = new FrmPlatosDetalles(ConexionBD, clavePrimaria, Instance, IVA);
-            frm.Width = Instance.Width / 2;
-            frm.Height = Instance.Height / 2 + Instance.Height / 3 + Instance.Height / 30;
+            //frm.Width = Instance.Width / 2;
+            //frm.Height = Instance.Height / 2 + Instance.Height / 3 + Instance.Height / 30;
             //Instance.Enabled = false;
 
-            //frm.ShowDialog();
-            frm.Show();
+            frm.ShowDialog();
             BuscarPlatos();
         }
         #endregion

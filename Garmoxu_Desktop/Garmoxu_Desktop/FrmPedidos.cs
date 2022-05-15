@@ -522,20 +522,13 @@ namespace Garmoxu_Desktop
         #region Botón Nuevo
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
-            NuevoPedido(new FrmPedidosDetalles(ConexionBD, "", Instance, UsuarioActual, IVA));
-        }
+            FrmPedidosDetalles frm = new FrmPedidosDetalles(ConexionBD, "", Instance, UsuarioActual, IVA);
 
-        private void NuevoPedido(Form f)
-        {
-            //No me deja dividir o multiplicar con decimales por algun motivo
-            //La nueva esta al 75% del tamaño comparado con el Main
-            //f.Width = (Instance.Width / 2) + (Instance.Width / 4);
-            //f.Height = (Instance.Height / 2) + (Instance.Height / 4);
-
-            f.Width = (Instance.Width / 5) + (Instance.Width / 6);
-            f.Height = (Instance.Height / 3) + (Instance.Height / 3);
-
-            f.Show();
+            //frm.Width = (Instance.Width / 5) + (Instance.Width / 6);
+            //frm.Height = (Instance.Height / 3) + (Instance.Height / 3);            
+            
+            frm.Size = new Size(700, 750);
+            frm.Show();
         }
         #endregion
     }

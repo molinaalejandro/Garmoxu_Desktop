@@ -221,17 +221,23 @@ namespace Garmoxu_Desktop
         #region Check Box Recordar usuario
         private void ChkRemember_MouseEnter(object sender, EventArgs e)
         {
-            ChkRemember.BorderColor = ChkRemember.EnterColor;
-            ChkRemember.ForeColor = ChkRemember.EnterColor;
+            LblRecordarUsuario.Tag = LblRecordarUsuario.ForeColor.Name;
             LblRecordarUsuario.ForeColor = ChkRemember.EnterColor;
+
+            //ChkRemember.BorderColor = ChkRemember.EnterColor;
+            //ChkRemember.ForeColor = ChkRemember.EnterColor;
+
             ChkRemember.Invalidate();
         }
 
         private void ChkRemember_MouseLeave(object sender, EventArgs e)
         {
-            ChkRemember.BorderColor = ChkRemember.LeaveColor;
-            ChkRemember.ForeColor = ChkRemember.LeaveColor;
-            LblRecordarUsuario.ForeColor = ChkRemember.LeaveColor;
+            LblRecordarUsuario.ForeColor = Color.FromName(LblRecordarUsuario.Tag.ToString());
+
+            //ChkRemember.ForeColor = ChkRemember.LeaveColor;
+            //LblRecordarUsuario.ForeColor = ChkRemember.LeaveColor;
+            //ChkRemember.BorderColor = ChkRemember.LeaveColor;
+
             ChkRemember.Invalidate();
         }
         #endregion

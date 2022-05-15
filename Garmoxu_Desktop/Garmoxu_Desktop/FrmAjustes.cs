@@ -33,15 +33,16 @@ namespace Garmoxu_Desktop
         private bool VentanaCompleta;
         private bool ModoDiurno;
 
-        private Panel PnlTitle;
-        private Panel PnlLateral;
-        private Panel PnlMain;
+        //private Panel PnlTitle;
+        //private Panel PnlLateral;
+        //private Panel PnlMain;
 
         private List<string> DatosIniciales;
 
         public FrmAjustes(FrmMain instance, FrmInicioSesion instanceInicioSesion, MySqlConnection conexionBD, string usuarioActual,
             Image imagenUsuario, int nivelPermisos, string nombreRestaurante, string horaApertura, string horaCierre, int iva,
-            bool ventanaCompleta, bool modoDiurno, Panel pnlTitle, Panel pnlLateral, Panel pnlMain)
+            bool ventanaCompleta, bool modoDiurno)
+            //bool ventanaCompleta, bool modoDiurno, Panel pnlTitle, Panel pnlLateral, Panel pnlMain)
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
@@ -62,15 +63,21 @@ namespace Garmoxu_Desktop
             VentanaCompleta = ventanaCompleta;
             ModoDiurno = modoDiurno;
 
-            PnlTitle = pnlTitle;
-            PnlLateral = pnlLateral;
-            PnlMain = pnlMain;
+            //PnlTitle = pnlTitle;
+            //PnlLateral = pnlLateral;
+            //PnlMain = pnlMain;
 
             LimitarPermisos();
             CargarDatos();
         }
 
         #region Apertura del formulario
+        private void FrmAjustes_Shown(object sender, EventArgs e)
+        {
+            RadClaro.TabStop = false;
+            RadOscuro.TabStop = false;
+        }
+
         #region Limitación de permisos
         private void LimitarPermisos()
         {
@@ -474,9 +481,9 @@ namespace Garmoxu_Desktop
         private void FrmAjustes_FormClosing(object sender, FormClosingEventArgs e)
         {
             Instance.Visible = true;
-            PnlTitle.Visible = true;
-            PnlLateral.Visible = true;
-            PnlMain.Visible = true;
+            //PnlTitle.Visible = true;
+            //PnlLateral.Visible = true;
+            //PnlMain.Visible = true;
         }
 
         private void BtnAtras_MouseEnter(object sender, EventArgs e)
