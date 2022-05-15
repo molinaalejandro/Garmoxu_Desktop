@@ -50,8 +50,10 @@
             this.TxtContraseña = new RJCodeAdvance.RJControls.RJTextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.LblRecordarUsuario = new System.Windows.Forms.Label();
+            this.ChkRemember = new Garmoxu_Desktop.MyCheckBox();
             this.BtnIniciar = new RJCodeAdvance.RJControls.RJButton();
-            this.ChkRemember = new System.Windows.Forms.CheckBox();
             this.PnlTitle.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
             this.PnlMain.SuspendLayout();
@@ -64,6 +66,7 @@
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
             this.SuspendLayout();
             // 
             // PnlTitle
@@ -94,7 +97,7 @@
             this.tableLayoutPanel11.RowCount = 1;
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel11.Size = new System.Drawing.Size(539, 66);
-            this.tableLayoutPanel11.TabIndex = 55;
+            this.tableLayoutPanel11.TabIndex = 0;
             this.tableLayoutPanel11.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitle_MouseDown);
             // 
             // BtnMinimize
@@ -114,10 +117,11 @@
             this.BtnMinimize.Margin = new System.Windows.Forms.Padding(0);
             this.BtnMinimize.Name = "BtnMinimize";
             this.BtnMinimize.Size = new System.Drawing.Size(67, 66);
-            this.BtnMinimize.TabIndex = 54;
+            this.BtnMinimize.TabIndex = 1;
             this.BtnMinimize.TabStop = false;
             this.BtnMinimize.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnMinimize.UseVisualStyleBackColor = false;
+            this.BtnMinimize.Click += new System.EventHandler(this.BtnMinimize_Click);
             // 
             // BtnClose
             // 
@@ -137,10 +141,11 @@
             this.BtnClose.Margin = new System.Windows.Forms.Padding(0);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(67, 66);
-            this.BtnClose.TabIndex = 53;
+            this.BtnClose.TabIndex = 2;
             this.BtnClose.TabStop = false;
             this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnClose.UseVisualStyleBackColor = false;
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
             // 
             // label4
             // 
@@ -152,7 +157,7 @@
             this.label4.Margin = new System.Windows.Forms.Padding(14, 0, 0, 0);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(391, 66);
-            this.label4.TabIndex = 52;
+            this.label4.TabIndex = 0;
             this.label4.Text = "Iniciar sesión";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.label4.MouseDown += new System.Windows.Forms.MouseEventHandler(this.pnlTitle_MouseDown);
@@ -279,7 +284,7 @@
             this.TxtUsuario.BorderSize = 2;
             this.TxtUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtUsuario.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtUsuario.ForeColor = System.Drawing.Color.Silver;
+            this.TxtUsuario.ForeColor = System.Drawing.Color.Gray;
             this.TxtUsuario.Location = new System.Drawing.Point(0, 10);
             this.TxtUsuario.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.TxtUsuario.Multiline = false;
@@ -307,7 +312,7 @@
             this.BtnUsuario.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
             this.BtnUsuario.IconChar = FontAwesome.Sharp.IconChar.UserAlt;
             this.BtnUsuario.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(110)))), ((int)(((byte)(110)))), ((int)(((byte)(255)))));
-            this.BtnUsuario.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnUsuario.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.BtnUsuario.IconSize = 34;
             this.BtnUsuario.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnUsuario.Location = new System.Drawing.Point(321, 0);
@@ -362,7 +367,7 @@
             this.BtnContraseña.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
             this.BtnContraseña.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
             this.BtnContraseña.IconColor = System.Drawing.Color.Gray;
-            this.BtnContraseña.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnContraseña.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.BtnContraseña.IconSize = 34;
             this.BtnContraseña.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
             this.BtnContraseña.Location = new System.Drawing.Point(321, 0);
@@ -386,7 +391,7 @@
             this.TxtContraseña.BorderSize = 2;
             this.TxtContraseña.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtContraseña.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtContraseña.ForeColor = System.Drawing.Color.Silver;
+            this.TxtContraseña.ForeColor = System.Drawing.Color.Gray;
             this.TxtContraseña.Location = new System.Drawing.Point(0, 10);
             this.TxtContraseña.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.TxtContraseña.Multiline = false;
@@ -419,8 +424,8 @@
             // 
             this.tableLayoutPanel7.ColumnCount = 1;
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel6, 0, 2);
             this.tableLayoutPanel7.Controls.Add(this.BtnIniciar, 0, 1);
-            this.tableLayoutPanel7.Controls.Add(this.ChkRemember, 0, 2);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel7.Location = new System.Drawing.Point(83, 396);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
@@ -430,6 +435,66 @@
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel7.Size = new System.Drawing.Size(373, 151);
             this.tableLayoutPanel7.TabIndex = 1;
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 4;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95F));
+            this.tableLayoutPanel6.Controls.Add(this.LblRecordarUsuario, 2, 0);
+            this.tableLayoutPanel6.Controls.Add(this.ChkRemember, 1, 0);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 96);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 1;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(367, 52);
+            this.tableLayoutPanel6.TabIndex = 3;
+            // 
+            // LblRecordarUsuario
+            // 
+            this.LblRecordarUsuario.AutoSize = true;
+            this.LblRecordarUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LblRecordarUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LblRecordarUsuario.Font = new System.Drawing.Font("Source Sans Pro", 11F, System.Drawing.FontStyle.Bold);
+            this.LblRecordarUsuario.ForeColor = System.Drawing.Color.Silver;
+            this.LblRecordarUsuario.Location = new System.Drawing.Point(119, 0);
+            this.LblRecordarUsuario.Margin = new System.Windows.Forms.Padding(0);
+            this.LblRecordarUsuario.Name = "LblRecordarUsuario";
+            this.LblRecordarUsuario.Size = new System.Drawing.Size(156, 52);
+            this.LblRecordarUsuario.TabIndex = 1;
+            this.LblRecordarUsuario.Text = "Recordar usuario";
+            this.LblRecordarUsuario.Click += new System.EventHandler(this.LblRecordarUsuario_Click);
+            this.LblRecordarUsuario.MouseEnter += new System.EventHandler(this.ChkRemember_MouseEnter);
+            this.LblRecordarUsuario.MouseLeave += new System.EventHandler(this.ChkRemember_MouseLeave);
+            // 
+            // ChkRemember
+            // 
+            this.ChkRemember.BackColor = System.Drawing.Color.Transparent;
+            this.ChkRemember.Background = System.Drawing.Color.Transparent;
+            this.ChkRemember.BorderColor = System.Drawing.Color.Silver;
+            this.ChkRemember.BorderHeight = 13;
+            this.ChkRemember.BorderWidth = 13;
+            this.ChkRemember.Checked = false;
+            this.ChkRemember.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ChkRemember.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ChkRemember.EnterColor = System.Drawing.Color.White;
+            this.ChkRemember.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold);
+            this.ChkRemember.ForeColor = System.Drawing.Color.Silver;
+            this.ChkRemember.LeaveColor = System.Drawing.Color.Silver;
+            this.ChkRemember.Location = new System.Drawing.Point(95, 0);
+            this.ChkRemember.Margin = new System.Windows.Forms.Padding(0);
+            this.ChkRemember.Name = "ChkRemember";
+            this.ChkRemember.Padding = new System.Windows.Forms.Padding(2, 2, 0, 0);
+            this.ChkRemember.PaddingCheck = new System.Windows.Forms.Padding(1, 1, 0, 0);
+            this.ChkRemember.Size = new System.Drawing.Size(24, 52);
+            this.ChkRemember.TabIndex = 2;
+            this.ChkRemember.Text = "myCheckBox1";
+            this.ChkRemember.Click += new System.EventHandler(this.LblRecordarUsuario_Click);
+            this.ChkRemember.MouseEnter += new System.EventHandler(this.ChkRemember_MouseEnter);
+            this.ChkRemember.MouseLeave += new System.EventHandler(this.ChkRemember_MouseLeave);
             // 
             // BtnIniciar
             // 
@@ -456,20 +521,6 @@
             this.BtnIniciar.TextColor = System.Drawing.Color.White;
             this.BtnIniciar.UseVisualStyleBackColor = false;
             this.BtnIniciar.Click += new System.EventHandler(this.BtnIniciar_Click);
-            // 
-            // ChkRemember
-            // 
-            this.ChkRemember.AutoSize = true;
-            this.ChkRemember.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.ChkRemember.ForeColor = System.Drawing.Color.Silver;
-            this.ChkRemember.Location = new System.Drawing.Point(97, 96);
-            this.ChkRemember.Margin = new System.Windows.Forms.Padding(97, 3, 3, 3);
-            this.ChkRemember.Name = "ChkRemember";
-            this.ChkRemember.Size = new System.Drawing.Size(184, 29);
-            this.ChkRemember.TabIndex = 1;
-            this.ChkRemember.TabStop = false;
-            this.ChkRemember.Text = "Recordar usuario";
-            this.ChkRemember.UseVisualStyleBackColor = true;
             // 
             // FrmInicioSesion
             // 
@@ -498,7 +549,8 @@
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel7.ResumeLayout(false);
-            this.tableLayoutPanel7.PerformLayout();
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel6.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -507,6 +559,10 @@
 
         private System.Windows.Forms.Panel PnlTitle;
         private System.Windows.Forms.Panel PnlMain;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
+        private FontAwesome.Sharp.IconButton BtnMinimize;
+        private FontAwesome.Sharp.IconButton BtnClose;
+        private System.Windows.Forms.Label label4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.PictureBox PicLogo;
@@ -523,10 +579,8 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private RJCodeAdvance.RJControls.RJButton BtnIniciar;
-        private System.Windows.Forms.CheckBox ChkRemember;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
-        private FontAwesome.Sharp.IconButton BtnMinimize;
-        private FontAwesome.Sharp.IconButton BtnClose;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.Label LblRecordarUsuario;
+        private MyCheckBox ChkRemember;
     }
 }

@@ -11,14 +11,27 @@ namespace Garmoxu_Desktop
 {
     public class MyGroupBox : GroupBox
     {
+        private Color _background = Color.Transparent;
         private Color _borderColor = Color.Silver;
+        private int _borderSize = 3;
         private bool _textActivated = true;
 
+        public Color Background
+        {
+            get { return this._background; }
+            set { this._background = value; }
+        }
 
         public Color BorderColor
         {
             get { return this._borderColor; }
             set { this._borderColor = value; }
+        }
+
+        public int BorderSize
+        {
+            get { return this._borderSize; }
+            set { this._borderSize = value; }
         }
 
         public bool TextActivated
@@ -50,7 +63,8 @@ namespace Garmoxu_Desktop
             gp.AddArc(X, Y + height - (radius * 2), radius * 2, radius * 2, 90, 90);
             gp.AddArc(X, Y, radius * 2, radius * 2, 180, 90);
             gp.CloseFigure();
-            e.Graphics.DrawPath(new Pen(this._borderColor, 3), gp);
+            e.Graphics.FillPath(new SolidBrush(this._background), gp);
+            e.Graphics.DrawPath(new Pen(this._borderColor, this._borderSize), gp);
             gp.Dispose();
 
             //ControlPaint.DrawBorder(e.Graphics, borderRect, this._borderColor, ButtonBorderStyle.Solid);

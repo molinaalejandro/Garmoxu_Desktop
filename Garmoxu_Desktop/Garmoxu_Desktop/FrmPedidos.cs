@@ -81,7 +81,6 @@ namespace Garmoxu_Desktop
             {
                 TxtBuscar.Texts = string.Empty;
                 TxtBuscar.ForeColor = Color.Gainsboro;
-                BtnBuscar.Enabled = true;
             }
         }
 
@@ -91,7 +90,6 @@ namespace Garmoxu_Desktop
             {
                 TxtBuscar.Texts = "Buscar por nº de mesa o teléfono de cliente";
                 TxtBuscar.ForeColor = Color.Gray;
-                BtnBuscar.Enabled = false;
             }
         }
         #endregion
@@ -149,12 +147,14 @@ namespace Garmoxu_Desktop
             btn.BorderRadius = 15;
             btn.BorderSize = 0;
             btn.Click += new EventHandler(BtnPedidoEnCurso_Click);
+            btn.Cursor = Cursors.Hand;
             btn.FlatAppearance.BorderSize = 0;
             btn.FlatStyle = FlatStyle.Flat;
             btn.Font = new Font("Source Sans Pro", 15F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btn.Location = new Point(0, 0);
-            btn.Margin = new Padding(30, 0, 0, 20);
+            btn.Margin = new Padding(0, 0, 20, 20);
             btn.Size = new Size(100, 50);
+            btn.TabStop = false;
             btn.Tag = clavePrimaria;
             btn.Text = texto;
             btn.UseVisualStyleBackColor = false;
@@ -175,9 +175,9 @@ namespace Garmoxu_Desktop
             switch (pnl.Name)
             {
                 case "PnlLocal":
-                    backColor = Color.FromArgb(190, 190, 110);
-                    overColor = Color.FromArgb(210, 210, 110);
-                    downColor = Color.FromArgb(240, 240, 110);
+                    backColor = Color.FromArgb(170, 170, 110);
+                    overColor = Color.FromArgb(190, 190, 110);
+                    downColor = Color.FromArgb(220, 220, 110);
                     textColor = Color.White;
                     break;
 
@@ -484,6 +484,14 @@ namespace Garmoxu_Desktop
             }
         }
 
+        private void TxtBuscar__TextChanged(object sender, EventArgs e)
+        {
+            if (!string.IsNullOrEmpty(TxtBuscar.Texts) && !TxtBuscar.Texts.Equals("Buscar por nº de mesa o teléfono de cliente"))
+                BtnBuscar.Enabled = true;
+            else
+                BtnBuscar.Enabled = false;
+        }
+
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
             BuscarPedido();
@@ -498,13 +506,13 @@ namespace Garmoxu_Desktop
         // Devuelve true y abre una ventana de detalles si el pedido con esa clave existe.
         private bool ValidarDatoExistente(String filtro)
         {
-            string sql = "SELECT IdPedido FROM PedidosEnCurso WHERE " + filtro + " = '" + TxtBuscar.Text.Trim() + "'"; //TxtBuscar.Texts
+            string sql = "SELECT IdPedido FROM PedidosEnCurso WHERE " + filtro + " = '" + TxtBuscar.Texts.Trim() + "'";
             MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
             if (cmd.ExecuteScalar() != null)
             {
                 FrmPedidosDetalles frm = new FrmPedidosDetalles(ConexionBD, cmd.ExecuteScalar().ToString(), Instance, UsuarioActual, IVA);
                 frm.Show();
-                TxtBuscar.Text = string.Empty; //TxtBuscar.Texts
+                TxtBuscar.Texts = string.Empty;
                 return true;
             }
             return false;

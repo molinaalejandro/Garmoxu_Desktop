@@ -74,7 +74,7 @@
             this.PnlMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 0F));
             this.PnlMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 93F));
             this.PnlMain.Size = new System.Drawing.Size(1100, 685);
-            this.PnlMain.TabIndex = 7;
+            this.PnlMain.TabIndex = 0;
             // 
             // PnlFoot
             // 
@@ -92,12 +92,14 @@
             this.PnlFoot.RowCount = 1;
             this.PnlFoot.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.PnlFoot.Size = new System.Drawing.Size(952, 31);
-            this.PnlFoot.TabIndex = 10;
+            this.PnlFoot.TabIndex = 0;
             // 
             // BtnBuscar
             // 
             this.BtnBuscar.AutoSize = true;
             this.BtnBuscar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BtnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBuscar.Enabled = false;
             this.BtnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
             this.BtnBuscar.FlatAppearance.BorderSize = 0;
             this.BtnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -107,12 +109,12 @@
             this.BtnBuscar.IconChar = FontAwesome.Sharp.IconChar.Search;
             this.BtnBuscar.IconColor = System.Drawing.Color.DodgerBlue;
             this.BtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnBuscar.IconSize = 60;
-            this.BtnBuscar.Location = new System.Drawing.Point(886, 0);
+            this.BtnBuscar.IconSize = 55;
+            this.BtnBuscar.Location = new System.Drawing.Point(891, 0);
             this.BtnBuscar.Margin = new System.Windows.Forms.Padding(0);
             this.BtnBuscar.Name = "BtnBuscar";
-            this.BtnBuscar.Size = new System.Drawing.Size(66, 31);
-            this.BtnBuscar.TabIndex = 38;
+            this.BtnBuscar.Size = new System.Drawing.Size(61, 31);
+            this.BtnBuscar.TabIndex = 2;
             this.BtnBuscar.TabStop = false;
             this.BtnBuscar.UseVisualStyleBackColor = true;
             this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
@@ -123,6 +125,7 @@
             // 
             this.BtnNuevo.AutoSize = true;
             this.BtnNuevo.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.BtnNuevo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnNuevo.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
             this.BtnNuevo.FlatAppearance.BorderSize = 0;
             this.BtnNuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -131,12 +134,12 @@
             this.BtnNuevo.IconChar = FontAwesome.Sharp.IconChar.Edit;
             this.BtnNuevo.IconColor = System.Drawing.Color.NavajoWhite;
             this.BtnNuevo.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnNuevo.IconSize = 60;
+            this.BtnNuevo.IconSize = 55;
             this.BtnNuevo.Location = new System.Drawing.Point(0, 0);
             this.BtnNuevo.Margin = new System.Windows.Forms.Padding(0);
             this.BtnNuevo.Name = "BtnNuevo";
-            this.BtnNuevo.Size = new System.Drawing.Size(66, 31);
-            this.BtnNuevo.TabIndex = 37;
+            this.BtnNuevo.Size = new System.Drawing.Size(61, 31);
+            this.BtnNuevo.TabIndex = 0;
             this.BtnNuevo.TabStop = false;
             this.BtnNuevo.UseVisualStyleBackColor = true;
             this.BtnNuevo.Click += new System.EventHandler(this.BtnNuevo_Click);
@@ -153,7 +156,7 @@
             this.TxtBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtBuscar.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
             this.TxtBuscar.ForeColor = System.Drawing.Color.Gray;
-            this.TxtBuscar.Location = new System.Drawing.Point(86, 0);
+            this.TxtBuscar.Location = new System.Drawing.Point(81, 0);
             this.TxtBuscar.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.TxtBuscar.Multiline = false;
             this.TxtBuscar.Name = "TxtBuscar";
@@ -161,11 +164,12 @@
             this.TxtBuscar.PasswordChar = false;
             this.TxtBuscar.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtBuscar.PlaceholderText = "";
-            this.TxtBuscar.Size = new System.Drawing.Size(780, 51);
-            this.TxtBuscar.TabIndex = 18;
+            this.TxtBuscar.Size = new System.Drawing.Size(790, 51);
+            this.TxtBuscar.TabIndex = 1;
             this.TxtBuscar.TabStop = false;
             this.TxtBuscar.Texts = "Buscar por nº de mesa o teléfono de cliente";
             this.TxtBuscar.UnderlinedStyle = false;
+            this.TxtBuscar._TextChanged += new System.EventHandler(this.TxtBuscar__TextChanged);
             this.TxtBuscar.Enter += new System.EventHandler(this.TxtBuscar_Enter);
             this.TxtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtBuscar_KeyPress);
             this.TxtBuscar.Leave += new System.EventHandler(this.TxtBuscar_Leave);
@@ -188,12 +192,14 @@
             this.PanelPedidos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
             this.PanelPedidos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 0F));
             this.PanelPedidos.Size = new System.Drawing.Size(952, 518);
-            this.PanelPedidos.TabIndex = 8;
+            this.PanelPedidos.TabIndex = 1;
             // 
             // GrpRecoger
             // 
             this.GrpRecoger.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
+            this.GrpRecoger.Background = System.Drawing.Color.Transparent;
             this.GrpRecoger.BorderColor = System.Drawing.Color.Silver;
+            this.GrpRecoger.BorderSize = 5;
             this.GrpRecoger.Controls.Add(this.PnlRecoger);
             this.GrpRecoger.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GrpRecoger.Font = new System.Drawing.Font("Source Sans Pro", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -201,7 +207,7 @@
             this.GrpRecoger.Location = new System.Drawing.Point(0, 344);
             this.GrpRecoger.Margin = new System.Windows.Forms.Padding(0);
             this.GrpRecoger.Name = "GrpRecoger";
-            this.GrpRecoger.Padding = new System.Windows.Forms.Padding(20, 5, 20, 20);
+            this.GrpRecoger.Padding = new System.Windows.Forms.Padding(20, 5, 20, 30);
             this.GrpRecoger.Size = new System.Drawing.Size(952, 172);
             this.GrpRecoger.TabIndex = 2;
             this.GrpRecoger.TabStop = false;
@@ -215,13 +221,15 @@
             this.PnlRecoger.Location = new System.Drawing.Point(20, 43);
             this.PnlRecoger.Margin = new System.Windows.Forms.Padding(0);
             this.PnlRecoger.Name = "PnlRecoger";
-            this.PnlRecoger.Size = new System.Drawing.Size(912, 109);
-            this.PnlRecoger.TabIndex = 2;
+            this.PnlRecoger.Size = new System.Drawing.Size(912, 99);
+            this.PnlRecoger.TabIndex = 0;
             // 
             // GrpDomicilio
             // 
             this.GrpDomicilio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
+            this.GrpDomicilio.Background = System.Drawing.Color.Transparent;
             this.GrpDomicilio.BorderColor = System.Drawing.Color.Silver;
+            this.GrpDomicilio.BorderSize = 5;
             this.GrpDomicilio.Controls.Add(this.PnlDomicilio);
             this.GrpDomicilio.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GrpDomicilio.Font = new System.Drawing.Font("Source Sans Pro", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -229,7 +237,7 @@
             this.GrpDomicilio.Location = new System.Drawing.Point(0, 172);
             this.GrpDomicilio.Margin = new System.Windows.Forms.Padding(0);
             this.GrpDomicilio.Name = "GrpDomicilio";
-            this.GrpDomicilio.Padding = new System.Windows.Forms.Padding(20, 5, 20, 20);
+            this.GrpDomicilio.Padding = new System.Windows.Forms.Padding(20, 5, 20, 30);
             this.GrpDomicilio.Size = new System.Drawing.Size(952, 172);
             this.GrpDomicilio.TabIndex = 1;
             this.GrpDomicilio.TabStop = false;
@@ -243,13 +251,15 @@
             this.PnlDomicilio.Location = new System.Drawing.Point(20, 43);
             this.PnlDomicilio.Margin = new System.Windows.Forms.Padding(0);
             this.PnlDomicilio.Name = "PnlDomicilio";
-            this.PnlDomicilio.Size = new System.Drawing.Size(912, 109);
-            this.PnlDomicilio.TabIndex = 1;
+            this.PnlDomicilio.Size = new System.Drawing.Size(912, 99);
+            this.PnlDomicilio.TabIndex = 0;
             // 
             // GrpLocal
             // 
             this.GrpLocal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
+            this.GrpLocal.Background = System.Drawing.Color.Transparent;
             this.GrpLocal.BorderColor = System.Drawing.Color.Silver;
+            this.GrpLocal.BorderSize = 5;
             this.GrpLocal.Controls.Add(this.PnlLocal);
             this.GrpLocal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.GrpLocal.Font = new System.Drawing.Font("Source Sans Pro", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -257,7 +267,7 @@
             this.GrpLocal.Location = new System.Drawing.Point(0, 0);
             this.GrpLocal.Margin = new System.Windows.Forms.Padding(0);
             this.GrpLocal.Name = "GrpLocal";
-            this.GrpLocal.Padding = new System.Windows.Forms.Padding(20, 5, 20, 20);
+            this.GrpLocal.Padding = new System.Windows.Forms.Padding(20, 5, 20, 30);
             this.GrpLocal.Size = new System.Drawing.Size(952, 172);
             this.GrpLocal.TabIndex = 0;
             this.GrpLocal.TabStop = false;
@@ -272,7 +282,7 @@
             this.PnlLocal.Location = new System.Drawing.Point(20, 43);
             this.PnlLocal.Margin = new System.Windows.Forms.Padding(0);
             this.PnlLocal.Name = "PnlLocal";
-            this.PnlLocal.Size = new System.Drawing.Size(912, 109);
+            this.PnlLocal.Size = new System.Drawing.Size(912, 99);
             this.PnlLocal.TabIndex = 0;
             // 
             // FrmPedidos

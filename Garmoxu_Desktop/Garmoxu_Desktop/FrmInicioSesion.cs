@@ -37,7 +37,6 @@ namespace Garmoxu_Desktop
             TxtContraseña.Texts = "1234abcd";
         }
 
-
         #region Apertura del formulario
         #region Conexion BD
         // Abre la conexion a la base de datos.
@@ -218,6 +217,26 @@ namespace Garmoxu_Desktop
         #endregion
         #endregion
 
+        #region Funciones y diseños de controles
+        #region Check Box Recordar usuario
+        private void ChkRemember_MouseEnter(object sender, EventArgs e)
+        {
+            ChkRemember.BorderColor = ChkRemember.EnterColor;
+            ChkRemember.ForeColor = ChkRemember.EnterColor;
+            LblRecordarUsuario.ForeColor = ChkRemember.EnterColor;
+            ChkRemember.Invalidate();
+        }
+
+        private void ChkRemember_MouseLeave(object sender, EventArgs e)
+        {
+            ChkRemember.BorderColor = ChkRemember.LeaveColor;
+            ChkRemember.ForeColor = ChkRemember.LeaveColor;
+            LblRecordarUsuario.ForeColor = ChkRemember.LeaveColor;
+            ChkRemember.Invalidate();
+        }
+        #endregion
+        #endregion
+
         #region Inicio de sesion
         #region Nombre de usuario
         //Si el textbox esta en por defecto al acceder se eliminara el texto, funciona como un hint en Android xml
@@ -225,6 +244,7 @@ namespace Garmoxu_Desktop
         {
             if (TxtUsuario.Texts.Equals("Nombre de usuario"))
             {
+                TxtUsuario.ForeColor = Color.White;
                 TxtUsuario.Texts = String.Empty;
             }
             if (string.IsNullOrEmpty(TxtContraseña.Texts) || TxtContraseña.Texts.Equals("Contraseña"))
@@ -235,7 +255,10 @@ namespace Garmoxu_Desktop
         private void TxtUser_Leave(object sender, EventArgs e)
         {
             if (TxtUsuario.Texts.Equals(String.Empty))
+            {
+                TxtUsuario.ForeColor = Color.Gray;
                 TxtUsuario.Texts = "Nombre de usuario";
+            }
             else
                 ValidarUsuarioExistente();
         }
@@ -338,6 +361,7 @@ namespace Garmoxu_Desktop
         {
             if (TxtContraseña.Texts.Equals("Contraseña"))
             {
+                TxtContraseña.ForeColor = Color.White;
                 TxtContraseña.Texts = string.Empty;
                 if (BtnContraseña.IconChar.Equals(IconChar.EyeSlash))
                     TxtContraseña.PasswordChar = true;
@@ -349,6 +373,7 @@ namespace Garmoxu_Desktop
         {
             if (TxtContraseña.Texts.Equals(string.Empty))
             {
+                TxtContraseña.ForeColor = Color.Gray;
                 TxtContraseña.Texts = "Contraseña";
                 TxtUsuario.Focus();
                 //TxtContraseña.PasswordChar = false;
@@ -359,6 +384,14 @@ namespace Garmoxu_Desktop
         {
             if (e.KeyChar.Equals((char)Keys.Enter))
                 IniciarSesion();
+        }
+        #endregion
+
+        #region Recordar usuario
+        private void LblRecordarUsuario_Click(object sender, EventArgs e)
+        {
+            ChkRemember.Checked = !ChkRemember.Checked;
+            ChkRemember.Invalidate();
         }
         #endregion
 

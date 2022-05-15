@@ -28,7 +28,7 @@ namespace Garmoxu_Desktop
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             Instance = instance;
-            //Instance.Enabled = false;
+            Instance.Enabled = false;
             ImporteFinal = importeFinal;
             ClavePrimaria = clavePrimaria;
             CargarDatos();
@@ -223,7 +223,7 @@ namespace Garmoxu_Desktop
 
         private void FrmPago_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //Instance.Enabled = true;
+            Instance.Enabled = true;
             QuitarSombreadoPantalla();
         }
 

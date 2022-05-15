@@ -71,8 +71,9 @@
             this.tabPage8 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel15 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel16 = new System.Windows.Forms.TableLayoutPanel();
-            this.myGroupBox1 = new Garmoxu_Desktop.MyGroupBox();
+            this.GrpTipoPedido = new Garmoxu_Desktop.MyGroupBox();
             this.tableLayoutPanel10 = new System.Windows.Forms.TableLayoutPanel();
+            this.CboTipo = new RJCodeAdvance.RJControls.RJComboBox();
             this.TabTipoDatosDetalles = new MaterialSkin.Controls.MaterialTabControl();
             this.tabPage9 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel17 = new System.Windows.Forms.TableLayoutPanel();
@@ -93,7 +94,6 @@
             this.label13 = new System.Windows.Forms.Label();
             this.TxtTlfRecogerDetalles = new RJCodeAdvance.RJControls.RJTextBox();
             this.label9 = new System.Windows.Forms.Label();
-            this.CboTipo = new RJCodeAdvance.RJControls.RJComboBox();
             this.tableLayoutPanel24 = new System.Windows.Forms.TableLayoutPanel();
             this.LblHora = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -149,7 +149,7 @@
             this.tabPage8.SuspendLayout();
             this.tableLayoutPanel15.SuspendLayout();
             this.tableLayoutPanel16.SuspendLayout();
-            this.myGroupBox1.SuspendLayout();
+            this.GrpTipoPedido.SuspendLayout();
             this.tableLayoutPanel10.SuspendLayout();
             this.TabTipoDatosDetalles.SuspendLayout();
             this.tabPage9.SuspendLayout();
@@ -225,7 +225,7 @@
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(1461, 66);
-            this.tableLayoutPanel4.TabIndex = 53;
+            this.tableLayoutPanel4.TabIndex = 0;
             // 
             // BtnClose
             // 
@@ -245,7 +245,7 @@
             this.BtnClose.Margin = new System.Windows.Forms.Padding(0);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(67, 66);
-            this.BtnClose.TabIndex = 2;
+            this.BtnClose.TabIndex = 0;
             this.BtnClose.TabStop = false;
             this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnClose.UseVisualStyleBackColor = false;
@@ -262,7 +262,7 @@
             this.LblTitulo.Margin = new System.Windows.Forms.Padding(14, 0, 0, 0);
             this.LblTitulo.Name = "LblTitulo";
             this.LblTitulo.Size = new System.Drawing.Size(1380, 66);
-            this.LblTitulo.TabIndex = 52;
+            this.LblTitulo.TabIndex = 1;
             this.LblTitulo.Text = "Seleccionar tipo de pedido";
             this.LblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -281,7 +281,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1461, 870);
-            this.tableLayoutPanel1.TabIndex = 5;
+            this.tableLayoutPanel1.TabIndex = 0;
             // 
             // tableLayoutPanel5
             // 
@@ -314,7 +314,8 @@
             this.TabPrincipal.Padding = new System.Drawing.Point(0, 0);
             this.TabPrincipal.SelectedIndex = 0;
             this.TabPrincipal.Size = new System.Drawing.Size(1321, 713);
-            this.TabPrincipal.TabIndex = 54;
+            this.TabPrincipal.TabIndex = 0;
+            this.TabPrincipal.TabStop = false;
             // 
             // tabPage4
             // 
@@ -822,13 +823,13 @@
             this.tableLayoutPanel15.RowCount = 1;
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel15.Size = new System.Drawing.Size(1305, 676);
-            this.tableLayoutPanel15.TabIndex = 2;
+            this.tableLayoutPanel15.TabIndex = 0;
             // 
             // tableLayoutPanel16
             // 
             this.tableLayoutPanel16.ColumnCount = 1;
             this.tableLayoutPanel16.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel16.Controls.Add(this.myGroupBox1, 0, 9);
+            this.tableLayoutPanel16.Controls.Add(this.GrpTipoPedido, 0, 9);
             this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel24, 0, 1);
             this.tableLayoutPanel16.Controls.Add(this.label8, 0, 3);
             this.tableLayoutPanel16.Controls.Add(this.tableLayoutPanel20, 0, 11);
@@ -853,29 +854,31 @@
             this.tableLayoutPanel16.Size = new System.Drawing.Size(380, 670);
             this.tableLayoutPanel16.TabIndex = 0;
             // 
-            // myGroupBox1
+            // GrpTipoPedido
             // 
-            this.myGroupBox1.BorderColor = System.Drawing.Color.Silver;
-            this.myGroupBox1.Controls.Add(this.tableLayoutPanel10);
-            this.myGroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.myGroupBox1.Font = new System.Drawing.Font("Source Sans Pro", 19.2F, System.Drawing.FontStyle.Bold);
-            this.myGroupBox1.ForeColor = System.Drawing.Color.Silver;
-            this.myGroupBox1.Location = new System.Drawing.Point(0, 228);
-            this.myGroupBox1.Margin = new System.Windows.Forms.Padding(0);
-            this.myGroupBox1.Name = "myGroupBox1";
-            this.myGroupBox1.Padding = new System.Windows.Forms.Padding(15, 0, 20, 25);
-            this.myGroupBox1.Size = new System.Drawing.Size(380, 388);
-            this.myGroupBox1.TabIndex = 55;
-            this.myGroupBox1.TabStop = false;
-            this.myGroupBox1.Text = "Tipo pedido";
-            this.myGroupBox1.TextActivated = true;
+            this.GrpTipoPedido.Background = System.Drawing.Color.Transparent;
+            this.GrpTipoPedido.BorderColor = System.Drawing.Color.Silver;
+            this.GrpTipoPedido.BorderSize = 5;
+            this.GrpTipoPedido.Controls.Add(this.tableLayoutPanel10);
+            this.GrpTipoPedido.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GrpTipoPedido.Font = new System.Drawing.Font("Source Sans Pro", 19.2F, System.Drawing.FontStyle.Bold);
+            this.GrpTipoPedido.ForeColor = System.Drawing.Color.Silver;
+            this.GrpTipoPedido.Location = new System.Drawing.Point(0, 228);
+            this.GrpTipoPedido.Margin = new System.Windows.Forms.Padding(0);
+            this.GrpTipoPedido.Name = "GrpTipoPedido";
+            this.GrpTipoPedido.Padding = new System.Windows.Forms.Padding(15, 0, 20, 25);
+            this.GrpTipoPedido.Size = new System.Drawing.Size(380, 388);
+            this.GrpTipoPedido.TabIndex = 2;
+            this.GrpTipoPedido.TabStop = false;
+            this.GrpTipoPedido.Text = "Tipo pedido";
+            this.GrpTipoPedido.TextActivated = true;
             // 
             // tableLayoutPanel10
             // 
             this.tableLayoutPanel10.ColumnCount = 1;
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel10.Controls.Add(this.TabTipoDatosDetalles, 0, 2);
             this.tableLayoutPanel10.Controls.Add(this.CboTipo, 0, 0);
+            this.tableLayoutPanel10.Controls.Add(this.TabTipoDatosDetalles, 0, 2);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel10.Location = new System.Drawing.Point(15, 41);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
@@ -884,7 +887,33 @@
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel10.Size = new System.Drawing.Size(345, 322);
-            this.tableLayoutPanel10.TabIndex = 8;
+            this.tableLayoutPanel10.TabIndex = 0;
+            // 
+            // CboTipo
+            // 
+            this.CboTipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.CboTipo.BorderColor = System.Drawing.Color.Transparent;
+            this.CboTipo.BorderSize = 0;
+            this.CboTipo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CboTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CboTipo.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
+            this.CboTipo.ForeColor = System.Drawing.Color.Gainsboro;
+            this.CboTipo.IconColor = System.Drawing.Color.Gainsboro;
+            this.CboTipo.Items.AddRange(new object[] {
+            "Local",
+            "Domicilio",
+            "Recoger"});
+            this.CboTipo.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
+            this.CboTipo.ListTextColor = System.Drawing.Color.DimGray;
+            this.CboTipo.Location = new System.Drawing.Point(5, 5);
+            this.CboTipo.Margin = new System.Windows.Forms.Padding(5);
+            this.CboTipo.MinimumSize = new System.Drawing.Size(200, 30);
+            this.CboTipo.Name = "CboTipo";
+            this.CboTipo.Size = new System.Drawing.Size(335, 47);
+            this.CboTipo.TabIndex = 0;
+            this.CboTipo.TabStop = false;
+            this.CboTipo.Texts = "";
+            this.CboTipo.OnSelectedIndexChanged += new System.EventHandler(this.CboTipo_OnSelectedIndexChanged);
             // 
             // TabTipoDatosDetalles
             // 
@@ -901,7 +930,8 @@
             this.TabTipoDatosDetalles.Padding = new System.Drawing.Point(0, 0);
             this.TabTipoDatosDetalles.SelectedIndex = 0;
             this.TabTipoDatosDetalles.Size = new System.Drawing.Size(345, 245);
-            this.TabTipoDatosDetalles.TabIndex = 46;
+            this.TabTipoDatosDetalles.TabIndex = 0;
+            this.TabTipoDatosDetalles.TabStop = false;
             // 
             // tabPage9
             // 
@@ -929,7 +959,7 @@
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel17.Size = new System.Drawing.Size(337, 207);
-            this.tableLayoutPanel17.TabIndex = 15;
+            this.tableLayoutPanel17.TabIndex = 1;
             // 
             // CboMesasLocalDetalles
             // 
@@ -948,7 +978,7 @@
             this.CboMesasLocalDetalles.MinimumSize = new System.Drawing.Size(200, 30);
             this.CboMesasLocalDetalles.Name = "CboMesasLocalDetalles";
             this.CboMesasLocalDetalles.Size = new System.Drawing.Size(327, 47);
-            this.CboMesasLocalDetalles.TabIndex = 46;
+            this.CboMesasLocalDetalles.TabIndex = 1;
             this.CboMesasLocalDetalles.TabStop = false;
             this.CboMesasLocalDetalles.Texts = "";
             // 
@@ -962,7 +992,7 @@
             this.label1.Location = new System.Drawing.Point(3, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(331, 33);
-            this.label1.TabIndex = 45;
+            this.label1.TabIndex = 0;
             this.label1.Text = "Número de mesa";
             // 
             // label6
@@ -1044,7 +1074,7 @@
             this.label5.Location = new System.Drawing.Point(3, 236);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(331, 33);
-            this.label5.TabIndex = 50;
+            this.label5.TabIndex = 2;
             this.label5.Text = "Nombre cliente";
             // 
             // TxtDirDomicilioDetalles
@@ -1066,7 +1096,7 @@
             this.TxtDirDomicilioDetalles.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtDirDomicilioDetalles.PlaceholderText = "";
             this.TxtDirDomicilioDetalles.Size = new System.Drawing.Size(327, 55);
-            this.TxtDirDomicilioDetalles.TabIndex = 49;
+            this.TxtDirDomicilioDetalles.TabIndex = 1;
             this.TxtDirDomicilioDetalles.Texts = "";
             this.TxtDirDomicilioDetalles.UnderlinedStyle = false;
             // 
@@ -1102,7 +1132,7 @@
             this.TxtTlfDomicilioDetalles.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtTlfDomicilioDetalles.PlaceholderText = "";
             this.TxtTlfDomicilioDetalles.Size = new System.Drawing.Size(327, 55);
-            this.TxtTlfDomicilioDetalles.TabIndex = 47;
+            this.TxtTlfDomicilioDetalles.TabIndex = 0;
             this.TxtTlfDomicilioDetalles.Texts = "";
             this.TxtTlfDomicilioDetalles.UnderlinedStyle = false;
             this.TxtTlfDomicilioDetalles._TextChanged += new System.EventHandler(this.TextBoxTlf__TextChanged);
@@ -1172,7 +1202,7 @@
             this.TxtNombreRecogerDetalles.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtNombreRecogerDetalles.PlaceholderText = "";
             this.TxtNombreRecogerDetalles.Size = new System.Drawing.Size(327, 55);
-            this.TxtNombreRecogerDetalles.TabIndex = 55;
+            this.TxtNombreRecogerDetalles.TabIndex = 1;
             this.TxtNombreRecogerDetalles.Texts = "";
             this.TxtNombreRecogerDetalles.UnderlinedStyle = false;
             // 
@@ -1208,7 +1238,7 @@
             this.TxtTlfRecogerDetalles.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtTlfRecogerDetalles.PlaceholderText = "";
             this.TxtTlfRecogerDetalles.Size = new System.Drawing.Size(327, 55);
-            this.TxtTlfRecogerDetalles.TabIndex = 51;
+            this.TxtTlfRecogerDetalles.TabIndex = 0;
             this.TxtTlfRecogerDetalles.Texts = "";
             this.TxtTlfRecogerDetalles.UnderlinedStyle = false;
             this.TxtTlfRecogerDetalles._TextChanged += new System.EventHandler(this.TextBoxTlf__TextChanged);
@@ -1225,32 +1255,6 @@
             this.label9.Size = new System.Drawing.Size(331, 33);
             this.label9.TabIndex = 50;
             this.label9.Text = "Teléfono cliente*";
-            // 
-            // CboTipo
-            // 
-            this.CboTipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.CboTipo.BorderColor = System.Drawing.Color.Transparent;
-            this.CboTipo.BorderSize = 0;
-            this.CboTipo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CboTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CboTipo.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
-            this.CboTipo.ForeColor = System.Drawing.Color.Gainsboro;
-            this.CboTipo.IconColor = System.Drawing.Color.Gainsboro;
-            this.CboTipo.Items.AddRange(new object[] {
-            "Local",
-            "Domicilio",
-            "Recoger"});
-            this.CboTipo.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
-            this.CboTipo.ListTextColor = System.Drawing.Color.DimGray;
-            this.CboTipo.Location = new System.Drawing.Point(5, 5);
-            this.CboTipo.Margin = new System.Windows.Forms.Padding(5);
-            this.CboTipo.MinimumSize = new System.Drawing.Size(200, 30);
-            this.CboTipo.Name = "CboTipo";
-            this.CboTipo.Size = new System.Drawing.Size(335, 47);
-            this.CboTipo.TabIndex = 45;
-            this.CboTipo.TabStop = false;
-            this.CboTipo.Texts = "";
-            this.CboTipo.OnSelectedIndexChanged += new System.EventHandler(this.CboTipo_OnSelectedIndexChanged);
             // 
             // tableLayoutPanel24
             // 
@@ -1278,7 +1282,7 @@
             this.LblHora.Location = new System.Drawing.Point(103, 0);
             this.LblHora.Name = "LblHora";
             this.LblHora.Size = new System.Drawing.Size(79, 53);
-            this.LblHora.TabIndex = 51;
+            this.LblHora.TabIndex = 0;
             this.LblHora.Text = "00:00";
             this.LblHora.Visible = false;
             // 
@@ -1291,7 +1295,7 @@
             this.label11.Location = new System.Drawing.Point(3, 0);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(94, 53);
-            this.label11.TabIndex = 50;
+            this.label11.TabIndex = 0;
             this.label11.Text = "Hora:";
             this.label11.Visible = false;
             // 
@@ -1305,7 +1309,7 @@
             this.label8.Location = new System.Drawing.Point(3, 118);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(209, 33);
-            this.label8.TabIndex = 50;
+            this.label8.TabIndex = 2;
             this.label8.Text = "Estado de pedido";
             // 
             // tableLayoutPanel20
@@ -1387,7 +1391,7 @@
             this.CboEstado.MinimumSize = new System.Drawing.Size(200, 30);
             this.CboEstado.Name = "CboEstado";
             this.CboEstado.Size = new System.Drawing.Size(370, 47);
-            this.CboEstado.TabIndex = 42;
+            this.CboEstado.TabIndex = 0;
             this.CboEstado.TabStop = false;
             this.CboEstado.Texts = "";
             // 
@@ -1404,7 +1408,7 @@
             this.tableLayoutPanel23.RowCount = 1;
             this.tableLayoutPanel23.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel23.Size = new System.Drawing.Size(374, 53);
-            this.tableLayoutPanel23.TabIndex = 52;
+            this.tableLayoutPanel23.TabIndex = 3;
             this.tableLayoutPanel23.Visible = false;
             // 
             // LblFecha
@@ -1416,7 +1420,7 @@
             this.LblFecha.Location = new System.Drawing.Point(103, 0);
             this.LblFecha.Name = "LblFecha";
             this.LblFecha.Size = new System.Drawing.Size(145, 53);
-            this.LblFecha.TabIndex = 51;
+            this.LblFecha.TabIndex = 0;
             this.LblFecha.Text = "00/00/0000";
             this.LblFecha.Visible = false;
             // 
@@ -1429,7 +1433,7 @@
             this.label7.Location = new System.Drawing.Point(3, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(94, 53);
-            this.label7.TabIndex = 50;
+            this.label7.TabIndex = 1;
             this.label7.Text = "Fecha:";
             this.label7.Visible = false;
             // 
@@ -1470,7 +1474,7 @@
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel9.Size = new System.Drawing.Size(887, 59);
-            this.tableLayoutPanel9.TabIndex = 54;
+            this.tableLayoutPanel9.TabIndex = 1;
             // 
             // BtnConsultarPlatos
             // 
@@ -1484,13 +1488,14 @@
             this.BtnConsultarPlatos.ForeColor = System.Drawing.Color.Silver;
             this.BtnConsultarPlatos.IconChar = FontAwesome.Sharp.IconChar.Book;
             this.BtnConsultarPlatos.IconColor = System.Drawing.Color.DarkKhaki;
-            this.BtnConsultarPlatos.IconFont = FontAwesome.Sharp.IconFont.Solid;
+            this.BtnConsultarPlatos.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnConsultarPlatos.ImageAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnConsultarPlatos.Location = new System.Drawing.Point(737, 5);
             this.BtnConsultarPlatos.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.BtnConsultarPlatos.Name = "BtnConsultarPlatos";
             this.BtnConsultarPlatos.Size = new System.Drawing.Size(150, 49);
-            this.BtnConsultarPlatos.TabIndex = 58;
+            this.BtnConsultarPlatos.TabIndex = 0;
+            this.BtnConsultarPlatos.TabStop = false;
             this.BtnConsultarPlatos.Text = "Platos";
             this.BtnConsultarPlatos.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.BtnConsultarPlatos.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -1514,7 +1519,7 @@
             this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel22.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 44F));
             this.tableLayoutPanel22.Size = new System.Drawing.Size(110, 39);
-            this.tableLayoutPanel22.TabIndex = 57;
+            this.tableLayoutPanel22.TabIndex = 3;
             // 
             // NucCantidad
             // 
@@ -1565,9 +1570,11 @@
             this.TxtCodigoPlato.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtCodigoPlato.PlaceholderText = "";
             this.TxtCodigoPlato.Size = new System.Drawing.Size(509, 44);
-            this.TxtCodigoPlato.TabIndex = 54;
+            this.TxtCodigoPlato.TabIndex = 2;
+            this.TxtCodigoPlato.TabStop = false;
             this.TxtCodigoPlato.Texts = "Introducir código de plato";
             this.TxtCodigoPlato.UnderlinedStyle = false;
+            this.TxtCodigoPlato._TextChanged += new System.EventHandler(this.TxtCodigoPlato__TextChanged);
             this.TxtCodigoPlato.Enter += new System.EventHandler(this.TxtCodigoPlato_Enter);
             this.TxtCodigoPlato.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtCodigoPlato_KeyPress);
             this.TxtCodigoPlato.Leave += new System.EventHandler(this.TxtCodigoPlato_Leave);
@@ -1576,6 +1583,7 @@
             // 
             this.BtnAñadirPlato.BackColor = System.Drawing.Color.Transparent;
             this.BtnAñadirPlato.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnAñadirPlato.Enabled = false;
             this.BtnAñadirPlato.FlatAppearance.BorderSize = 0;
             this.BtnAñadirPlato.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.BtnAñadirPlato.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -1583,12 +1591,13 @@
             this.BtnAñadirPlato.ForeColor = System.Drawing.Color.Transparent;
             this.BtnAñadirPlato.IconChar = FontAwesome.Sharp.IconChar.CartPlus;
             this.BtnAñadirPlato.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(225)))), ((int)(((byte)(70)))));
-            this.BtnAñadirPlato.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnAñadirPlato.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.BtnAñadirPlato.Location = new System.Drawing.Point(0, 10);
             this.BtnAñadirPlato.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.BtnAñadirPlato.Name = "BtnAñadirPlato";
             this.BtnAñadirPlato.Size = new System.Drawing.Size(51, 49);
-            this.BtnAñadirPlato.TabIndex = 15;
+            this.BtnAñadirPlato.TabIndex = 2;
+            this.BtnAñadirPlato.TabStop = false;
             this.BtnAñadirPlato.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.BtnAñadirPlato.UseVisualStyleBackColor = false;
             this.BtnAñadirPlato.Click += new System.EventHandler(this.BtnAñadirPlato_Click);
@@ -1605,15 +1614,15 @@
             this.BtnBorrarFilaPlato.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
             this.BtnBorrarFilaPlato.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnBorrarFilaPlato.ForeColor = System.Drawing.Color.Transparent;
-            this.BtnBorrarFilaPlato.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
+            this.BtnBorrarFilaPlato.IconChar = FontAwesome.Sharp.IconChar.CartArrowDown;
             this.BtnBorrarFilaPlato.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.BtnBorrarFilaPlato.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.BtnBorrarFilaPlato.IconSize = 42;
             this.BtnBorrarFilaPlato.Location = new System.Drawing.Point(51, 10);
             this.BtnBorrarFilaPlato.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.BtnBorrarFilaPlato.Name = "BtnBorrarFilaPlato";
             this.BtnBorrarFilaPlato.Size = new System.Drawing.Size(51, 49);
-            this.BtnBorrarFilaPlato.TabIndex = 14;
+            this.BtnBorrarFilaPlato.TabIndex = 1;
+            this.BtnBorrarFilaPlato.TabStop = false;
             this.BtnBorrarFilaPlato.UseVisualStyleBackColor = false;
             this.BtnBorrarFilaPlato.Click += new System.EventHandler(this.BtnBorrarFilaPlato_Click);
             this.BtnBorrarFilaPlato.MouseEnter += new System.EventHandler(this.BtnBorrarFilaPlato_MouseEnter);
@@ -1681,7 +1690,7 @@
             this.DtgPlatosPedidos.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DtgPlatosPedidos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.DtgPlatosPedidos.Size = new System.Drawing.Size(883, 496);
-            this.DtgPlatosPedidos.TabIndex = 2;
+            this.DtgPlatosPedidos.TabIndex = 0;
             this.DtgPlatosPedidos.TabStop = false;
             this.DtgPlatosPedidos.CellValueChanged += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgPlatosPedidos_CellValueChanged);
             this.DtgPlatosPedidos.SelectionChanged += new System.EventHandler(this.DtgPlatosPedidos_SelectionChanged);
@@ -1845,7 +1854,6 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
             this.ClientSize = new System.Drawing.Size(1461, 870);
             this.Controls.Add(this.tableLayoutPanel1);
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmPedidosDetalles";
@@ -1854,6 +1862,7 @@
             this.Text = "Nuevo pedido - Garmoxu";
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmDetallesPedido_FormClosing);
+            this.EnabledChanged += new System.EventHandler(this.FrmDetallesPedido_EnabledChanged);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
             this.PnlTitle.ResumeLayout(false);
@@ -1879,7 +1888,7 @@
             this.tableLayoutPanel15.ResumeLayout(false);
             this.tableLayoutPanel16.ResumeLayout(false);
             this.tableLayoutPanel16.PerformLayout();
-            this.myGroupBox1.ResumeLayout(false);
+            this.GrpTipoPedido.ResumeLayout(false);
             this.tableLayoutPanel10.ResumeLayout(false);
             this.TabTipoDatosDetalles.ResumeLayout(false);
             this.tabPage9.ResumeLayout(false);
@@ -1975,7 +1984,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel23;
         private System.Windows.Forms.Label LblFecha;
         private System.Windows.Forms.Label label7;
-        private MyGroupBox myGroupBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
         private MaterialSkin.Controls.MaterialTabControl TabTipoDatosDetalles;
         private System.Windows.Forms.TabPage tabPage9;
@@ -2006,5 +2014,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
+        private MyGroupBox GrpTipoPedido;
     }
 }

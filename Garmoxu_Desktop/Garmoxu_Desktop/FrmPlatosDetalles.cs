@@ -18,7 +18,7 @@ namespace Garmoxu_Desktop
     public partial class FrmPlatosDetalles : Form
     {
         private MySqlConnection ConexionBD;
-        private FrmMain Instance;
+        //private FrmMain Instance;
         private string ClavePrimaria;
 
         private List<string> DatosIniciales = new List<string>();
@@ -28,18 +28,27 @@ namespace Garmoxu_Desktop
 
         private int IVA;
 
+        private Form FrmShadow;
+
         public FrmPlatosDetalles(MySqlConnection conexionBD, string clavePrimaria, FrmMain instance, int iva)
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
             ConexionBD = conexionBD;
-            Instance = instance;
+            //Instance = instance;
             ClavePrimaria = clavePrimaria;
             IVA = iva;
             CargarCategorias();
             CargarTipoFormulario();
+            SombrearPantalla();
         }
 
         #region Apertura del formulario
+        private void FrmPlatosDetalles_Shown(object sender, EventArgs e)
+        {
+            PicFotoPlato.Width = PicFotoPlato.Height;
+        }
+
         #region Cargar categorias
         public void CargarCategorias()
         {
@@ -63,7 +72,10 @@ namespace Garmoxu_Desktop
         private void CargarTipoFormulario()
         {
             if (!string.IsNullOrEmpty(ClavePrimaria))
+            {
+                LblTitulo.Text = "Consulta el plato " + ClavePrimaria;
                 CargarDatos();
+            }
         }
 
         private void CargarDatos()
@@ -76,7 +88,7 @@ namespace Garmoxu_Desktop
             {
                 TxtIdPlato.Texts = lector["IdPlatoComida"].ToString();
                 TxtNombre.Texts = lector["Nombre"].ToString();
-                TxtPrecioConIva.Text = lector["PrecioConIVA"].ToString();
+                TxtPrecioConIva.Texts = lector["PrecioConIVA"].ToString();
                 //TxtPrecioSinIva.Text = lector["PrecioSinIVA"].ToString();
                 TxtDescripcion.Texts = lector["Descripcion"].ToString();
                 TxtListaAlergenos.Texts = lector["Alergenos"].ToString();
@@ -124,17 +136,65 @@ namespace Garmoxu_Desktop
             PicFotoPlato.SizeMode = PictureBoxSizeMode.StretchImage;
         }
 
-        public string CargarNombreCategoria(string idCategoria)
+        //public string CargarNombreCategoria(string idCategoria)
+        //{
+        //    string sql = "SELECT Nombre FROM Categorias WHERE IdCategoria = " + idCategoria;
+        //    MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
+
+        //    MySqlDataReader lector = cmd.ExecuteReader();
+        //    lector.Read();
+        //    string categoria = lector[0].ToString();
+        //    lector.Close();
+
+        //    return categoria;
+        //}
+        #endregion
+        #endregion
+
+        #region Funciones y diseño del formulario
+        #region Bordeado del formulario
+        protected override CreateParams CreateParams
         {
-            string sql = "SELECT Nombre FROM Categorias WHERE IdCategoria = " + idCategoria;
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
+            get
+            {
+                CreateParams cp = base.CreateParams;
 
-            MySqlDataReader lector = cmd.ExecuteReader();
-            lector.Read();
-            string categoria = lector[0].ToString();
-            lector.Close();
+                // Solo se acumulan modificaciones de diferente tipos, es decir,
+                // una de ExStyle, otra de Style y otra de ClassStyle. Pero, nunca
+                // se pueden acumular dos modificaciones del mismo tipo, por ejemplo,
+                // no se acumulan dos ExStyle, o aplicas uno, o aplicas el otro.
 
-            return categoria;
+                //cp.ExStyle = 0x00000100; // Aperentemente no hace nada
+                //cp.ExStyle = 0x00020000; // Borde simple fino arriba e izquierda y grueso abajo y derecha
+                cp.ExStyle = 0x00000200; // Borde 3D arriba e izquierda
+                //cp.ExStyle = 0x00000001; // Borde 3D abajo y derecha
+                // https://docs.microsoft.com/en-us/windows/win32/winmsg/extended-window-styles
+
+                //cp.Style |= 0x00800000; // Borde simple fino
+                cp.Style |= 0x00400000; // Borde 3D abajo y derecha
+                // https://docs.microsoft.com/en-us/windows/win32/winmsg/window-styles
+
+                //cp.ClassStyle |= 0x00020000; // Shadow border
+                return cp;
+            }
+        }
+        #endregion
+
+        #region Sombreado de pantalla
+        private void SombrearPantalla()
+        {
+            FrmShadow = new Form();
+            FrmShadow.ShowInTaskbar = false;
+            FrmShadow.Text = "";
+            FrmShadow.FormBorderStyle = FormBorderStyle.None;
+            FrmShadow.Size = Size;
+            FrmShadow.WindowState = FormWindowState.Maximized;
+            FrmShadow.BackColor = System.Drawing.Color.Black;
+            FrmShadow.Opacity = 0.7;
+            FrmShadow.Show();
+            FrmShadow.Location = Location;
+            FrmShadow.Enabled = false;
+            FrmShadow.TopMost = true;
         }
         #endregion
         #endregion
@@ -264,13 +324,13 @@ namespace Garmoxu_Desktop
             string sinIva;
             try
             {
-                conIva = decimal.Parse(TxtPrecioConIva.Text.Replace(".", ",")).ToString(CultureInfo.CreateSpecificCulture("en-GB"));
+                conIva = decimal.Parse(TxtPrecioConIva.Texts.Replace(".", ",")).ToString(CultureInfo.CreateSpecificCulture("en-GB"));
                 if (!conIva.Contains('.'))
                     conIva += ".00";
                 else if (conIva.Split('.')[1].Length == 1)
                     conIva += "0";
 
-                sinIva = decimal.Parse(TxtPrecioSinIva.Text.Replace(".", ",")).ToString(CultureInfo.CreateSpecificCulture("en-GB"));
+                sinIva = decimal.Parse(TxtPrecioSinIva.Texts.Replace(".", ",")).ToString(CultureInfo.CreateSpecificCulture("en-GB"));
                 if (!sinIva.Contains('.'))
                     sinIva += ".00";
                 else if (sinIva.Split('.')[1].Length == 1)
@@ -306,8 +366,8 @@ namespace Garmoxu_Desktop
         {
             if (!string.IsNullOrEmpty(TxtIdPlato.Texts.Replace(" ", ""))
                 && !string.IsNullOrEmpty(TxtNombre.Texts.Replace(" ", ""))
-                && !string.IsNullOrEmpty(TxtPrecioSinIva.Text.Replace(" ", ""))
-                && !string.IsNullOrEmpty(TxtPrecioConIva.Text.Replace(" ", ""))
+                && !string.IsNullOrEmpty(TxtPrecioSinIva.Texts.Replace(" ", ""))
+                && !string.IsNullOrEmpty(TxtPrecioConIva.Texts.Replace(" ", ""))
                 && CboCategorias.SelectedIndex != -1)
                 return true;
 
@@ -388,46 +448,68 @@ namespace Garmoxu_Desktop
         private void TxtPrecio__TextChanged(object sender, EventArgs e)
         {
             TextBox txtActual = sender as TextBox;
+            RJTextBox RJtxtActual = txtActual.Parent as RJTextBox;
             int initialCaretPosition = txtActual.SelectionStart;
 
-            TextBox txtAsignar = TxtPrecioConIva;
-            if (txtActual.Name.Equals("TxtPrecioConIva"))
+            RJTextBox txtAsignar = TxtPrecioConIva;
+            if (txtActual.Parent.Name.Equals("TxtPrecioConIva"))
                 txtAsignar = TxtPrecioSinIva;
 
             decimal ivaLocal = decimal.Parse("1," + IVA.ToString());
 
             string precio = txtActual.Text.Replace(" ", "");
-            if (!string.IsNullOrEmpty(precio) && ValidarPrecio(precio, txtActual))
+            if (!string.IsNullOrEmpty(precio) && ValidarPrecio(precio))
             {
                 precio = precio.Replace(",", ".");
                 decimal numFormateado = decimal.Parse(precio, CultureInfo.InvariantCulture);
+                decimal numResult;
 
-                decimal num;
-                if (txtActual.Name.Equals("TxtPrecioConIva"))
-                    num = decimal.Round(numFormateado / ivaLocal, 2);
+                if (txtActual.Parent.Name.Equals("TxtPrecioConIva"))
+                    numResult = decimal.Round(numFormateado - (numFormateado * (ivaLocal - 1)), 2);
                 else
-                    num = decimal.Round(numFormateado * ivaLocal, 2);
+                    numResult = decimal.Round(numFormateado * ivaLocal, 2);
 
-                if (!txtAsignar.Text.Equals(num.ToString(CultureInfo.CreateSpecificCulture("en-GB"))))
+                if (!CalcularParadaTextBox(txtAsignar, txtActual, ivaLocal))
                 {
-                    txtAsignar.Text = num.ToString();
+                    txtAsignar.Texts = numResult.ToString(CultureInfo.InvariantCulture);
 
-                    txtActual.Text = precio;
+                    ((RJTextBox)txtActual.Parent).Texts = precio;
                     txtActual.Select(initialCaretPosition, 0);
                 }
             }
         }
 
-        private void TxtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        private bool CalcularParadaTextBox(RJTextBox txtAsignar, TextBox txtActual, decimal ivaLocal)
         {
-            TextBox txtActual = sender as TextBox;
-            if (txtActual.Name.Equals("TxtPrecioConIva"))
-                TxtPrecioSinIva.Text = string.Empty;
-            else
-                TxtPrecioConIva.Text = string.Empty;
+            bool debeParar = false;
+            string textTxtAsignar = txtAsignar.Texts.Replace(",", ".");
+
+            if (!string.IsNullOrEmpty(textTxtAsignar))
+            {
+                decimal numTxtAsignar = decimal.Parse(textTxtAsignar, CultureInfo.InvariantCulture);
+                decimal numCalculado;
+
+                if (txtAsignar.Name.Equals("TxtPrecioConIva"))
+                    numCalculado = decimal.Round(numTxtAsignar - (numTxtAsignar * (ivaLocal - 1)), 2);
+                else
+                    numCalculado = decimal.Round(numTxtAsignar * ivaLocal, 2);
+
+                debeParar = numCalculado.ToString().Equals(txtActual.Text);
+            }
+
+            return debeParar;
         }
 
-        private bool ValidarPrecio(string precio, TextBox txtActual)
+        private void TxtPrecio_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            RJTextBox txtActual = sender as RJTextBox;
+            if (txtActual.Name.Equals("TxtPrecioConIva"))
+                TxtPrecioSinIva.Texts = string.Empty;
+            else
+                TxtPrecioConIva.Texts = string.Empty;
+        }
+
+        private bool ValidarPrecio(string precio)
         {
             Regex rgx = new Regex("^[0-9]{1,8}[\\.,]$");
 
@@ -485,7 +567,13 @@ namespace Garmoxu_Desktop
 
         private void FrmPlatosDetalles_FormClosing(object sender, FormClosingEventArgs e)
         {
-            Instance.Enabled = true;
+            //Instance.Enabled = true;
+            QuitarSombreadoPantalla();
+        }
+
+        private void QuitarSombreadoPantalla()
+        {
+            if (FrmShadow != null) FrmShadow.Close();
         }
         #endregion Cierre del formulario
     }

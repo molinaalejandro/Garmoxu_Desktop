@@ -229,22 +229,22 @@ namespace Garmoxu_Desktop
         #region Cambios de enabled
         private void FrmMain_EnabledChanged(object sender, EventArgs e)
         {
-            IconButton[] botonesMenu = new IconButton[]
-            {
-                BtnPedidos, BtnReservas, BtnHistorial, BtnPlatos,
-                BtnCategorias, BtnClientes, BtnUsuarios, BtnAjustes
-            };
+            //IconButton[] botonesMenu = new IconButton[]
+            //{
+            //    BtnPedidos, BtnReservas, BtnHistorial, BtnPlatos,
+            //    BtnCategorias, BtnClientes, BtnUsuarios, BtnAjustes
+            //};
 
-            if (this.Enabled)
-            {
-                foreach (IconButton boton in botonesMenu)
-                    boton.BackColor = Color.FromArgb(41, 42, 45);
-            }
-            else
-            {
-                foreach (IconButton boton in botonesMenu)
-                    boton.BackColor = Color.Transparent;
-            }
+            //if (this.Enabled)
+            //{
+            //    foreach (IconButton boton in botonesMenu)
+            //        boton.BackColor = Color.FromArgb(41, 42, 45);
+            //}
+            //else
+            //{
+            //    foreach (IconButton boton in botonesMenu)
+            //        boton.BackColor = Color.Transparent;
+            //}
         }
         #endregion
         #endregion
@@ -369,7 +369,7 @@ namespace Garmoxu_Desktop
 
         #region Menu lateral
         #region Ocultar o mostrar Menu Lateral
-        private void btnPanel_Click(object sender, EventArgs e)
+        private void BtnPanel_Click(object sender, EventArgs e)
         {
             if (PnlLateral.Width > 200) //colapsa el menu lateral
                 OcultarMenuLateral();

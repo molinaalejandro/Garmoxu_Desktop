@@ -436,19 +436,37 @@ namespace Garmoxu_Desktop
         {
             TabTipoDatosDetalles.SelectedIndex = TabTipoDatosTipo.SelectedIndex;
 
-            if (CboMesasLocalTipo.SelectedIndex != -1 && TabTipoDatosTipo.SelectedIndex == 0)
-                CboMesasLocalDetalles.SelectedIndex = CboMesasLocalTipo.SelectedIndex;
-
-            for (int i = 0; i < TabTipoDatosTipo.SelectedTab.Controls.Count; i++)
+            switch (TabTipoDatosDetalles.SelectedIndex)
             {
-                try
-                {
-                    RJTextBox txtTipo = (RJTextBox)TabTipoDatosTipo.SelectedTab.Controls[i];
-                    RJTextBox txtDetalles = (RJTextBox)TabTipoDatosDetalles.TabPages[TabTipoDatosTipo.SelectedIndex].Controls[i];
-                    txtDetalles.Texts = txtTipo.Texts.Trim();
-                }
-                catch (InvalidCastException ex) { }
+                case 0:
+                    CboMesasLocalDetalles.SelectedIndex = CboMesasLocalTipo.SelectedIndex;
+                    break;
+
+                case 1:
+                    TxtTlfDomicilioDetalles.Texts = TxtTlfDomicilioTipo.Texts;
+                    TxtDirDomicilioDetalles.Texts = TxtDirDomicilioTipo.Texts;
+                    TxtNombreDomicilioDetalles.Texts = TxtNombreDomicilioTipo.Texts;
+                    break;
+
+                case 2:
+                    TxtTlfRecogerDetalles.Texts = TxtTlfRecogerTipo.Texts;
+                    TxtNombreRecogerDetalles.Texts = TxtNombreRecogerTipo.Texts;
+                    break;
             }
+
+            //if (CboMesasLocalTipo.SelectedIndex != -1 && TabTipoDatosTipo.SelectedIndex == 0)
+            //    CboMesasLocalDetalles.SelectedIndex = CboMesasLocalTipo.SelectedIndex;
+
+            //for (int i = 0; i < TabTipoDatosTipo.SelectedTab.Controls.Count; i++)
+            //{
+            //    try
+            //    {
+            //        RJTextBox txtTipo = (RJTextBox)TabTipoDatosTipo.SelectedTab.Controls[i];
+            //        RJTextBox txtDetalles = (RJTextBox)TabTipoDatosDetalles.TabPages[TabTipoDatosTipo.SelectedIndex].Controls[i];
+            //        txtDetalles.Texts = txtTipo.Texts.Trim();
+            //    }
+            //    catch (InvalidCastException ex) { }
+            //}
         }
 
         // Valida que todas las text box obligatorias del tab page actual estén completadas.
@@ -540,6 +558,14 @@ namespace Garmoxu_Desktop
         #endregion
 
         #region Inserción de platos
+        private void TxtCodigoPlato__TextChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(TxtCodigoPlato.Texts) && !TxtCodigoPlato.Texts.Equals("Introducir código de plato"))
+                BtnAñadirPlato.Enabled = true;
+            else
+                BtnAñadirPlato.Enabled = false;
+        }
+
         private void TxtCodigoPlato_Enter(object sender, EventArgs e)
         {
             if (TxtCodigoPlato.Texts.Trim().Equals("Introducir código de plato"))
@@ -567,7 +593,7 @@ namespace Garmoxu_Desktop
         // Si se ha pulsado enter, añade un plato.
         private void TxtCodigoPlato_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar.Equals((char)Keys.Enter))
+            if (e.KeyChar.Equals((char)Keys.Enter) && !string.IsNullOrEmpty(TxtCodigoPlato.Texts))
             {
                 e.Handled = true;
                 AñadirPlato();
@@ -1122,7 +1148,23 @@ namespace Garmoxu_Desktop
                     FrmPedidosPagos frm = new FrmPedidosPagos(this, precioConIva, ClavePrimariaPedidoEnCurso);
                     frm.Width = Instance.Width / 2 - Instance.Width / 5;
                     frm.Height = Instance.Height / 2 + Instance.Height / 5;
-                    frm.Show();
+                    frm.ShowDialog();
+
+                    if (!string.IsNullOrEmpty(MetodoPago))
+                    {
+                        string clavePrimariaHistorial = string.Empty;
+                        GuardarPedidoEnHistorial(ref clavePrimariaHistorial);
+                        GuardarPlatosPedidoEnHistorial(ref clavePrimariaHistorial);
+
+                        BorrarPedidoEnCurso();
+                        LiberarMesa();
+                        IncrementarCantidadPedidosCliente();
+
+                        ConfirmarExportacionFacturaPdf(clavePrimariaHistorial);
+
+                        InformarAccionConExito();
+                        this.Close();
+                    }
                     return false;
                 }
                 else
@@ -1138,21 +1180,21 @@ namespace Garmoxu_Desktop
 
         private void FrmDetallesPedido_EnabledChanged(object sender, EventArgs e)
         {
-            if (Enabled && !string.IsNullOrEmpty(MetodoPago))
-            {
-                string clavePrimariaHistorial = string.Empty;
-                GuardarPedidoEnHistorial(ref clavePrimariaHistorial);
-                GuardarPlatosPedidoEnHistorial(ref clavePrimariaHistorial);
+            //if (Enabled && !string.IsNullOrEmpty(MetodoPago))
+            //{
+            //    string clavePrimariaHistorial = string.Empty;
+            //    GuardarPedidoEnHistorial(ref clavePrimariaHistorial);
+            //    GuardarPlatosPedidoEnHistorial(ref clavePrimariaHistorial);
 
-                BorrarPedidoEnCurso();
-                LiberarMesa();
-                IncrementarCantidadPedidosCliente();
+            //    BorrarPedidoEnCurso();
+            //    LiberarMesa();
+            //    IncrementarCantidadPedidosCliente();
 
-                ConfirmarExportacionFacturaPdf(clavePrimariaHistorial);
+            //    ConfirmarExportacionFacturaPdf(clavePrimariaHistorial);
 
-                InformarAccionConExito();
-                this.Close();
-            }
+            //    InformarAccionConExito();
+            //    this.Close();
+            //}
         }
 
         private void GuardarPedidoEnHistorial(ref string clavePrimaria)

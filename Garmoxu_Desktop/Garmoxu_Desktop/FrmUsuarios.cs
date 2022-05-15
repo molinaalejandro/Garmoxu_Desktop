@@ -47,7 +47,7 @@ namespace Garmoxu_Desktop
 
             DtgUsuarios.DataSource = Ds.Tables["Usuarios"];
             DtgUsuarios.Columns[0].HeaderText = "Nombre de usuario";
-            DtgUsuarios.Columns[1].HeaderText = "Nombre y apellidos de empleado";
+            DtgUsuarios.Columns[1].HeaderText = "Nombre y apellidos";
             DtgUsuarios.Columns[2].HeaderText = "Tipo de usuario";
         }
         #endregion
@@ -83,12 +83,12 @@ namespace Garmoxu_Desktop
         #region Boton Añadir
         private void BtnNuevo_MouseEnter(object sender, EventArgs e)
         {
-            BtnNuevo.IconColor = Color.PaleGreen;
+            BtnNuevo.IconColor = Color.FromArgb(110, 255, 110);
         }
 
         private void BtnNuevo_MouseLeave(object sender, EventArgs e)
         {
-            BtnNuevo.IconColor = Color.LimeGreen;
+            BtnNuevo.IconColor = Color.FromArgb(70, 225, 70);
         }
         #endregion
 
@@ -100,7 +100,7 @@ namespace Garmoxu_Desktop
 
         private void BtnQuitar_MouseLeave(object sender, EventArgs e)
         {
-            BtnQuitar.IconColor = Color.Crimson;
+            BtnQuitar.IconColor = Color.FromArgb(255, 70, 70);
         }
         #endregion
         #endregion
@@ -148,7 +148,7 @@ namespace Garmoxu_Desktop
         #region Busqueda de usuarios
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(TxtBuscar.Texts.Trim()) || TxtBuscar.Texts.Trim().Equals("Nombre de usuario / empleado"))
+            if (string.IsNullOrEmpty(TxtBuscar.Texts.Trim()) || TxtBuscar.Texts.Trim().Equals("Buscar por nombre de usuario / empleado"))
                 CargarDatos();
             else
             {
@@ -156,12 +156,31 @@ namespace Garmoxu_Desktop
                 Ds.Tables["Usuarios"].DefaultView.RowFilter = "NombreUsuario LIKE '%" + busqueda + "%' OR NombreEmpleado LIKE '%" + busqueda + "%'";
                 DtgUsuarios.DataSource = Ds.Tables["Usuarios"];
             }
+            DeshabilitarControles();
         }
 
         private void TxtBuscar_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar.Equals((char)Keys.Enter))
                 BtnBuscar_Click(null, null);
+        }
+
+        private void TxtBuscar_Enter(object sender, EventArgs e)
+        {
+            if (TxtBuscar.Texts.Trim().Equals("Buscar por nombre de usuario / empleado"))
+            {
+                TxtBuscar.Texts = string.Empty;
+                TxtBuscar.ForeColor = Color.Gainsboro;
+            }
+        }
+
+        private void TxtBuscar_Leave(object sender, EventArgs e)
+        {
+            if (TxtBuscar.Texts.Trim().Equals(string.Empty))
+            {
+                TxtBuscar.Texts = "Buscar por nombre de usuario / empleado";
+                TxtBuscar.ForeColor = Color.Gray;
+            }
         }
         #endregion
 
@@ -254,7 +273,7 @@ namespace Garmoxu_Desktop
 
                 TxtUsuario.Texts = lector[0].ToString();
                 TxtNombre.Texts = lector[1].ToString();
-                GrpUsuario.Text = lector[1].ToString();
+                //GrpUsuario.Text = lector[1].ToString();
 
                 int indexTipoUsuario = IdsTiposUsuario.IndexOf(lector[2].ToString());
                 CboTipoUsuario.SelectedIndex = indexTipoUsuario;
@@ -499,26 +518,6 @@ namespace Garmoxu_Desktop
         private void InformarAccionConExito()
         {
             MessageBox.Show("¡Operación concluida con éxito!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-        #endregion
-
-        #region Hints
-        private void TxtBuscar_Enter(object sender, EventArgs e)
-        {
-            if (TxtBuscar.Texts.Trim().Equals("Nombre de usuario / empleado"))
-            {
-                TxtBuscar.Texts = string.Empty;
-                TxtBuscar.ForeColor = Color.Gainsboro;
-            }
-        }
-
-        private void TxtBuscar_Leave(object sender, EventArgs e)
-        {
-            if (TxtBuscar.Texts.Trim().Equals(string.Empty))
-            {
-                TxtBuscar.Texts = "Nombre de usuario / empleado";
-                TxtBuscar.ForeColor = Color.Gray;
-            }
         }
         #endregion
 
