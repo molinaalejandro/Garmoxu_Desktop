@@ -24,23 +24,29 @@ namespace Garmoxu_Desktop
     public partial class FrmHistorialPedidosDetalles : Form
     {
         MySqlConnection ConexionBD;
-        private FrmMain Instance;
         private string ClavePrimaria;
-        private int IVA = 10;
+        private int IVA;
         private int NivelPermisos;
 
-        public FrmHistorialPedidosDetalles(MySqlConnection conexion, String clavePrimaria, FrmMain instance, int nivelPermisos)
+        public FrmHistorialPedidosDetalles(MySqlConnection conexion, string clavePrimaria, ref Form frmShadow, int nivelPermisos, int iva)
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
             ConexionBD = conexion;
             ClavePrimaria = clavePrimaria;
-            Instance = instance;
             NivelPermisos = nivelPermisos;
+            IVA = iva;
+            SombrearPantalla(ref frmShadow);
             CargarDatosPedido();
             LimitarPermisos();
         }
 
         #region Apertura del formulario
+        private void FrmHistorialPedidosDetalles_Shown(object sender, EventArgs e)
+        {
+            DtgPlatosPedidos.ClearSelection();
+        }
+
         #region Cargar datos del pedido
         public void CargarDatosPedido()
         {
@@ -50,13 +56,20 @@ namespace Garmoxu_Desktop
             MySqlDataReader lector = comando.ExecuteReader();
             if (lector.Read())
             {
-                LblID.Text = ClavePrimaria;
+                LblTitulo.Text += ClavePrimaria;
                 LblFecha.Text = DateTime.Parse(lector["Fecha"].ToString()).ToString("dd/MM/yyyy");
                 LblHora.Text = lector["Hora"].ToString();
                 LblTipo.Text = lector["Tipo"].ToString();
                 LblTlf.Text = lector["TelefonoCliente"].ToString();
-                LblPrecioConIVA.Text = lector["PrecioConIva"].ToString();
-                LblPrecioSinIVA.Text = lector["PrecioSinIva"].ToString();
+                LblPrecioConIVA.Text = lector["PrecioConIva"].ToString() + "€";
+                LblPrecioSinIVA.Text = lector["PrecioSinIva"].ToString() + "€";
+                LblMetodoPago.Text = lector["TipoPago"].ToString();
+
+                if (string.IsNullOrEmpty(LblTlf.Text.Trim()))
+                {
+                    label7.ForeColor = this.BackColor;
+                    LblTlf.ForeColor = this.BackColor;
+                }
             }
             lector.Close();
 
@@ -119,12 +132,69 @@ namespace Garmoxu_Desktop
         #region Limitación de permisos
         private void LimitarPermisos()
         {
-            if (NivelPermisos == 0)
+            if (NivelPermisos == 0) BtnBorrar.Visible = false;
+        }
+        #endregion
+        #endregion
+
+        #region Funciones y diseño del formulario
+        #region Bordeado del formulario
+        protected override CreateParams CreateParams
+        {
+            get
             {
-                BtnBorrar.Enabled = false;
+                CreateParams cp = base.CreateParams;
+
+                // Solo se acumulan modificaciones de diferente tipos, es decir,
+                // una de ExStyle, otra de Style y otra de ClassStyle. Pero, nunca
+                // se pueden acumular dos modificaciones del mismo tipo, por ejemplo,
+                // no se acumulan dos ExStyle, o aplicas uno, o aplicas el otro.
+
+                //cp.ExStyle = 0x00000100; // Aperentemente no hace nada
+                //cp.ExStyle = 0x00020000; // Borde simple fino arriba e izquierda y grueso abajo y derecha
+                cp.ExStyle = 0x00000200; // Borde 3D arriba e izquierda
+                //cp.ExStyle = 0x00000001; // Borde 3D abajo y derecha
+                // https://docs.microsoft.com/en-us/windows/win32/winmsg/extended-window-styles
+
+                //cp.Style |= 0x00800000; // Borde simple fino
+                cp.Style |= 0x00400000; // Borde 3D abajo y derecha
+                // https://docs.microsoft.com/en-us/windows/win32/winmsg/window-styles
+
+                //cp.ClassStyle |= 0x00020000; // Shadow border
+                return cp;
             }
         }
         #endregion
+
+        #region Sombreado de pantalla
+        private void SombrearPantalla(ref Form frmShadow)
+        {
+            frmShadow = new Form();
+            frmShadow.ShowInTaskbar = false;
+            frmShadow.Text = "";
+            frmShadow.FormBorderStyle = FormBorderStyle.None;
+            frmShadow.Size = Size;
+            frmShadow.WindowState = FormWindowState.Maximized;
+            frmShadow.BackColor = Color.Black;
+            frmShadow.Opacity = 0.7;
+            frmShadow.Location = Location;
+            frmShadow.Enabled = false;
+            frmShadow.TopMost = true;
+            frmShadow.Show();
+        }
+        #endregion
+        #endregion
+
+        #region Funciones y diseños de controles
+        private void BtnPdf_MouseEnter(object sender, EventArgs e)
+        {
+            BtnPdf.IconColor = Color.Cornsilk;
+        }
+
+        private void BtnPdf_MouseLeave(object sender, EventArgs e)
+        {
+            BtnPdf.IconColor = Color.White;
+        }
         #endregion
 
         #region Exportación a PDF
@@ -407,9 +477,9 @@ namespace Garmoxu_Desktop
         #endregion
 
         #region Cierre del formulario
-        private void FrmHistorialPedidosDetalles_FormClosing(object sender, FormClosingEventArgs e)
+        private void BtnClose_Click(object sender, EventArgs e)
         {
-            Instance.Enabled = true;
+            this.Close();
         }
         #endregion
     }

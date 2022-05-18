@@ -68,20 +68,80 @@ namespace Garmoxu_Desktop
         #endregion
         #endregion
 
+        #region Funciones y diseños de controles
+        #region Text Box Busqueda
+        private void TxtBusqueda_Enter(object sender, EventArgs e)
+        {
+            if (TxtBusqueda.Texts.Trim().Equals("Buscar por nombre de categoría"))
+            {
+                TxtBusqueda.Texts = string.Empty;
+                TxtBusqueda.ForeColor = Color.Gainsboro;
+            }
+        }
+
+        private void TxtBusqueda_Leave(object sender, EventArgs e)
+        {
+            if (TxtBusqueda.Texts.Trim().Equals(string.Empty))
+            {
+                TxtBusqueda.Texts = "Buscar por nombre de categoría";
+                TxtBusqueda.ForeColor = Color.Gray;
+            }
+        }
+        #endregion
+
+        #region Botón Buscar
+        private void BtnBuscar_MouseEnter(object sender, EventArgs e)
+        {
+            BtnBuscar.IconColor = Color.DeepSkyBlue;
+        }
+
+        private void BtnBuscar_MouseLeave(object sender, EventArgs e)
+        {
+            BtnBuscar.IconColor = Color.MediumSlateBlue;
+
+        }
+        #endregion
+
+        #region Botón Eliminar
+        private void BtnEliminar_MouseEnter(object sender, EventArgs e)
+        {
+            BtnEliminar.IconColor = Color.LightCoral;
+        }
+
+        private void BtnEliminar_MouseLeave(object sender, EventArgs e)
+        {
+            BtnEliminar.IconColor = Color.FromArgb(255, 70, 70);
+        }
+        #endregion
+
+        #region Botón Nuevo
+        private void BtnNuevo_MouseEnter(object sender, EventArgs e)
+        {
+            BtnNuevo.IconColor = Color.FromArgb(110, 255, 110);
+        }
+
+        private void BtnNuevo_MouseLeave(object sender, EventArgs e)
+        {
+            BtnNuevo.IconColor = Color.FromArgb(70, 225, 70);
+        }
+        #endregion
+        #endregion
+
         #region Búsqueda de categorias
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(TxtNombre.Texts.Trim()))
+            BtnEliminar.Enabled = false;
+            if (!string.IsNullOrEmpty(TxtBusqueda.Texts.Trim()) && !TxtBusqueda.Texts.Equals("Buscar por nombre de categoría"))
             {
                 string sql = "SELECT IdCategoria, Nombre, ImagenCategoria FROM Categorias " +
-                    "WHERE Nombre LIKE '%" + TxtNombre.Texts.Trim() + "%' ORDER BY Nombre DESC";
+                    "WHERE Nombre LIKE '%" + TxtBusqueda.Texts.Trim() + "%' ORDER BY Nombre DESC";
                 RellenarListView(sql);
             }
             else
                 CargarCategorias(); // Carga sin filtro
         }
 
-        private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
+        private void TxtBusqueda_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar.Equals((char)Keys.Enter)) BtnBuscar_Click(null, null);
         }
@@ -90,13 +150,16 @@ namespace Garmoxu_Desktop
         #region Alta de categoría
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
-            FrmCategoriasDetalles frm = new FrmCategoriasDetalles(ConexionBD, string.Empty, Instance);
-            frm.Width = 316;
-            frm.Height = 434;
+            Form frmShadow = new Form();
+            FrmCategoriasDetalles frm = new FrmCategoriasDetalles(ConexionBD, string.Empty, ref frmShadow);
+            //frm.Width = 316;
+            //frm.Height = 434;
             BtnEliminar.Enabled = false;
-            Instance.Enabled = false;
+            //Instance.Enabled = false;
 
-            frm.Show();
+            frm.ShowDialog();
+            frmShadow.Close();
+            CargarCategorias();
         }
         #endregion
 
@@ -105,13 +168,16 @@ namespace Garmoxu_Desktop
         {
             string clavePrimaria = LstCategorias.SelectedItems[0].Tag.ToString();
 
-            FrmCategoriasDetalles frm = new FrmCategoriasDetalles(ConexionBD, clavePrimaria, Instance);
-            frm.Width = 316;
-            frm.Height = 434;
+            Form frmShadow = new Form();
+            FrmCategoriasDetalles frm = new FrmCategoriasDetalles(ConexionBD, clavePrimaria, ref frmShadow);
+            //frm.Width = 316;
+            //frm.Height = 434;
             BtnEliminar.Enabled = false;
-            Instance.Enabled = false;
+            //Instance.Enabled = false;
 
-            frm.Show();
+            frm.ShowDialog();
+            frmShadow.Close();
+            CargarCategorias();
         }
         #endregion
 
@@ -159,8 +225,8 @@ namespace Garmoxu_Desktop
         #region Actualización automática de la list view
         private void FrmCategoria_EnabledChanged(object sender, EventArgs e)
         {
-            if (this.Enabled)
-                CargarCategorias();
+            //if (this.Enabled)
+            //    CargarCategorias();
         }
         #endregion
 
@@ -189,11 +255,12 @@ namespace Garmoxu_Desktop
 
         #region Cierre del formulario
         #region Boton de cerrar
-        private void BtnCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
+        //private void BtnCerrar_Click(object sender, EventArgs e)
+        //{
+        //    this.Close();
+        //}
         #endregion
+
         #endregion
     }
 }

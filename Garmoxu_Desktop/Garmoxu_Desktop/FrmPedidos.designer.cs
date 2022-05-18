@@ -217,6 +217,7 @@
             // PnlRecoger
             // 
             this.PnlRecoger.AutoScroll = true;
+            this.PnlRecoger.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
             this.PnlRecoger.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlRecoger.Location = new System.Drawing.Point(20, 43);
             this.PnlRecoger.Margin = new System.Windows.Forms.Padding(0);
@@ -247,6 +248,7 @@
             // PnlDomicilio
             // 
             this.PnlDomicilio.AutoScroll = true;
+            this.PnlDomicilio.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
             this.PnlDomicilio.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlDomicilio.Location = new System.Drawing.Point(20, 43);
             this.PnlDomicilio.Margin = new System.Windows.Forms.Padding(0);
@@ -277,6 +279,7 @@
             // PnlLocal
             // 
             this.PnlLocal.AutoScroll = true;
+            this.PnlLocal.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
             this.PnlLocal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PnlLocal.Font = new System.Drawing.Font("Source Sans Pro", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.PnlLocal.Location = new System.Drawing.Point(20, 43);

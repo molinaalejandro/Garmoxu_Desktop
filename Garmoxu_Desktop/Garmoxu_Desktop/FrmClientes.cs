@@ -31,6 +31,12 @@ namespace Garmoxu_Desktop
         }
 
         #region Apertura del formulario
+
+        private void FrmClientes_Shown(object sender, EventArgs e)
+        {
+            DtgClientes.ClearSelection();
+        }
+
         #region Cargar datos
         private void CargarDatos()
         {
@@ -65,6 +71,44 @@ namespace Garmoxu_Desktop
         #endregion
         #endregion
 
+        #region Funciones y diseños de controles
+        #region Boton Buscar
+        private void BtnBuscar_MouseEnter(object sender, EventArgs e)
+        {
+            BtnBuscar.IconColor = Color.DeepSkyBlue;
+        }
+
+        private void BtnBuscar_MouseLeave(object sender, EventArgs e)
+        {
+            BtnBuscar.IconColor = Color.MediumSlateBlue;
+        }
+        #endregion
+
+        #region Boton Añadir
+        private void BtnNuevo_MouseEnter(object sender, EventArgs e)
+        {
+            BtnAbrirNuevo.IconColor = Color.FromArgb(110, 255, 110);
+        }
+
+        private void BtnNuevo_MouseLeave(object sender, EventArgs e)
+        {
+            BtnAbrirNuevo.IconColor = Color.FromArgb(70, 225, 70);
+        }
+        #endregion
+
+        #region Boton Quitar
+        private void BtnQuitar_MouseEnter(object sender, EventArgs e)
+        {
+            BtnQuitar.IconColor = Color.LightCoral;
+        }
+
+        private void BtnQuitar_MouseLeave(object sender, EventArgs e)
+        {
+            BtnQuitar.IconColor = Color.FromArgb(255, 70, 70);
+        }
+        #endregion
+        #endregion
+
         #region Carga progresiva de usuarios
         private void DtgClientes_Scroll(object sender, ScrollEventArgs e)
         {
@@ -84,7 +128,7 @@ namespace Garmoxu_Desktop
         #region Busqueda de clientes
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(TxtBuscar.Texts.Trim()))
+            if (!string.IsNullOrEmpty(TxtBuscar.Texts.Trim()) || TxtBuscar.Texts.Trim().Equals("Buscar por teléfono de cliente"))
             {
                 Ds = new DataSet();
                 MySqlDataAdapter adapter = new MySqlDataAdapter();
@@ -102,6 +146,8 @@ namespace Garmoxu_Desktop
             }
             else
                 CargarDatos();
+
+            LimpiarControles();
         }
 
         private void TxtBuscar_KeyPress(object sender, KeyPressEventArgs e)
@@ -109,17 +155,42 @@ namespace Garmoxu_Desktop
             if (e.KeyChar.Equals((char)Keys.Enter))
                 BtnBuscar_Click(null, null);
         }
+
+        private void TxtBuscar_Enter(object sender, EventArgs e)
+        {
+            if (TxtBuscar.Texts.Trim().Equals("Buscar por teléfono de cliente"))
+            {
+                TxtBuscar.Texts = string.Empty;
+                TxtBuscar.ForeColor = Color.Gainsboro;
+            }
+        }
+
+        private void TxtBuscar_Leave(object sender, EventArgs e)
+        {
+            if (TxtBuscar.Texts.Trim().Equals(string.Empty))
+            {
+                TxtBuscar.Texts = "Buscar por teléfono de cliente";
+                TxtBuscar.ForeColor = Color.Gray;
+            }
+        }
         #endregion
 
         #region Alta de clientes
         private void BtnAbrirNuevo_Click(object sender, EventArgs e)
         {
             Tbc.SelectedTab = tabPage2;
-            Tbc.Visible = true;
+            tableLayoutPanel4.Visible = true;
+            //Tbc.Visible = true;
         }
 
         #region Boton de guardar
-        private void BtnGuardarDatos_Click(object sender, EventArgs e)
+        private void TextBoxAlta_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar.Equals((char)Keys.Enter))
+                BtnRegistrarDatos_Click(null, null);
+        }
+
+        private void BtnRegistrarDatos_Click(object sender, EventArgs e)
         {
             if (ValidarDatosCompletados() && ValidarFormatoTelefono(TxtTelefonoTB2.Texts.Replace(" ", ""))
                 && ConfirmarAccion("dar de alta") && ValidarTelefonoNoRegistrado(TxtTelefonoTB2))
@@ -134,8 +205,8 @@ namespace Garmoxu_Desktop
                 MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
                 cmd.ExecuteNonQuery();
 
-                LimpiarControles();
                 CargarDatos();
+                LimpiarControles();
                 InformarAccionConExito();
             }
         }
@@ -144,13 +215,14 @@ namespace Garmoxu_Desktop
 
         #region Modificacion de clientes
         #region Carga de los detalles del cliente
-        private void DtgClientes_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void DtgClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             string tlfSeleccionado = DtgClientes.SelectedRows[0].Cells[0].Value.ToString();
             if (ValidarClienteDisponible(tlfSeleccionado))
             {
                 Tbc.SelectedTab = tabPage1;
-                Tbc.Visible = true;
+                tableLayoutPanel9.Visible = true;
+                //Tbc.Visible = true;
 
                 string sql = "SELECT * FROM Clientes WHERE TelefonoCliente = '" + tlfSeleccionado + "'";
 
@@ -175,6 +247,12 @@ namespace Garmoxu_Desktop
         #endregion
 
         #region Boton de modificación de cliente
+        private void TextBoxModificacion_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar.Equals((char)Keys.Enter))
+                BtnModificarCliente_Click(null, null);
+        }
+
         private void BtnModificarCliente_Click(object sender, EventArgs e)
         {
             string valores = string.Empty;
@@ -189,8 +267,8 @@ namespace Garmoxu_Desktop
                 MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
                 cmd.ExecuteNonQuery();
 
-                LimpiarControles();
                 CargarDatos();
+                LimpiarControles();
                 InformarAccionConExito();
             }
         }
@@ -198,6 +276,24 @@ namespace Garmoxu_Desktop
         #endregion
 
         #region Eliminación de clientes
+        private void DtgClientes_SelectionChanged(object sender, EventArgs e)
+        {
+            if (DtgClientes.SelectedRows.Count < 1)
+            {
+                BtnBorrarCliente.Enabled = false;
+                BtnBorrarCliente.BackColor = Color.Gray;
+                BtnQuitar.Enabled = false;
+                BtnQuitar.IconColor = Color.Gray;
+            }
+            else
+            {
+                BtnBorrarCliente.Enabled = true;
+                BtnBorrarCliente.BackColor = Color.Crimson;
+                BtnQuitar.Enabled = true;
+                BtnQuitar.IconColor = Color.Crimson;
+            }
+        }
+
         private void BtnBorrarCliente_Click(object sender, EventArgs e)
         {
             string tlfActual = TxtTelefonoTB1.Texts.Replace(" ", "");
@@ -209,8 +305,8 @@ namespace Garmoxu_Desktop
                 MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
                 cmd.ExecuteNonQuery();
 
-                LimpiarControles();
                 CargarDatos();
+                LimpiarControles();
                 InformarAccionConExito();
             }
         }
@@ -276,8 +372,8 @@ namespace Garmoxu_Desktop
             {
                 string mensaje = "¡El cliente ya no está disponible! Alguien debe haberlo borrado";
                 MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                LimpiarControles();
                 CargarDatos();
+                LimpiarControles();
                 return false;
             }
 
@@ -374,7 +470,7 @@ namespace Garmoxu_Desktop
                     if (i != datosModificados.Count - 1) valores += ", ";
                 }
 
-                if (!modificacionRealizada) Tbc.Visible = false;
+                if (!modificacionRealizada) LimpiarControles();
             }
             return modificacionRealizada;
         }
@@ -415,8 +511,10 @@ namespace Garmoxu_Desktop
                 TxtDireccionTB2.Texts = string.Empty;
                 TxtNombreTB2.Texts = string.Empty;
             }
-
-            Tbc.Visible = false;
+            DtgClientes.ClearSelection();
+            tableLayoutPanel4.Visible = false;
+            tableLayoutPanel9.Visible = false;
+            //Tbc.Visible = false;
         }
         #endregion
 
@@ -435,22 +533,6 @@ namespace Garmoxu_Desktop
         private void InformarAccionConExito()
         {
             MessageBox.Show("¡Operación concluida con éxito!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-        #endregion
-
-        #region Cierre del formulario
-        private void BtnCerrar_Click(object sender, EventArgs e)
-        {
-            string v = string.Empty;
-            if ((Tbc.Visible && Tbc.SelectedIndex == 1) || ComprobarDatosModificados(ref v))
-            {
-                string mensaje = "Se perderán todos los cambios no guardados. ¿Deseas continuar?";
-                DialogResult cerrarVentana = MessageBox.Show(mensaje, "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (cerrarVentana.Equals(DialogResult.Yes))
-                    this.Close();
-            }
-            else
-                this.Close();
         }
         #endregion
     }

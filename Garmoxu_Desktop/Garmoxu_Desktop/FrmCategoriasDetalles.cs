@@ -16,19 +16,20 @@ namespace Garmoxu_Desktop
     public partial class FrmCategoriasDetalles : Form
     {
         private MySqlConnection ConexionBD;
-        private FrmMain Instance;
         private string ClavePrimaria;
+        //private Form FrmShadow;
 
         private Image ImagenInicial;
         private List<string> DatosIniciales;
 
-        public FrmCategoriasDetalles(MySqlConnection conexionBD, string clavePrimaria, FrmMain instance)
+        public FrmCategoriasDetalles(MySqlConnection conexionBD, string clavePrimaria, ref Form frmShadow)
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
             ConexionBD = conexionBD;
             ClavePrimaria = clavePrimaria;
-            Instance = instance;
+
+            SombrearPantalla(ref frmShadow);
             CargarTipoFormulario();
         }
 
@@ -37,7 +38,11 @@ namespace Garmoxu_Desktop
         private void CargarTipoFormulario()
         {
             if (!string.IsNullOrEmpty(ClavePrimaria))
+            {
+                LblTitulo.Text = "Consulta la categoría " + ClavePrimaria;
+                BtnConfirmar.Text = "Guardar";
                 CargarDatos();
+            }
         }
 
         private void CargarDatos()
@@ -74,23 +79,85 @@ namespace Garmoxu_Desktop
                 imagen = Properties.Resources.No_Image_Found;
 
             ImagenInicial = imagen;
-            PicFotoPlato.Image = imagen;
+            PicImagenCategoria.Image = imagen;
         }
         #endregion
         #endregion
 
+        #region Funciones y diseño del formulario
+        #region Bordeado del formulario
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+
+                // Solo se acumulan modificaciones de diferente tipos, es decir,
+                // una de ExStyle, otra de Style y otra de ClassStyle. Pero, nunca
+                // se pueden acumular dos modificaciones del mismo tipo, por ejemplo,
+                // no se acumulan dos ExStyle, o aplicas uno, o aplicas el otro.
+
+                //cp.ExStyle = 0x00000100; // Aperentemente no hace nada
+                //cp.ExStyle = 0x00020000; // Borde simple fino arriba e izquierda y grueso abajo y derecha
+                cp.ExStyle = 0x00000200; // Borde 3D arriba e izquierda
+                //cp.ExStyle = 0x00000001; // Borde 3D abajo y derecha
+                // https://docs.microsoft.com/en-us/windows/win32/winmsg/extended-window-styles
+
+                //cp.Style |= 0x00800000; // Borde simple fino
+                cp.Style |= 0x00400000; // Borde 3D abajo y derecha
+                // https://docs.microsoft.com/en-us/windows/win32/winmsg/window-styles
+
+                //cp.ClassStyle |= 0x00020000; // Shadow border
+                return cp;
+            }
+        }
+        #endregion
+
+        #region Sombreado de pantalla
+        private void SombrearPantalla(ref Form frmShadow)
+        {
+            frmShadow = new Form();
+            frmShadow.ShowInTaskbar = false;
+            frmShadow.Text = "";
+            frmShadow.FormBorderStyle = FormBorderStyle.None;
+            frmShadow.Size = Size;
+            frmShadow.WindowState = FormWindowState.Maximized;
+            frmShadow.BackColor = Color.Black;
+            frmShadow.Opacity = 0.7;
+            frmShadow.Location = Location;
+            frmShadow.Enabled = false;
+            frmShadow.TopMost = true;
+            frmShadow.Show();
+        }
+        #endregion
+        #endregion
+
+        #region Funciones y diseños de controles
+        private void PicImagenCategoria_MouseEnter(object sender, EventArgs e)
+        {
+            PnlBordeImagen.BackColor = Color.Silver;
+        }
+
+        private void PicImagenCategoria_MouseLeave(object sender, EventArgs e)
+        {
+            PnlBordeImagen.BackColor = Color.Transparent;
+        }
+        #endregion
+
         #region Cambio de imagen
-        private void BtnCambiarFoto_Click(object sender, EventArgs e)
+        private void PicImagenCategoria_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Archivo de imagen |*.jpg| Archivo PNG|*.png| Todos los archivos|*.*";
+            ofd.Title = "Selecciona una imagen para tu categoría";
+            //ofd.Filter = "Archivo de imagen |*.jpg| Archivo PNG|*.png| Todos los archivos|*.*";
+            ofd.Filter = "Archivo de imagen |*.jpg| Archivo PNG|*.png";
 
             if (ofd.ShowDialog().Equals(DialogResult.OK))
             {
                 string ruta = ofd.FileName;
 
                 if (new FileInfo(ruta).Length <= 15000000)
-                    PicFotoPlato.Image = Image.FromFile(ruta);
+                    PicImagenCategoria.Image = Image.FromFile(ruta);
                 else
                     MessageBox.Show("¡La imagen no puede ser mayor de 15MB!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
             }
@@ -123,7 +190,7 @@ namespace Garmoxu_Desktop
                     TxtNombre.Texts.Trim());
 
                 MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                byte[] imagenBytes = (byte[])(new ImageConverter()).ConvertTo(PicFotoPlato.Image, typeof(byte[]));
+                byte[] imagenBytes = (byte[])(new ImageConverter()).ConvertTo(PicImagenCategoria.Image, typeof(byte[]));
                 cmd.Parameters.Add("@imagen", MySqlDbType.MediumBlob).Value = imagenBytes;
                 cmd.ExecuteNonQuery();
 
@@ -225,7 +292,7 @@ namespace Garmoxu_Desktop
                 if (i != datosModificados.Count - 1) valores += ", ";
             }
 
-            Image fotoActual = PicFotoPlato.Image;
+            Image fotoActual = PicImagenCategoria.Image;
             if (!ImagenInicial.Equals(fotoActual))
             {
                 imagenBytes = (byte[])(new ImageConverter()).ConvertTo(fotoActual, typeof(byte[]));
@@ -294,11 +361,6 @@ namespace Garmoxu_Desktop
                 if (cerrarVentana.Equals(DialogResult.Yes))
                     this.Close();
             }
-        }
-
-        private void FrmCategoriaDetalles_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Instance.Enabled = true;
         }
         #endregion
     }

@@ -26,19 +26,15 @@ namespace Garmoxu_Desktop
     public partial class FrmUsuariosDetalles : Form
     {
         private MySqlConnection ConexionBD;
-        private FrmMain Instance;
         private List<string> IdsTiposUsuario;
-        private Form FrmShadow;
 
-        public FrmUsuariosDetalles(MySqlConnection conexionBD, FrmMain instance)
+        public FrmUsuariosDetalles(MySqlConnection conexionBD, ref Form frmShadow)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             ConexionBD = conexionBD;
-            Instance = instance;
-            Instance.Enabled = false;
             CargarTiposDeUsuario();
-            SombrearPantalla();
+            SombrearPantalla(ref frmShadow);
         }
 
         #region Apertura del formulario
@@ -91,20 +87,20 @@ namespace Garmoxu_Desktop
         #endregion
 
         #region Sombreado de pantalla
-        private void SombrearPantalla()
+        private void SombrearPantalla(ref Form frmShadow)
         {
-            FrmShadow = new Form();
-            FrmShadow.ShowInTaskbar = false;
-            FrmShadow.Text = "";
-            FrmShadow.FormBorderStyle = FormBorderStyle.None;
-            FrmShadow.Size = Size;
-            FrmShadow.WindowState = FormWindowState.Maximized;
-            FrmShadow.BackColor = System.Drawing.Color.Black;
-            FrmShadow.Opacity = 0.7;
-            FrmShadow.Show();
-            FrmShadow.Location = Location;
-            FrmShadow.Enabled = false;
-            FrmShadow.TopMost = true;
+            frmShadow = new Form();
+            frmShadow.ShowInTaskbar = false;
+            frmShadow.Text = "";
+            frmShadow.FormBorderStyle = FormBorderStyle.None;
+            frmShadow.Size = Size;
+            frmShadow.WindowState = FormWindowState.Maximized;
+            frmShadow.BackColor = System.Drawing.Color.Black;
+            frmShadow.Opacity = 0.7;
+            frmShadow.Show();
+            frmShadow.Location = Location;
+            frmShadow.Enabled = false;
+            frmShadow.TopMost = true;
         }
         #endregion
         #endregion
@@ -362,17 +358,6 @@ namespace Garmoxu_Desktop
             DialogResult cerrarVentana = MessageBox.Show(mensaje, "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
             if (cerrarVentana.Equals(DialogResult.Yes))
                 this.Close();
-        }
-
-        private void FrmUsuarioNuevo_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Instance.Enabled = true;
-            QuitarSombreadoPantalla();
-        }
-
-        private void QuitarSombreadoPantalla()
-        {
-            if (FrmShadow != null) FrmShadow.Close();
         }
         #endregion
     }

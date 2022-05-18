@@ -49,25 +49,19 @@ namespace Garmoxu_Desktop
             DtgUsuarios.Columns[0].HeaderText = "Nombre de usuario";
             DtgUsuarios.Columns[1].HeaderText = "Nombre y apellidos";
             DtgUsuarios.Columns[2].HeaderText = "Tipo de usuario";
+
+            DtgUsuarios.ClearSelection();
         }
         #endregion
+
+        private void FrmUsuarios_Shown(object sender, EventArgs e)
+        {
+            DtgUsuarios.ClearSelection();
+
+        }
         #endregion
 
         #region Funciones y diseños de controles
-        #region Boton Cerrar
-        //private void BtnCerrar_MouseEnter(object sender, EventArgs e)
-        //{
-        //    BtnCerrar.IconColor = Color.FromArgb(240, 41, 83);
-        //    BtnCerrar.IconChar = FontAwesome.Sharp.IconChar.DoorOpen;
-        //}
-
-        //private void BtnCerrar_MouseLeave(object sender, EventArgs e)
-        //{
-        //    BtnCerrar.IconColor = Color.DarkGray;
-        //    BtnCerrar.IconChar = FontAwesome.Sharp.IconChar.DoorClosed;
-        //}
-        #endregion
-
         #region Boton Buscar
         private void BtnBuscar_MouseEnter(object sender, EventArgs e)
         {
@@ -136,12 +130,16 @@ namespace Garmoxu_Desktop
         #region Alta de usuarios
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
-            FrmUsuariosDetalles f = new FrmUsuariosDetalles(ConexionBD, Instance);
-            //f.Width = (Instance.Width / 4) + (Instance.Width / 20);
-            //f.Height = (Instance.Height / 2)+ (Instance.Height / 10);
+            Form frmShadow = new Form();
+            FrmUsuariosDetalles f = new FrmUsuariosDetalles(ConexionBD, ref frmShadow);
 
-            Instance.Enabled = false;
-            f.Show();
+            //DtgUsuarios.ClearSelection();
+            //BtnEliminar.Enabled = false;
+
+            f.ShowDialog();
+            frmShadow.Close();
+            DeshabilitarControles();
+            CargarDatos();
         }
         #endregion
 
@@ -203,7 +201,8 @@ namespace Garmoxu_Desktop
 
                 DeshabilitarControles();
                 CargarDatos();
-
+                DtgUsuarios.ClearSelection();
+                BtnEliminar.Enabled = false;
                 InformarAccionConExito();
             }
         }
@@ -225,7 +224,7 @@ namespace Garmoxu_Desktop
 
         private bool ValidarNoEsUsuarioActual()
         {
-            if (!DatosIniciales[0].Equals(UsuarioActual))
+            if (DatosIniciales != null && !DatosIniciales[0].Equals(UsuarioActual))
                 return true;
 
             string mensaje = "¡No puedes eliminar el usuario con el que has iniciado sesión!";
@@ -358,17 +357,23 @@ namespace Garmoxu_Desktop
         #region Modificación de controles
         private void HabilitarControles()
         {
-            PnlDetalles.Visible = true;
-            GrpUsuario.Visible = true;
+            tableLayoutPanel2.Visible = true;
+            tableLayoutPanel9.Visible = true;
+            //PnlDetalles.Visible = true;
+            //GrpUsuario.Visible = true;
             DatosIniciales = new List<string>();
+            BtnEliminar.Enabled = true;
             LimpiarControles();
         }
 
         private void DeshabilitarControles()
         {
-            PnlDetalles.Visible = false;
-            GrpUsuario.Visible = false;
+            tableLayoutPanel2.Visible = false;
+            tableLayoutPanel9.Visible = false;
+            //PnlDetalles.Visible = false;
+            //GrpUsuario.Visible = false;
             DatosIniciales = null;
+            BtnEliminar.Enabled = false;
             LimpiarControles();
         }
 
@@ -518,14 +523,6 @@ namespace Garmoxu_Desktop
         private void InformarAccionConExito()
         {
             MessageBox.Show("¡Operación concluida con éxito!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-        #endregion
-
-        #region Actualización automática de enabled
-        private void FrmUsuarios_EnabledChanged(object sender, EventArgs e)
-        {
-            if (Enabled)
-                CargarDatos();
         }
         #endregion
 

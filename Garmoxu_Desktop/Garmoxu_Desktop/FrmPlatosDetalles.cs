@@ -28,9 +28,7 @@ namespace Garmoxu_Desktop
 
         private int IVA;
 
-        private Form FrmShadow;
-
-        public FrmPlatosDetalles(MySqlConnection conexionBD, string clavePrimaria, FrmMain instance, int iva)
+        public FrmPlatosDetalles(MySqlConnection conexionBD, string clavePrimaria, FrmMain instance, int iva, ref Form frmShadow)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
@@ -38,9 +36,10 @@ namespace Garmoxu_Desktop
             //Instance = instance;
             ClavePrimaria = clavePrimaria;
             IVA = iva;
+
             CargarCategorias();
             CargarTipoFormulario();
-            SombrearPantalla();
+            SombrearPantalla(ref frmShadow);
         }
 
         #region Apertura del formulario
@@ -182,20 +181,20 @@ namespace Garmoxu_Desktop
         #endregion
 
         #region Sombreado de pantalla
-        private void SombrearPantalla()
+        private void SombrearPantalla(ref Form frmShadow)
         {
-            FrmShadow = new Form();
-            FrmShadow.ShowInTaskbar = false;
-            FrmShadow.Text = "";
-            FrmShadow.FormBorderStyle = FormBorderStyle.None;
-            FrmShadow.Size = Size;
-            FrmShadow.WindowState = FormWindowState.Maximized;
-            FrmShadow.BackColor = Color.Black;
-            FrmShadow.Opacity = 0.7;
-            FrmShadow.Location = Location;
-            FrmShadow.Enabled = false;
-            FrmShadow.TopMost = true;
-            FrmShadow.Show();
+            frmShadow = new Form();
+            frmShadow.ShowInTaskbar = false;
+            frmShadow.Text = "";
+            frmShadow.FormBorderStyle = FormBorderStyle.None;
+            frmShadow.Size = Size;
+            frmShadow.WindowState = FormWindowState.Maximized;
+            frmShadow.BackColor = Color.Black;
+            frmShadow.Opacity = 0.7;
+            frmShadow.Location = Location;
+            frmShadow.Enabled = false;
+            frmShadow.TopMost = true;
+            frmShadow.Show();
         }
         #endregion
         #endregion
@@ -442,7 +441,9 @@ namespace Garmoxu_Desktop
         private void BtnCambiarFoto_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Filter = "Archivo de imagen |*.jpg| Archivo PNG|*.png|Todos los archivos|*.*";
+            ofd.Title = "Selecciona una imagen para tu plato";
+            //ofd.Filter = "Archivo de imagen |*.jpg| Archivo PNG|*.png|Todos los archivos|*.*";
+            ofd.Filter = "Archivo de imagen |*.jpg| Archivo PNG|*.png";
 
             if (ofd.ShowDialog().Equals(DialogResult.OK))
             {
@@ -583,13 +584,13 @@ namespace Garmoxu_Desktop
         private void FrmPlatosDetalles_FormClosing(object sender, FormClosingEventArgs e)
         {
             //Instance.Enabled = true;
-            QuitarSombreadoPantalla();
+            //QuitarSombreadoPantalla();
         }
 
         private void QuitarSombreadoPantalla()
         {
             //if (FrmShadow != null) FrmShadow.Close();
-            if (FrmShadow != null) FrmShadow.Hide();
+            //if (frmShadow != null) frmShadow.Hide();
         }
         #endregion Cierre del formulario
     }

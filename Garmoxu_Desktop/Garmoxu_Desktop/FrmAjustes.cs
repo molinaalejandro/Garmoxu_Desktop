@@ -174,8 +174,8 @@ namespace Garmoxu_Desktop
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Title = "Selecciona una imagen para tu usuario";
-            ofd.Filter = "Archivo de imagen |*.jpg| Archivo PNG|*.png";
             //ofd.Filter = "Archivo de imagen |*.jpg| Archivo PNG|*.png|Todos los archivos|*.*";
+            ofd.Filter = "Archivo de imagen |*.jpg| Archivo PNG|*.png";
 
             if (ofd.ShowDialog().Equals(DialogResult.OK))
             {

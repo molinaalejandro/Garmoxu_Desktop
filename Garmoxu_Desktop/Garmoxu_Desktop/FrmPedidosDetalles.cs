@@ -617,6 +617,7 @@ namespace Garmoxu_Desktop
                 int indexRow = ValidarPlatoNoRepetido();
                 if (indexRow == -1)
                 {
+                    bool filaSeleccionadaPreviamente = DtgPlatosPedidos.SelectedRows.Count > 0;
                     string[] datosPlatos = new string[3];
                     CargarPlatos(ref datosPlatos);
                     DtgPlatosPedidos.Rows.Add(new object[]
@@ -625,6 +626,7 @@ namespace Garmoxu_Desktop
                         datosPlatos[2], decimal.Parse(datosPlatos[2])*NucCantidad.Value
                     });
                     DtgPlatosPedidos_CellValueChanged(null, null);
+                    if (!filaSeleccionadaPreviamente) DtgPlatosPedidos.ClearSelection();
                 }
                 else
                 {
@@ -2003,5 +2005,10 @@ namespace Garmoxu_Desktop
         #region Getters y setters
         public string MetodoPagoGetSet { get => MetodoPago; set => MetodoPago = value; }
         #endregion
+
+        private void FrmPedidosDetalles_Shown(object sender, EventArgs e)
+        {
+
+        }
     }
 }

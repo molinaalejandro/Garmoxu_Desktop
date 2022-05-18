@@ -424,7 +424,7 @@ namespace Garmoxu_Desktop
 
         private void BtnHistorial_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(new FrmHistorialPedidos(ConexionBD, Instance, NivelPermisos));
+            AbrirFormulario(new FrmHistorialPedidos(ConexionBD, Instance, NivelPermisos, IVA));
         }
 
         //private void BtnHistorialPedidos_Click(object sender, EventArgs e)

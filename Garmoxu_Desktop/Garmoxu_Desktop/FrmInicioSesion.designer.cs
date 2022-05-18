@@ -37,6 +37,7 @@
             this.PnlMain = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.PicLogo = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
             this.label3 = new System.Windows.Forms.Label();
@@ -51,14 +52,14 @@
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.LblRecordarUsuario = new System.Windows.Forms.Label();
-            this.BtnIniciar = new RJCodeAdvance.RJControls.RJButton();
-            this.PicLogo = new System.Windows.Forms.PictureBox();
             this.ChkRemember = new Garmoxu_Desktop.MyCheckBox();
+            this.BtnIniciar = new RJCodeAdvance.RJControls.RJButton();
             this.PnlTitle.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
             this.PnlMain.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             this.tableLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel8.SuspendLayout();
             this.tableLayoutPanel9.SuspendLayout();
@@ -66,7 +67,6 @@
             this.tableLayoutPanel2.SuspendLayout();
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // PnlTitle
@@ -205,6 +205,18 @@
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(379, 191);
             this.tableLayoutPanel3.TabIndex = 0;
+            // 
+            // PicLogo
+            // 
+            this.PicLogo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PicLogo.Image = global::Garmoxu_Desktop.Properties.Resources.Garmoxu_Logo_Circle_Red_New;
+            this.PicLogo.Location = new System.Drawing.Point(0, 0);
+            this.PicLogo.Margin = new System.Windows.Forms.Padding(0, 0, 0, 30);
+            this.PicLogo.Name = "PicLogo";
+            this.PicLogo.Size = new System.Drawing.Size(379, 161);
+            this.PicLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.PicLogo.TabIndex = 5;
+            this.PicLogo.TabStop = false;
             // 
             // tableLayoutPanel4
             // 
@@ -462,44 +474,6 @@
             this.LblRecordarUsuario.MouseEnter += new System.EventHandler(this.ChkRemember_MouseEnter);
             this.LblRecordarUsuario.MouseLeave += new System.EventHandler(this.ChkRemember_MouseLeave);
             // 
-            // BtnIniciar
-            // 
-            this.BtnIniciar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnIniciar.BackColor = System.Drawing.Color.SeaGreen;
-            this.BtnIniciar.BackgroundColor = System.Drawing.Color.SeaGreen;
-            this.BtnIniciar.BorderColor = System.Drawing.Color.SeaGreen;
-            this.BtnIniciar.BorderRadius = 15;
-            this.BtnIniciar.BorderSize = 0;
-            this.BtnIniciar.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
-            this.BtnIniciar.FlatAppearance.BorderSize = 0;
-            this.BtnIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnIniciar.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.BtnIniciar.ForeColor = System.Drawing.Color.White;
-            this.BtnIniciar.Location = new System.Drawing.Point(95, 34);
-            this.BtnIniciar.Margin = new System.Windows.Forms.Padding(95, 4, 95, 4);
-            this.BtnIniciar.Name = "BtnIniciar";
-            this.BtnIniciar.Size = new System.Drawing.Size(189, 55);
-            this.BtnIniciar.TabIndex = 0;
-            this.BtnIniciar.TabStop = false;
-            this.BtnIniciar.Text = "Acceder";
-            this.BtnIniciar.TextColor = System.Drawing.Color.White;
-            this.BtnIniciar.UseVisualStyleBackColor = false;
-            this.BtnIniciar.Click += new System.EventHandler(this.BtnIniciar_Click);
-            // 
-            // PicLogo
-            // 
-            this.PicLogo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PicLogo.Image = global::Garmoxu_Desktop.Properties.Resources.Garmoxu_Logo_Circle_Red_New;
-            this.PicLogo.Location = new System.Drawing.Point(0, 0);
-            this.PicLogo.Margin = new System.Windows.Forms.Padding(0, 0, 0, 30);
-            this.PicLogo.Name = "PicLogo";
-            this.PicLogo.Size = new System.Drawing.Size(379, 161);
-            this.PicLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.PicLogo.TabIndex = 5;
-            this.PicLogo.TabStop = false;
-            // 
             // ChkRemember
             // 
             this.ChkRemember.BackColor = System.Drawing.Color.Transparent;
@@ -526,6 +500,32 @@
             this.ChkRemember.MouseEnter += new System.EventHandler(this.ChkRemember_MouseEnter);
             this.ChkRemember.MouseLeave += new System.EventHandler(this.ChkRemember_MouseLeave);
             // 
+            // BtnIniciar
+            // 
+            this.BtnIniciar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnIniciar.BackColor = System.Drawing.Color.SeaGreen;
+            this.BtnIniciar.BackgroundColor = System.Drawing.Color.SeaGreen;
+            this.BtnIniciar.BorderColor = System.Drawing.Color.SeaGreen;
+            this.BtnIniciar.BorderRadius = 15;
+            this.BtnIniciar.BorderSize = 0;
+            this.BtnIniciar.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
+            this.BtnIniciar.FlatAppearance.BorderSize = 0;
+            this.BtnIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnIniciar.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
+            this.BtnIniciar.ForeColor = System.Drawing.Color.White;
+            this.BtnIniciar.Location = new System.Drawing.Point(95, 34);
+            this.BtnIniciar.Margin = new System.Windows.Forms.Padding(95, 4, 95, 4);
+            this.BtnIniciar.Name = "BtnIniciar";
+            this.BtnIniciar.Size = new System.Drawing.Size(189, 55);
+            this.BtnIniciar.TabIndex = 0;
+            this.BtnIniciar.TabStop = false;
+            this.BtnIniciar.Text = "Acceder";
+            this.BtnIniciar.TextColor = System.Drawing.Color.White;
+            this.BtnIniciar.UseVisualStyleBackColor = false;
+            this.BtnIniciar.Click += new System.EventHandler(this.BtnIniciar_Click);
+            // 
             // FrmInicioSesion
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -546,6 +546,7 @@
             this.PnlMain.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel8.ResumeLayout(false);
             this.tableLayoutPanel9.ResumeLayout(false);
@@ -554,7 +555,6 @@
             this.tableLayoutPanel7.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);
             this.tableLayoutPanel6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.PicLogo)).EndInit();
             this.ResumeLayout(false);
 
         }

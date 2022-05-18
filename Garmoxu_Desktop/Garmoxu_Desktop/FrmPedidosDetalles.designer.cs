@@ -1457,20 +1457,20 @@
             this.DtgPlatosPedidos.AllowUserToOrderColumns = true;
             this.DtgPlatosPedidos.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(190)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             this.DtgPlatosPedidos.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
             this.DtgPlatosPedidos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.DtgPlatosPedidos.AutoSizeRowsMode = System.Windows.Forms.DataGridViewAutoSizeRowsMode.AllCells;
-            this.DtgPlatosPedidos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
+            this.DtgPlatosPedidos.BackgroundColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
             this.DtgPlatosPedidos.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.DtgPlatosPedidos.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.DtgPlatosPedidos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Silver;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Silver;
@@ -1485,9 +1485,9 @@
             this.Column5});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.Gray;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(190)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.DtgPlatosPedidos.DefaultCellStyle = dataGridViewCellStyle3;
@@ -1519,6 +1519,7 @@
             // 
             // Column1
             // 
+            this.Column1.FillWeight = 80.21391F;
             this.Column1.HeaderText = "Código";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
@@ -1526,6 +1527,7 @@
             // 
             // Column2
             // 
+            this.Column2.FillWeight = 112.0693F;
             this.Column2.HeaderText = "Nombre";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
@@ -1533,6 +1535,7 @@
             // 
             // Column3
             // 
+            this.Column3.FillWeight = 83.57816F;
             this.Column3.HeaderText = "Cantidad";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
@@ -1540,6 +1543,7 @@
             // 
             // Column4
             // 
+            this.Column4.FillWeight = 112.0693F;
             this.Column4.HeaderText = "Precio unitario";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
@@ -1547,6 +1551,7 @@
             // 
             // Column5
             // 
+            this.Column5.FillWeight = 112.0693F;
             this.Column5.HeaderText = "Precio final";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
@@ -1746,6 +1751,7 @@
             this.Text = "Nuevo pedido - Garmoxu";
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmDetallesPedido_FormClosing);
+            this.Shown += new System.EventHandler(this.FrmPedidosDetalles_Shown);
             this.EnabledChanged += new System.EventHandler(this.FrmDetallesPedido_EnabledChanged);
             this.PnlBody.ResumeLayout(false);
             this.TabPrincipal.ResumeLayout(false);
@@ -1832,20 +1838,12 @@
         private System.Windows.Forms.TableLayoutPanel PnlDetallesPedido;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel21;
         private System.Windows.Forms.DataGridView DtgPlatosPedidos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label LblPrecioSinIVA;
         private System.Windows.Forms.Label LblPrecioConIVA;
         private System.Windows.Forms.TableLayoutPanel PnlPrincipal;
-        private System.Windows.Forms.TableLayoutPanel PnlTitleBar;
-        private FontAwesome.Sharp.IconButton BtnClose;
-        private System.Windows.Forms.Label LblTitulo;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel16;
         private MyGroupBox GrpTipoPedido;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
@@ -1884,5 +1882,13 @@
         private RJCodeAdvance.RJControls.RJTextBox TxtCodigoPlato;
         private FontAwesome.Sharp.IconButton BtnAñadirPlato;
         private FontAwesome.Sharp.IconButton BtnBorrarFilaPlato;
+        private System.Windows.Forms.TableLayoutPanel PnlTitleBar;
+        private FontAwesome.Sharp.IconButton BtnClose;
+        private System.Windows.Forms.Label LblTitulo;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
     }
 }
