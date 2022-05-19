@@ -1383,7 +1383,7 @@
             this.TxtCodigoPlato.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtCodigoPlato.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
             this.TxtCodigoPlato.ForeColor = System.Drawing.Color.Gray;
-            this.TxtCodigoPlato.Location = new System.Drawing.Point(122, 0);
+            this.TxtCodigoPlato.Location = new System.Drawing.Point(111, 0);
             this.TxtCodigoPlato.Margin = new System.Windows.Forms.Padding(10, 0, 10, 0);
             this.TxtCodigoPlato.Multiline = false;
             this.TxtCodigoPlato.Name = "TxtCodigoPlato";
@@ -1391,7 +1391,7 @@
             this.TxtCodigoPlato.PasswordChar = false;
             this.TxtCodigoPlato.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtCodigoPlato.PlaceholderText = "";
-            this.TxtCodigoPlato.Size = new System.Drawing.Size(546, 44);
+            this.TxtCodigoPlato.Size = new System.Drawing.Size(557, 44);
             this.TxtCodigoPlato.TabIndex = 2;
             this.TxtCodigoPlato.TabStop = false;
             this.TxtCodigoPlato.Texts = "Introducir código de plato";
@@ -1417,7 +1417,7 @@
             this.BtnAñadirPlato.Location = new System.Drawing.Point(0, 5);
             this.BtnAñadirPlato.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.BtnAñadirPlato.Name = "BtnAñadirPlato";
-            this.BtnAñadirPlato.Size = new System.Drawing.Size(51, 50);
+            this.BtnAñadirPlato.Size = new System.Drawing.Size(40, 50);
             this.BtnAñadirPlato.TabIndex = 2;
             this.BtnAñadirPlato.TabStop = false;
             this.BtnAñadirPlato.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
@@ -1439,7 +1439,7 @@
             this.BtnBorrarFilaPlato.IconChar = FontAwesome.Sharp.IconChar.CartArrowDown;
             this.BtnBorrarFilaPlato.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.BtnBorrarFilaPlato.IconFont = FontAwesome.Sharp.IconFont.Solid;
-            this.BtnBorrarFilaPlato.Location = new System.Drawing.Point(61, 5);
+            this.BtnBorrarFilaPlato.Location = new System.Drawing.Point(50, 5);
             this.BtnBorrarFilaPlato.Margin = new System.Windows.Forms.Padding(10, 5, 0, 0);
             this.BtnBorrarFilaPlato.Name = "BtnBorrarFilaPlato";
             this.BtnBorrarFilaPlato.Size = new System.Drawing.Size(51, 50);

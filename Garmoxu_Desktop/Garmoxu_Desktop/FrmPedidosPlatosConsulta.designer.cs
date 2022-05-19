@@ -30,275 +30,37 @@ namespace Garmoxu_Desktop
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            this.PnlMain = new System.Windows.Forms.TableLayoutPanel();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.BtnCerrar = new RJCodeAdvance.RJControls.RJButton();
-            this.PnlBusqueda = new System.Windows.Forms.TableLayoutPanel();
-            this.BtnBuscar = new RJCodeAdvance.RJControls.RJButton();
-            this.PnlCalendar = new System.Windows.Forms.Panel();
-            this.TxtNombre = new RJCodeAdvance.RJControls.RJTextBox();
-            this.ChkNombrePlato = new MaterialSkin.Controls.MaterialCheckBox();
-            this.PnlTipo = new System.Windows.Forms.Panel();
-            this.CboCategoria = new System.Windows.Forms.ComboBox();
-            this.ChkCategoriaPlato = new MaterialSkin.Controls.MaterialCheckBox();
-            this.PnlTelefono = new System.Windows.Forms.Panel();
-            this.TglDisponibilidad = new RJCodeAdvance.RJControls.RJToggleButton();
-            this.LblDisponibilidad = new MaterialSkin.Controls.MaterialLabel();
-            this.LstPlatos = new System.Windows.Forms.ListView();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPedidosPlatosConsulta));
             this.ImgImagenesPlatos = new System.Windows.Forms.ImageList(this.components);
-            this.PnlMain.SuspendLayout();
+            this.myGroupBox1 = new Garmoxu_Desktop.MyGroupBox();
+            this.LstPlatos = new System.Windows.Forms.ListView();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.TgbDisponibilidad = new RJCodeAdvance.RJControls.RJToggleButton();
+            this.TxtNombre = new RJCodeAdvance.RJControls.RJTextBox();
+            this.LblDisponibilidad = new System.Windows.Forms.Label();
+            this.CboCategoria = new RJCodeAdvance.RJControls.RJComboBox();
+            this.BtnBuscar = new FontAwesome.Sharp.IconButton();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
+            this.ChkCategoría = new Garmoxu_Desktop.MyCheckBox();
+            this.LblCategoria = new System.Windows.Forms.Label();
+            this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
+            this.ChkNombre = new Garmoxu_Desktop.MyCheckBox();
+            this.LblNombre = new System.Windows.Forms.Label();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
+            this.BtnClose = new FontAwesome.Sharp.IconButton();
+            this.LblTitulo = new System.Windows.Forms.Label();
+            this.myGroupBox1.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.tableLayoutPanel2.SuspendLayout();
+            this.tableLayoutPanel3.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            this.PnlBusqueda.SuspendLayout();
-            this.PnlCalendar.SuspendLayout();
-            this.PnlTipo.SuspendLayout();
-            this.PnlTelefono.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
+            this.tableLayoutPanel7.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // PnlMain
-            // 
-            this.PnlMain.ColumnCount = 1;
-            this.PnlMain.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.PnlMain.Controls.Add(this.tableLayoutPanel1, 0, 2);
-            this.PnlMain.Controls.Add(this.PnlBusqueda, 0, 0);
-            this.PnlMain.Controls.Add(this.LstPlatos, 0, 1);
-            this.PnlMain.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlMain.Location = new System.Drawing.Point(0, 0);
-            this.PnlMain.Margin = new System.Windows.Forms.Padding(4);
-            this.PnlMain.Name = "PnlMain";
-            this.PnlMain.Padding = new System.Windows.Forms.Padding(27, 25, 27, 25);
-            this.PnlMain.RowCount = 3;
-            this.PnlMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 62F));
-            this.PnlMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 85F));
-            this.PnlMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.PnlMain.Size = new System.Drawing.Size(1085, 608);
-            this.PnlMain.TabIndex = 2;
-            // 
-            // tableLayoutPanel1
-            // 
-            this.tableLayoutPanel1.ColumnCount = 3;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33333F));
-            this.tableLayoutPanel1.Controls.Add(this.BtnCerrar, 0, 0);
-            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(31, 512);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
-            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.RowCount = 2;
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 25F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1023, 67);
-            this.tableLayoutPanel1.TabIndex = 4;
-            // 
-            // BtnCerrar
-            // 
-            this.BtnCerrar.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.BtnCerrar.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.BtnCerrar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.BtnCerrar.BorderRadius = 0;
-            this.BtnCerrar.BorderSize = 0;
-            this.BtnCerrar.Dock = System.Windows.Forms.DockStyle.Top;
-            this.BtnCerrar.FlatAppearance.BorderSize = 0;
-            this.BtnCerrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCerrar.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.BtnCerrar.ForeColor = System.Drawing.Color.White;
-            this.BtnCerrar.Location = new System.Drawing.Point(4, 4);
-            this.BtnCerrar.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnCerrar.Name = "BtnCerrar";
-            this.BtnCerrar.Size = new System.Drawing.Size(333, 34);
-            this.BtnCerrar.TabIndex = 0;
-            this.BtnCerrar.Text = "Cerrar";
-            this.BtnCerrar.TextColor = System.Drawing.Color.White;
-            this.BtnCerrar.UseVisualStyleBackColor = false;
-            this.BtnCerrar.Click += new System.EventHandler(this.BtnCerrar_Click);
-            // 
-            // PnlBusqueda
-            // 
-            this.PnlBusqueda.ColumnCount = 5;
-            this.PnlBusqueda.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 30F));
-            this.PnlBusqueda.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26F));
-            this.PnlBusqueda.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26F));
-            this.PnlBusqueda.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 3F));
-            this.PnlBusqueda.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
-            this.PnlBusqueda.Controls.Add(this.BtnBuscar, 4, 0);
-            this.PnlBusqueda.Controls.Add(this.PnlCalendar, 0, 0);
-            this.PnlBusqueda.Controls.Add(this.PnlTipo, 1, 0);
-            this.PnlBusqueda.Controls.Add(this.PnlTelefono, 2, 0);
-            this.PnlBusqueda.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlBusqueda.Location = new System.Drawing.Point(31, 29);
-            this.PnlBusqueda.Margin = new System.Windows.Forms.Padding(4);
-            this.PnlBusqueda.Name = "PnlBusqueda";
-            this.PnlBusqueda.RowCount = 1;
-            this.PnlBusqueda.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.PnlBusqueda.Size = new System.Drawing.Size(1023, 54);
-            this.PnlBusqueda.TabIndex = 0;
-            // 
-            // BtnBuscar
-            // 
-            this.BtnBuscar.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.BtnBuscar.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.BtnBuscar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.BtnBuscar.BorderRadius = 0;
-            this.BtnBuscar.BorderSize = 0;
-            this.BtnBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnBuscar.FlatAppearance.BorderSize = 0;
-            this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnBuscar.ForeColor = System.Drawing.Color.White;
-            this.BtnBuscar.Location = new System.Drawing.Point(870, 4);
-            this.BtnBuscar.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnBuscar.Name = "BtnBuscar";
-            this.BtnBuscar.Size = new System.Drawing.Size(149, 46);
-            this.BtnBuscar.TabIndex = 0;
-            this.BtnBuscar.Text = "Buscar";
-            this.BtnBuscar.TextColor = System.Drawing.Color.White;
-            this.BtnBuscar.UseVisualStyleBackColor = false;
-            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
-            // 
-            // PnlCalendar
-            // 
-            this.PnlCalendar.Controls.Add(this.TxtNombre);
-            this.PnlCalendar.Controls.Add(this.ChkNombrePlato);
-            this.PnlCalendar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlCalendar.Location = new System.Drawing.Point(4, 4);
-            this.PnlCalendar.Margin = new System.Windows.Forms.Padding(4);
-            this.PnlCalendar.Name = "PnlCalendar";
-            this.PnlCalendar.Size = new System.Drawing.Size(298, 46);
-            this.PnlCalendar.TabIndex = 9;
-            // 
-            // TxtNombre
-            // 
-            this.TxtNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.TxtNombre.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtNombre.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.TxtNombre.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.TxtNombre.BorderRadius = 0;
-            this.TxtNombre.BorderSize = 2;
-            this.TxtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TxtNombre.Location = new System.Drawing.Point(52, 5);
-            this.TxtNombre.Margin = new System.Windows.Forms.Padding(5);
-            this.TxtNombre.Multiline = false;
-            this.TxtNombre.Name = "TxtNombre";
-            this.TxtNombre.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
-            this.TxtNombre.PasswordChar = false;
-            this.TxtNombre.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TxtNombre.PlaceholderText = "";
-            this.TxtNombre.Size = new System.Drawing.Size(240, 39);
-            this.TxtNombre.TabIndex = 8;
-            this.TxtNombre.Texts = "Nombre";
-            this.TxtNombre.UnderlinedStyle = false;
-            this.TxtNombre._TextChanged += new System.EventHandler(this.TxtNombre__TextChanged);
-            this.TxtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNombre_KeyPress);
-            // 
-            // ChkNombrePlato
-            // 
-            this.ChkNombrePlato.AutoSize = true;
-            this.ChkNombrePlato.Depth = 0;
-            this.ChkNombrePlato.Font = new System.Drawing.Font("Roboto", 10F);
-            this.ChkNombrePlato.Location = new System.Drawing.Point(12, 6);
-            this.ChkNombrePlato.Margin = new System.Windows.Forms.Padding(0);
-            this.ChkNombrePlato.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.ChkNombrePlato.MouseState = MaterialSkin.MouseState.HOVER;
-            this.ChkNombrePlato.Name = "ChkNombrePlato";
-            this.ChkNombrePlato.Ripple = true;
-            this.ChkNombrePlato.Size = new System.Drawing.Size(26, 30);
-            this.ChkNombrePlato.TabIndex = 7;
-            this.ChkNombrePlato.UseVisualStyleBackColor = true;
-            // 
-            // PnlTipo
-            // 
-            this.PnlTipo.Controls.Add(this.CboCategoria);
-            this.PnlTipo.Controls.Add(this.ChkCategoriaPlato);
-            this.PnlTipo.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlTipo.Location = new System.Drawing.Point(310, 4);
-            this.PnlTipo.Margin = new System.Windows.Forms.Padding(4);
-            this.PnlTipo.Name = "PnlTipo";
-            this.PnlTipo.Size = new System.Drawing.Size(257, 46);
-            this.PnlTipo.TabIndex = 10;
-            // 
-            // CboCategoria
-            // 
-            this.CboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CboCategoria.FormattingEnabled = true;
-            this.CboCategoria.Location = new System.Drawing.Point(64, 12);
-            this.CboCategoria.Margin = new System.Windows.Forms.Padding(4);
-            this.CboCategoria.Name = "CboCategoria";
-            this.CboCategoria.Size = new System.Drawing.Size(188, 24);
-            this.CboCategoria.TabIndex = 1;
-            this.CboCategoria.SelectedIndexChanged += new System.EventHandler(this.CboCategoria_SelectedIndexChanged);
-            // 
-            // ChkCategoriaPlato
-            // 
-            this.ChkCategoriaPlato.AutoSize = true;
-            this.ChkCategoriaPlato.Depth = 0;
-            this.ChkCategoriaPlato.Font = new System.Drawing.Font("Roboto", 10F);
-            this.ChkCategoriaPlato.Location = new System.Drawing.Point(12, 6);
-            this.ChkCategoriaPlato.Margin = new System.Windows.Forms.Padding(0);
-            this.ChkCategoriaPlato.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.ChkCategoriaPlato.MouseState = MaterialSkin.MouseState.HOVER;
-            this.ChkCategoriaPlato.Name = "ChkCategoriaPlato";
-            this.ChkCategoriaPlato.Ripple = true;
-            this.ChkCategoriaPlato.Size = new System.Drawing.Size(26, 30);
-            this.ChkCategoriaPlato.TabIndex = 0;
-            this.ChkCategoriaPlato.UseVisualStyleBackColor = true;
-            // 
-            // PnlTelefono
-            // 
-            this.PnlTelefono.Controls.Add(this.TglDisponibilidad);
-            this.PnlTelefono.Controls.Add(this.LblDisponibilidad);
-            this.PnlTelefono.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlTelefono.Location = new System.Drawing.Point(575, 4);
-            this.PnlTelefono.Margin = new System.Windows.Forms.Padding(4);
-            this.PnlTelefono.Name = "PnlTelefono";
-            this.PnlTelefono.Size = new System.Drawing.Size(257, 46);
-            this.PnlTelefono.TabIndex = 11;
-            // 
-            // TglDisponibilidad
-            // 
-            this.TglDisponibilidad.AutoSize = true;
-            this.TglDisponibilidad.Checked = true;
-            this.TglDisponibilidad.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.TglDisponibilidad.Location = new System.Drawing.Point(16, 11);
-            this.TglDisponibilidad.Margin = new System.Windows.Forms.Padding(4);
-            this.TglDisponibilidad.MinimumSize = new System.Drawing.Size(60, 27);
-            this.TglDisponibilidad.Name = "TglDisponibilidad";
-            this.TglDisponibilidad.OffBackColor = System.Drawing.Color.Gray;
-            this.TglDisponibilidad.OffToggleColor = System.Drawing.Color.Gainsboro;
-            this.TglDisponibilidad.OnBackColor = System.Drawing.Color.MediumSlateBlue;
-            this.TglDisponibilidad.OnToggleColor = System.Drawing.Color.WhiteSmoke;
-            this.TglDisponibilidad.Size = new System.Drawing.Size(60, 27);
-            this.TglDisponibilidad.TabIndex = 2;
-            this.TglDisponibilidad.UseVisualStyleBackColor = true;
-            // 
-            // LblDisponibilidad
-            // 
-            this.LblDisponibilidad.AutoSize = true;
-            this.LblDisponibilidad.Depth = 0;
-            this.LblDisponibilidad.Font = new System.Drawing.Font("Roboto", 11F);
-            this.LblDisponibilidad.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(222)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
-            this.LblDisponibilidad.Location = new System.Drawing.Point(84, 11);
-            this.LblDisponibilidad.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.LblDisponibilidad.MouseState = MaterialSkin.MouseState.HOVER;
-            this.LblDisponibilidad.Name = "LblDisponibilidad";
-            this.LblDisponibilidad.Size = new System.Drawing.Size(132, 24);
-            this.LblDisponibilidad.TabIndex = 1;
-            this.LblDisponibilidad.Text = "Disponibilidad";
-            // 
-            // LstPlatos
-            // 
-            this.LstPlatos.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LstPlatos.HideSelection = false;
-            this.LstPlatos.LargeImageList = this.ImgImagenesPlatos;
-            this.LstPlatos.Location = new System.Drawing.Point(31, 91);
-            this.LstPlatos.Margin = new System.Windows.Forms.Padding(4);
-            this.LstPlatos.MultiSelect = false;
-            this.LstPlatos.Name = "LstPlatos";
-            this.LstPlatos.Size = new System.Drawing.Size(1023, 413);
-            this.LstPlatos.TabIndex = 3;
-            this.LstPlatos.UseCompatibleStateImageBehavior = false;
-            this.LstPlatos.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LstPlatos_MouseDoubleClick);
             // 
             // ImgImagenesPlatos
             // 
@@ -306,48 +68,453 @@ namespace Garmoxu_Desktop
             this.ImgImagenesPlatos.ImageSize = new System.Drawing.Size(128, 128);
             this.ImgImagenesPlatos.TransparentColor = System.Drawing.Color.Transparent;
             // 
+            // myGroupBox1
+            // 
+            this.myGroupBox1.BackColor = System.Drawing.Color.Transparent;
+            this.myGroupBox1.Background = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
+            this.myGroupBox1.BorderColor = System.Drawing.Color.Silver;
+            this.myGroupBox1.BorderSize = 5;
+            this.myGroupBox1.Controls.Add(this.LstPlatos);
+            this.myGroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.myGroupBox1.Location = new System.Drawing.Point(3, 112);
+            this.myGroupBox1.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
+            this.myGroupBox1.Name = "myGroupBox1";
+            this.myGroupBox1.Padding = new System.Windows.Forms.Padding(20, 30, 20, 20);
+            this.myGroupBox1.Size = new System.Drawing.Size(1390, 674);
+            this.myGroupBox1.TabIndex = 1;
+            this.myGroupBox1.TabStop = false;
+            this.myGroupBox1.Text = "Platos";
+            this.myGroupBox1.TextActivated = false;
+            // 
+            // LstPlatos
+            // 
+            this.LstPlatos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
+            this.LstPlatos.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.LstPlatos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LstPlatos.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
+            this.LstPlatos.ForeColor = System.Drawing.Color.White;
+            this.LstPlatos.HideSelection = false;
+            this.LstPlatos.LargeImageList = this.ImgImagenesPlatos;
+            this.LstPlatos.Location = new System.Drawing.Point(20, 45);
+            this.LstPlatos.Margin = new System.Windows.Forms.Padding(4, 20, 4, 4);
+            this.LstPlatos.MultiSelect = false;
+            this.LstPlatos.Name = "LstPlatos";
+            this.LstPlatos.Size = new System.Drawing.Size(1350, 609);
+            this.LstPlatos.TabIndex = 7;
+            this.LstPlatos.TabStop = false;
+            this.LstPlatos.UseCompatibleStateImageBehavior = false;
+            this.LstPlatos.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.LstPlatos_MouseDoubleClick);
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.ColumnCount = 9;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel4.Controls.Add(this.TgbDisponibilidad, 6, 1);
+            this.tableLayoutPanel4.Controls.Add(this.TxtNombre, 2, 1);
+            this.tableLayoutPanel4.Controls.Add(this.LblDisponibilidad, 6, 0);
+            this.tableLayoutPanel4.Controls.Add(this.CboCategoria, 4, 1);
+            this.tableLayoutPanel4.Controls.Add(this.BtnBuscar, 8, 1);
+            this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel2, 4, 0);
+            this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel3, 2, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.ForeColor = System.Drawing.Color.White;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 2;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1390, 96);
+            this.tableLayoutPanel4.TabIndex = 0;
+            // 
+            // TgbDisponibilidad
+            // 
+            this.TgbDisponibilidad.AutoSize = true;
+            this.TgbDisponibilidad.Checked = true;
+            this.TgbDisponibilidad.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.TgbDisponibilidad.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.TgbDisponibilidad.Location = new System.Drawing.Point(1148, 47);
+            this.TgbDisponibilidad.Margin = new System.Windows.Forms.Padding(35, 4, 4, 4);
+            this.TgbDisponibilidad.MinimumSize = new System.Drawing.Size(60, 27);
+            this.TgbDisponibilidad.Name = "TgbDisponibilidad";
+            this.TgbDisponibilidad.OffBackColor = System.Drawing.Color.Gray;
+            this.TgbDisponibilidad.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.TgbDisponibilidad.OnBackColor = System.Drawing.Color.MediumSlateBlue;
+            this.TgbDisponibilidad.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.TgbDisponibilidad.Size = new System.Drawing.Size(60, 27);
+            this.TgbDisponibilidad.TabIndex = 56;
+            this.TgbDisponibilidad.TabStop = false;
+            this.TgbDisponibilidad.UseVisualStyleBackColor = true;
+            this.TgbDisponibilidad.CheckedChanged += new System.EventHandler(this.TgbDisponibilidad_CheckedChanged);
+            // 
+            // TxtNombre
+            // 
+            this.TxtNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.TxtNombre.BorderColor = System.Drawing.Color.Transparent;
+            this.TxtNombre.BorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.TxtNombre.BorderRadius = 10;
+            this.TxtNombre.BorderSize = 2;
+            this.TxtNombre.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TxtNombre.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
+            this.TxtNombre.ForeColor = System.Drawing.Color.Gray;
+            this.TxtNombre.Location = new System.Drawing.Point(0, 43);
+            this.TxtNombre.Margin = new System.Windows.Forms.Padding(0);
+            this.TxtNombre.Multiline = false;
+            this.TxtNombre.Name = "TxtNombre";
+            this.TxtNombre.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtNombre.PasswordChar = false;
+            this.TxtNombre.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TxtNombre.PlaceholderText = "";
+            this.TxtNombre.Size = new System.Drawing.Size(783, 55);
+            this.TxtNombre.TabIndex = 49;
+            this.TxtNombre.TabStop = false;
+            this.TxtNombre.Texts = "Buscar por nombre de plato";
+            this.TxtNombre.UnderlinedStyle = false;
+            this.TxtNombre._TextChanged += new System.EventHandler(this.TxtNombre__TextChanged);
+            this.TxtNombre.Enter += new System.EventHandler(this.TxtNombre_Enter);
+            this.TxtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtNombre_KeyPress);
+            this.TxtNombre.Leave += new System.EventHandler(this.TxtNombre_Leave);
+            // 
+            // LblDisponibilidad
+            // 
+            this.LblDisponibilidad.AutoSize = true;
+            this.LblDisponibilidad.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
+            this.LblDisponibilidad.ForeColor = System.Drawing.Color.Gainsboro;
+            this.LblDisponibilidad.Location = new System.Drawing.Point(1143, 0);
+            this.LblDisponibilidad.Margin = new System.Windows.Forms.Padding(30, 0, 3, 0);
+            this.LblDisponibilidad.Name = "LblDisponibilidad";
+            this.LblDisponibilidad.Size = new System.Drawing.Size(182, 33);
+            this.LblDisponibilidad.TabIndex = 14;
+            this.LblDisponibilidad.Text = "Disponibilidad";
+            this.LblDisponibilidad.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // CboCategoria
+            // 
+            this.CboCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.CboCategoria.BorderColor = System.Drawing.Color.Transparent;
+            this.CboCategoria.BorderSize = 0;
+            this.CboCategoria.Dock = System.Windows.Forms.DockStyle.Top;
+            this.CboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CboCategoria.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
+            this.CboCategoria.ForeColor = System.Drawing.Color.Gainsboro;
+            this.CboCategoria.IconColor = System.Drawing.Color.Gainsboro;
+            this.CboCategoria.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
+            this.CboCategoria.ListTextColor = System.Drawing.Color.DimGray;
+            this.CboCategoria.Location = new System.Drawing.Point(813, 43);
+            this.CboCategoria.Margin = new System.Windows.Forms.Padding(30, 0, 0, 0);
+            this.CboCategoria.MinimumSize = new System.Drawing.Size(200, 30);
+            this.CboCategoria.Name = "CboCategoria";
+            this.CboCategoria.Size = new System.Drawing.Size(300, 51);
+            this.CboCategoria.TabIndex = 28;
+            this.CboCategoria.TabStop = false;
+            this.CboCategoria.Texts = "";
+            this.CboCategoria.OnSelectedIndexChanged += new System.EventHandler(this.CboCategoria_SelectedIndexChanged);
+            // 
+            // BtnBuscar
+            // 
+            this.BtnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBuscar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
+            this.BtnBuscar.FlatAppearance.BorderSize = 0;
+            this.BtnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
+            this.BtnBuscar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
+            this.BtnBuscar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnBuscar.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal;
+            this.BtnBuscar.ForeColor = System.Drawing.Color.Transparent;
+            this.BtnBuscar.IconChar = FontAwesome.Sharp.IconChar.Search;
+            this.BtnBuscar.IconColor = System.Drawing.Color.MediumSlateBlue;
+            this.BtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnBuscar.Location = new System.Drawing.Point(1348, 43);
+            this.BtnBuscar.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.BtnBuscar.Name = "BtnBuscar";
+            this.BtnBuscar.Size = new System.Drawing.Size(42, 53);
+            this.BtnBuscar.TabIndex = 45;
+            this.BtnBuscar.TabStop = false;
+            this.BtnBuscar.UseVisualStyleBackColor = true;
+            this.BtnBuscar.Click += new System.EventHandler(this.BtnBuscar_Click);
+            this.BtnBuscar.MouseEnter += new System.EventHandler(this.BtnBuscar_MouseEnter);
+            this.BtnBuscar.MouseLeave += new System.EventHandler(this.BtnBuscar_MouseLeave);
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 3;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.Controls.Add(this.ChkCategoría, 1, 0);
+            this.tableLayoutPanel2.Controls.Add(this.LblCategoria, 0, 0);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(786, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 1;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(324, 37);
+            this.tableLayoutPanel2.TabIndex = 58;
+            // 
+            // ChkCategoría
+            // 
+            this.ChkCategoría.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.ChkCategoría.BackColor = System.Drawing.Color.Transparent;
+            this.ChkCategoría.Background = System.Drawing.Color.Transparent;
+            this.ChkCategoría.BorderColor = System.Drawing.Color.Gainsboro;
+            this.ChkCategoría.BorderHeight = 15;
+            this.ChkCategoría.BorderWidth = 15;
+            this.ChkCategoría.Checked = false;
+            this.ChkCategoría.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ChkCategoría.EnterColor = System.Drawing.Color.White;
+            this.ChkCategoría.Font = new System.Drawing.Font("Source Sans Pro Black", 14F, System.Drawing.FontStyle.Bold);
+            this.ChkCategoría.ForeColor = System.Drawing.Color.White;
+            this.ChkCategoría.LeaveColor = System.Drawing.Color.Gainsboro;
+            this.ChkCategoría.Location = new System.Drawing.Point(162, 4);
+            this.ChkCategoría.Name = "ChkCategoría";
+            this.ChkCategoría.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
+            this.ChkCategoría.PaddingCheck = new System.Windows.Forms.Padding(0);
+            this.ChkCategoría.Size = new System.Drawing.Size(35, 28);
+            this.ChkCategoría.TabIndex = 57;
+            this.ChkCategoría.TabStop = false;
+            this.ChkCategoría.MouseEnter += new System.EventHandler(this.ChkCategoría_MouseEnter);
+            this.ChkCategoría.MouseLeave += new System.EventHandler(this.ChkCategoría_MouseLeave);
+            // 
+            // LblCategoria
+            // 
+            this.LblCategoria.AutoSize = true;
+            this.LblCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LblCategoria.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
+            this.LblCategoria.ForeColor = System.Drawing.Color.Gainsboro;
+            this.LblCategoria.Location = new System.Drawing.Point(30, 0);
+            this.LblCategoria.Margin = new System.Windows.Forms.Padding(30, 0, 3, 0);
+            this.LblCategoria.Name = "LblCategoria";
+            this.LblCategoria.Size = new System.Drawing.Size(126, 33);
+            this.LblCategoria.TabIndex = 58;
+            this.LblCategoria.Text = "Categoría";
+            this.LblCategoria.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblCategoria.Click += new System.EventHandler(this.LblCategoria_Click);
+            this.LblCategoria.MouseEnter += new System.EventHandler(this.ChkCategoría_MouseEnter);
+            this.LblCategoria.MouseLeave += new System.EventHandler(this.ChkCategoría_MouseLeave);
+            // 
+            // tableLayoutPanel3
+            // 
+            this.tableLayoutPanel3.ColumnCount = 3;
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Controls.Add(this.ChkNombre, 1, 0);
+            this.tableLayoutPanel3.Controls.Add(this.LblNombre, 0, 0);
+            this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel3.Name = "tableLayoutPanel3";
+            this.tableLayoutPanel3.RowCount = 1;
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(777, 37);
+            this.tableLayoutPanel3.TabIndex = 61;
+            // 
+            // ChkNombre
+            // 
+            this.ChkNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.ChkNombre.BackColor = System.Drawing.Color.Transparent;
+            this.ChkNombre.Background = System.Drawing.Color.Transparent;
+            this.ChkNombre.BorderColor = System.Drawing.Color.Gainsboro;
+            this.ChkNombre.BorderHeight = 15;
+            this.ChkNombre.BorderWidth = 15;
+            this.ChkNombre.Checked = false;
+            this.ChkNombre.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ChkNombre.EnterColor = System.Drawing.Color.White;
+            this.ChkNombre.Font = new System.Drawing.Font("Source Sans Pro Black", 14F, System.Drawing.FontStyle.Bold);
+            this.ChkNombre.ForeColor = System.Drawing.Color.White;
+            this.ChkNombre.LeaveColor = System.Drawing.Color.Gainsboro;
+            this.ChkNombre.Location = new System.Drawing.Point(210, 4);
+            this.ChkNombre.Name = "ChkNombre";
+            this.ChkNombre.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
+            this.ChkNombre.PaddingCheck = new System.Windows.Forms.Padding(0);
+            this.ChkNombre.Size = new System.Drawing.Size(35, 28);
+            this.ChkNombre.TabIndex = 59;
+            this.ChkNombre.TabStop = false;
+            this.ChkNombre.Text = "myCheckBox2";
+            this.ChkNombre.MouseEnter += new System.EventHandler(this.ChkNombre_MouseEnter);
+            this.ChkNombre.MouseLeave += new System.EventHandler(this.ChkNombre_MouseLeave);
+            // 
+            // LblNombre
+            // 
+            this.LblNombre.AutoSize = true;
+            this.LblNombre.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.LblNombre.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
+            this.LblNombre.ForeColor = System.Drawing.Color.Gainsboro;
+            this.LblNombre.Location = new System.Drawing.Point(0, 0);
+            this.LblNombre.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
+            this.LblNombre.Name = "LblNombre";
+            this.LblNombre.Size = new System.Drawing.Size(204, 33);
+            this.LblNombre.TabIndex = 60;
+            this.LblNombre.Text = "Nombre de plato";
+            this.LblNombre.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.LblNombre.Click += new System.EventHandler(this.LblNombre_Click);
+            this.LblNombre.MouseEnter += new System.EventHandler(this.ChkNombre_MouseEnter);
+            this.LblNombre.MouseLeave += new System.EventHandler(this.ChkNombre_MouseLeave);
+            // 
+            // tableLayoutPanel1
+            // 
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.myGroupBox1, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1396, 789);
+            this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.ColumnCount = 1;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Controls.Add(this.tableLayoutPanel1, 0, 2);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(70, 122);
+            this.tableLayoutPanel5.Margin = new System.Windows.Forms.Padding(70, 50, 70, 50);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 3;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(1396, 789);
+            this.tableLayoutPanel5.TabIndex = 2;
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 1;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel7, 0, 0);
+            this.tableLayoutPanel6.Controls.Add(this.tableLayoutPanel5, 0, 1);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 2;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(1536, 961);
+            this.tableLayoutPanel6.TabIndex = 3;
+            // 
+            // tableLayoutPanel7
+            // 
+            this.tableLayoutPanel7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(42)))), ((int)(((byte)(45)))));
+            this.tableLayoutPanel7.ColumnCount = 2;
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel7.Controls.Add(this.BtnClose, 1, 0);
+            this.tableLayoutPanel7.Controls.Add(this.LblTitulo, 0, 0);
+            this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel7.Name = "tableLayoutPanel7";
+            this.tableLayoutPanel7.RowCount = 1;
+            this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(1536, 72);
+            this.tableLayoutPanel7.TabIndex = 1;
+            // 
+            // BtnClose
+            // 
+            this.BtnClose.BackColor = System.Drawing.Color.Transparent;
+            this.BtnClose.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(42)))), ((int)(((byte)(45)))));
+            this.BtnClose.FlatAppearance.BorderSize = 0;
+            this.BtnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(71)))), ((int)(((byte)(83)))));
+            this.BtnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(41)))), ((int)(((byte)(83)))));
+            this.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
+            this.BtnClose.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.BtnClose.IconColor = System.Drawing.Color.White;
+            this.BtnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnClose.IconSize = 25;
+            this.BtnClose.Location = new System.Drawing.Point(1469, 0);
+            this.BtnClose.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnClose.Name = "BtnClose";
+            this.BtnClose.Size = new System.Drawing.Size(67, 72);
+            this.BtnClose.TabIndex = 1;
+            this.BtnClose.TabStop = false;
+            this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnClose.UseVisualStyleBackColor = false;
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
+            // 
+            // LblTitulo
+            // 
+            this.LblTitulo.AutoSize = true;
+            this.LblTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LblTitulo.Font = new System.Drawing.Font("Source Sans Pro", 18F, System.Drawing.FontStyle.Bold);
+            this.LblTitulo.ForeColor = System.Drawing.Color.White;
+            this.LblTitulo.Location = new System.Drawing.Point(14, 0);
+            this.LblTitulo.Margin = new System.Windows.Forms.Padding(14, 0, 0, 0);
+            this.LblTitulo.Name = "LblTitulo";
+            this.LblTitulo.Size = new System.Drawing.Size(1455, 72);
+            this.LblTitulo.TabIndex = 0;
+            this.LblTitulo.Text = "Consulta los platos";
+            this.LblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
             // FrmPedidosPlatosConsulta
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
-            this.ClientSize = new System.Drawing.Size(1085, 608);
-            this.Controls.Add(this.PnlMain);
+            this.ClientSize = new System.Drawing.Size(1536, 961);
+            this.Controls.Add(this.tableLayoutPanel6);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmPedidosPlatosConsulta";
             this.ShowInTaskbar = false;
-            this.Text = "FrmPlatos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Consulta los platos - Garmoxu";
             this.TopMost = true;
-            this.PnlMain.ResumeLayout(false);
+            this.myGroupBox1.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
+            this.tableLayoutPanel3.ResumeLayout(false);
+            this.tableLayoutPanel3.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
-            this.PnlBusqueda.ResumeLayout(false);
-            this.PnlCalendar.ResumeLayout(false);
-            this.PnlCalendar.PerformLayout();
-            this.PnlTipo.ResumeLayout(false);
-            this.PnlTipo.PerformLayout();
-            this.PnlTelefono.ResumeLayout(false);
-            this.PnlTelefono.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.tableLayoutPanel7.ResumeLayout(false);
+            this.tableLayoutPanel7.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.TableLayoutPanel PnlMain;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private RJCodeAdvance.RJControls.RJButton BtnCerrar;
-        private System.Windows.Forms.TableLayoutPanel PnlBusqueda;
-        private RJCodeAdvance.RJControls.RJButton BtnBuscar;
-        private System.Windows.Forms.Panel PnlCalendar;
-        private MaterialSkin.Controls.MaterialCheckBox ChkNombrePlato;
-        private System.Windows.Forms.Panel PnlTipo;
-        private MaterialSkin.Controls.MaterialCheckBox ChkCategoriaPlato;
-        private System.Windows.Forms.Panel PnlTelefono;
-        private RJCodeAdvance.RJControls.RJTextBox TxtNombre;
-        private MaterialSkin.Controls.MaterialLabel LblDisponibilidad;
-        private System.Windows.Forms.ListView LstPlatos;
         private System.Windows.Forms.ImageList ImgImagenesPlatos;
-        private System.Windows.Forms.ComboBox CboCategoria;
-        private RJCodeAdvance.RJControls.RJToggleButton TglDisponibilidad;
+        private MyGroupBox myGroupBox1;
+        private System.Windows.Forms.ListView LstPlatos;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private RJCodeAdvance.RJControls.RJToggleButton TgbDisponibilidad;
+        private RJCodeAdvance.RJControls.RJTextBox TxtNombre;
+        private System.Windows.Forms.Label LblDisponibilidad;
+        private RJCodeAdvance.RJControls.RJComboBox CboCategoria;
+        private FontAwesome.Sharp.IconButton BtnBuscar;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
+        private MyCheckBox ChkCategoría;
+        private System.Windows.Forms.Label LblCategoria;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
+        private MyCheckBox ChkNombre;
+        private System.Windows.Forms.Label LblNombre;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
+        private FontAwesome.Sharp.IconButton BtnClose;
+        private System.Windows.Forms.Label LblTitulo;
     }
 }

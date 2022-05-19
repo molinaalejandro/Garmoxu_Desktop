@@ -29,6 +29,11 @@ namespace Garmoxu_Desktop
         }
 
         #region Apertura del formulario
+        private void FrmReservas_Shown(object sender, EventArgs e)
+        {
+            DtgReservas.ClearSelection();
+        }
+
         #region Cargar tabla reservas
         private void CargarReservasGridView()
         {
@@ -53,64 +58,82 @@ namespace Garmoxu_Desktop
         #endregion
         #endregion
 
-        #region Funciones y diseño del formulario
-        #region Actualizacion automática de las reservas
-        private void FrmReservas_EnabledChanged(object sender, EventArgs e)
+        #region Funciones y diseños de controles
+        #region Text box cliente y mesa
+        private void TxtBuscar_Enter(object sender, EventArgs e)
         {
-            // Si esta activado es que el form detalles se ha cerrado, actualiza
-            if (this.Enabled)
-                BtnBuscar_Click(null, null);
-        }
-        #endregion
-
-        #region Control filtro
-        private void BtnCliente_Click(object sender, EventArgs e)
-        {
-            PnlSubFiltro.BackColor = BtnCliente.BackColor;
-            BtnClienteActivado = true;
-        }
-
-        #region Boton cliente
-        private void BtnCliente_MouseEnter(object sender, EventArgs e)
-        {
-            if (PnlSubFiltro.BackColor == BtnCliente.BackColor)
+            if (TxtBuscar.Texts.Trim().Equals(BtnClienteActivado ? "Buscar por teléfono de cliente" : "Buscar por número de mesa"))
             {
-                BtnCliente.FlatAppearance.MouseOverBackColor = BtnCliente.BackColor;
-                BtnCliente.FlatAppearance.MouseDownBackColor = BtnCliente.BackColor;
+                TxtBuscar.Texts = string.Empty;
+                TxtBuscar.ForeColor = Color.Gainsboro;
             }
-            else
+        }
+
+        private void TxtBuscar_Leave(object sender, EventArgs e)
+        {
+            if (TxtBuscar.Texts.Trim().Equals(string.Empty))
             {
-                BtnCliente.FlatAppearance.MouseOverBackColor = Color.Empty;
-                BtnCliente.FlatAppearance.MouseDownBackColor = Color.Empty;
+                TxtBuscar.Texts = BtnClienteActivado ? "Buscar por teléfono de cliente" : "Buscar por número de mesa";
+                TxtBuscar.ForeColor = Color.Gray;
             }
         }
         #endregion
 
-        #region Boton mesa
-        private void BtnMesa_Click(object sender, EventArgs e)
+        #region Botón de buscar
+        private void BtnBuscar_MouseEnter(object sender, EventArgs e)
         {
-            PnlSubFiltro.BackColor = BtnMesa.BackColor;
-            BtnClienteActivado = false;
+            BtnBuscar.IconColor = Color.DeepSkyBlue;
         }
 
-        private void BtnMesa_MouseEnter(object sender, EventArgs e)
+        private void BtnBuscar_MouseLeave(object sender, EventArgs e)
         {
-            if (PnlSubFiltro.BackColor == BtnMesa.BackColor)
-            {
-                BtnMesa.FlatAppearance.MouseOverBackColor = BtnMesa.BackColor;
-                BtnMesa.FlatAppearance.MouseDownBackColor = BtnMesa.BackColor;
-            }
-            else
-            {
-                BtnMesa.FlatAppearance.MouseOverBackColor = Color.Empty;
-                BtnMesa.FlatAppearance.MouseDownBackColor = Color.Empty;
-            }
+            BtnBuscar.IconColor = Color.MediumSlateBlue;
+        }
+        #endregion
+
+        #region Check box y label de calendar
+        private void ChkCalendar_MouseEnter(object sender, EventArgs e)
+        {
+            ChkCalendar.BorderColor = ChkCalendar.EnterColor;
+            ChkCalendar.ForeColor = ChkCalendar.EnterColor;
+            LblFecha.ForeColor = ChkCalendar.EnterColor;
+            ChkCalendar.Invalidate();
+        }
+
+        private void ChkCalendar_MouseLeave(object sender, EventArgs e)
+        {
+            ChkCalendar.BorderColor = ChkCalendar.LeaveColor;
+            ChkCalendar.ForeColor = ChkCalendar.LeaveColor;
+            LblFecha.ForeColor = ChkCalendar.LeaveColor;
+            ChkCalendar.Invalidate();
+        }
+        #endregion
+
+        #region Botón Eliminar
+        private void BtnEliminar_MouseEnter(object sender, EventArgs e)
+        {
+            BtnEliminar.IconColor = Color.LightCoral;
+        }
+
+        private void BtnEliminar_MouseLeave(object sender, EventArgs e)
+        {
+            BtnEliminar.IconColor = Color.FromArgb(255, 70, 70);
+        }
+        #endregion
+
+        #region Botón Nuevo
+        private void BtnNuevo_MouseEnter(object sender, EventArgs e)
+        {
+            BtnNuevo.IconColor = Color.FromArgb(110, 255, 110);
+        }
+
+        private void BtnNuevo_MouseLeave(object sender, EventArgs e)
+        {
+            BtnNuevo.IconColor = Color.FromArgb(70, 225, 70);
         }
         #endregion
         #endregion
-        #endregion
 
-        #region Reservas
         #region Búsqueda de reservas
         private void BtnBuscar_Click(object sender, EventArgs e)
         {
@@ -137,7 +160,8 @@ namespace Garmoxu_Desktop
                 if (ChkCalendar.Checked)
                     filtro += "Fecha = '" + DtpBuscar.Value.ToString("yyyy/MM/dd") + "'";
 
-                if (!string.IsNullOrEmpty(TxtBuscar.Texts.Replace(" ", "")))
+                bool textBoxConHint = TxtBuscar.Texts.Trim().Equals(BtnClienteActivado ? "Buscar por teléfono de cliente" : "Buscar por número de mesa");
+                if (!string.IsNullOrEmpty(TxtBuscar.Texts.Replace(" ", "")) && !textBoxConHint)
                 {
                     if (ChkCalendar.Checked) filtro += " AND ";
 
@@ -166,26 +190,66 @@ namespace Garmoxu_Desktop
                 Ds.Tables["Reservas"].DefaultView.Sort = "Fecha, Hora ASC";
 
                 DtgReservas.DataSource = Ds.Tables["Reservas"];
+                DtgReservas.ClearSelection();
             }
             catch (EvaluateException ex) { MessageBox.Show(ex.Message); }
-        }
-
-        private void DtgReservas_SelectionChanged(object sender, EventArgs e)
-        {
-            if (DtgReservas.SelectedRows.Count < 1)
-                BtnEliminar.Enabled = false;
-            else
-                BtnEliminar.Enabled = true;
         }
 
         private void DtpBuscar_ValueChanged(object sender, EventArgs e)
         {
             ChkCalendar.Checked = true;
+            ChkCalendar.Invalidate();
             BtnBuscar_Click(null, null);
+        }
+
+        private void LblFecha_Click(object sender, EventArgs e)
+        {
+            ChkCalendar.Checked = !ChkCalendar.Checked;
+            ChkCalendar.Invalidate();
+        }
+
+        private void TxtBuscar__TextChanged(object sender, EventArgs e)
+        {
+            //bool textBoxConHint = TxtBuscar.Texts.Trim().Equals(BtnClienteActivado ? "Buscar por teléfono de cliente" : "Buscar por número de mesa");
+            //bool textBoxVacia = string.IsNullOrEmpty(TxtBuscar.Texts.Trim());
+
+            //ChkCalendar.Checked = !textBoxVacia && !textBoxConHint;
+            //ChkCalendar.Invalidate();
+        }
+
+        private void BtnCliente_Click(object sender, EventArgs e)
+        {
+            BtnCliente.BackColor = Color.MediumSlateBlue;
+            BtnMesa.BackColor = Color.Gray;
+            BtnClienteActivado = true;
+
+            if (TxtBuscar.Texts.Trim().Equals("Buscar por número de mesa"))
+            {
+                TxtBuscar.Texts = "Buscar por teléfono de cliente";
+                TxtBuscar.ForeColor = Color.Gray;
+            }
+        }
+
+        private void BtnMesa_Click(object sender, EventArgs e)
+        {
+            BtnMesa.BackColor = Color.MediumSlateBlue;
+            BtnCliente.BackColor = Color.Gray;
+            BtnClienteActivado = false;
+
+            if (TxtBuscar.Texts.Trim().Equals("Buscar por teléfono de cliente"))
+            {
+                TxtBuscar.Texts = "Buscar por número de mesa";
+                TxtBuscar.ForeColor = Color.Gray;
+            }
         }
         #endregion
 
         #region Eliminación de reservas
+        private void DtgReservas_SelectionChanged(object sender, EventArgs e)
+        {
+            BtnEliminar.Enabled = DtgReservas.SelectedRows.Count < 1 ? false : true;
+        }
+
         private void BtnEliminar_Click(object sender, EventArgs e)
         {
             try
@@ -239,13 +303,13 @@ namespace Garmoxu_Desktop
         #region Alta de reservas
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
-            // Como no ha sido llamado por doble click no es modificar si no nueva reserva
-            FrmReservasDetalles f = new FrmReservasDetalles(ConexionBD, string.Empty, Instance);
-            f.Width = (Instance.Width / 3);
-            f.Height = (Instance.Height / 2) + (Instance.Height / 4);
+            Form frmShadow = new Form();
+            FrmReservasDetalles f = new FrmReservasDetalles(ConexionBD, string.Empty, ref frmShadow);
 
-            Instance.Enabled = false;
-            f.Show();
+            f.ShowDialog();
+            frmShadow.Close();
+
+            BuscarReserva();
         }
         #endregion
 
@@ -254,26 +318,16 @@ namespace Garmoxu_Desktop
         {
             if (ValidarReservaDisponible())
             {
+                Form frmShadow = new Form();
                 string clavePrimaria = DtgReservas.CurrentRow.Cells[0].Value.ToString();
-                FrmReservasDetalles f = new FrmReservasDetalles(ConexionBD, clavePrimaria, Instance);
-                f.Width = (Instance.Width / 3);
-                f.Height = (Instance.Height / 2) + (Instance.Height / 4);
+                FrmReservasDetalles f = new FrmReservasDetalles(ConexionBD, clavePrimaria, ref frmShadow);
 
-                Instance.Enabled = false;
-                f.Show();
+                f.ShowDialog();
+                frmShadow.Close();
+
+                BuscarReserva();
             }
         }
-        #endregion
-        #endregion
-
-        #region Cierre del formulario
-        #region Boton cerrar 
-        private void BtnCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
-        #endregion
-
         #endregion
     }
 }

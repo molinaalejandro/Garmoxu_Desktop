@@ -108,7 +108,7 @@ namespace Garmoxu_Desktop
             this.BtnNuevo.Location = new System.Drawing.Point(0, 0);
             this.BtnNuevo.Margin = new System.Windows.Forms.Padding(0);
             this.BtnNuevo.Name = "BtnNuevo";
-            this.BtnNuevo.Size = new System.Drawing.Size(61, 65);
+            this.BtnNuevo.Size = new System.Drawing.Size(35, 65);
             this.BtnNuevo.TabIndex = 43;
             this.BtnNuevo.TabStop = false;
             this.BtnNuevo.UseVisualStyleBackColor = true;
@@ -129,8 +129,8 @@ namespace Garmoxu_Desktop
             this.BtnEliminar.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
             this.BtnEliminar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.BtnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnEliminar.Location = new System.Drawing.Point(66, 0);
-            this.BtnEliminar.Margin = new System.Windows.Forms.Padding(5, 0, 0, 0);
+            this.BtnEliminar.Location = new System.Drawing.Point(50, 0);
+            this.BtnEliminar.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.BtnEliminar.Name = "BtnEliminar";
             this.BtnEliminar.Size = new System.Drawing.Size(61, 65);
             this.BtnEliminar.TabIndex = 44;
@@ -150,7 +150,7 @@ namespace Garmoxu_Desktop
             this.TxtBusqueda.BorderSize = 2;
             this.TxtBusqueda.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
             this.TxtBusqueda.ForeColor = System.Drawing.Color.Gray;
-            this.TxtBusqueda.Location = new System.Drawing.Point(137, 5);
+            this.TxtBusqueda.Location = new System.Drawing.Point(121, 5);
             this.TxtBusqueda.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.TxtBusqueda.Multiline = false;
             this.TxtBusqueda.Name = "TxtBusqueda";
@@ -158,7 +158,7 @@ namespace Garmoxu_Desktop
             this.TxtBusqueda.PasswordChar = false;
             this.TxtBusqueda.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtBusqueda.PlaceholderText = "";
-            this.TxtBusqueda.Size = new System.Drawing.Size(832, 55);
+            this.TxtBusqueda.Size = new System.Drawing.Size(857, 55);
             this.TxtBusqueda.TabIndex = 49;
             this.TxtBusqueda.Texts = "Buscar por nombre de categoría";
             this.TxtBusqueda.UnderlinedStyle = false;
@@ -180,10 +180,10 @@ namespace Garmoxu_Desktop
             this.BtnBuscar.IconChar = FontAwesome.Sharp.IconChar.Search;
             this.BtnBuscar.IconColor = System.Drawing.Color.MediumSlateBlue;
             this.BtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnBuscar.Location = new System.Drawing.Point(979, 0);
-            this.BtnBuscar.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.BtnBuscar.Location = new System.Drawing.Point(998, 0);
+            this.BtnBuscar.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.BtnBuscar.Name = "BtnBuscar";
-            this.BtnBuscar.Size = new System.Drawing.Size(61, 65);
+            this.BtnBuscar.Size = new System.Drawing.Size(42, 65);
             this.BtnBuscar.TabIndex = 45;
             this.BtnBuscar.TabStop = false;
             this.BtnBuscar.UseVisualStyleBackColor = true;
@@ -199,11 +199,11 @@ namespace Garmoxu_Desktop
             this.myGroupBox1.BorderSize = 5;
             this.myGroupBox1.Controls.Add(this.LstCategorias);
             this.myGroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.myGroupBox1.Location = new System.Drawing.Point(73, 141);
-            this.myGroupBox1.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
+            this.myGroupBox1.Location = new System.Drawing.Point(73, 131);
+            this.myGroupBox1.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.myGroupBox1.Name = "myGroupBox1";
             this.myGroupBox1.Padding = new System.Windows.Forms.Padding(20, 30, 20, 20);
-            this.myGroupBox1.Size = new System.Drawing.Size(1040, 435);
+            this.myGroupBox1.Size = new System.Drawing.Size(1040, 445);
             this.myGroupBox1.TabIndex = 1;
             this.myGroupBox1.TabStop = false;
             this.myGroupBox1.Text = "Platos";
@@ -222,7 +222,7 @@ namespace Garmoxu_Desktop
             this.LstCategorias.Margin = new System.Windows.Forms.Padding(4, 20, 4, 4);
             this.LstCategorias.MultiSelect = false;
             this.LstCategorias.Name = "LstCategorias";
-            this.LstCategorias.Size = new System.Drawing.Size(1000, 370);
+            this.LstCategorias.Size = new System.Drawing.Size(1000, 380);
             this.LstCategorias.TabIndex = 7;
             this.LstCategorias.TabStop = false;
             this.LstCategorias.UseCompatibleStateImageBehavior = false;

@@ -99,6 +99,7 @@
             this.BtnBuscar.AutoSize = true;
             this.BtnBuscar.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BtnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnBuscar.Enabled = false;
             this.BtnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
             this.BtnBuscar.FlatAppearance.BorderSize = 0;

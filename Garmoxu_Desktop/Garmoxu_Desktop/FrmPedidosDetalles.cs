@@ -1853,21 +1853,11 @@ namespace Garmoxu_Desktop
         #region Consulta de platos
         private void BtnConsultarPlatos_Click(object sender, EventArgs e)
         {
-            FrmPedidosPlatosConsulta frm = new FrmPedidosPlatosConsulta(ConexionBD, Instance);
+            Form frmShadow = new Form();
+            FrmPedidosPlatosConsulta frm = new FrmPedidosPlatosConsulta(ConexionBD, ref frmShadow);
 
-            bool encontrado = false;
-            foreach (Form f in Application.OpenForms)
-            {
-                if (f.GetType().Equals(frm.GetType()))
-                {
-                    encontrado = true;
-                    f.Show();
-                    f.BringToFront();
-                }
-            }
-
-            if (!encontrado)
-                frm.Show();
+            frm.ShowDialog();
+            frmShadow.Close();
         }
         #endregion
 

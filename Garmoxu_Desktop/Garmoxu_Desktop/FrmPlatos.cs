@@ -351,7 +351,7 @@ namespace Garmoxu_Desktop
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
             Form frmShadow = new Form();
-            FrmPlatosDetalles frm = new FrmPlatosDetalles(ConexionBD, string.Empty, Instance, IVA, ref frmShadow);
+            FrmPlatosDetalles frm = new FrmPlatosDetalles(ConexionBD, string.Empty, IVA, ref frmShadow);
             //frm.Width = Instance.Width / 2;
             //frm.Height = Instance.Height / 2 + Instance.Height / 3 + Instance.Height / 30;
             //Instance.Enabled = false;
@@ -367,7 +367,7 @@ namespace Garmoxu_Desktop
         {
             string clavePrimaria = LstPlatos.SelectedItems[0].Tag.ToString();
             Form frmShadow = new Form();
-            FrmPlatosDetalles frm = new FrmPlatosDetalles(ConexionBD, clavePrimaria, Instance, IVA, ref frmShadow);
+            FrmPlatosDetalles frm = new FrmPlatosDetalles(ConexionBD, clavePrimaria, IVA, ref frmShadow);
             //frm.Width = Instance.Width / 2;
             //frm.Height = Instance.Height / 2 + Instance.Height / 3 + Instance.Height / 30;
             //Instance.Enabled = false;

@@ -16,19 +16,18 @@ namespace Garmoxu_Desktop
     public partial class FrmReservasDetalles : Form
     {
         private MySqlConnection ConexionBD;
-        private FrmMain Instance;
         private string ClavePrimaria;
 
         private List<string> DatosIniciales;
 
-        public FrmReservasDetalles(MySqlConnection conexionBD, string clavePrimaria, FrmMain instance)
+        public FrmReservasDetalles(MySqlConnection conexionBD, string clavePrimaria, ref Form frmShadow)
         {
             InitializeComponent();
+            this.FormBorderStyle = FormBorderStyle.None;
             ConexionBD = conexionBD;
             ClavePrimaria = clavePrimaria;
-            Instance = instance;
-            Instance.Enabled = false;
             CargarTipoForm();
+            SombrearPantalla(ref frmShadow);
         }
 
         #region Apertura del formulario
@@ -47,13 +46,15 @@ namespace Garmoxu_Desktop
             DtpReserva.Value = DateTime.Now;
             DtpHora.Value = DateTime.Now;
             BtnBorrar.Visible = false;
-            BtnConfirmar.Location = new Point(150, 550);
+            //BtnConfirmar.Location = new Point(150, 550);
+            PnlBotones.Controls.Add(BtnConfirmar, 2, 0);
+            BtnConfirmar.Text = "Registrar";
             DtpReserva.MinDate = DateTime.Now;
         }
 
         private void ConfigurarFormularioDeReservaExistente()
         {
-            BtnConfirmar.Text = "Guardar cambios";
+            //BtnConfirmar.Text = "Guardar";
 
             string sql = "SELECT * FROM Reservas WHERE IdReserva = " + ClavePrimaria;
             MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
@@ -61,6 +62,7 @@ namespace Garmoxu_Desktop
             MySqlDataReader lector = cmd.ExecuteReader();
             lector.Read();
 
+            LblTitulo.Text = "Consulta la reserva " + lector["IdReserva"].ToString();
             DateTime fechaReserva = DateTime.Parse(lector[1].ToString());
             DateTime horaReserva = DateTime.Parse(lector[2].ToString());
             string tlfClienteReserva = lector[3].ToString();
@@ -90,21 +92,81 @@ namespace Garmoxu_Desktop
             // con el que se genera en el evento de asignar las mesas no reservadas.
             DtpReserva.Value = fechaReserva;
             DtpHora.Value = horaReserva;
+            //if (CboMesa.Items.Count > 0) CboMesa.SelectedIndex = 0;
             TxtTelefono.Texts = tlfClienteReserva;
 
             CboMesa.SelectedIndex = CboMesa.Items.Count - 1;
+            LblCboDisabled.Text = CboMesa.Items[CboMesa.Items.Count - 1].ToString();
+            CboMesa.IconColor = Color.DimGray;
         }
 
         private void ConfigurarFormularioDeReservaHistorial()
         {
-            BtnBorrar.Location = new Point(150, 550);
+            //BtnBorrar.Location = new Point(150, 550);
+            PnlBotones.Controls.Add(BtnBorrar, 2, 0);
             BtnConfirmar.Visible = false;
+
             DtpReserva.Enabled = false;
+            DtpReserva.TextColor = Color.DimGray;
+
             DtpHora.Enabled = false;
+            DtpHora.TextColor = Color.DimGray;
+
             CboMesa.Enabled = false;
+            CboMesa.IconColor = Color.DimGray;
+            LblCboDisabled.Visible = true;
+
             TxtTelefono.Enabled = false;
             TxtNombreCliente.Enabled = false;
         }
+        #endregion
+
+        #region Funciones y diseño del formulario
+        #region Bordeado del formulario
+        protected override CreateParams CreateParams
+        {
+            get
+            {
+                CreateParams cp = base.CreateParams;
+
+                // Solo se acumulan modificaciones de diferente tipos, es decir,
+                // una de ExStyle, otra de Style y otra de ClassStyle. Pero, nunca
+                // se pueden acumular dos modificaciones del mismo tipo, por ejemplo,
+                // no se acumulan dos ExStyle, o aplicas uno, o aplicas el otro.
+
+                //cp.ExStyle = 0x00000100; // Aperentemente no hace nada
+                //cp.ExStyle = 0x00020000; // Borde simple fino arriba e izquierda y grueso abajo y derecha
+                cp.ExStyle = 0x00000200; // Borde 3D arriba e izquierda
+                //cp.ExStyle = 0x00000001; // Borde 3D abajo y derecha
+                // https://docs.microsoft.com/en-us/windows/win32/winmsg/extended-window-styles
+
+                //cp.Style |= 0x00800000; // Borde simple fino
+                cp.Style |= 0x00400000; // Borde 3D abajo y derecha
+                // https://docs.microsoft.com/en-us/windows/win32/winmsg/window-styles
+
+                //cp.ClassStyle |= 0x00020000; // Shadow border
+                return cp;
+            }
+        }
+        #endregion
+
+        #region Sombreado de pantalla
+        private void SombrearPantalla(ref Form frmShadow)
+        {
+            frmShadow = new Form();
+            frmShadow.ShowInTaskbar = false;
+            frmShadow.Text = "";
+            frmShadow.FormBorderStyle = FormBorderStyle.None;
+            frmShadow.Size = Size;
+            frmShadow.WindowState = FormWindowState.Maximized;
+            frmShadow.BackColor = Color.Black;
+            frmShadow.Opacity = 0.7;
+            frmShadow.Location = Location;
+            frmShadow.Enabled = false;
+            frmShadow.TopMost = true;
+            frmShadow.Show();
+        }
+        #endregion
         #endregion
 
         #region Comprobar mesas libres
@@ -278,7 +340,7 @@ namespace Garmoxu_Desktop
         {
             bool mesaSeleccionada = CboMesa.SelectedIndex != -1;
             bool tlfCompletado = !string.IsNullOrEmpty(TxtTelefono.Texts.Replace(" ", ""));
-            bool nombreCompletado = !string.IsNullOrEmpty(TxtNombreCliente.Texts);
+            bool nombreCompletado = !string.IsNullOrEmpty(TxtNombreCliente.Texts.Trim());
 
             if (mesaSeleccionada && tlfCompletado && nombreCompletado)
                 return ValidarNumeroTlfCliente();
@@ -321,7 +383,7 @@ namespace Garmoxu_Desktop
             {
                 string sql = string.Format(
                     "INSERT INTO Clientes(TelefonoCliente, Direccion, CantidadPedidos, Nombre) VALUES('{0}', NULL, 0, '{1}')",
-                    TxtTelefono.Texts.Replace(" ", ""), TxtNombreCliente.Texts);
+                    TxtTelefono.Texts.Replace(" ", ""), TxtNombreCliente.Texts.Trim());
 
                 MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
                 cmd.ExecuteNonQuery();
@@ -336,7 +398,7 @@ namespace Garmoxu_Desktop
             string sql = "SELECT Nombre FROM Clientes WHERE TelefonoCliente = '" + TxtTelefono.Texts.Replace(" ", "") + "'";
             MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
 
-            bool nombreModificado = !cmd.ExecuteScalar().ToString().Equals(TxtNombreCliente.Texts);
+            bool nombreModificado = !cmd.ExecuteScalar().ToString().Equals(TxtNombreCliente.Texts.Trim());
 
             if (nombreModificado)
             {
@@ -346,7 +408,7 @@ namespace Garmoxu_Desktop
                 {
                     sql = string.Format(
                         "UPDATE Clientes SET nombre = '{0}' WHERE TelefonoCliente = '{1}'",
-                        TxtNombreCliente.Texts, TxtTelefono.Texts.Replace(" ", ""));
+                        TxtNombreCliente.Texts.Trim(), TxtTelefono.Texts.Replace(" ", ""));
                     cmd.CommandText = sql;
                     cmd.ExecuteNonQuery();
 
@@ -488,7 +550,7 @@ namespace Garmoxu_Desktop
         #region Cierre del formulario
         private void BtnClose_Click(object sender, EventArgs e)
         {
-            if (!(!string.IsNullOrEmpty(ClavePrimaria) && !ComprobarCualquierDatoModificado()))
+            if (string.IsNullOrEmpty(ClavePrimaria) || ComprobarCualquierDatoModificado())
             {
                 string mensaje = "Se perderán todos los cambios no guardados. ¿Deseas continuar?";
                 DialogResult cerrarVentana = MessageBox.Show(mensaje, "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
@@ -522,16 +584,11 @@ namespace Garmoxu_Desktop
             {
                 string sql = "SELECT Nombre FROM Clientes WHERE TelefonoCliente = '" + TxtTelefono.Texts.Replace(" ", "") + "'";
                 MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                if (!cmd.ExecuteScalar().ToString().Equals(TxtNombreCliente.Texts))
+                if (!cmd.ExecuteScalar().ToString().Equals(TxtNombreCliente.Texts.Trim()))
                     modificacionRealizada = true;
             }
 
             return modificacionRealizada;
-        }
-
-        private void FrmDetallesReserva_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Instance.Enabled = true;
         }
         #endregion
     }

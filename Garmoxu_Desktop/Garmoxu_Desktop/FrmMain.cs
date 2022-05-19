@@ -47,7 +47,11 @@ namespace Garmoxu_Desktop
             InitializeComponent();
             CargarConfiguracion();
             if (VentanaCompleta)
+            {
                 this.FormBorderStyle = FormBorderStyle.None;
+                PnlTitleBar.Padding = new Padding(20, 0, 5, 0);
+                PnlBody.Padding = new Padding(0, 0, 5, 0);
+            }
             LblHora.Text = DateTime.Now.ToString("HH:mm");
             Instance = this;
             InstanciaInicioSesion = instanciaInicioSesion;
@@ -463,7 +467,7 @@ namespace Garmoxu_Desktop
             //    NivelPermisos, NombreRestaurante, HoraApertura, HoraCierre, IVA, VentanaCompleta, ModoDiurno, PnlTitleBar,
             //    PnlMenuLateral, PnlBody);            
             
-            FrmAjustes frmAjustes = new FrmAjustes(this, InstanciaInicioSesion, ConexionBD, UsuarioActual, ImagenUsuario,
+            FrmAjustes frmAjustes = new FrmAjustes(this, InstanciaInicioSesion, ConexionBD, PnlFormularios, UsuarioActual, ImagenUsuario,
                 NivelPermisos, NombreRestaurante, HoraApertura, HoraCierre, IVA, VentanaCompleta, ModoDiurno);
 
             frmAjustes.TopLevel = false;

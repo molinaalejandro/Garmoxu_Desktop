@@ -123,7 +123,7 @@
             // 
             // PnlBody
             // 
-            this.PnlBody.BackColor = System.Drawing.Color.Transparent;
+            this.PnlBody.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(42)))), ((int)(((byte)(45)))));
             this.PnlBody.ColumnCount = 3;
             this.PnlBody.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.PnlBody.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
@@ -971,7 +971,7 @@
             // RadClaro
             // 
             this.RadClaro.AutoSize = true;
-            this.RadClaro.CheckedColor = System.Drawing.Color.Silver;
+            this.RadClaro.CheckedColor = System.Drawing.Color.MediumSlateBlue;
             this.RadClaro.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RadClaro.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RadClaro.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -990,7 +990,7 @@
             // RadOscuro
             // 
             this.RadOscuro.AutoSize = true;
-            this.RadOscuro.CheckedColor = System.Drawing.Color.Silver;
+            this.RadOscuro.CheckedColor = System.Drawing.Color.MediumSlateBlue;
             this.RadOscuro.Cursor = System.Windows.Forms.Cursors.Hand;
             this.RadOscuro.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RadOscuro.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));

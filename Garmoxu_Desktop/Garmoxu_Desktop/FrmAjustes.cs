@@ -35,13 +35,13 @@ namespace Garmoxu_Desktop
 
         //private Panel PnlTitle;
         //private Panel PnlLateral;
-        //private Panel PnlMain;
+        private Panel PnlFormularios;
 
         private List<string> DatosIniciales;
 
-        public FrmAjustes(FrmMain instance, FrmInicioSesion instanceInicioSesion, MySqlConnection conexionBD, string usuarioActual,
-            Image imagenUsuario, int nivelPermisos, string nombreRestaurante, string horaApertura, string horaCierre, int iva,
-            bool ventanaCompleta, bool modoDiurno)
+        public FrmAjustes(FrmMain instance, FrmInicioSesion instanceInicioSesion, MySqlConnection conexionBD, Panel pnlFormularios, 
+            string usuarioActual, Image imagenUsuario, int nivelPermisos, string nombreRestaurante, string horaApertura, string horaCierre, 
+            int iva, bool ventanaCompleta, bool modoDiurno)
             //bool ventanaCompleta, bool modoDiurno, Panel pnlTitle, Panel pnlLateral, Panel pnlMain)
         {
             InitializeComponent();
@@ -53,6 +53,7 @@ namespace Garmoxu_Desktop
             Instance = instance;
             InstanceInicioSesion = instanceInicioSesion;
             ConexionBD = conexionBD;
+            PnlFormularios = pnlFormularios;
             UsuarioInicial = usuarioActual;
             ImagenInicial = imagenUsuario;
             NivelPermisos = nivelPermisos;
@@ -428,6 +429,7 @@ namespace Garmoxu_Desktop
         {
             string mensaje = "La aplicación se reiniciará para aplicar los cambios.";
             MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            PnlFormularios.Visible = false;
             Instance.Close();
             //DialogResult confirmar = MessageBox.Show(mensaje, "", MessageBoxButtons.RetryCancel, MessageBoxIcon.Information);
 

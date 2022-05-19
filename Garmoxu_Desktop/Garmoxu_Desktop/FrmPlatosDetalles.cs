@@ -18,7 +18,6 @@ namespace Garmoxu_Desktop
     public partial class FrmPlatosDetalles : Form
     {
         private MySqlConnection ConexionBD;
-        //private FrmMain Instance;
         private string ClavePrimaria;
 
         private List<string> DatosIniciales = new List<string>();
@@ -28,12 +27,11 @@ namespace Garmoxu_Desktop
 
         private int IVA;
 
-        public FrmPlatosDetalles(MySqlConnection conexionBD, string clavePrimaria, FrmMain instance, int iva, ref Form frmShadow)
+        public FrmPlatosDetalles(MySqlConnection conexionBD, string clavePrimaria, int iva, ref Form frmShadow)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             ConexionBD = conexionBD;
-            //Instance = instance;
             ClavePrimaria = clavePrimaria;
             IVA = iva;
 

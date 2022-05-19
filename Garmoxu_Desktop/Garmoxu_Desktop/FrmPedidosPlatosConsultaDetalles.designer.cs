@@ -29,270 +29,609 @@ namespace Garmoxu_Desktop
         /// </summary>
         private void InitializeComponent()
         {
-            this.TxtIdPlato = new RJCodeAdvance.RJControls.RJTextBox();
-            this.TxtNombre = new RJCodeAdvance.RJControls.RJTextBox();
-            this.TxtDescripcion = new RJCodeAdvance.RJControls.RJTextBox();
-            this.ChkDisponibilidad = new MaterialSkin.Controls.MaterialCheckBox();
-            this.BtnCancelar = new RJCodeAdvance.RJControls.RJButton();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.TxtListaAlergenos = new RJCodeAdvance.RJControls.RJTextBox();
-            this.CboCategorias = new RJCodeAdvance.RJControls.RJComboBox();
-            this.TxtPrecioSinIva = new System.Windows.Forms.TextBox();
-            this.TxtPrecioConIva = new System.Windows.Forms.TextBox();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPedidosPlatosConsultaDetalles));
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.BtnClose = new FontAwesome.Sharp.IconButton();
+            this.LblTitulo = new System.Windows.Forms.Label();
+            this.PnlDatos = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
+            this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
+            this.PnlBordeImagen = new System.Windows.Forms.TableLayoutPanel();
             this.PicFotoPlato = new System.Windows.Forms.PictureBox();
+            this.tableLayoutPanel8 = new System.Windows.Forms.TableLayoutPanel();
+            this.label1 = new System.Windows.Forms.Label();
+            this.TxtNombre = new RJCodeAdvance.RJControls.RJTextBox();
+            this.TxtIdPlato = new RJCodeAdvance.RJControls.RJTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.TxtListaAlergenos = new RJCodeAdvance.RJControls.RJTextBox();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.ChkDisponibilidad = new RJCodeAdvance.RJControls.RJToggleButton();
+            this.TxtDescripcion = new RJCodeAdvance.RJControls.RJTextBox();
+            this.TxtPrecioConIva = new RJCodeAdvance.RJControls.RJTextBox();
+            this.TxtPrecioSinIva = new RJCodeAdvance.RJControls.RJTextBox();
+            this.panel1 = new System.Windows.Forms.Panel();
+            this.LblCboDisabled = new System.Windows.Forms.Label();
+            this.CboCategorias = new RJCodeAdvance.RJControls.RJComboBox();
+            this.tableLayoutPanel1.SuspendLayout();
+            this.tableLayoutPanel4.SuspendLayout();
+            this.PnlDatos.SuspendLayout();
+            this.tableLayoutPanel11.SuspendLayout();
+            this.tableLayoutPanel6.SuspendLayout();
+            this.PnlBordeImagen.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.PicFotoPlato)).BeginInit();
+            this.tableLayoutPanel8.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
-            // TxtIdPlato
+            // tableLayoutPanel1
             // 
-            this.TxtIdPlato.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtIdPlato.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.TxtIdPlato.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.TxtIdPlato.BorderRadius = 0;
-            this.TxtIdPlato.BorderSize = 2;
-            this.TxtIdPlato.Enabled = false;
-            this.TxtIdPlato.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtIdPlato.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TxtIdPlato.Location = new System.Drawing.Point(333, 27);
-            this.TxtIdPlato.Margin = new System.Windows.Forms.Padding(5);
-            this.TxtIdPlato.Multiline = false;
-            this.TxtIdPlato.Name = "TxtIdPlato";
-            this.TxtIdPlato.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
-            this.TxtIdPlato.PasswordChar = false;
-            this.TxtIdPlato.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TxtIdPlato.PlaceholderText = "";
-            this.TxtIdPlato.Size = new System.Drawing.Size(368, 39);
-            this.TxtIdPlato.TabIndex = 0;
-            this.TxtIdPlato.Texts = "IdPlato";
-            this.TxtIdPlato.UnderlinedStyle = false;
+            this.tableLayoutPanel1.ColumnCount = 1;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.Controls.Add(this.tableLayoutPanel4, 0, 0);
+            this.tableLayoutPanel1.Controls.Add(this.PnlDatos, 0, 1);
+            this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel1.Name = "tableLayoutPanel1";
+            this.tableLayoutPanel1.RowCount = 2;
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(932, 816);
+            this.tableLayoutPanel1.TabIndex = 1;
+            // 
+            // tableLayoutPanel4
+            // 
+            this.tableLayoutPanel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(42)))), ((int)(((byte)(45)))));
+            this.tableLayoutPanel4.ColumnCount = 2;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel4.Controls.Add(this.BtnClose, 1, 0);
+            this.tableLayoutPanel4.Controls.Add(this.LblTitulo, 0, 0);
+            this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel4.Name = "tableLayoutPanel4";
+            this.tableLayoutPanel4.RowCount = 1;
+            this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(932, 72);
+            this.tableLayoutPanel4.TabIndex = 1;
+            // 
+            // BtnClose
+            // 
+            this.BtnClose.BackColor = System.Drawing.Color.Transparent;
+            this.BtnClose.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnClose.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(42)))), ((int)(((byte)(45)))));
+            this.BtnClose.FlatAppearance.BorderSize = 0;
+            this.BtnClose.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(250)))), ((int)(((byte)(71)))), ((int)(((byte)(83)))));
+            this.BtnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(240)))), ((int)(((byte)(41)))), ((int)(((byte)(83)))));
+            this.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnClose.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
+            this.BtnClose.IconChar = FontAwesome.Sharp.IconChar.Times;
+            this.BtnClose.IconColor = System.Drawing.Color.White;
+            this.BtnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.BtnClose.IconSize = 25;
+            this.BtnClose.Location = new System.Drawing.Point(865, 0);
+            this.BtnClose.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnClose.Name = "BtnClose";
+            this.BtnClose.Size = new System.Drawing.Size(67, 72);
+            this.BtnClose.TabIndex = 1;
+            this.BtnClose.TabStop = false;
+            this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.BtnClose.UseVisualStyleBackColor = false;
+            this.BtnClose.Click += new System.EventHandler(this.BtnClose_Click);
+            // 
+            // LblTitulo
+            // 
+            this.LblTitulo.AutoSize = true;
+            this.LblTitulo.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.LblTitulo.Font = new System.Drawing.Font("Source Sans Pro", 18F, System.Drawing.FontStyle.Bold);
+            this.LblTitulo.ForeColor = System.Drawing.Color.White;
+            this.LblTitulo.Location = new System.Drawing.Point(14, 0);
+            this.LblTitulo.Margin = new System.Windows.Forms.Padding(14, 0, 0, 0);
+            this.LblTitulo.Name = "LblTitulo";
+            this.LblTitulo.Size = new System.Drawing.Size(851, 72);
+            this.LblTitulo.TabIndex = 0;
+            this.LblTitulo.Text = "Consulta el plato";
+            this.LblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // PnlDatos
+            // 
+            this.PnlDatos.ColumnCount = 1;
+            this.PnlDatos.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.PnlDatos.Controls.Add(this.tableLayoutPanel11, 0, 0);
+            this.PnlDatos.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PnlDatos.Location = new System.Drawing.Point(70, 122);
+            this.PnlDatos.Margin = new System.Windows.Forms.Padding(70, 50, 70, 50);
+            this.PnlDatos.Name = "PnlDatos";
+            this.PnlDatos.RowCount = 2;
+            this.PnlDatos.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.PnlDatos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.PnlDatos.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.PnlDatos.Size = new System.Drawing.Size(792, 644);
+            this.PnlDatos.TabIndex = 0;
+            // 
+            // tableLayoutPanel11
+            // 
+            this.tableLayoutPanel11.ColumnCount = 3;
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 70F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel11.Controls.Add(this.tableLayoutPanel6, 0, 0);
+            this.tableLayoutPanel11.Controls.Add(this.tableLayoutPanel8, 2, 0);
+            this.tableLayoutPanel11.Controls.Add(this.label7, 2, 8);
+            this.tableLayoutPanel11.Controls.Add(this.label3, 0, 8);
+            this.tableLayoutPanel11.Controls.Add(this.TxtListaAlergenos, 0, 9);
+            this.tableLayoutPanel11.Controls.Add(this.label8, 2, 2);
+            this.tableLayoutPanel11.Controls.Add(this.label6, 0, 2);
+            this.tableLayoutPanel11.Controls.Add(this.label5, 0, 5);
+            this.tableLayoutPanel11.Controls.Add(this.label9, 2, 5);
+            this.tableLayoutPanel11.Controls.Add(this.ChkDisponibilidad, 2, 6);
+            this.tableLayoutPanel11.Controls.Add(this.TxtDescripcion, 2, 9);
+            this.tableLayoutPanel11.Controls.Add(this.TxtPrecioConIva, 0, 3);
+            this.tableLayoutPanel11.Controls.Add(this.TxtPrecioSinIva, 2, 3);
+            this.tableLayoutPanel11.Controls.Add(this.panel1, 0, 6);
+            this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel11.Location = new System.Drawing.Point(0, 0);
+            this.tableLayoutPanel11.Margin = new System.Windows.Forms.Padding(0);
+            this.tableLayoutPanel11.Name = "tableLayoutPanel11";
+            this.tableLayoutPanel11.RowCount = 10;
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel11.Size = new System.Drawing.Size(792, 650);
+            this.tableLayoutPanel11.TabIndex = 0;
+            // 
+            // tableLayoutPanel6
+            // 
+            this.tableLayoutPanel6.ColumnCount = 3;
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel6.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel6.Controls.Add(this.PnlBordeImagen, 1, 0);
+            this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel6.Name = "tableLayoutPanel6";
+            this.tableLayoutPanel6.RowCount = 1;
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(355, 200);
+            this.tableLayoutPanel6.TabIndex = 0;
+            // 
+            // PnlBordeImagen
+            // 
+            this.PnlBordeImagen.BackColor = System.Drawing.Color.Transparent;
+            this.PnlBordeImagen.ColumnCount = 1;
+            this.PnlBordeImagen.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.PnlBordeImagen.Controls.Add(this.PicFotoPlato, 0, 0);
+            this.PnlBordeImagen.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PnlBordeImagen.Location = new System.Drawing.Point(77, 3);
+            this.PnlBordeImagen.Name = "PnlBordeImagen";
+            this.PnlBordeImagen.RowCount = 1;
+            this.PnlBordeImagen.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.PnlBordeImagen.Size = new System.Drawing.Size(200, 194);
+            this.PnlBordeImagen.TabIndex = 65;
+            // 
+            // PicFotoPlato
+            // 
+            this.PicFotoPlato.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.PicFotoPlato.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.PicFotoPlato.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.PicFotoPlato.Image = global::Garmoxu_Desktop.Properties.Resources.No_Image_Found;
+            this.PicFotoPlato.InitialImage = global::Garmoxu_Desktop.Properties.Resources.No_Image_Found;
+            this.PicFotoPlato.Location = new System.Drawing.Point(4, 4);
+            this.PicFotoPlato.Margin = new System.Windows.Forms.Padding(4);
+            this.PicFotoPlato.Name = "PicFotoPlato";
+            this.PicFotoPlato.Size = new System.Drawing.Size(192, 186);
+            this.PicFotoPlato.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.PicFotoPlato.TabIndex = 64;
+            this.PicFotoPlato.TabStop = false;
+            // 
+            // tableLayoutPanel8
+            // 
+            this.tableLayoutPanel8.ColumnCount = 1;
+            this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel8.Controls.Add(this.label1, 0, 3);
+            this.tableLayoutPanel8.Controls.Add(this.TxtNombre, 0, 4);
+            this.tableLayoutPanel8.Controls.Add(this.TxtIdPlato, 0, 1);
+            this.tableLayoutPanel8.Controls.Add(this.label2, 0, 0);
+            this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(434, 3);
+            this.tableLayoutPanel8.Name = "tableLayoutPanel8";
+            this.tableLayoutPanel8.RowCount = 5;
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(355, 200);
+            this.tableLayoutPanel8.TabIndex = 1;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.Silver;
+            this.label1.Location = new System.Drawing.Point(0, 107);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(106, 33);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Nombre";
             // 
             // TxtNombre
             // 
-            this.TxtNombre.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtNombre.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.TxtNombre.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.TxtNombre.BorderRadius = 0;
+            this.TxtNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.TxtNombre.BorderColor = System.Drawing.Color.Transparent;
+            this.TxtNombre.BorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.TxtNombre.BorderRadius = 10;
             this.TxtNombre.BorderSize = 2;
+            this.TxtNombre.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtNombre.Enabled = false;
-            this.TxtNombre.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtNombre.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TxtNombre.Location = new System.Drawing.Point(333, 97);
-            this.TxtNombre.Margin = new System.Windows.Forms.Padding(5);
+            this.TxtNombre.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
+            this.TxtNombre.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtNombre.Location = new System.Drawing.Point(5, 145);
+            this.TxtNombre.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.TxtNombre.Multiline = false;
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
             this.TxtNombre.PasswordChar = false;
             this.TxtNombre.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtNombre.PlaceholderText = "";
-            this.TxtNombre.Size = new System.Drawing.Size(368, 39);
-            this.TxtNombre.TabIndex = 1;
-            this.TxtNombre.Texts = "Nombre";
+            this.TxtNombre.Size = new System.Drawing.Size(345, 55);
+            this.TxtNombre.TabIndex = 3;
+            this.TxtNombre.TabStop = false;
+            this.TxtNombre.Texts = "";
             this.TxtNombre.UnderlinedStyle = false;
             // 
-            // TxtDescripcion
+            // TxtIdPlato
             // 
-            this.TxtDescripcion.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtDescripcion.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.TxtDescripcion.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.TxtDescripcion.BorderRadius = 0;
-            this.TxtDescripcion.BorderSize = 2;
-            this.TxtDescripcion.Enabled = false;
-            this.TxtDescripcion.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtDescripcion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TxtDescripcion.Location = new System.Drawing.Point(333, 234);
-            this.TxtDescripcion.Margin = new System.Windows.Forms.Padding(5);
-            this.TxtDescripcion.Multiline = true;
-            this.TxtDescripcion.Name = "TxtDescripcion";
-            this.TxtDescripcion.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
-            this.TxtDescripcion.PasswordChar = false;
-            this.TxtDescripcion.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TxtDescripcion.PlaceholderText = "";
-            this.TxtDescripcion.Size = new System.Drawing.Size(368, 117);
-            this.TxtDescripcion.TabIndex = 2;
-            this.TxtDescripcion.Texts = "Descripcion";
-            this.TxtDescripcion.UnderlinedStyle = false;
-            // 
-            // ChkDisponibilidad
-            // 
-            this.ChkDisponibilidad.AutoSize = true;
-            this.ChkDisponibilidad.BackColor = System.Drawing.Color.White;
-            this.ChkDisponibilidad.Depth = 0;
-            this.ChkDisponibilidad.Enabled = false;
-            this.ChkDisponibilidad.Font = new System.Drawing.Font("Roboto", 10F);
-            this.ChkDisponibilidad.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ChkDisponibilidad.Location = new System.Drawing.Point(333, 630);
-            this.ChkDisponibilidad.Margin = new System.Windows.Forms.Padding(0);
-            this.ChkDisponibilidad.MouseLocation = new System.Drawing.Point(-1, -1);
-            this.ChkDisponibilidad.MouseState = MaterialSkin.MouseState.HOVER;
-            this.ChkDisponibilidad.Name = "ChkDisponibilidad";
-            this.ChkDisponibilidad.Ripple = true;
-            this.ChkDisponibilidad.Size = new System.Drawing.Size(140, 30);
-            this.ChkDisponibilidad.TabIndex = 5;
-            this.ChkDisponibilidad.Text = "Disponibilidad";
-            this.ChkDisponibilidad.UseVisualStyleBackColor = false;
-            // 
-            // BtnCancelar
-            // 
-            this.BtnCancelar.BackColor = System.Drawing.Color.MediumSlateBlue;
-            this.BtnCancelar.BackgroundColor = System.Drawing.Color.MediumSlateBlue;
-            this.BtnCancelar.BorderColor = System.Drawing.Color.PaleVioletRed;
-            this.BtnCancelar.BorderRadius = 0;
-            this.BtnCancelar.BorderSize = 0;
-            this.BtnCancelar.FlatAppearance.BorderSize = 0;
-            this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCancelar.ForeColor = System.Drawing.Color.White;
-            this.BtnCancelar.Location = new System.Drawing.Point(25, 697);
-            this.BtnCancelar.Margin = new System.Windows.Forms.Padding(4);
-            this.BtnCancelar.Name = "BtnCancelar";
-            this.BtnCancelar.Size = new System.Drawing.Size(200, 49);
-            this.BtnCancelar.TabIndex = 7;
-            this.BtnCancelar.Text = "Cancelar";
-            this.BtnCancelar.TextColor = System.Drawing.Color.White;
-            this.BtnCancelar.UseVisualStyleBackColor = false;
-            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label1.Location = new System.Drawing.Point(331, 380);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(95, 17);
-            this.label1.TabIndex = 10;
-            this.label1.Text = "Precio sin IVA";
+            this.TxtIdPlato.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.TxtIdPlato.BorderColor = System.Drawing.Color.Transparent;
+            this.TxtIdPlato.BorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.TxtIdPlato.BorderRadius = 10;
+            this.TxtIdPlato.BorderSize = 2;
+            this.TxtIdPlato.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TxtIdPlato.Enabled = false;
+            this.TxtIdPlato.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
+            this.TxtIdPlato.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtIdPlato.Location = new System.Drawing.Point(5, 38);
+            this.TxtIdPlato.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
+            this.TxtIdPlato.Multiline = false;
+            this.TxtIdPlato.Name = "TxtIdPlato";
+            this.TxtIdPlato.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtIdPlato.PasswordChar = false;
+            this.TxtIdPlato.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TxtIdPlato.PlaceholderText = "";
+            this.TxtIdPlato.Size = new System.Drawing.Size(345, 55);
+            this.TxtIdPlato.TabIndex = 1;
+            this.TxtIdPlato.TabStop = false;
+            this.TxtIdPlato.Texts = "";
+            this.TxtIdPlato.UnderlinedStyle = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.label2.Location = new System.Drawing.Point(565, 380);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.Silver;
+            this.label2.Location = new System.Drawing.Point(0, 0);
+            this.label2.Margin = new System.Windows.Forms.Padding(0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(100, 17);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Precio con IVA";
+            this.label2.Size = new System.Drawing.Size(94, 33);
+            this.label2.TabIndex = 0;
+            this.label2.Text = "Código";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
+            this.label7.ForeColor = System.Drawing.Color.Silver;
+            this.label7.Location = new System.Drawing.Point(431, 450);
+            this.label7.Margin = new System.Windows.Forms.Padding(0);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(149, 33);
+            this.label7.TabIndex = 12;
+            this.label7.Text = "Descripción";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.Silver;
+            this.label3.Location = new System.Drawing.Point(0, 450);
+            this.label3.Margin = new System.Windows.Forms.Padding(0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(128, 33);
+            this.label3.TabIndex = 10;
+            this.label3.Text = "Alérgenos";
             // 
             // TxtListaAlergenos
             // 
-            this.TxtListaAlergenos.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.TxtListaAlergenos.BackColor = System.Drawing.SystemColors.Window;
-            this.TxtListaAlergenos.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.TxtListaAlergenos.BorderFocusColor = System.Drawing.Color.HotPink;
-            this.TxtListaAlergenos.BorderRadius = 0;
+            this.TxtListaAlergenos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.TxtListaAlergenos.BorderColor = System.Drawing.Color.Transparent;
+            this.TxtListaAlergenos.BorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.TxtListaAlergenos.BorderRadius = 10;
             this.TxtListaAlergenos.BorderSize = 2;
+            this.TxtListaAlergenos.Dock = System.Windows.Forms.DockStyle.Top;
             this.TxtListaAlergenos.Enabled = false;
-            this.TxtListaAlergenos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.TxtListaAlergenos.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
-            this.TxtListaAlergenos.Location = new System.Drawing.Point(335, 480);
-            this.TxtListaAlergenos.Margin = new System.Windows.Forms.Padding(5);
+            this.TxtListaAlergenos.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
+            this.TxtListaAlergenos.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtListaAlergenos.Location = new System.Drawing.Point(5, 488);
+            this.TxtListaAlergenos.Margin = new System.Windows.Forms.Padding(5, 5, 5, 10);
             this.TxtListaAlergenos.Multiline = true;
             this.TxtListaAlergenos.Name = "TxtListaAlergenos";
             this.TxtListaAlergenos.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
             this.TxtListaAlergenos.PasswordChar = false;
             this.TxtListaAlergenos.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtListaAlergenos.PlaceholderText = "";
-            this.TxtListaAlergenos.Size = new System.Drawing.Size(368, 126);
-            this.TxtListaAlergenos.TabIndex = 13;
-            this.TxtListaAlergenos.Texts = "Alergenos";
+            this.TxtListaAlergenos.Size = new System.Drawing.Size(351, 125);
+            this.TxtListaAlergenos.TabIndex = 11;
+            this.TxtListaAlergenos.TabStop = false;
+            this.TxtListaAlergenos.Texts = "";
             this.TxtListaAlergenos.UnderlinedStyle = false;
             // 
-            // CboCategorias
+            // label8
             // 
-            this.CboCategorias.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.CboCategorias.BorderColor = System.Drawing.Color.MediumSlateBlue;
-            this.CboCategorias.BorderSize = 1;
-            this.CboCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CboCategorias.Enabled = false;
-            this.CboCategorias.Font = new System.Drawing.Font("Microsoft Sans Serif", 10F);
-            this.CboCategorias.ForeColor = System.Drawing.Color.DimGray;
-            this.CboCategorias.IconColor = System.Drawing.Color.MediumSlateBlue;
-            this.CboCategorias.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
-            this.CboCategorias.ListTextColor = System.Drawing.Color.DimGray;
-            this.CboCategorias.Location = new System.Drawing.Point(334, 167);
-            this.CboCategorias.Margin = new System.Windows.Forms.Padding(4);
-            this.CboCategorias.MinimumSize = new System.Drawing.Size(267, 37);
-            this.CboCategorias.Name = "CboCategorias";
-            this.CboCategorias.Padding = new System.Windows.Forms.Padding(1);
-            this.CboCategorias.Size = new System.Drawing.Size(368, 37);
-            this.CboCategorias.TabIndex = 17;
-            this.CboCategorias.Texts = "";
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
+            this.label8.ForeColor = System.Drawing.Color.Silver;
+            this.label8.Location = new System.Drawing.Point(431, 226);
+            this.label8.Margin = new System.Windows.Forms.Padding(0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(167, 33);
+            this.label8.TabIndex = 4;
+            this.label8.Text = "Precio sin IVA";
             // 
-            // TxtPrecioSinIva
+            // label6
             // 
-            this.TxtPrecioSinIva.Enabled = false;
-            this.TxtPrecioSinIva.Location = new System.Drawing.Point(333, 412);
-            this.TxtPrecioSinIva.Margin = new System.Windows.Forms.Padding(4);
-            this.TxtPrecioSinIva.Name = "TxtPrecioSinIva";
-            this.TxtPrecioSinIva.Size = new System.Drawing.Size(132, 22);
-            this.TxtPrecioSinIva.TabIndex = 19;
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
+            this.label6.ForeColor = System.Drawing.Color.Silver;
+            this.label6.Location = new System.Drawing.Point(0, 226);
+            this.label6.Margin = new System.Windows.Forms.Padding(0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(173, 33);
+            this.label6.TabIndex = 2;
+            this.label6.Text = "Precio con IVA";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
+            this.label5.ForeColor = System.Drawing.Color.Silver;
+            this.label5.Location = new System.Drawing.Point(0, 339);
+            this.label5.Margin = new System.Windows.Forms.Padding(0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(126, 33);
+            this.label5.TabIndex = 6;
+            this.label5.Text = "Categoría";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
+            this.label9.ForeColor = System.Drawing.Color.Silver;
+            this.label9.Location = new System.Drawing.Point(431, 339);
+            this.label9.Margin = new System.Windows.Forms.Padding(0);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(182, 33);
+            this.label9.TabIndex = 8;
+            this.label9.Text = "Disponibilidad";
+            // 
+            // ChkDisponibilidad
+            // 
+            this.ChkDisponibilidad.AutoSize = true;
+            this.ChkDisponibilidad.Checked = true;
+            this.ChkDisponibilidad.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.ChkDisponibilidad.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ChkDisponibilidad.Enabled = false;
+            this.ChkDisponibilidad.Location = new System.Drawing.Point(435, 376);
+            this.ChkDisponibilidad.Margin = new System.Windows.Forms.Padding(4);
+            this.ChkDisponibilidad.MinimumSize = new System.Drawing.Size(60, 27);
+            this.ChkDisponibilidad.Name = "ChkDisponibilidad";
+            this.ChkDisponibilidad.OffBackColor = System.Drawing.Color.Gray;
+            this.ChkDisponibilidad.OffToggleColor = System.Drawing.Color.Gainsboro;
+            this.ChkDisponibilidad.OnBackColor = System.Drawing.Color.MediumSlateBlue;
+            this.ChkDisponibilidad.OnToggleColor = System.Drawing.Color.WhiteSmoke;
+            this.ChkDisponibilidad.Size = new System.Drawing.Size(60, 27);
+            this.ChkDisponibilidad.TabIndex = 9;
+            this.ChkDisponibilidad.TabStop = false;
+            this.ChkDisponibilidad.UseVisualStyleBackColor = true;
+            // 
+            // TxtDescripcion
+            // 
+            this.TxtDescripcion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.TxtDescripcion.BorderColor = System.Drawing.Color.Transparent;
+            this.TxtDescripcion.BorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.TxtDescripcion.BorderRadius = 10;
+            this.TxtDescripcion.BorderSize = 2;
+            this.TxtDescripcion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.TxtDescripcion.Enabled = false;
+            this.TxtDescripcion.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
+            this.TxtDescripcion.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtDescripcion.Location = new System.Drawing.Point(436, 488);
+            this.TxtDescripcion.Margin = new System.Windows.Forms.Padding(5, 5, 5, 10);
+            this.TxtDescripcion.Multiline = true;
+            this.TxtDescripcion.Name = "TxtDescripcion";
+            this.TxtDescripcion.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtDescripcion.PasswordChar = false;
+            this.TxtDescripcion.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TxtDescripcion.PlaceholderText = "";
+            this.TxtDescripcion.Size = new System.Drawing.Size(351, 125);
+            this.TxtDescripcion.TabIndex = 13;
+            this.TxtDescripcion.TabStop = false;
+            this.TxtDescripcion.Texts = "";
+            this.TxtDescripcion.UnderlinedStyle = false;
             // 
             // TxtPrecioConIva
             // 
+            this.TxtPrecioConIva.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.TxtPrecioConIva.BorderColor = System.Drawing.Color.Transparent;
+            this.TxtPrecioConIva.BorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.TxtPrecioConIva.BorderRadius = 10;
+            this.TxtPrecioConIva.BorderSize = 2;
+            this.TxtPrecioConIva.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtPrecioConIva.Enabled = false;
-            this.TxtPrecioConIva.Location = new System.Drawing.Point(569, 412);
-            this.TxtPrecioConIva.Margin = new System.Windows.Forms.Padding(4);
+            this.TxtPrecioConIva.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
+            this.TxtPrecioConIva.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtPrecioConIva.Location = new System.Drawing.Point(5, 264);
+            this.TxtPrecioConIva.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
+            this.TxtPrecioConIva.Multiline = false;
             this.TxtPrecioConIva.Name = "TxtPrecioConIva";
-            this.TxtPrecioConIva.Size = new System.Drawing.Size(132, 22);
-            this.TxtPrecioConIva.TabIndex = 20;
+            this.TxtPrecioConIva.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtPrecioConIva.PasswordChar = false;
+            this.TxtPrecioConIva.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TxtPrecioConIva.PlaceholderText = "";
+            this.TxtPrecioConIva.Size = new System.Drawing.Size(351, 55);
+            this.TxtPrecioConIva.TabIndex = 3;
+            this.TxtPrecioConIva.TabStop = false;
+            this.TxtPrecioConIva.Texts = "";
+            this.TxtPrecioConIva.UnderlinedStyle = false;
             // 
-            // PicFotoPlato
+            // TxtPrecioSinIva
             // 
-            this.PicFotoPlato.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
-            this.PicFotoPlato.Image = global::Garmoxu_Desktop.Properties.Resources.No_Image_Found;
-            this.PicFotoPlato.InitialImage = global::Garmoxu_Desktop.Properties.Resources.No_Image_Found;
-            this.PicFotoPlato.Location = new System.Drawing.Point(51, 27);
-            this.PicFotoPlato.Margin = new System.Windows.Forms.Padding(4);
-            this.PicFotoPlato.Name = "PicFotoPlato";
-            this.PicFotoPlato.Size = new System.Drawing.Size(217, 167);
-            this.PicFotoPlato.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.PicFotoPlato.TabIndex = 15;
-            this.PicFotoPlato.TabStop = false;
+            this.TxtPrecioSinIva.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.TxtPrecioSinIva.BorderColor = System.Drawing.Color.Transparent;
+            this.TxtPrecioSinIva.BorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.TxtPrecioSinIva.BorderRadius = 10;
+            this.TxtPrecioSinIva.BorderSize = 2;
+            this.TxtPrecioSinIva.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TxtPrecioSinIva.Enabled = false;
+            this.TxtPrecioSinIva.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
+            this.TxtPrecioSinIva.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtPrecioSinIva.Location = new System.Drawing.Point(436, 264);
+            this.TxtPrecioSinIva.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
+            this.TxtPrecioSinIva.Multiline = false;
+            this.TxtPrecioSinIva.Name = "TxtPrecioSinIva";
+            this.TxtPrecioSinIva.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtPrecioSinIva.PasswordChar = false;
+            this.TxtPrecioSinIva.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TxtPrecioSinIva.PlaceholderText = "";
+            this.TxtPrecioSinIva.Size = new System.Drawing.Size(351, 55);
+            this.TxtPrecioSinIva.TabIndex = 5;
+            this.TxtPrecioSinIva.TabStop = false;
+            this.TxtPrecioSinIva.Texts = "";
+            this.TxtPrecioSinIva.UnderlinedStyle = false;
+            // 
+            // panel1
+            // 
+            this.panel1.Controls.Add(this.LblCboDisabled);
+            this.panel1.Controls.Add(this.CboCategorias);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(3, 375);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(355, 52);
+            this.panel1.TabIndex = 15;
+            // 
+            // LblCboDisabled
+            // 
+            this.LblCboDisabled.AutoSize = true;
+            this.LblCboDisabled.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.LblCboDisabled.Dock = System.Windows.Forms.DockStyle.Left;
+            this.LblCboDisabled.Font = new System.Drawing.Font("Source Sans Pro", 14.2F, System.Drawing.FontStyle.Bold);
+            this.LblCboDisabled.ForeColor = System.Drawing.Color.Gray;
+            this.LblCboDisabled.Location = new System.Drawing.Point(0, 0);
+            this.LblCboDisabled.Margin = new System.Windows.Forms.Padding(0);
+            this.LblCboDisabled.Name = "LblCboDisabled";
+            this.LblCboDisabled.Padding = new System.Windows.Forms.Padding(10, 10, 0, 0);
+            this.LblCboDisabled.Size = new System.Drawing.Size(83, 41);
+            this.LblCboDisabled.TabIndex = 14;
+            this.LblCboDisabled.Text = "Otros";
+            // 
+            // CboCategorias
+            // 
+            this.CboCategorias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.CboCategorias.BorderColor = System.Drawing.Color.Transparent;
+            this.CboCategorias.BorderSize = 0;
+            this.CboCategorias.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CboCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CboCategorias.Enabled = false;
+            this.CboCategorias.Font = new System.Drawing.Font("Source Sans Pro", 14.2F, System.Drawing.FontStyle.Bold);
+            this.CboCategorias.ForeColor = System.Drawing.Color.Gainsboro;
+            this.CboCategorias.IconColor = System.Drawing.Color.Gainsboro;
+            this.CboCategorias.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
+            this.CboCategorias.ListTextColor = System.Drawing.Color.DimGray;
+            this.CboCategorias.Location = new System.Drawing.Point(0, 0);
+            this.CboCategorias.Margin = new System.Windows.Forms.Padding(0);
+            this.CboCategorias.MinimumSize = new System.Drawing.Size(200, 30);
+            this.CboCategorias.Name = "CboCategorias";
+            this.CboCategorias.Size = new System.Drawing.Size(355, 52);
+            this.CboCategorias.TabIndex = 7;
+            this.CboCategorias.TabStop = false;
+            this.CboCategorias.Texts = "";
             // 
             // FrmPedidosPlatosConsultaDetalles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
-            this.ClientSize = new System.Drawing.Size(737, 775);
-            this.Controls.Add(this.TxtPrecioConIva);
-            this.Controls.Add(this.TxtPrecioSinIva);
-            this.Controls.Add(this.CboCategorias);
-            this.Controls.Add(this.PicFotoPlato);
-            this.Controls.Add(this.TxtListaAlergenos);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.BtnCancelar);
-            this.Controls.Add(this.ChkDisponibilidad);
-            this.Controls.Add(this.TxtDescripcion);
-            this.Controls.Add(this.TxtNombre);
-            this.Controls.Add(this.TxtIdPlato);
+            this.ClientSize = new System.Drawing.Size(932, 816);
+            this.Controls.Add(this.tableLayoutPanel1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmPedidosPlatosConsultaDetalles";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "FrmPlatosDetalles";
+            this.Text = "Consulta un plato - Garmoxu";
             this.TopMost = true;
+            this.Shown += new System.EventHandler(this.FrmPlatosDetalles_Shown);
+            this.tableLayoutPanel1.ResumeLayout(false);
+            this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
+            this.PnlDatos.ResumeLayout(false);
+            this.tableLayoutPanel11.ResumeLayout(false);
+            this.tableLayoutPanel11.PerformLayout();
+            this.tableLayoutPanel6.ResumeLayout(false);
+            this.PnlBordeImagen.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.PicFotoPlato)).EndInit();
+            this.tableLayoutPanel8.ResumeLayout(false);
+            this.tableLayoutPanel8.PerformLayout();
+            this.panel1.ResumeLayout(false);
+            this.panel1.PerformLayout();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
         #endregion
 
-        private RJCodeAdvance.RJControls.RJTextBox TxtIdPlato;
-        private RJCodeAdvance.RJControls.RJTextBox TxtNombre;
-        private RJCodeAdvance.RJControls.RJTextBox TxtDescripcion;
-        private MaterialSkin.Controls.MaterialCheckBox ChkDisponibilidad;
-        private RJCodeAdvance.RJControls.RJButton BtnCancelar;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private RJCodeAdvance.RJControls.RJTextBox TxtListaAlergenos;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
+        private FontAwesome.Sharp.IconButton BtnClose;
+        private System.Windows.Forms.Label LblTitulo;
+        private System.Windows.Forms.TableLayoutPanel PnlDatos;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private System.Windows.Forms.TableLayoutPanel PnlBordeImagen;
         private System.Windows.Forms.PictureBox PicFotoPlato;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
+        private System.Windows.Forms.Label label1;
+        private RJCodeAdvance.RJControls.RJTextBox TxtNombre;
+        private RJCodeAdvance.RJControls.RJTextBox TxtIdPlato;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label3;
+        private RJCodeAdvance.RJControls.RJTextBox TxtListaAlergenos;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label6;
         private RJCodeAdvance.RJControls.RJComboBox CboCategorias;
-        private System.Windows.Forms.TextBox TxtPrecioSinIva;
-        private System.Windows.Forms.TextBox TxtPrecioConIva;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label9;
+        private RJCodeAdvance.RJControls.RJToggleButton ChkDisponibilidad;
+        private RJCodeAdvance.RJControls.RJTextBox TxtPrecioConIva;
+        private RJCodeAdvance.RJControls.RJTextBox TxtPrecioSinIva;
+        private RJCodeAdvance.RJControls.RJTextBox TxtDescripcion;
+        private System.Windows.Forms.Label LblCboDisabled;
+        private System.Windows.Forms.Panel panel1;
     }
 }

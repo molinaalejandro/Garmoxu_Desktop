@@ -700,8 +700,8 @@
             this.DtgClientes.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtgClientes.EnableHeadersVisualStyles = false;
             this.DtgClientes.GridColor = System.Drawing.Color.MediumSlateBlue;
-            this.DtgClientes.Location = new System.Drawing.Point(5, 64);
-            this.DtgClientes.Margin = new System.Windows.Forms.Padding(5, 4, 5, 15);
+            this.DtgClientes.Location = new System.Drawing.Point(5, 80);
+            this.DtgClientes.Margin = new System.Windows.Forms.Padding(5, 20, 5, 15);
             this.DtgClientes.Name = "DtgClientes";
             this.DtgClientes.ReadOnly = true;
             this.DtgClientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -717,7 +717,7 @@
             this.DtgClientes.RowHeadersWidth = 51;
             this.DtgClientes.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.DtgClientes.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.DtgClientes.Size = new System.Drawing.Size(1008, 849);
+            this.DtgClientes.Size = new System.Drawing.Size(1008, 833);
             this.DtgClientes.TabIndex = 1;
             this.DtgClientes.TabStop = false;
             this.DtgClientes.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.DtgClientes_CellClick);
@@ -753,7 +753,7 @@
             // 
             // BtnAbrirNuevo
             // 
-            this.BtnAbrirNuevo.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnAbrirNuevo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnAbrirNuevo.FlatAppearance.BorderSize = 0;
             this.BtnAbrirNuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
             this.BtnAbrirNuevo.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
@@ -764,7 +764,7 @@
             this.BtnAbrirNuevo.Location = new System.Drawing.Point(0, 0);
             this.BtnAbrirNuevo.Margin = new System.Windows.Forms.Padding(0);
             this.BtnAbrirNuevo.Name = "BtnAbrirNuevo";
-            this.BtnAbrirNuevo.Size = new System.Drawing.Size(51, 55);
+            this.BtnAbrirNuevo.Size = new System.Drawing.Size(40, 60);
             this.BtnAbrirNuevo.TabIndex = 0;
             this.BtnAbrirNuevo.TabStop = false;
             this.BtnAbrirNuevo.UseVisualStyleBackColor = true;
@@ -774,7 +774,7 @@
             // 
             // BtnQuitar
             // 
-            this.BtnQuitar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnQuitar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnQuitar.Enabled = false;
             this.BtnQuitar.FlatAppearance.BorderSize = 0;
             this.BtnQuitar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -783,10 +783,10 @@
             this.BtnQuitar.IconChar = FontAwesome.Sharp.IconChar.UserMinus;
             this.BtnQuitar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.BtnQuitar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnQuitar.Location = new System.Drawing.Point(61, 0);
-            this.BtnQuitar.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
+            this.BtnQuitar.Location = new System.Drawing.Point(55, 0);
+            this.BtnQuitar.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.BtnQuitar.Name = "BtnQuitar";
-            this.BtnQuitar.Size = new System.Drawing.Size(51, 55);
+            this.BtnQuitar.Size = new System.Drawing.Size(51, 60);
             this.BtnQuitar.TabIndex = 1;
             this.BtnQuitar.TabStop = false;
             this.BtnQuitar.UseVisualStyleBackColor = true;
@@ -796,7 +796,7 @@
             // 
             // BtnBuscar
             // 
-            this.BtnBuscar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.BtnBuscar.FlatAppearance.BorderSize = 0;
             this.BtnBuscar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -806,9 +806,10 @@
             this.BtnBuscar.IconChar = FontAwesome.Sharp.IconChar.Search;
             this.BtnBuscar.IconColor = System.Drawing.Color.DodgerBlue;
             this.BtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnBuscar.Location = new System.Drawing.Point(964, 3);
+            this.BtnBuscar.Location = new System.Drawing.Point(976, 0);
+            this.BtnBuscar.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.BtnBuscar.Name = "BtnBuscar";
-            this.BtnBuscar.Size = new System.Drawing.Size(51, 55);
+            this.BtnBuscar.Size = new System.Drawing.Size(42, 60);
             this.BtnBuscar.TabIndex = 3;
             this.BtnBuscar.TabStop = false;
             this.BtnBuscar.UseVisualStyleBackColor = true;
@@ -826,7 +827,7 @@
             this.TxtBuscar.Dock = System.Windows.Forms.DockStyle.Top;
             this.TxtBuscar.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
             this.TxtBuscar.ForeColor = System.Drawing.Color.Gray;
-            this.TxtBuscar.Location = new System.Drawing.Point(117, 0);
+            this.TxtBuscar.Location = new System.Drawing.Point(111, 0);
             this.TxtBuscar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.TxtBuscar.Multiline = false;
             this.TxtBuscar.Name = "TxtBuscar";
@@ -834,7 +835,7 @@
             this.TxtBuscar.PasswordChar = false;
             this.TxtBuscar.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtBuscar.PlaceholderText = "";
-            this.TxtBuscar.Size = new System.Drawing.Size(839, 55);
+            this.TxtBuscar.Size = new System.Drawing.Size(840, 55);
             this.TxtBuscar.TabIndex = 2;
             this.TxtBuscar.TabStop = false;
             this.TxtBuscar.Texts = "Buscar por teléfono de cliente";

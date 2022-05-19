@@ -334,7 +334,7 @@ namespace Garmoxu_Desktop
             if (BtnContraseña.IconChar.Equals(IconChar.EyeSlash))
             {
                 BtnContraseña.IconChar = IconChar.Eye;
-                BtnContraseña.IconColor = Color.CornflowerBlue;
+                BtnContraseña.IconColor = Color.FromArgb(110, 110, 255);
                 TxtContraseña.PasswordChar = false;
             }
             else
@@ -358,7 +358,7 @@ namespace Garmoxu_Desktop
             if (BtnContraseña.IconChar.Equals(IconChar.EyeSlash))
                 BtnContraseña.IconColor = Color.Gray;
             else
-                BtnContraseña.IconColor = Color.CornflowerBlue;
+                BtnContraseña.IconColor = Color.FromArgb(110, 110, 255);
         }
 
         // Si el textbox esta en por defecto al acceder se eliminara el texto y lo pondra en modo contraseña,
