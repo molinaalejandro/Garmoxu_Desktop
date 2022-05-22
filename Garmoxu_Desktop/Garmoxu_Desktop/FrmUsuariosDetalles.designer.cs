@@ -31,18 +31,18 @@ namespace Garmoxu_Desktop
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmUsuariosDetalles));
             this.PnlDatos = new System.Windows.Forms.TableLayoutPanel();
-            this.CboTipoUsuario = new RJCodeAdvance.RJControls.RJComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.TxtNombre = new RJCodeAdvance.RJControls.RJTextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.TxtUsuario = new RJCodeAdvance.RJControls.RJTextBox();
             this.label1 = new System.Windows.Forms.Label();
+            this.TxtUsuario = new RJCodeAdvance.RJControls.RJTextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.TxtNombre = new RJCodeAdvance.RJControls.RJTextBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.CboTipoUsuario = new RJCodeAdvance.RJControls.RJComboBox();
             this.PnlBotones = new System.Windows.Forms.TableLayoutPanel();
-            this.BtnCancelar = new RJCodeAdvance.RJControls.RJButton();
             this.BtnGuardar = new RJCodeAdvance.RJControls.RJButton();
+            this.BtnCancelar = new RJCodeAdvance.RJControls.RJButton();
             this.PnlTitleBar = new System.Windows.Forms.TableLayoutPanel();
-            this.label4 = new System.Windows.Forms.Label();
             this.BtnClose = new FontAwesome.Sharp.IconButton();
+            this.label4 = new System.Windows.Forms.Label();
             this.PnlPrincipal = new System.Windows.Forms.TableLayoutPanel();
             this.PnlDatos.SuspendLayout();
             this.PnlBotones.SuspendLayout();
@@ -78,73 +78,17 @@ namespace Garmoxu_Desktop
             this.PnlDatos.Size = new System.Drawing.Size(598, 365);
             this.PnlDatos.TabIndex = 25;
             // 
-            // CboTipoUsuario
+            // label1
             // 
-            this.CboTipoUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.CboTipoUsuario.BorderColor = System.Drawing.Color.Transparent;
-            this.CboTipoUsuario.BorderSize = 0;
-            this.CboTipoUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CboTipoUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CboTipoUsuario.Font = new System.Drawing.Font("Source Sans Pro", 14.2F, System.Drawing.FontStyle.Bold);
-            this.CboTipoUsuario.ForeColor = System.Drawing.Color.Gainsboro;
-            this.CboTipoUsuario.IconColor = System.Drawing.Color.Gainsboro;
-            this.CboTipoUsuario.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
-            this.CboTipoUsuario.ListTextColor = System.Drawing.Color.DimGray;
-            this.CboTipoUsuario.Location = new System.Drawing.Point(75, 264);
-            this.CboTipoUsuario.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
-            this.CboTipoUsuario.MinimumSize = new System.Drawing.Size(200, 30);
-            this.CboTipoUsuario.Name = "CboTipoUsuario";
-            this.CboTipoUsuario.Size = new System.Drawing.Size(448, 51);
-            this.CboTipoUsuario.TabIndex = 3;
-            this.CboTipoUsuario.TabStop = false;
-            this.CboTipoUsuario.Texts = "";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label3.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.Silver;
-            this.label3.Location = new System.Drawing.Point(73, 226);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(452, 33);
-            this.label3.TabIndex = 26;
-            this.label3.Text = "Tipo de usuario";
-            // 
-            // TxtNombre
-            // 
-            this.TxtNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.TxtNombre.BorderColor = System.Drawing.Color.Transparent;
-            this.TxtNombre.BorderFocusColor = System.Drawing.Color.Gainsboro;
-            this.TxtNombre.BorderRadius = 10;
-            this.TxtNombre.BorderSize = 2;
-            this.TxtNombre.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.TxtNombre.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtNombre.ForeColor = System.Drawing.Color.Gainsboro;
-            this.TxtNombre.Location = new System.Drawing.Point(75, 151);
-            this.TxtNombre.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
-            this.TxtNombre.Multiline = false;
-            this.TxtNombre.Name = "TxtNombre";
-            this.TxtNombre.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
-            this.TxtNombre.PasswordChar = false;
-            this.TxtNombre.PlaceholderColor = System.Drawing.Color.DarkGray;
-            this.TxtNombre.PlaceholderText = "";
-            this.TxtNombre.Size = new System.Drawing.Size(448, 55);
-            this.TxtNombre.TabIndex = 2;
-            this.TxtNombre.Texts = "";
-            this.TxtNombre.UnderlinedStyle = false;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label2.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.Silver;
-            this.label2.Location = new System.Drawing.Point(73, 113);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(452, 33);
-            this.label2.TabIndex = 36;
-            this.label2.Text = "Nombre y apellidos";
+            this.label1.AutoSize = true;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label1.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
+            this.label1.ForeColor = System.Drawing.Color.Silver;
+            this.label1.Location = new System.Drawing.Point(73, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(452, 33);
+            this.label1.TabIndex = 35;
+            this.label1.Text = "Nombre de usuario";
             // 
             // TxtUsuario
             // 
@@ -168,18 +112,76 @@ namespace Garmoxu_Desktop
             this.TxtUsuario.TabIndex = 1;
             this.TxtUsuario.Texts = "";
             this.TxtUsuario.UnderlinedStyle = false;
+            this.TxtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
-            // label1
+            // label2
             // 
-            this.label1.AutoSize = true;
-            this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label1.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.Silver;
-            this.label1.Location = new System.Drawing.Point(73, 0);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(452, 33);
-            this.label1.TabIndex = 35;
-            this.label1.Text = "Nombre de usuario";
+            this.label2.AutoSize = true;
+            this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label2.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
+            this.label2.ForeColor = System.Drawing.Color.Silver;
+            this.label2.Location = new System.Drawing.Point(73, 113);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(452, 33);
+            this.label2.TabIndex = 36;
+            this.label2.Text = "Nombre y apellidos";
+            // 
+            // TxtNombre
+            // 
+            this.TxtNombre.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.TxtNombre.BorderColor = System.Drawing.Color.Transparent;
+            this.TxtNombre.BorderFocusColor = System.Drawing.Color.Gainsboro;
+            this.TxtNombre.BorderRadius = 10;
+            this.TxtNombre.BorderSize = 2;
+            this.TxtNombre.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TxtNombre.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
+            this.TxtNombre.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtNombre.Location = new System.Drawing.Point(75, 151);
+            this.TxtNombre.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
+            this.TxtNombre.Multiline = false;
+            this.TxtNombre.Name = "TxtNombre";
+            this.TxtNombre.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtNombre.PasswordChar = false;
+            this.TxtNombre.PlaceholderColor = System.Drawing.Color.DarkGray;
+            this.TxtNombre.PlaceholderText = "";
+            this.TxtNombre.Size = new System.Drawing.Size(448, 55);
+            this.TxtNombre.TabIndex = 2;
+            this.TxtNombre.Texts = "";
+            this.TxtNombre.UnderlinedStyle = false;
+            this.TxtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label3.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
+            this.label3.ForeColor = System.Drawing.Color.Silver;
+            this.label3.Location = new System.Drawing.Point(73, 226);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(452, 33);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "Tipo de usuario";
+            // 
+            // CboTipoUsuario
+            // 
+            this.CboTipoUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.CboTipoUsuario.BorderColor = System.Drawing.Color.Transparent;
+            this.CboTipoUsuario.BorderSize = 0;
+            this.CboTipoUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CboTipoUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CboTipoUsuario.Font = new System.Drawing.Font("Source Sans Pro", 14.2F, System.Drawing.FontStyle.Bold);
+            this.CboTipoUsuario.ForeColor = System.Drawing.Color.Gainsboro;
+            this.CboTipoUsuario.IconColor = System.Drawing.Color.Gainsboro;
+            this.CboTipoUsuario.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
+            this.CboTipoUsuario.ListTextColor = System.Drawing.Color.DimGray;
+            this.CboTipoUsuario.Location = new System.Drawing.Point(75, 264);
+            this.CboTipoUsuario.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
+            this.CboTipoUsuario.MinimumSize = new System.Drawing.Size(200, 30);
+            this.CboTipoUsuario.Name = "CboTipoUsuario";
+            this.CboTipoUsuario.Size = new System.Drawing.Size(448, 51);
+            this.CboTipoUsuario.TabIndex = 3;
+            this.CboTipoUsuario.TabStop = false;
+            this.CboTipoUsuario.Texts = "";
             // 
             // PnlBotones
             // 
@@ -201,29 +203,6 @@ namespace Garmoxu_Desktop
             this.PnlBotones.Size = new System.Drawing.Size(598, 129);
             this.PnlBotones.TabIndex = 44;
             // 
-            // BtnCancelar
-            // 
-            this.BtnCancelar.BackColor = System.Drawing.Color.Crimson;
-            this.BtnCancelar.BackgroundColor = System.Drawing.Color.Crimson;
-            this.BtnCancelar.BorderColor = System.Drawing.Color.Black;
-            this.BtnCancelar.BorderRadius = 15;
-            this.BtnCancelar.BorderSize = 0;
-            this.BtnCancelar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.BtnCancelar.FlatAppearance.BorderSize = 0;
-            this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnCancelar.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.BtnCancelar.ForeColor = System.Drawing.Color.White;
-            this.BtnCancelar.Location = new System.Drawing.Point(327, 34);
-            this.BtnCancelar.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
-            this.BtnCancelar.Name = "BtnCancelar";
-            this.BtnCancelar.Size = new System.Drawing.Size(192, 60);
-            this.BtnCancelar.TabIndex = 5;
-            this.BtnCancelar.TabStop = false;
-            this.BtnCancelar.Text = "Cancelar";
-            this.BtnCancelar.TextColor = System.Drawing.Color.White;
-            this.BtnCancelar.UseVisualStyleBackColor = false;
-            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
-            // 
             // BtnGuardar
             // 
             this.BtnGuardar.BackColor = System.Drawing.Color.SeaGreen;
@@ -231,6 +210,7 @@ namespace Garmoxu_Desktop
             this.BtnGuardar.BorderColor = System.Drawing.Color.Black;
             this.BtnGuardar.BorderRadius = 15;
             this.BtnGuardar.BorderSize = 0;
+            this.BtnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnGuardar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnGuardar.FlatAppearance.BorderSize = 0;
             this.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -246,6 +226,30 @@ namespace Garmoxu_Desktop
             this.BtnGuardar.TextColor = System.Drawing.Color.White;
             this.BtnGuardar.UseVisualStyleBackColor = false;
             this.BtnGuardar.Click += new System.EventHandler(this.BtnGuardar_Click);
+            // 
+            // BtnCancelar
+            // 
+            this.BtnCancelar.BackColor = System.Drawing.Color.Crimson;
+            this.BtnCancelar.BackgroundColor = System.Drawing.Color.Crimson;
+            this.BtnCancelar.BorderColor = System.Drawing.Color.Black;
+            this.BtnCancelar.BorderRadius = 15;
+            this.BtnCancelar.BorderSize = 0;
+            this.BtnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnCancelar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnCancelar.FlatAppearance.BorderSize = 0;
+            this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnCancelar.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
+            this.BtnCancelar.ForeColor = System.Drawing.Color.White;
+            this.BtnCancelar.Location = new System.Drawing.Point(327, 34);
+            this.BtnCancelar.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
+            this.BtnCancelar.Name = "BtnCancelar";
+            this.BtnCancelar.Size = new System.Drawing.Size(192, 60);
+            this.BtnCancelar.TabIndex = 5;
+            this.BtnCancelar.TabStop = false;
+            this.BtnCancelar.Text = "Cancelar";
+            this.BtnCancelar.TextColor = System.Drawing.Color.White;
+            this.BtnCancelar.UseVisualStyleBackColor = false;
+            this.BtnCancelar.Click += new System.EventHandler(this.BtnCancelar_Click);
             // 
             // PnlTitleBar
             // 
@@ -263,20 +267,6 @@ namespace Garmoxu_Desktop
             this.PnlTitleBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.PnlTitleBar.Size = new System.Drawing.Size(604, 72);
             this.PnlTitleBar.TabIndex = 54;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label4.Font = new System.Drawing.Font("Source Sans Pro", 18F, System.Drawing.FontStyle.Bold);
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(14, 0);
-            this.label4.Margin = new System.Windows.Forms.Padding(14, 0, 0, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(523, 72);
-            this.label4.TabIndex = 52;
-            this.label4.Text = "Crea un nuevo usuario";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // BtnClose
             // 
@@ -301,6 +291,20 @@ namespace Garmoxu_Desktop
             this.BtnClose.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.BtnClose.UseVisualStyleBackColor = false;
             this.BtnClose.Click += new System.EventHandler(this.BtnCancelar_Click);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label4.Font = new System.Drawing.Font("Source Sans Pro", 18F, System.Drawing.FontStyle.Bold);
+            this.label4.ForeColor = System.Drawing.Color.White;
+            this.label4.Location = new System.Drawing.Point(14, 0);
+            this.label4.Margin = new System.Windows.Forms.Padding(14, 0, 0, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(523, 72);
+            this.label4.TabIndex = 52;
+            this.label4.Text = "Crea un nuevo usuario";
+            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // PnlPrincipal
             // 

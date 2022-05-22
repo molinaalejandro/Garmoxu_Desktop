@@ -30,6 +30,7 @@
         {
             System.Windows.Forms.Panel panel1;
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmPlatosDetalles));
+            this.CboCategorias = new RJCodeAdvance.RJControls.RJComboBox();
             this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel11 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
@@ -45,7 +46,6 @@
             this.TxtListaAlergenos = new RJCodeAdvance.RJControls.RJTextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.CboCategorias = new RJCodeAdvance.RJControls.RJComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.ChkDisponibilidad = new RJCodeAdvance.RJControls.RJToggleButton();
@@ -60,6 +60,7 @@
             this.LblTitulo = new System.Windows.Forms.Label();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             panel1 = new System.Windows.Forms.Panel();
+            panel1.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
             this.tableLayoutPanel6.SuspendLayout();
@@ -69,8 +70,37 @@
             this.tableLayoutPanel7.SuspendLayout();
             this.tableLayoutPanel4.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            panel1.SuspendLayout();
             this.SuspendLayout();
+            // 
+            // panel1
+            // 
+            panel1.Controls.Add(this.CboCategorias);
+            panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            panel1.Location = new System.Drawing.Point(3, 375);
+            panel1.Name = "panel1";
+            panel1.Size = new System.Drawing.Size(355, 41);
+            panel1.TabIndex = 14;
+            // 
+            // CboCategorias
+            // 
+            this.CboCategorias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
+            this.CboCategorias.BorderColor = System.Drawing.Color.Transparent;
+            this.CboCategorias.BorderSize = 0;
+            this.CboCategorias.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.CboCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.CboCategorias.Font = new System.Drawing.Font("Source Sans Pro", 14.2F, System.Drawing.FontStyle.Bold);
+            this.CboCategorias.ForeColor = System.Drawing.Color.Gainsboro;
+            this.CboCategorias.IconColor = System.Drawing.Color.Gainsboro;
+            this.CboCategorias.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
+            this.CboCategorias.ListTextColor = System.Drawing.Color.DimGray;
+            this.CboCategorias.Location = new System.Drawing.Point(0, 0);
+            this.CboCategorias.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
+            this.CboCategorias.MinimumSize = new System.Drawing.Size(200, 30);
+            this.CboCategorias.Name = "CboCategorias";
+            this.CboCategorias.Size = new System.Drawing.Size(355, 41);
+            this.CboCategorias.TabIndex = 7;
+            this.CboCategorias.TabStop = false;
+            this.CboCategorias.Texts = "";
             // 
             // tableLayoutPanel5
             // 
@@ -228,6 +258,7 @@
             this.TxtNombre.TabIndex = 3;
             this.TxtNombre.Texts = "";
             this.TxtNombre.UnderlinedStyle = false;
+            this.TxtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
             // TxtIdPlato
             // 
@@ -251,6 +282,7 @@
             this.TxtIdPlato.TabIndex = 1;
             this.TxtIdPlato.Texts = "";
             this.TxtIdPlato.UnderlinedStyle = false;
+            this.TxtIdPlato.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
             // label2
             // 
@@ -306,10 +338,11 @@
             this.TxtListaAlergenos.PasswordChar = false;
             this.TxtListaAlergenos.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtListaAlergenos.PlaceholderText = "";
-            this.TxtListaAlergenos.Size = new System.Drawing.Size(351, 125);
+            this.TxtListaAlergenos.Size = new System.Drawing.Size(351, 123);
             this.TxtListaAlergenos.TabIndex = 11;
             this.TxtListaAlergenos.Texts = "";
             this.TxtListaAlergenos.UnderlinedStyle = false;
+            this.TxtListaAlergenos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
             // label8
             // 
@@ -334,27 +367,6 @@
             this.label6.Size = new System.Drawing.Size(173, 33);
             this.label6.TabIndex = 2;
             this.label6.Text = "Precio con IVA";
-            // 
-            // CboCategorias
-            // 
-            this.CboCategorias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            this.CboCategorias.BorderColor = System.Drawing.Color.Transparent;
-            this.CboCategorias.BorderSize = 0;
-            this.CboCategorias.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.CboCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.CboCategorias.Font = new System.Drawing.Font("Source Sans Pro", 14.2F, System.Drawing.FontStyle.Bold);
-            this.CboCategorias.ForeColor = System.Drawing.Color.Gainsboro;
-            this.CboCategorias.IconColor = System.Drawing.Color.Gainsboro;
-            this.CboCategorias.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
-            this.CboCategorias.ListTextColor = System.Drawing.Color.DimGray;
-            this.CboCategorias.Location = new System.Drawing.Point(0, 0);
-            this.CboCategorias.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
-            this.CboCategorias.MinimumSize = new System.Drawing.Size(200, 30);
-            this.CboCategorias.Name = "CboCategorias";
-            this.CboCategorias.Size = new System.Drawing.Size(355, 41);
-            this.CboCategorias.TabIndex = 7;
-            this.CboCategorias.TabStop = false;
-            this.CboCategorias.Texts = "";
             // 
             // label5
             // 
@@ -417,10 +429,11 @@
             this.TxtDescripcion.PasswordChar = false;
             this.TxtDescripcion.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtDescripcion.PlaceholderText = "";
-            this.TxtDescripcion.Size = new System.Drawing.Size(351, 125);
+            this.TxtDescripcion.Size = new System.Drawing.Size(351, 123);
             this.TxtDescripcion.TabIndex = 13;
             this.TxtDescripcion.Texts = "";
             this.TxtDescripcion.UnderlinedStyle = false;
+            this.TxtDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
             // TxtPrecioConIva
             // 
@@ -445,7 +458,7 @@
             this.TxtPrecioConIva.Texts = "";
             this.TxtPrecioConIva.UnderlinedStyle = false;
             this.TxtPrecioConIva._TextChanged += new System.EventHandler(this.TxtPrecio__TextChanged);
-            this.TxtPrecioConIva.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPrecio_KeyPress);
+            this.TxtPrecioConIva.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
             // TxtPrecioSinIva
             // 
@@ -470,7 +483,7 @@
             this.TxtPrecioSinIva.Texts = "";
             this.TxtPrecioSinIva.UnderlinedStyle = false;
             this.TxtPrecioSinIva._TextChanged += new System.EventHandler(this.TxtPrecio__TextChanged);
-            this.TxtPrecioSinIva.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtPrecio_KeyPress);
+            this.TxtPrecioSinIva.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
             // tableLayoutPanel7
             // 
@@ -499,6 +512,7 @@
             this.BtnConfirmar.BorderColor = System.Drawing.Color.Black;
             this.BtnConfirmar.BorderRadius = 15;
             this.BtnConfirmar.BorderSize = 0;
+            this.BtnConfirmar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnConfirmar.Dock = System.Windows.Forms.DockStyle.Top;
             this.BtnConfirmar.FlatAppearance.BorderSize = 0;
             this.BtnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -522,6 +536,7 @@
             this.BtnCancelar.BorderColor = System.Drawing.Color.Black;
             this.BtnCancelar.BorderRadius = 15;
             this.BtnCancelar.BorderSize = 0;
+            this.BtnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnCancelar.Dock = System.Windows.Forms.DockStyle.Top;
             this.BtnCancelar.FlatAppearance.BorderSize = 0;
             this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -609,15 +624,6 @@
             this.tableLayoutPanel1.Size = new System.Drawing.Size(932, 903);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
-            // panel1
-            // 
-            panel1.Controls.Add(this.CboCategorias);
-            panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            panel1.Location = new System.Drawing.Point(3, 375);
-            panel1.Name = "panel1";
-            panel1.Size = new System.Drawing.Size(355, 41);
-            panel1.TabIndex = 14;
-            // 
             // FrmPlatosDetalles
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -632,8 +638,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consulta o registra un plato - Garmoxu";
             this.TopMost = true;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmPlatosDetalles_FormClosing);
             this.Shown += new System.EventHandler(this.FrmPlatosDetalles_Shown);
+            panel1.ResumeLayout(false);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel11.ResumeLayout(false);
             this.tableLayoutPanel11.PerformLayout();
@@ -646,7 +652,6 @@
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
-            panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }

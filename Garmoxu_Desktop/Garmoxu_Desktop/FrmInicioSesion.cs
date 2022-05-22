@@ -13,6 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.util;
 using System.Windows.Forms;
+using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
 
 namespace Garmoxu_Desktop
 {
@@ -33,7 +34,6 @@ namespace Garmoxu_Desktop
 
 
 
-
             TxtContraseña.Texts = "1234abcd";
         }
 
@@ -43,16 +43,16 @@ namespace Garmoxu_Desktop
         private void AbrirConexionBD()
         {
             // Conexión local
-            string servidor = "localhost"; //Nombre o IP del servidor.
-            string bd = "garmoxu"; //Nombre de la base de datos.
-            string usuario = "root"; //Usuario de acceso.
-            string password = "root"; //Contraseña de usuario de acceso.
+            //string servidor = "localhost"; //Nombre o IP del servidor.
+            //string bd = "garmoxu"; //Nombre de la base de datos.
+            //string usuario = "root"; //Usuario de acceso.
+            //string password = "root"; //Contraseña de usuario de acceso.
 
             // Conexión remota
-            //string servidor = "sql781.main-hosting.eu"; //Nombre o IP del servidor.
-            //string bd = "u184120704_garmoxudb"; //Nombre de la base de datos.
-            //string usuario = "u184120704_admindam"; //Usuario de acceso.
-            //string password = "damAdmin123"; //Contraseña de usuario de acceso.
+            string servidor = "sql781.main-hosting.eu"; //Nombre o IP del servidor.
+            string bd = "u184120704_garmoxudb"; //Nombre de la base de datos.
+            string usuario = "u184120704_admindam"; //Usuario de acceso.
+            string password = "damAdmin123"; //Contraseña de usuario de acceso.
 
             // Instancia de la conexión a la BD que recibe la cadena de conexión.
             ConexionBD = new MySqlConnection(
@@ -63,13 +63,17 @@ namespace Garmoxu_Desktop
             {
                 ConexionBD.Open();
             }
+            catch (AggregateException ex)
+            {
+                string mensaje = "No se ha podido establecer la conexión al servidor, revise su conexión a internet y el estado del servidor.";
+                if (ShowRetryDialog(mensaje, "").Equals(DialogResult.Retry)) AbrirConexionBD();
+                else Environment.Exit(0);
+            }
             catch (Exception ex)
             {
-                if (MessageBox.Show("No se ha podido conectar al servidor debido al siguiente error de tipo " + ex.GetType().Name + " : " + ex.Message,
-                    "", MessageBoxButtons.RetryCancel, MessageBoxIcon.Error).Equals(DialogResult.Retry))
-                    AbrirConexionBD();
-                else
-                    Environment.Exit(0);
+                string mensaje = "No se ha podido conectar al servidor debido al siguiente error de tipo '" + ex.GetType().Name + "' : \n" + ex.Message;
+                if (ShowRetryDialog(mensaje, "").Equals(DialogResult.Retry)) AbrirConexionBD();
+                else Environment.Exit(0);
             }
         }
         #endregion
@@ -77,8 +81,7 @@ namespace Garmoxu_Desktop
         #region Carga de usuario recordado
         private void FrmInicioSesion_Shown(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(UsuarioActual))
-                CargarUsuarioRecordado();
+            if (string.IsNullOrEmpty(UsuarioActual)) CargarUsuarioRecordado();
         }
 
         // Carga el último usuario que se ha querido recordar siempre que el fichero existe
@@ -94,23 +97,20 @@ namespace Garmoxu_Desktop
                     if (!string.IsNullOrEmpty(usuarioRecordado))
                     {
                         TxtUsuario.Texts = usuarioRecordado;
-                        //TxtContraseña.Focus();
                         TxtContraseña.Focus();
                         ChkRemember.Checked = true;
                     }
                 }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { ShowErrorMessage(ex.Message, ""); }
         }
         #endregion
 
         private void FrmInicioSesion_VisibleChanged(object sender, EventArgs e)
         {
-            if (Visible)
-                UsuarioActual = string.Empty;
+            if (Visible) UsuarioActual = string.Empty;
             this.CenterToScreen();
-            if (BtnContraseña.IconChar.Equals(IconChar.Eye))
-                BtnPassword_Click(null, null);
+            if (BtnContraseña.IconChar.Equals(IconChar.Eye)) BtnPassword_Click(null, null);
         }
         #endregion
 
@@ -175,7 +175,9 @@ namespace Garmoxu_Desktop
         //Salir de la aplicacion
         private void BtnClose_Click(object sender, EventArgs e)
         {
-            Application.Exit();
+            this.Close();
+            //Application.Exit();
+            //Environment.Exit(0);
         }
 
         ////Cambia de color cuando el raton esta encima del boton
@@ -248,6 +250,9 @@ namespace Garmoxu_Desktop
         //Si el textbox esta en por defecto al acceder se eliminara el texto, funciona como un hint en Android xml
         private void TxtUser_Enter(object sender, EventArgs e)
         {
+            //if (string.IsNullOrEmpty(TxtContraseña.Texts) || TxtContraseña.Texts.Equals("Contraseña"))
+            //    TxtContraseña.PasswordChar = false;
+
             if (TxtUsuario.Texts.Equals("Nombre de usuario"))
             {
                 TxtUsuario.ForeColor = Color.White;
@@ -323,7 +328,10 @@ namespace Garmoxu_Desktop
         private void TxtUsuario_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar.Equals((char)Keys.Enter))
+            {
+                e.Handled = true;
                 IniciarSesion();
+            }
         }
         #endregion
 
@@ -369,8 +377,7 @@ namespace Garmoxu_Desktop
             {
                 TxtContraseña.ForeColor = Color.White;
                 TxtContraseña.Texts = string.Empty;
-                if (BtnContraseña.IconChar.Equals(IconChar.EyeSlash))
-                    TxtContraseña.PasswordChar = true;
+                if (BtnContraseña.IconChar.Equals(IconChar.EyeSlash)) TxtContraseña.PasswordChar = true;
             }
         }
 
@@ -381,15 +388,17 @@ namespace Garmoxu_Desktop
             {
                 TxtContraseña.ForeColor = Color.Gray;
                 TxtContraseña.Texts = "Contraseña";
-                TxtUsuario.Focus();
-                //TxtContraseña.PasswordChar = false;
+                if (TxtContraseña.PasswordChar) TxtContraseña.PasswordChar = false;
             }
         }
 
         private void TxtContraseña_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar.Equals((char)Keys.Enter))
+            {
+                e.Handled = true;
                 IniciarSesion();
+            }
         }
         #endregion
 
@@ -410,32 +419,36 @@ namespace Garmoxu_Desktop
 
         private void IniciarSesion()
         {
-            string contraseñaActual = TxtContraseña.Texts;
-
-            string contraseñaActualEncriptada = EncriptarContraseña(contraseñaActual);
-
-            string sql = "SELECT * FROM Usuarios WHERE NombreUsuario = '" + TxtUsuario.Texts + "' " +
-                "AND Contraseña = '" + contraseñaActualEncriptada + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            if (cmd.ExecuteScalar() != null)
+            if (ValidarDatosCompletados())
             {
-                UsuarioActual = TxtUsuario.Texts;
-                RegistrarAcceso();
-                RecordarUsuario();
-                TxtContraseña.Texts = string.Empty;
-                BtnPassword_Click(null, null);
-                TxtContraseña.Focus();
-                this.Hide();
-                CrearNuevaContraseña();
-            }
-            else
-            {
-                MessageBox.Show("¡Las credenciales introducidas no son correctas!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                if (!contraseñaActual.Equals("Contraseña")) TxtContraseña.Texts = string.Empty;
-                if (TxtUsuario.Texts.Equals("Nombre de usuario"))
-                    TxtUsuario.Focus();
-                else
+                string contraseñaActual = TxtContraseña.Texts;
+
+                string contraseñaActualEncriptada = EncriptarContraseña(contraseñaActual);
+
+                string sql = "SELECT * FROM Usuarios WHERE NombreUsuario = '" + TxtUsuario.Texts + "' " +
+                    "AND Contraseña = '" + contraseñaActualEncriptada + "'";
+                MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
+                if (cmd.ExecuteScalar() != null)
+                {
+                    UsuarioActual = TxtUsuario.Texts;
+                    RegistrarAcceso();
+                    RecordarUsuario();
+                    TxtContraseña.Texts = string.Empty;
+                    BtnPassword_Click(null, null);
                     TxtContraseña.Focus();
+                    this.Hide();
+                    CrearNuevaContraseña();
+                }
+                else
+                {
+                    string mensaje = "¡Las credenciales introducidas no son correctas!";
+                    ShowErrorMessage(mensaje, "");
+                    if (!contraseñaActual.Equals("Contraseña")) TxtContraseña.Texts = string.Empty;
+                    if (TxtUsuario.Texts.Equals("Nombre de usuario"))
+                        TxtUsuario.Focus();
+                    else
+                        TxtContraseña.Focus();
+                }
             }
         }
 
@@ -461,16 +474,9 @@ namespace Garmoxu_Desktop
             MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
             if (cmd.ExecuteScalar().ToString().Equals("True"))
             {
-                if (FrmMessageBoxPersonalizado.ShowMePassword(TxtUsuario.Texts, ConexionBD).Equals(DialogResult.Yes))
-                {
-                    FrmMain f = new FrmMain(ConexionBD, TxtUsuario.Texts, RecogerNivelDePermisos(), RecogerImagenDelUsuario(), this);
-                    f.Show();
-                }
-                else
-                {
-                    RegistrarCierreDeSesion();
-                    this.Visible = true;
-                }
+                ShowNewPasswordDialog(TxtUsuario.Texts, ConexionBD);
+                RegistrarCierreDeSesion();
+                this.Visible = true;
             }
             else
             {
@@ -487,16 +493,14 @@ namespace Garmoxu_Desktop
                 string contenidos = string.Format("{0};{1}", UsuarioActual, DateTime.Now.ToString());
                 File.AppendAllText(ruta, contenidos);
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { ShowErrorMessage(ex.Message, ""); }
         }
 
         private void RecordarUsuario()
         {
             string ruta = "Usuario_Recordado.txt";
-            if (ChkRemember.Checked)
-                File.WriteAllText(ruta, UsuarioActual);
-            else
-                File.WriteAllText(ruta, string.Empty);
+            if (ChkRemember.Checked) File.WriteAllText(ruta, UsuarioActual);
+            else File.WriteAllText(ruta, string.Empty);
         }
 
         private int RecogerNivelDePermisos()
@@ -533,13 +537,25 @@ namespace Garmoxu_Desktop
         #endregion
         #endregion
 
+        #region Validaciones y comprobaciones
+        private bool ValidarDatosCompletados()
+        {
+            if (!string.IsNullOrEmpty(TxtUsuario.Texts.Trim()) && !TxtUsuario.Texts.Equals("Nombre de usuario") &&
+                !string.IsNullOrEmpty(TxtContraseña.Texts.Trim()) && !TxtContraseña.Texts.Equals("Contraseña"))
+                return true;
+
+            string mensaje = "¡Debes completar todos los datos!";
+            ShowWarningMessage(mensaje, "");
+            return false;
+        }
+        #endregion
+
         #region Cierre del formulario
         // Cuando se cierre el formulario preguntará al usuario si desea salir de la aplicación,
         // de ser así, cierra la conexión con la BD.
         private void FrmInicioSesion_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (MessageBox.Show("¿Desea salir de la aplicación?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question).Equals(
-                DialogResult.Yes))
+            if (ShowQuestionDialog("¿Desea salir de la aplicación?", "").Equals(DialogResult.Yes))
             {
                 CerrarConexionBD();
                 RegistrarCierreDeSesion();
@@ -563,11 +579,10 @@ namespace Garmoxu_Desktop
                 if (!string.IsNullOrEmpty(UsuarioActual))
                 {
                     string ruta = "Accesos_Usuarios.csv";
-                    if (File.Exists(ruta))
-                        File.AppendAllText(ruta, ";" + DateTime.Now.ToString() + ";\n");
+                    if (File.Exists(ruta)) File.AppendAllText(ruta, ";" + DateTime.Now.ToString() + ";\n");
                 }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { ShowErrorMessage(ex.Message, ""); }
         }
         #endregion
     }

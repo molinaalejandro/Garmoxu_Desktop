@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
+using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
 
 namespace Garmoxu_Desktop
 {
@@ -15,16 +16,19 @@ namespace Garmoxu_Desktop
     {
         private MySqlConnection ConexionBD;
         private DataSet Ds;
-        private FrmMain Instance;
         private bool BtnClienteActivado;
+        private string HoraApertura;
+        private string HoraCierre;
 
-        public FrmReservas(MySqlConnection conexionBD, FrmMain instance)
+        public FrmReservas(MySqlConnection conexionBD, string horaApertura, string horaCierre)
         {
             InitializeComponent();
             BtnClienteActivado = true;
-            Instance = instance;
             FormBorderStyle = FormBorderStyle.None;
             ConexionBD = conexionBD;
+            HoraApertura = horaApertura;
+            HoraCierre = horaCierre;
+            DtpBuscar.Value = DateTime.Now;
             CargarReservasGridView();
         }
 
@@ -38,7 +42,7 @@ namespace Garmoxu_Desktop
         private void CargarReservasGridView()
         {
             string sql = string.Format(
-                "SELECT * FROM Reservas WHERE Fecha BETWEEN '{0}' AND '{1}' ",
+                "SELECT * FROM Reservas WHERE Fecha BETWEEN '{0}' AND '{1}'",
                 DateTime.Now.ToString("yyyy/MM/dd"),
                 DateTime.Now.AddDays(7).ToString("yyyy/MM/dd"));
 
@@ -143,7 +147,10 @@ namespace Garmoxu_Desktop
         private void TxtBuscar_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar.Equals((char)Keys.Enter))
+            {
+                e.Handled = true;
                 BuscarReserva();
+            }
         }
 
         private void BuscarReserva()
@@ -192,7 +199,7 @@ namespace Garmoxu_Desktop
                 DtgReservas.DataSource = Ds.Tables["Reservas"];
                 DtgReservas.ClearSelection();
             }
-            catch (EvaluateException ex) { MessageBox.Show(ex.Message); }
+            catch (EvaluateException ex) { ShowErrorMessage(ex.Message, ""); }
         }
 
         private void DtpBuscar_ValueChanged(object sender, EventArgs e)
@@ -257,28 +264,19 @@ namespace Garmoxu_Desktop
                 bool registroSeleccionado = DtgReservas.SelectedRows.Count > 0;
                 if (registroSeleccionado)
                 {
-                    if (ValidarReservaDisponible())
+                    string mensaje = "¿Deseas eliminar permanentemente la reserva seleccionada?";
+                    if (ValidarReservaDisponible() && ShowQuestionDialog(mensaje, "").Equals(DialogResult.Yes))
                     {
-                        bool confirmarBorrado = MessageBox.Show("¿Deseas eliminar permanentemente la reserva seleccionada?", "",
-                            MessageBoxButtons.YesNo, MessageBoxIcon.Warning).Equals(DialogResult.Yes);
-                        if (confirmarBorrado)
-                        {
-                            // Porque por defecto selecciona 1 que es la seleccionada en el DGV
-                            string sql = "DELETE FROM Reservas WHERE IdReserva = " + DtgReservas.SelectedRows[0].Cells[0].Value;
-                            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                            cmd.ExecuteNonQuery();
-                            DtgReservas.Rows.RemoveAt(DtgReservas.SelectedRows[0].Index);
-                            MessageBox.Show("¡Operación completada con éxito!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        }
+                        string sql = "DELETE FROM Reservas WHERE IdReserva = " + DtgReservas.SelectedRows[0].Cells[0].Value;
+                        MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
+                        cmd.ExecuteNonQuery();
+                        DtgReservas.Rows.RemoveAt(DtgReservas.SelectedRows[0].Index);
+                        ShowInfoMessage("¡Operación completada con éxito!", "");
                     }
                 }
-                else
-                    MessageBox.Show("¡Debe seleccionar alguna fila!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else ShowWarningMessage("¡Debe seleccionar alguna fila!", "");
             }
-            catch (MySqlException ex)
-            {
-                MessageBox.Show("¡No se ha podido completar la eliminación!", "", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
+            catch (MySqlException ex) { ShowErrorMessage("¡No se ha podido completar la eliminación!", ""); }
         }
 
         private bool ValidarReservaDisponible()
@@ -290,8 +288,8 @@ namespace Garmoxu_Desktop
 
                 if (cmd.ExecuteScalar() == null)
                 {
-                    string mensaje = "¡La reserva ya no está disponible, alguien debe haberla eliminado mientras la consultabas!";
-                    MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    string mensaje = "¡La reserva ya no está disponible! Alguien debe haberla eliminado mientras la consultabas.";
+                    ShowErrorMessage(mensaje, "");
                     BtnBuscar_Click(null, null);
                     return false;
                 }
@@ -304,7 +302,7 @@ namespace Garmoxu_Desktop
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
             Form frmShadow = new Form();
-            FrmReservasDetalles f = new FrmReservasDetalles(ConexionBD, string.Empty, ref frmShadow);
+            FrmReservasDetalles f = new FrmReservasDetalles(ConexionBD, string.Empty, ref frmShadow, HoraApertura, HoraCierre);
 
             f.ShowDialog();
             frmShadow.Close();
@@ -320,7 +318,7 @@ namespace Garmoxu_Desktop
             {
                 Form frmShadow = new Form();
                 string clavePrimaria = DtgReservas.CurrentRow.Cells[0].Value.ToString();
-                FrmReservasDetalles f = new FrmReservasDetalles(ConexionBD, clavePrimaria, ref frmShadow);
+                FrmReservasDetalles f = new FrmReservasDetalles(ConexionBD, clavePrimaria, ref frmShadow, HoraApertura, HoraCierre);
 
                 f.ShowDialog();
                 frmShadow.Close();

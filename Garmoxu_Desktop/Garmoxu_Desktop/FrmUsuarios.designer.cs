@@ -205,6 +205,7 @@ namespace Garmoxu_Desktop
             // 
             // BtnNuevo
             // 
+            this.BtnNuevo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnNuevo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnNuevo.FlatAppearance.BorderSize = 0;
             this.BtnNuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -226,6 +227,7 @@ namespace Garmoxu_Desktop
             // 
             // BtnQuitar
             // 
+            this.BtnQuitar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnQuitar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnQuitar.Enabled = false;
             this.BtnQuitar.FlatAppearance.BorderSize = 0;
@@ -248,6 +250,7 @@ namespace Garmoxu_Desktop
             // 
             // BtnBuscar
             // 
+            this.BtnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.BtnBuscar.FlatAppearance.BorderSize = 0;
@@ -449,6 +452,7 @@ namespace Garmoxu_Desktop
             this.TxtNombre.TabIndex = 3;
             this.TxtNombre.Texts = "";
             this.TxtNombre.UnderlinedStyle = false;
+            this.TxtNombre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
             // TxtUsuario
             // 
@@ -472,6 +476,7 @@ namespace Garmoxu_Desktop
             this.TxtUsuario.TabIndex = 2;
             this.TxtUsuario.Texts = "";
             this.TxtUsuario.UnderlinedStyle = false;
+            this.TxtUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
             // label2
             // 
@@ -539,6 +544,7 @@ namespace Garmoxu_Desktop
             this.TgbRestablecerContraseña.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.TgbRestablecerContraseña.AutoSize = true;
+            this.TgbRestablecerContraseña.Cursor = System.Windows.Forms.Cursors.Hand;
             this.TgbRestablecerContraseña.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.TgbRestablecerContraseña.Location = new System.Drawing.Point(0, 0);
             this.TgbRestablecerContraseña.Margin = new System.Windows.Forms.Padding(0);
@@ -575,6 +581,7 @@ namespace Garmoxu_Desktop
             this.BtnGuardar.BorderColor = System.Drawing.Color.Black;
             this.BtnGuardar.BorderRadius = 15;
             this.BtnGuardar.BorderSize = 0;
+            this.BtnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnGuardar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnGuardar.FlatAppearance.BorderSize = 0;
             this.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -613,6 +620,7 @@ namespace Garmoxu_Desktop
             this.BtnEliminar.BorderColor = System.Drawing.Color.Black;
             this.BtnEliminar.BorderRadius = 15;
             this.BtnEliminar.BorderSize = 0;
+            this.BtnEliminar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnEliminar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnEliminar.FlatAppearance.BorderSize = 0;
             this.BtnEliminar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

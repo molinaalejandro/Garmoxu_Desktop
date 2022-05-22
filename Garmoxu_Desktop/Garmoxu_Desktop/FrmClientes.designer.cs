@@ -372,9 +372,10 @@
             // 
             this.BtnModificarCliente.BackColor = System.Drawing.Color.SeaGreen;
             this.BtnModificarCliente.BackgroundColor = System.Drawing.Color.SeaGreen;
-            this.BtnModificarCliente.BorderColor = System.Drawing.Color.Black;
+            this.BtnModificarCliente.BorderColor = System.Drawing.Color.Transparent;
             this.BtnModificarCliente.BorderRadius = 15;
             this.BtnModificarCliente.BorderSize = 0;
+            this.BtnModificarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnModificarCliente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnModificarCliente.FlatAppearance.BorderSize = 0;
             this.BtnModificarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -410,9 +411,10 @@
             // 
             this.BtnBorrarCliente.BackColor = System.Drawing.Color.Crimson;
             this.BtnBorrarCliente.BackgroundColor = System.Drawing.Color.Crimson;
-            this.BtnBorrarCliente.BorderColor = System.Drawing.Color.Black;
+            this.BtnBorrarCliente.BorderColor = System.Drawing.Color.Transparent;
             this.BtnBorrarCliente.BorderRadius = 15;
             this.BtnBorrarCliente.BorderSize = 0;
+            this.BtnBorrarCliente.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnBorrarCliente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnBorrarCliente.FlatAppearance.BorderSize = 0;
             this.BtnBorrarCliente.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -753,6 +755,7 @@
             // 
             // BtnAbrirNuevo
             // 
+            this.BtnAbrirNuevo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnAbrirNuevo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnAbrirNuevo.FlatAppearance.BorderSize = 0;
             this.BtnAbrirNuevo.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -774,6 +777,7 @@
             // 
             // BtnQuitar
             // 
+            this.BtnQuitar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnQuitar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnQuitar.Enabled = false;
             this.BtnQuitar.FlatAppearance.BorderSize = 0;
@@ -796,6 +800,7 @@
             // 
             // BtnBuscar
             // 
+            this.BtnBuscar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnBuscar.FlatAppearance.BorderColor = System.Drawing.Color.White;
             this.BtnBuscar.FlatAppearance.BorderSize = 0;

@@ -15,21 +15,20 @@ namespace Garmoxu_Desktop
     {
         private MySqlConnection ConexionBD;
         private DataSet Ds;
-        private FrmMain Instance;
         private int NivelPermisos;
         private int IVA;
 
-        public FrmHistorialPedidos(MySqlConnection conexionBD, FrmMain instance, int nivelPermisos, int iva)
+        public FrmHistorialPedidos(MySqlConnection conexionBD, int nivelPermisos, int iva)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
-            Instance = instance;
             ConexionBD = conexionBD;
             NivelPermisos = nivelPermisos;
             IVA = iva;
             CboTipos.SelectedIndex = 0;
             ChkTipo.Checked = false;
             ChkTipo.Invalidate();
+            DtpFechaPedido.Value = DateTime.Now;
 
             BtnBuscar_Click(null, null);
             FormatearDataGridView();
@@ -39,8 +38,6 @@ namespace Garmoxu_Desktop
         private void FormatearDataGridView()
         {
             DtgHistorial.Columns[0].Visible = false;
-            //MessageBox.Show(DtgHistorial.Columns[1].Width + "");
-
             DtgHistorial.Columns[3].HeaderText = "Precio con IVA";
             DtgHistorial.Columns[4].HeaderText = "Precio sin IVA";
             DtgHistorial.Columns[5].HeaderText = "Tipo de pedido";
@@ -54,7 +51,6 @@ namespace Garmoxu_Desktop
             DtgHistorial.Columns[2].Width = 150;
             DtgHistorial.Columns[5].Width = 220;
             DtgHistorial.Columns[6].Width = 220;
-
             DtgHistorial.ClearSelection();
         }
         #endregion
@@ -168,7 +164,10 @@ namespace Garmoxu_Desktop
         private void TxtTelefono_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar.Equals((char)Keys.Enter))
+            {
+                e.Handled = true;
                 BtnBuscar_Click(null, null);
+            }
         }
 
         #region Actualizacion automatica de los check boxs

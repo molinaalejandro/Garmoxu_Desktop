@@ -268,6 +268,7 @@
             this.BtnNext.BorderColor = System.Drawing.Color.Black;
             this.BtnNext.BorderRadius = 15;
             this.BtnNext.BorderSize = 0;
+            this.BtnNext.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnNext.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnNext.FlatAppearance.BorderSize = 0;
             this.BtnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -311,6 +312,7 @@
             this.BtnRecoger.BorderColor = System.Drawing.Color.Black;
             this.BtnRecoger.BorderRadius = 15;
             this.BtnRecoger.BorderSize = 0;
+            this.BtnRecoger.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnRecoger.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnRecoger.FlatAppearance.BorderSize = 0;
             this.BtnRecoger.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DeepSkyBlue;
@@ -336,6 +338,7 @@
             this.BtnDomicilio.BorderColor = System.Drawing.Color.Black;
             this.BtnDomicilio.BorderRadius = 15;
             this.BtnDomicilio.BorderSize = 0;
+            this.BtnDomicilio.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnDomicilio.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnDomicilio.FlatAppearance.BorderSize = 0;
             this.BtnDomicilio.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DeepSkyBlue;
@@ -361,6 +364,7 @@
             this.BtnLocal.BorderColor = System.Drawing.Color.Black;
             this.BtnLocal.BorderRadius = 15;
             this.BtnLocal.BorderSize = 0;
+            this.BtnLocal.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnLocal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnLocal.FlatAppearance.BorderSize = 0;
             this.BtnLocal.FlatAppearance.MouseDownBackColor = System.Drawing.Color.DeepSkyBlue;
@@ -519,7 +523,7 @@
             this.TxtNombreDomicilioTipo.TabIndex = 2;
             this.TxtNombreDomicilioTipo.Texts = "";
             this.TxtNombreDomicilioTipo.UnderlinedStyle = false;
-            this.TxtNombreDomicilioTipo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LastTextBox_KeyPress);
+            this.TxtNombreDomicilioTipo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxSiguiente_KeyPress);
             // 
             // TxtTlfDomicilioTipo
             // 
@@ -544,6 +548,7 @@
             this.TxtTlfDomicilioTipo.Texts = "";
             this.TxtTlfDomicilioTipo.UnderlinedStyle = false;
             this.TxtTlfDomicilioTipo._TextChanged += new System.EventHandler(this.TextBoxTlf__TextChanged);
+            this.TxtTlfDomicilioTipo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxSiguiente_KeyPress);
             // 
             // label14
             // 
@@ -579,6 +584,7 @@
             this.TxtDirDomicilioTipo.TabIndex = 1;
             this.TxtDirDomicilioTipo.Texts = "";
             this.TxtDirDomicilioTipo.UnderlinedStyle = false;
+            this.TxtDirDomicilioTipo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxSiguiente_KeyPress);
             // 
             // label16
             // 
@@ -671,7 +677,7 @@
             this.TxtNombreRecogerTipo.TabIndex = 1;
             this.TxtNombreRecogerTipo.Texts = "";
             this.TxtNombreRecogerTipo.UnderlinedStyle = false;
-            this.TxtNombreRecogerTipo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.LastTextBox_KeyPress);
+            this.TxtNombreRecogerTipo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxSiguiente_KeyPress);
             // 
             // label19
             // 
@@ -708,6 +714,7 @@
             this.TxtTlfRecogerTipo.Texts = "";
             this.TxtTlfRecogerTipo.UnderlinedStyle = false;
             this.TxtTlfRecogerTipo._TextChanged += new System.EventHandler(this.TextBoxTlf__TextChanged);
+            this.TxtTlfRecogerTipo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxSiguiente_KeyPress);
             // 
             // tabPage8
             // 
@@ -968,6 +975,7 @@
             this.TxtNombreDomicilioDetalles.TabIndex = 52;
             this.TxtNombreDomicilioDetalles.Texts = "";
             this.TxtNombreDomicilioDetalles.UnderlinedStyle = false;
+            this.TxtNombreDomicilioDetalles.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxGuardar_KeyPress);
             // 
             // label5
             // 
@@ -1004,6 +1012,7 @@
             this.TxtDirDomicilioDetalles.TabIndex = 1;
             this.TxtDirDomicilioDetalles.Texts = "";
             this.TxtDirDomicilioDetalles.UnderlinedStyle = false;
+            this.TxtDirDomicilioDetalles.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxGuardar_KeyPress);
             // 
             // label4
             // 
@@ -1041,6 +1050,7 @@
             this.TxtTlfDomicilioDetalles.Texts = "";
             this.TxtTlfDomicilioDetalles.UnderlinedStyle = false;
             this.TxtTlfDomicilioDetalles._TextChanged += new System.EventHandler(this.TextBoxTlf__TextChanged);
+            this.TxtTlfDomicilioDetalles.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxGuardar_KeyPress);
             // 
             // label2
             // 
@@ -1110,6 +1120,7 @@
             this.TxtNombreRecogerDetalles.TabIndex = 1;
             this.TxtNombreRecogerDetalles.Texts = "";
             this.TxtNombreRecogerDetalles.UnderlinedStyle = false;
+            this.TxtNombreRecogerDetalles.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxGuardar_KeyPress);
             // 
             // label13
             // 
@@ -1147,6 +1158,7 @@
             this.TxtTlfRecogerDetalles.Texts = "";
             this.TxtTlfRecogerDetalles.UnderlinedStyle = false;
             this.TxtTlfRecogerDetalles._TextChanged += new System.EventHandler(this.TextBoxTlf__TextChanged);
+            this.TxtTlfRecogerDetalles.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxGuardar_KeyPress);
             // 
             // label9
             // 
@@ -1197,6 +1209,7 @@
             this.BtnConfirmar.BorderColor = System.Drawing.Color.Black;
             this.BtnConfirmar.BorderRadius = 15;
             this.BtnConfirmar.BorderSize = 0;
+            this.BtnConfirmar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnConfirmar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnConfirmar.FlatAppearance.BorderSize = 0;
             this.BtnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1220,6 +1233,7 @@
             this.BtnCancelarPedido.BorderColor = System.Drawing.Color.Transparent;
             this.BtnCancelarPedido.BorderRadius = 15;
             this.BtnCancelarPedido.BorderSize = 0;
+            this.BtnCancelarPedido.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnCancelarPedido.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnCancelarPedido.FlatAppearance.BorderSize = 0;
             this.BtnCancelarPedido.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -1300,6 +1314,7 @@
             // BtnConsultarPlatos
             // 
             this.BtnConsultarPlatos.BackColor = System.Drawing.Color.Transparent;
+            this.BtnConsultarPlatos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnConsultarPlatos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnConsultarPlatos.FlatAppearance.BorderSize = 0;
             this.BtnConsultarPlatos.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Transparent;
@@ -1404,6 +1419,7 @@
             // BtnAñadirPlato
             // 
             this.BtnAñadirPlato.BackColor = System.Drawing.Color.Transparent;
+            this.BtnAñadirPlato.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnAñadirPlato.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnAñadirPlato.Enabled = false;
             this.BtnAñadirPlato.FlatAppearance.BorderSize = 0;
@@ -1429,6 +1445,7 @@
             // BtnBorrarFilaPlato
             // 
             this.BtnBorrarFilaPlato.BackColor = System.Drawing.Color.Transparent;
+            this.BtnBorrarFilaPlato.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnBorrarFilaPlato.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnBorrarFilaPlato.Enabled = false;
             this.BtnBorrarFilaPlato.FlatAppearance.BorderSize = 0;
@@ -1751,8 +1768,6 @@
             this.Text = "Nuevo pedido - Garmoxu";
             this.TopMost = true;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmDetallesPedido_FormClosing);
-            this.Shown += new System.EventHandler(this.FrmPedidosDetalles_Shown);
-            this.EnabledChanged += new System.EventHandler(this.FrmDetallesPedido_EnabledChanged);
             this.PnlBody.ResumeLayout(false);
             this.TabPrincipal.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);

@@ -12,6 +12,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
 
 namespace Garmoxu_Desktop
 {
@@ -24,8 +25,6 @@ namespace Garmoxu_Desktop
         private Image ImagenInicial;
 
         private List<string> IdsCategorias;
-        private Form frmDisabled;
-
 
         public FrmPedidosPlatosConsultaDetalles(MySqlConnection conexionBD, string clavePrimaria, ref Form frmShadow)
         {
@@ -43,20 +42,6 @@ namespace Garmoxu_Desktop
         private void FrmPlatosDetalles_Shown(object sender, EventArgs e)
         {
             PicFotoPlato.Width = PicFotoPlato.Height;
-
-            //frmDisabled = new Form();
-            //frmDisabled.FormBorderStyle = FormBorderStyle.None;
-            //frmDisabled.Opacity = 0.1f;
-            ////frmDisabled.BackColor = Color.Transparent;
-            //frmDisabled.Enabled = false;
-            //frmDisabled.TopMost = true;
-            //frmDisabled.ShowInTaskbar = false;
-            //frmDisabled.Size = new Size(920, 800);
-            //frmDisabled.StartPosition = FormStartPosition.CenterScreen;
-            ////frmDisabled.Dock = DockStyle.Fill;
-            ////PnlDatos.Controls.Add(frmDisabled);
-            //frmDisabled.Show();
-            //frmDisabled.BringToFront();
         }
 
         #region Cargar categorias
@@ -101,8 +86,7 @@ namespace Garmoxu_Desktop
                     ChkDisponibilidad.Checked = true;
                     disponibilidad = 1;
                 }
-                else
-                    disponibilidad = 0;
+                else disponibilidad = 0;
 
                 int indexCategoria = IdsCategorias.IndexOf(lector["IdCategoria"].ToString());
                 CboCategorias.SelectedIndex = indexCategoria;
@@ -132,8 +116,7 @@ namespace Garmoxu_Desktop
                 lector.GetBytes(5, 0, imagenBytes, 0, tamañoMaximoArchivo);
                 ImagenInicial = (Bitmap)((new ImageConverter()).ConvertFrom(imagenBytes));
             }
-            else
-                ImagenInicial = Properties.Resources.No_Image_Found;
+            else ImagenInicial = Properties.Resources.No_Image_Found;
 
             PicFotoPlato.Image = ImagenInicial;
             PicFotoPlato.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -193,10 +176,6 @@ namespace Garmoxu_Desktop
         private void BtnClose_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-        private void FrmPedidosPlatosConsultaDetalles_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            frmDisabled.Close();
         }
         #endregion
     }

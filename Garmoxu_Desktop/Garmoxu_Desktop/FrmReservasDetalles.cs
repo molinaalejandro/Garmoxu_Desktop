@@ -10,6 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
 
 namespace Garmoxu_Desktop
 {
@@ -17,27 +18,30 @@ namespace Garmoxu_Desktop
     {
         private MySqlConnection ConexionBD;
         private string ClavePrimaria;
-
+        private string HoraApertura;
+        private string HoraCierre;
         private List<string> DatosIniciales;
 
-        public FrmReservasDetalles(MySqlConnection conexionBD, string clavePrimaria, ref Form frmShadow)
+        public FrmReservasDetalles(MySqlConnection conexionBD, string clavePrimaria, ref Form frmShadow, string horaApertura, string horaCierre)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             ConexionBD = conexionBD;
             ClavePrimaria = clavePrimaria;
+            HoraApertura = horaApertura;
+            HoraCierre = horaCierre;
             CargarTipoForm();
             SombrearPantalla(ref frmShadow);
         }
 
         #region Apertura del formulario
+        // Si la clave primaria está con datos es porque se ha abierto con el doble click, si no NUEVA RESERVA
         private void CargarTipoForm()
         {
-            // Si la clave primaria está con datos es porque se ha abierto con el doble click, si no NUEVA RESERVA
-            if (string.IsNullOrEmpty(ClavePrimaria))
-                ConfigurarFormularioDeReservaNueva();
-            else
-                ConfigurarFormularioDeReservaExistente();
+            DtpReserva.Value = DateTime.Now;
+
+            if (string.IsNullOrEmpty(ClavePrimaria)) ConfigurarFormularioDeReservaNueva();
+            else ConfigurarFormularioDeReservaExistente();
         }
 
         private void ConfigurarFormularioDeReservaNueva()
@@ -46,7 +50,6 @@ namespace Garmoxu_Desktop
             DtpReserva.Value = DateTime.Now;
             DtpHora.Value = DateTime.Now;
             BtnBorrar.Visible = false;
-            //BtnConfirmar.Location = new Point(150, 550);
             PnlBotones.Controls.Add(BtnConfirmar, 2, 0);
             BtnConfirmar.Text = "Registrar";
             DtpReserva.MinDate = DateTime.Now;
@@ -54,8 +57,6 @@ namespace Garmoxu_Desktop
 
         private void ConfigurarFormularioDeReservaExistente()
         {
-            //BtnConfirmar.Text = "Guardar";
-
             string sql = "SELECT * FROM Reservas WHERE IdReserva = " + ClavePrimaria;
             MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
 
@@ -83,16 +84,13 @@ namespace Garmoxu_Desktop
                     ||
                     (fechaReserva.Month == DateTime.Now.Month && fechaReserva.Day < DateTime.Now.Day);
 
-            if (esReservaAntigua)
-                ConfigurarFormularioDeReservaHistorial();
-            else
-                DtpReserva.MinDate = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyyy"));
+            if (esReservaAntigua) ConfigurarFormularioDeReservaHistorial();
+            else DtpReserva.MinDate = DateTime.Parse(DateTime.Now.ToString("dd/MM/yyyy"));
 
             // Se asignan tras cerrar el lector, ya que si no, el lector actual entra en conflicto
             // con el que se genera en el evento de asignar las mesas no reservadas.
             DtpReserva.Value = fechaReserva;
             DtpHora.Value = horaReserva;
-            //if (CboMesa.Items.Count > 0) CboMesa.SelectedIndex = 0;
             TxtTelefono.Texts = tlfClienteReserva;
 
             CboMesa.SelectedIndex = CboMesa.Items.Count - 1;
@@ -102,7 +100,6 @@ namespace Garmoxu_Desktop
 
         private void ConfigurarFormularioDeReservaHistorial()
         {
-            //BtnBorrar.Location = new Point(150, 550);
             PnlBotones.Controls.Add(BtnBorrar, 2, 0);
             BtnConfirmar.Visible = false;
 
@@ -208,22 +205,11 @@ namespace Garmoxu_Desktop
                 MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
                 MySqlDataReader lector = cmd.ExecuteReader();
 
-                //string idReservaCompare = "";
-                //string mesaReservada = "";
-                //int i = 0;
                 while (lector.Read())
                 {
-                    //idReservaCompare = lector[0].ToString();
-                    //mesaReservada = lector[1].ToString();
-
-                    //i++;
-
                     if (ClavePrimaria.Equals(lector[0].ToString()))
                         CboMesa.Items.Add(lector[1].ToString());
                 }
-
-                //if (i == 1 && ClavePrimaria.Equals(idReservaCompare))
-                //  CboMesa.Items.Add(mesaReservada);
 
                 lector.Close();
             }
@@ -302,6 +288,15 @@ namespace Garmoxu_Desktop
         #endregion
 
         #region Boton de confirmar
+        private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar.Equals((char)Keys.Enter))
+            {
+                e.Handled = true;
+                BtnConfirmar_Click(null, null);
+            }
+        }
+
         private void BtnConfirmar_Click(object sender, EventArgs e)
         {
             if (ValidarReservaDisponible() && ValidarDatosCompletados())
@@ -310,10 +305,8 @@ namespace Garmoxu_Desktop
                 string fechaReserva = DtpReserva.Value.ToString("yyyy/MM/dd");
                 string horaReserva = DtpHora.Value.ToString("HH:mm");
 
-                if (string.IsNullOrEmpty(ClavePrimaria))
-                    DarAltaReserva(fechaReserva, horaReserva);
-                else
-                    ModificarReserva(fechaReserva, horaReserva);
+                if (string.IsNullOrEmpty(ClavePrimaria)) DarAltaReserva(fechaReserva, horaReserva);
+                else ModificarReserva();
             }
         }
 
@@ -327,8 +320,8 @@ namespace Garmoxu_Desktop
 
                 if (cmd.ExecuteScalar() == null)
                 {
-                    string mensaje = "¡La reserva ya no está disponible, alguien debe haberla eliminado mientras la consultabas!";
-                    MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    string mensaje = "¡La reserva ya no está disponible! Alguien debe haberla eliminado mientras la consultabas.";
+                    ShowErrorMessage(mensaje, "");
                     this.Close();
                     return false;
                 }
@@ -342,21 +335,21 @@ namespace Garmoxu_Desktop
             bool tlfCompletado = !string.IsNullOrEmpty(TxtTelefono.Texts.Replace(" ", ""));
             bool nombreCompletado = !string.IsNullOrEmpty(TxtNombreCliente.Texts.Trim());
 
-            if (mesaSeleccionada && tlfCompletado && nombreCompletado)
-                return ValidarNumeroTlfCliente();
+            if (mesaSeleccionada && tlfCompletado && nombreCompletado) return ValidarNumeroTlfCliente();
 
-            MessageBox.Show("¡Debes completar todos los datos!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            string mensaje = "¡Debes completar todos los datos!";
+            ShowWarningMessage(mensaje, "");
             return false;
         }
 
         private bool ValidarNumeroTlfCliente()
         {
             Regex regex = new Regex("^(\\+[0-9][0-9])?([0-9]{9})$");
-            if (regex.IsMatch(TxtTelefono.Texts.Replace(" ", "")))
-                return true;
+            if (regex.IsMatch(TxtTelefono.Texts.Replace(" ", ""))) return true;
             else
             {
-                MessageBox.Show("¡El formato del teléfono no es válido!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                string mensaje = "¡El formato del teléfono no es válido!";
+                ShowWarningMessage(mensaje, "");
                 return false;
             }
         }
@@ -368,18 +361,14 @@ namespace Garmoxu_Desktop
             MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
             bool clienteExiste = cmd.ExecuteScalar() != null;
 
-            if (clienteExiste)
-                return ModificarCliente();
-            else
-                return DarAltaCliente();
+            if (clienteExiste) return ModificarCliente();
+            else return DarAltaCliente();
         }
 
         private bool DarAltaCliente()
         {
             string mensaje = "El cliente no está registrado, es necesario darlo de alta. ¿Deseas continuar?";
-            DialogResult mensajeConfirmacion = MessageBox.Show(mensaje, "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (mensajeConfirmacion.Equals(DialogResult.Yes))
+            if (ShowQuestionDialog(mensaje, "").Equals(DialogResult.Yes))
             {
                 string sql = string.Format(
                     "INSERT INTO Clientes(TelefonoCliente, Direccion, CantidadPedidos, Nombre) VALUES('{0}', NULL, 0, '{1}')",
@@ -389,8 +378,7 @@ namespace Garmoxu_Desktop
                 cmd.ExecuteNonQuery();
                 return true;
             }
-            else
-                return false;
+            else return false;
         }
 
         private bool ModificarCliente()
@@ -399,23 +387,21 @@ namespace Garmoxu_Desktop
             MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
 
             bool nombreModificado = !cmd.ExecuteScalar().ToString().Equals(TxtNombreCliente.Texts.Trim());
-
             if (nombreModificado)
             {
                 string mensaje = "¿Desea aplicar los cambios realizados en el nombre del cliente?";
-                DialogResult mensajeConfirmacion = MessageBox.Show(mensaje, "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-                if (mensajeConfirmacion.Equals(DialogResult.Yes))
+                DialogResult confirmacion = ShowMeDialog(mensaje, "", ButtonYesNoCancel(), IconQuestion());
+                
+                if(confirmacion.Equals(DialogResult.Yes))
                 {
-                    sql = string.Format(
-                        "UPDATE Clientes SET nombre = '{0}' WHERE TelefonoCliente = '{1}'",
+                    sql = string.Format("UPDATE Clientes SET nombre = '{0}' WHERE TelefonoCliente = '{1}'",
                         TxtNombreCliente.Texts.Trim(), TxtTelefono.Texts.Replace(" ", ""));
                     cmd.CommandText = sql;
                     cmd.ExecuteNonQuery();
 
                     return true;
                 }
-                else if (mensajeConfirmacion.Equals(DialogResult.Cancel))
-                    return false;
+                else if (confirmacion.Equals(DialogResult.Cancel)) return false;
             }
 
             return true;
@@ -439,14 +425,13 @@ namespace Garmoxu_Desktop
                     InformarAccionConExito();
                     this.Close();
                 }
-                else
-                    MessageBox.Show("¡Debes seleccionar una mesa!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else ShowWarningMessage("¡Debes seleccionar una mesa!", "");
             }
         }
         #endregion
 
         #region Modificar reserva
-        private void ModificarReserva(string fechaReserva, string horaReserva)
+        private void ModificarReserva()
         {
             string valoresModificados = "";
             bool datosModificados = ComprobarDatosModificados(ref valoresModificados);
@@ -463,11 +448,7 @@ namespace Garmoxu_Desktop
                     this.Close();
                 }
             }
-            else
-            {
-                if (ValidarClienteExistente())
-                    this.Close();
-            }
+            else if (ValidarClienteExistente()) this.Close();
         }
 
         private bool ComprobarDatosModificados(ref string valoresModificados)
@@ -533,17 +514,16 @@ namespace Garmoxu_Desktop
         // Muestra un mensaje de confirmación
         private bool ConfirmarAccion(string accion)
         {
-            DialogResult accionConfirmada =
-                MessageBox.Show("¿Desea " + accion + " la reserva actual?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (accionConfirmada.Equals(DialogResult.Yes))
-                return true;
-            return false;
+            string mensaje = "¿Desea " + accion + " la reserva actual?";
+            if (ShowQuestionDialog(mensaje, "").Equals(DialogResult.Yes)) return true;
+            else return false;
         }
 
         // Muestra un mensaje de éxito
         private void InformarAccionConExito()
         {
-            MessageBox.Show("¡Operación concluida con éxito!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string mensaje = "¡Operación concluida con éxito!";
+            ShowInfoMessage(mensaje, "");
         }
         #endregion
 
@@ -552,13 +532,10 @@ namespace Garmoxu_Desktop
         {
             if (string.IsNullOrEmpty(ClavePrimaria) || ComprobarCualquierDatoModificado())
             {
-                string mensaje = "Se perderán todos los cambios no guardados. ¿Deseas continuar?";
-                DialogResult cerrarVentana = MessageBox.Show(mensaje, "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (cerrarVentana.Equals(DialogResult.Yes))
-                    this.Close();
+                string mensaje = "¿Desea salir sin guardar? Se perderán todos los cambios realizados.";
+                if (ShowQuestionDialog(mensaje, "").Equals(DialogResult.Yes)) this.Close();
             }
-            else
-                this.Close();
+            else this.Close();
         }
 
         private bool ComprobarCualquierDatoModificado()
@@ -566,10 +543,8 @@ namespace Garmoxu_Desktop
             List<string> datosActuales = new List<string>();
             datosActuales.Add(DtpReserva.Value.ToString("yyyy/MM/dd"));
             datosActuales.Add(DtpHora.Value.ToString("HH:mm"));
-            if (CboMesa.SelectedIndex != -1)
-                datosActuales.Add(CboMesa.SelectedItem.ToString());
-            else
-                datosActuales.Add(string.Empty);
+            if (CboMesa.SelectedIndex != -1) datosActuales.Add(CboMesa.SelectedItem.ToString());
+            else datosActuales.Add(string.Empty);
             datosActuales.Add(TxtTelefono.Texts);
 
             bool modificacionRealizada = false;

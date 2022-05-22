@@ -8,20 +8,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
 
 namespace Garmoxu_Desktop
 {
     public partial class FrmCategorias : Form
     {
         private MySqlConnection ConexionBD;
-        private FrmMain Instance;
 
-        public FrmCategorias(MySqlConnection conexionBD, FrmMain instance)
+        public FrmCategorias(MySqlConnection conexionBD)
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
             ConexionBD = conexionBD;
-            Instance = instance;
             CargarCategorias();
         }
 
@@ -143,7 +142,11 @@ namespace Garmoxu_Desktop
 
         private void TxtBusqueda_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar.Equals((char)Keys.Enter)) BtnBuscar_Click(null, null);
+            if (e.KeyChar.Equals((char)Keys.Enter))
+            {
+                e.Handled = true;
+                BtnBuscar_Click(null, null);
+            }
         }
         #endregion
 
@@ -152,10 +155,7 @@ namespace Garmoxu_Desktop
         {
             Form frmShadow = new Form();
             FrmCategoriasDetalles frm = new FrmCategoriasDetalles(ConexionBD, string.Empty, ref frmShadow);
-            //frm.Width = 316;
-            //frm.Height = 434;
             BtnEliminar.Enabled = false;
-            //Instance.Enabled = false;
 
             frm.ShowDialog();
             frmShadow.Close();
@@ -170,10 +170,7 @@ namespace Garmoxu_Desktop
 
             Form frmShadow = new Form();
             FrmCategoriasDetalles frm = new FrmCategoriasDetalles(ConexionBD, clavePrimaria, ref frmShadow);
-            //frm.Width = 316;
-            //frm.Height = 434;
             BtnEliminar.Enabled = false;
-            //Instance.Enabled = false;
 
             frm.ShowDialog();
             frmShadow.Close();
@@ -204,21 +201,18 @@ namespace Garmoxu_Desktop
             string sql = "Select IdCategoria FROM PlatosComida WHERE IdCategoria = '" + idCategoria + "'";
             MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
 
-            if (cmd.ExecuteScalar() == null)
-                return true;
+            if (cmd.ExecuteScalar() == null) return true;
 
             string mensaje = "¡No se ha podido eliminar la categoría ya que tiene platos asociados! " +
-                "Elimínalos o cámbialos de categoría para poder continuar";
-            MostrarMensaje(mensaje, MessageBoxIcon.Warning);
+                "Elimínalos o cámbialos de categoría para poder continuar.";
+            ShowWarningMessage(mensaje, "");
             return false;
         }
 
         private void LstCategorias_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (LstCategorias.SelectedItems.Count > 0)
-                BtnEliminar.Enabled = true;
-            else
-                BtnEliminar.Enabled = false;
+            if (LstCategorias.SelectedItems.Count > 0) BtnEliminar.Enabled = true;
+            else BtnEliminar.Enabled = false;
         }
         #endregion
 
@@ -231,25 +225,19 @@ namespace Garmoxu_Desktop
         #endregion
 
         #region Mensajes
-        private void MostrarMensaje(string mensaje, MessageBoxIcon iconoDeseado)
-        {
-            MessageBox.Show(mensaje, "", MessageBoxButtons.OK, iconoDeseado);
-        }
-
         // Muestra un mensaje de confirmación
         private bool ConfirmarAccion(string accion)
         {
-            DialogResult accionConfirmada =
-                MessageBox.Show("¿Desea " + accion + " la categoria actual?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (accionConfirmada.Equals(DialogResult.Yes))
-                return true;
-            return false;
+            string mensaje = "¿Desea " + accion + " la categoría actual?";
+            if (ShowQuestionDialog(mensaje, "").Equals(DialogResult.Yes)) return true;
+            else return false;
         }
 
         // Muestra un mensaje de éxito
         private void InformarAccionConExito()
         {
-            MessageBox.Show("¡Operación concluida con éxito!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string mensaje = "¡Operación concluida con éxito!";
+            ShowInfoMessage(mensaje, "");
         }
         #endregion
 

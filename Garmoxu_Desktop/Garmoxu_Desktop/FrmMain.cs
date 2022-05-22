@@ -12,6 +12,7 @@ using MySql.Data.MySqlClient;
 using System.IO;
 using FontAwesome.Sharp;
 using RJCodeAdvance.RJControls;
+using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
 
 namespace Garmoxu_Desktop
 {
@@ -271,9 +272,9 @@ namespace Garmoxu_Desktop
         #region Cargar configuración
         private void CargarConfiguracion()
         {
-            NombreRestaurante = string.Empty;
+            NombreRestaurante = "Garmoxu";
             HoraApertura = "08:00";
-            HoraCierre = "00:00";
+            HoraCierre = "23:59";
             IVA = 10;
             VentanaCompleta = true;
             ModoDiurno = true;
@@ -302,7 +303,7 @@ namespace Garmoxu_Desktop
                     if (!string.IsNullOrEmpty(d2)) ModoDiurno = bool.Parse(d5);
                 }
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { ShowErrorMessage(ex.Message, ""); }
         }
         #endregion
 
@@ -372,6 +373,23 @@ namespace Garmoxu_Desktop
         #endregion
 
         #region Menu lateral
+        #region SubMenu del apartado Historial
+        //private void BtnHistorial_Click(object sender, EventArgs e)
+        //{
+        //    showSubMenu(pnlSubMenu);
+        //}
+
+        //private void showSubMenu(Panel subMenu)
+        //{
+        //    if (subMenu.Visible == false)
+        //    {
+        //        subMenu.Visible = true;
+        //    }
+        //    else
+        //        subMenu.Visible = false;
+        //}
+        #endregion
+
         #region Ocultar o mostrar Menu Lateral
         private void BtnEsconderMenu_Click(object sender, EventArgs e)
         {
@@ -423,27 +441,17 @@ namespace Garmoxu_Desktop
 
         private void BtnReservas_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(new FrmReservas(ConexionBD, Instance));
+            AbrirFormulario(new FrmReservas(ConexionBD, HoraApertura, HoraCierre));
         }
 
         private void BtnHistorial_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(new FrmHistorialPedidos(ConexionBD, Instance, NivelPermisos, IVA));
+            AbrirFormulario(new FrmHistorialPedidos(ConexionBD, NivelPermisos, IVA));
         }
-
-        //private void BtnHistorialPedidos_Click(object sender, EventArgs e)
-        //{
-        //    AbrirFormulario(new FrmHistorialPedidos(ConexionBD, Instance));
-        //}
-
-        //private void BtnEstadisticas_Click(object sender, EventArgs e)
-        //{
-        //    AbrirFormulario(new FrmEstadisticas());
-        //}
 
         private void BtnPlatos_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(new FrmPlatos(ConexionBD, this, IVA));
+            AbrirFormulario(new FrmPlatos(ConexionBD, IVA));
         }
 
         private void BtnCliente_Click(object sender, EventArgs e)
@@ -453,20 +461,16 @@ namespace Garmoxu_Desktop
 
         private void BtnCategoria_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(new FrmCategorias(ConexionBD, Instance));
+            AbrirFormulario(new FrmCategorias(ConexionBD));
         }
 
         private void BtnUsers_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(new FrmUsuarios(ConexionBD, this, UsuarioActual));
+            AbrirFormulario(new FrmUsuarios(ConexionBD, UsuarioActual));
         }
 
         private void BtnAjustes_Click(object sender, EventArgs e)
         {
-            //FrmAjustes frmAjustes = new FrmAjustes(this, InstanciaInicioSesion, ConexionBD, UsuarioActual, ImagenUsuario,
-            //    NivelPermisos, NombreRestaurante, HoraApertura, HoraCierre, IVA, VentanaCompleta, ModoDiurno, PnlTitleBar,
-            //    PnlMenuLateral, PnlBody);            
-            
             FrmAjustes frmAjustes = new FrmAjustes(this, InstanciaInicioSesion, ConexionBD, PnlFormularios, UsuarioActual, ImagenUsuario,
                 NivelPermisos, NombreRestaurante, HoraApertura, HoraCierre, IVA, VentanaCompleta, ModoDiurno);
 
@@ -476,41 +480,17 @@ namespace Garmoxu_Desktop
             frmAjustes.BringToFront();
             frmAjustes.WindowState = FormWindowState.Maximized;
             frmAjustes.Show();
-            //PnlTitleBar.Visible = false;
-            //PnlMenuLateral.Visible = false;
-            //PnlFormularios.Visible = false;
-            //PnlBody.Visible = false;
         }
-
-        #region SubMenu del apartado Historial
-        //private void BtnHistorial_Click(object sender, EventArgs e)
-        //{
-        //    showSubMenu(pnlSubMenu);
-        //}
-
-        //private void showSubMenu(Panel subMenu)
-        //{
-        //    if (subMenu.Visible == false)
-        //    {
-        //        subMenu.Visible = true;
-        //    }
-        //    else
-        //        subMenu.Visible = false;
-        //}
-        #endregion
 
         // Recibe un formulario para comprobar si está abierto, de ser así, lo trae al frente.
         // En caso contrario, lo abre dentro del panel principal.
         private void AbrirFormulario(Form form)
         {
             LblSeccion.Text = form.Tag.ToString();
-            //BtnCerrarSeccion.Enabled = true;
             BtnCerrarSeccion.Visible = true;
             LblSeccion.Cursor = Cursors.Hand;
-            //BtnCerrarSeccion.IconColor = Color.White;
-            //BtnCerrarSeccion.Cursor = Cursors.Hand;
 
-            Boolean encontrado = false;
+            bool encontrado = false;
             foreach (Form f in Application.OpenForms)
             {
                 if (f.GetType().Equals(form.GetType()))
@@ -543,8 +523,7 @@ namespace Garmoxu_Desktop
         #region Cierre de formularios
         private void BtnCerrarSeccion_Click(object sender, EventArgs e)
         {
-            if (BtnCerrarSeccion.Visible)
-                ((Form)PnlFormularios.Controls[0]).Close();
+            if (BtnCerrarSeccion.Visible) ((Form)PnlFormularios.Controls[0]).Close();
         }
 
         private void BtnCerrarSeccion_MouseEnter(object sender, EventArgs e)
@@ -554,11 +533,7 @@ namespace Garmoxu_Desktop
 
         private void BtnCerrarSeccion_MouseLeave(object sender, EventArgs e)
         {
-            //if (!BtnCerrarSeccion.IconColor.Equals(Color.Silver))
-            //{
             BtnCerrarSeccion.IconColor = Color.White;
-            //BtnCerrar.IconChar = FontAwesome.Sharp.IconChar.DoorClosed;
-            //}
         }
 
         private void PnlMain_ControlRemoved(object sender, ControlEventArgs e)
@@ -566,14 +541,10 @@ namespace Garmoxu_Desktop
             if (PnlFormularios.Controls.Count < 2)
             {
                 LblSeccion.Text = this.Tag.ToString();
-                //BtnCerrarSeccion.IconColor = Color.Silver;
                 BtnCerrarSeccion.Visible = false;
                 LblSeccion.Cursor = Cursors.Arrow;
-                //BtnCerrar.IconChar = IconChar.DoorClosed;
-                //BtnCerrarSeccion.Cursor = Cursors.Arrow;
             }
-            else
-                LblSeccion.Text = PnlFormularios.Controls[0].Tag.ToString();
+            else LblSeccion.Text = PnlFormularios.Controls[0].Tag.ToString();
         }
         #endregion
 
@@ -588,15 +559,13 @@ namespace Garmoxu_Desktop
         private void PicUser_MouseLeave(object sender, EventArgs e)
         {
             PicUsuario.Image = ImagenUsuario;
-            if (PicUsuario.Tag == null)
-                PicUsuario.BorderSize = 3;
+            if (PicUsuario.Tag == null) PicUsuario.BorderSize = 3;
             PicUsuario.BackColor = Color.FromArgb(130, 130, 255);
         }
 
         private void PicUser_Click(object sender, EventArgs e)
         {
-            DialogResult cerrarSesion = MessageBox.Show("¿Desea cerrar la sesión actual?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (cerrarSesion.Equals(DialogResult.Yes))
+            if (ShowQuestionDialog("¿Desea cerrar la sesión actual?", "").Equals(DialogResult.Yes))
             {
                 CerrarSesion();
                 this.Close();
@@ -608,10 +577,9 @@ namespace Garmoxu_Desktop
             try
             {
                 string ruta = "Accesos_Usuarios.csv";
-                if (File.Exists(ruta))
-                    File.AppendAllText(ruta, ";" + DateTime.Now.ToString() + ";\n");
+                if (File.Exists(ruta)) File.AppendAllText(ruta, ";" + DateTime.Now.ToString() + ";\n");
             }
-            catch (Exception ex) { MessageBox.Show(ex.Message); }
+            catch (Exception ex) { ShowErrorMessage(ex.Message, ""); }
 
             InstanciaInicioSesion.Show();
         }
@@ -626,8 +594,7 @@ namespace Garmoxu_Desktop
                 this.BringToFront();
                 e.Cancel = true;
             }
-            else if (!PnlFormularios.Visible)
-                CerrarSesion();
+            else if (!PnlFormularios.Visible) CerrarSesion();
         }
         #endregion
     }

@@ -604,7 +604,7 @@
             // 
             // PicUsuario
             // 
-            this.PicUsuario.BackColor = System.Drawing.Color.LightGray;
+            this.PicUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(130)))), ((int)(((byte)(130)))), ((int)(((byte)(255)))));
             this.PicUsuario.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Flat;
             this.PicUsuario.BorderColor = System.Drawing.Color.Gainsboro;
             this.PicUsuario.BorderColor2 = System.Drawing.Color.Gainsboro;
@@ -662,7 +662,7 @@
             this.Name = "FrmMain";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "Menú principal";
-            this.Text = "Menú principal - Garmoxu";
+            this.Text = "Garmoxu Desktop";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
             this.EnabledChanged += new System.EventHandler(this.FrmMain_EnabledChanged);

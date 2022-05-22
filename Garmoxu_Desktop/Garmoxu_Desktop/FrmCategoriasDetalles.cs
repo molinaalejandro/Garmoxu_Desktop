@@ -10,6 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
 
 namespace Garmoxu_Desktop
 {
@@ -17,7 +18,6 @@ namespace Garmoxu_Desktop
     {
         private MySqlConnection ConexionBD;
         private string ClavePrimaria;
-        //private Form FrmShadow;
 
         private Image ImagenInicial;
         private List<string> DatosIniciales;
@@ -148,18 +148,14 @@ namespace Garmoxu_Desktop
         private void PicImagenCategoria_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
-            ofd.Title = "Selecciona una imagen para tu categoría";
-            //ofd.Filter = "Archivo de imagen |*.jpg| Archivo PNG|*.png| Todos los archivos|*.*";
+            ofd.Title = "Selecciona una imagen para asignarla a la categoría";
             ofd.Filter = "Archivo de imagen |*.jpg| Archivo PNG|*.png";
 
             if (ofd.ShowDialog().Equals(DialogResult.OK))
             {
                 string ruta = ofd.FileName;
-
-                if (new FileInfo(ruta).Length <= 15000000)
-                    PicImagenCategoria.Image = Image.FromFile(ruta);
-                else
-                    MessageBox.Show("¡La imagen no puede ser mayor de 15MB!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (new FileInfo(ruta).Length <= 15000000) PicImagenCategoria.Image = Image.FromFile(ruta);
+                else ShowWarningMessage("¡La imagen no puede ser mayor de 15MB!", "");
             }
         }
         #endregion
@@ -175,7 +171,11 @@ namespace Garmoxu_Desktop
 
         private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar.Equals((char)Keys.Enter)) BtnConfirmar_Click(null, null);
+            if (e.KeyChar.Equals((char)Keys.Enter))
+            {
+                e.Handled = true;
+                BtnConfirmar_Click(null, null);
+            }
         }
 
         #region Alta de categorias
@@ -195,7 +195,7 @@ namespace Garmoxu_Desktop
                 cmd.ExecuteNonQuery();
 
                 InformarAccionConExito();
-                this.Close();                
+                this.Close();
             }
         }
         #endregion
@@ -229,7 +229,7 @@ namespace Garmoxu_Desktop
                 return true;
 
             string mensaje = "¡Debes completar todos los datos!";
-            MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            ShowWarningMessage(mensaje, "");
             return false;
         }
 
@@ -238,7 +238,8 @@ namespace Garmoxu_Desktop
             if (TxtNombre.Texts.Trim().Length < 101)
                 return true;
 
-            MostrarMensaje("¡El nombre de la categoría no puede contener más de 100 caracteres!", MessageBoxIcon.Warning);
+            string mensaje = "¡El nombre de la categoría no puede contener más de 100 caracteres!";
+            ShowWarningMessage(mensaje, "");
             return false;
         }
 
@@ -254,7 +255,8 @@ namespace Garmoxu_Desktop
             if (esIdActual)
                 return true;
 
-            MostrarMensaje("¡El nombre escogido ya está en uso!", MessageBoxIcon.Warning);
+            string mensaje = "¡El nombre escogido ya está en uso!";
+            ShowWarningMessage(mensaje, "");
             return false;
         }
 
@@ -322,25 +324,19 @@ namespace Garmoxu_Desktop
         #endregion
 
         #region Mensajes
-        private void MostrarMensaje(string mensaje, MessageBoxIcon iconoDeseado)
-        {
-            MessageBox.Show(mensaje, "", MessageBoxButtons.OK, iconoDeseado);
-        }
-
         // Muestra un mensaje de confirmación
         private bool ConfirmarAccion(string accion)
         {
-            DialogResult accionConfirmada =
-                MessageBox.Show("¿Desea " + accion + " la categoria actual?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (accionConfirmada.Equals(DialogResult.Yes))
-                return true;
-            return false;
+            string mensaje = "¿Desea " + accion + " la categoría actual?";
+            if (ShowQuestionDialog(mensaje, "").Equals(DialogResult.Yes)) return true;
+            else return false;
         }
 
         // Muestra un mensaje de éxito
         private void InformarAccionConExito()
         {
-            MessageBox.Show("¡Operación concluida con éxito!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string mensaje = "¡Operación concluida con éxito!";
+            ShowInfoMessage(mensaje, "");
         }
         #endregion
 
@@ -352,14 +348,12 @@ namespace Garmoxu_Desktop
 
         private void CerrarFormulario()
         {
-            string v = string.Empty;
-            byte[] v2 = null;
-            if (string.IsNullOrEmpty(ClavePrimaria) || ComprobarDatosModificados(ref v, ref v2))
+            string var = string.Empty;
+            byte[] var2 = null;
+            if (string.IsNullOrEmpty(ClavePrimaria) || ComprobarDatosModificados(ref var, ref var2))
             {
-                string mensaje = "¿Desea salir sin guardar? No se aplicarán los cambios realizados";
-                DialogResult cerrarVentana = MessageBox.Show(mensaje, "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (cerrarVentana.Equals(DialogResult.Yes))
-                    this.Close();
+                string mensaje = "¿Desea salir sin guardar? Se perderán todos los cambios realizados.";
+                if (ShowQuestionDialog(mensaje, "").Equals(DialogResult.Yes)) this.Close();
             }
         }
         #endregion

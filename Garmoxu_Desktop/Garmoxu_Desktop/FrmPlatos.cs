@@ -9,34 +9,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
 
 namespace Garmoxu_Desktop
 {
     public partial class FrmPlatos : Form
     {
         private MySqlConnection ConexionBD;
-        private FrmMain Instance;
         private int IVA;
 
-        public FrmPlatos(MySqlConnection conexionBD, FrmMain instance, int iva)
+        public FrmPlatos(MySqlConnection conexionBD, int iva)
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
             ConexionBD = conexionBD;
-            Instance = instance;
             IVA = iva;
             BuscarPlatos();
-            //CargarPlatos();
             CargarComboBoxCategorias();
         }
 
         #region Apertura del formulario
-        //private void CargarPlatos()
-        //{
-        //    string sql = "SELECT IdPlatoComida, Nombre, ImagenPlato FROM PlatosComida ORDER BY Nombre ASC";
-        //    RellenarListView(sql);
-        //}
-
         private void RellenarListView(string sql)
         {
             bool continuar = ValidarCategoriaExistente();
@@ -67,7 +59,7 @@ namespace Garmoxu_Desktop
                 if(cmd == null)
                 {
                     string mensaje = "¡La categoría seleccionada ya no está disponible!";
-                    MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ShowErrorMessage(mensaje, "");
                     CargarComboBoxCategorias();
                     return false;
                 }
@@ -276,8 +268,7 @@ namespace Garmoxu_Desktop
         {
             if (e.KeyChar.Equals((char)Keys.Enter))
             {
-                if (!string.IsNullOrEmpty(TxtNombre.Texts))
-                    e.Handled = true;
+                if (!string.IsNullOrEmpty(TxtNombre.Texts.Trim())) e.Handled = true;
                 BuscarPlatos();
             }
         }
@@ -317,7 +308,8 @@ namespace Garmoxu_Desktop
             }
             catch (MySqlException ex)
             {
-                MessageBox.Show("¡No se ha podido eliminar el plato!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string mensaje = "¡No se ha podido eliminar el plato!";
+                ShowErrorMessage(mensaje, "");
             }
         }
 
@@ -326,14 +318,12 @@ namespace Garmoxu_Desktop
             string sql = "SELECT * FROM PedidosEnCursoPlatos WHERE IdPlatoComida = '" + codigoPlatoCogido + "'";
             MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
 
-            if (cmd.ExecuteScalar() == null)
-                return false;
+            if (cmd.ExecuteScalar() == null) return false;
             else
             {
                 string mensaje = "¡No se ha podido eliminar debido a que existe un pedido en curso que contiene este plato! " +
-                        "Debe finalizar todos los pedidos asociados antes de eliminarlo";
-                MessageBox.Show(mensaje, "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-
+                    "Finaliza o cancela todos los pedidos asociados antes de eliminarlo.";
+                ShowWarningMessage(mensaje, "");
                 return true;
             }
         }
@@ -352,9 +342,6 @@ namespace Garmoxu_Desktop
         {
             Form frmShadow = new Form();
             FrmPlatosDetalles frm = new FrmPlatosDetalles(ConexionBD, string.Empty, IVA, ref frmShadow);
-            //frm.Width = Instance.Width / 2;
-            //frm.Height = Instance.Height / 2 + Instance.Height / 3 + Instance.Height / 30;
-            //Instance.Enabled = false;
 
             frm.ShowDialog();
             frmShadow.Close();
@@ -368,9 +355,6 @@ namespace Garmoxu_Desktop
             string clavePrimaria = LstPlatos.SelectedItems[0].Tag.ToString();
             Form frmShadow = new Form();
             FrmPlatosDetalles frm = new FrmPlatosDetalles(ConexionBD, clavePrimaria, IVA, ref frmShadow);
-            //frm.Width = Instance.Width / 2;
-            //frm.Height = Instance.Height / 2 + Instance.Height / 3 + Instance.Height / 30;
-            //Instance.Enabled = false;
 
             frm.ShowDialog();
             frmShadow.Close();
@@ -378,37 +362,21 @@ namespace Garmoxu_Desktop
         }
         #endregion
 
-        #region Actualización automatica al cerrar los detalles/nuevo plato
-        private void FrmPlatos_EnabledChanged(object sender, EventArgs e)
-        {
-            //if (this.Enabled)
-            //    CargarPlatos();
-        }
-        #endregion
-
         #region Mensajes
         // Muestra un mensaje de confirmación
-        private bool ConfirmarAccion(String accion)
+        private bool ConfirmarAccion(string accion)
         {
-            DialogResult accionConfirmada =
-                MessageBox.Show("¿Desea " + accion + " el pedido actual?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (accionConfirmada.Equals(DialogResult.Yes))
-                return true;
-            return false;
+            string mensaje = "¿Desea " + accion + " el plato actual?";
+            if (ShowQuestionDialog(mensaje, "").Equals(DialogResult.Yes)) return true;
+            else return false;
         }
 
         // Muestra un mensaje de éxito
         private void InformarAccionConExito()
         {
-            MessageBox.Show("¡Operación concluida con éxito!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string mensaje = "¡Operación concluida con éxito!";
+            ShowInfoMessage(mensaje, "");
         }
-        #endregion
-
-        #region Cierre del formulario
-        //private void BtnCerrar_Click(object sender, EventArgs e)
-        //{
-        //    this.Close();
-        //}
         #endregion
     }
 }

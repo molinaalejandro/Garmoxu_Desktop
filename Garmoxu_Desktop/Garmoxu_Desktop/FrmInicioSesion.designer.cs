@@ -52,8 +52,8 @@
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.LblRecordarUsuario = new System.Windows.Forms.Label();
-            this.BtnIniciar = new RJCodeAdvance.RJControls.RJButton();
             this.ChkRemember = new Garmoxu_Desktop.MyCheckBox();
+            this.BtnIniciar = new RJCodeAdvance.RJControls.RJButton();
             this.PnlTitle.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
             this.PnlMain.SuspendLayout();
@@ -183,7 +183,7 @@
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel1.Location = new System.Drawing.Point(0, 0);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
-            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(80, 30, 80, 50);
+            this.tableLayoutPanel1.Padding = new System.Windows.Forms.Padding(70, 30, 70, 30);
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -197,13 +197,13 @@
             this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.Controls.Add(this.PicLogo, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(80, 30);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(70, 30);
             this.tableLayoutPanel3.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(379, 191);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(399, 191);
             this.tableLayoutPanel3.TabIndex = 0;
             // 
             // PicLogo
@@ -213,7 +213,7 @@
             this.PicLogo.Location = new System.Drawing.Point(0, 0);
             this.PicLogo.Margin = new System.Windows.Forms.Padding(0, 0, 0, 30);
             this.PicLogo.Name = "PicLogo";
-            this.PicLogo.Size = new System.Drawing.Size(379, 161);
+            this.PicLogo.Size = new System.Drawing.Size(399, 161);
             this.PicLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.PicLogo.TabIndex = 5;
             this.PicLogo.TabStop = false;
@@ -225,14 +225,14 @@
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel8, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.tableLayoutPanel5, 0, 1);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel4.Location = new System.Drawing.Point(80, 221);
+            this.tableLayoutPanel4.Location = new System.Drawing.Point(70, 221);
             this.tableLayoutPanel4.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 2;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(379, 160);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(399, 160);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // tableLayoutPanel8
@@ -247,7 +247,7 @@
             this.tableLayoutPanel8.RowCount = 2;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(373, 74);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(393, 74);
             this.tableLayoutPanel8.TabIndex = 0;
             // 
             // label3
@@ -259,7 +259,7 @@
             this.label3.Location = new System.Drawing.Point(10, 45);
             this.label3.Margin = new System.Windows.Forms.Padding(10, 0, 3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(360, 2);
+            this.label3.Size = new System.Drawing.Size(380, 2);
             this.label3.TabIndex = 1;
             // 
             // tableLayoutPanel9
@@ -274,7 +274,7 @@
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 1;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel9.Size = new System.Drawing.Size(367, 39);
+            this.tableLayoutPanel9.Size = new System.Drawing.Size(387, 39);
             this.tableLayoutPanel9.TabIndex = 0;
             // 
             // TxtUsuario
@@ -295,7 +295,7 @@
             this.TxtUsuario.PasswordChar = false;
             this.TxtUsuario.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtUsuario.PlaceholderText = "";
-            this.TxtUsuario.Size = new System.Drawing.Size(327, 37);
+            this.TxtUsuario.Size = new System.Drawing.Size(347, 37);
             this.TxtUsuario.TabIndex = 0;
             this.TxtUsuario.Texts = "Nombre de usuario";
             this.TxtUsuario.UnderlinedStyle = false;
@@ -305,6 +305,7 @@
             // 
             // BtnUsuario
             // 
+            this.BtnUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnUsuario.FlatAppearance.BorderColor = System.Drawing.Color.Yellow;
             this.BtnUsuario.FlatAppearance.BorderSize = 0;
@@ -317,7 +318,7 @@
             this.BtnUsuario.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.BtnUsuario.IconSize = 34;
             this.BtnUsuario.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnUsuario.Location = new System.Drawing.Point(327, 5);
+            this.BtnUsuario.Location = new System.Drawing.Point(347, 5);
             this.BtnUsuario.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.BtnUsuario.Name = "BtnUsuario";
             this.BtnUsuario.Size = new System.Drawing.Size(40, 34);
@@ -340,7 +341,7 @@
             this.tableLayoutPanel5.RowCount = 2;
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(373, 74);
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(393, 74);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
             // tableLayoutPanel2
@@ -355,11 +356,12 @@
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(367, 39);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(387, 39);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // BtnContraseña
             // 
+            this.BtnContraseña.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnContraseña.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnContraseña.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
             this.BtnContraseña.FlatAppearance.BorderSize = 0;
@@ -372,7 +374,7 @@
             this.BtnContraseña.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.BtnContraseña.IconSize = 34;
             this.BtnContraseña.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnContraseña.Location = new System.Drawing.Point(327, 5);
+            this.BtnContraseña.Location = new System.Drawing.Point(347, 5);
             this.BtnContraseña.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.BtnContraseña.Name = "BtnContraseña";
             this.BtnContraseña.Size = new System.Drawing.Size(40, 42);
@@ -402,7 +404,7 @@
             this.TxtContraseña.PasswordChar = false;
             this.TxtContraseña.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtContraseña.PlaceholderText = "";
-            this.TxtContraseña.Size = new System.Drawing.Size(327, 37);
+            this.TxtContraseña.Size = new System.Drawing.Size(347, 37);
             this.TxtContraseña.TabIndex = 1;
             this.TxtContraseña.Texts = "Contraseña";
             this.TxtContraseña.UnderlinedStyle = false;
@@ -419,7 +421,7 @@
             this.label1.Location = new System.Drawing.Point(10, 45);
             this.label1.Margin = new System.Windows.Forms.Padding(10, 0, 3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(360, 2);
+            this.label1.Size = new System.Drawing.Size(380, 2);
             this.label1.TabIndex = 1;
             // 
             // tableLayoutPanel7
@@ -429,14 +431,14 @@
             this.tableLayoutPanel7.Controls.Add(this.tableLayoutPanel6, 0, 2);
             this.tableLayoutPanel7.Controls.Add(this.BtnIniciar, 0, 1);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(80, 381);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(70, 381);
             this.tableLayoutPanel7.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 3;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel7.Size = new System.Drawing.Size(379, 163);
+            this.tableLayoutPanel7.Size = new System.Drawing.Size(399, 183);
             this.tableLayoutPanel7.TabIndex = 1;
             // 
             // tableLayoutPanel6
@@ -453,7 +455,7 @@
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
             this.tableLayoutPanel6.RowCount = 1;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(373, 64);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(393, 84);
             this.tableLayoutPanel6.TabIndex = 3;
             // 
             // LblRecordarUsuario
@@ -463,42 +465,16 @@
             this.LblRecordarUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LblRecordarUsuario.Font = new System.Drawing.Font("Source Sans Pro", 11F, System.Drawing.FontStyle.Bold);
             this.LblRecordarUsuario.ForeColor = System.Drawing.Color.Gainsboro;
-            this.LblRecordarUsuario.Location = new System.Drawing.Point(120, 0);
-            this.LblRecordarUsuario.Margin = new System.Windows.Forms.Padding(0);
+            this.LblRecordarUsuario.Location = new System.Drawing.Point(130, 10);
+            this.LblRecordarUsuario.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.LblRecordarUsuario.Name = "LblRecordarUsuario";
             this.LblRecordarUsuario.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.LblRecordarUsuario.Size = new System.Drawing.Size(156, 64);
+            this.LblRecordarUsuario.Size = new System.Drawing.Size(156, 74);
             this.LblRecordarUsuario.TabIndex = 1;
             this.LblRecordarUsuario.Text = "Recordar usuario";
             this.LblRecordarUsuario.Click += new System.EventHandler(this.LblRecordarUsuario_Click);
             this.LblRecordarUsuario.MouseEnter += new System.EventHandler(this.ChkRemember_MouseEnter);
             this.LblRecordarUsuario.MouseLeave += new System.EventHandler(this.ChkRemember_MouseLeave);
-            // 
-            // BtnIniciar
-            // 
-            this.BtnIniciar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.BtnIniciar.BackColor = System.Drawing.Color.SeaGreen;
-            this.BtnIniciar.BackgroundColor = System.Drawing.Color.SeaGreen;
-            this.BtnIniciar.BorderColor = System.Drawing.Color.SeaGreen;
-            this.BtnIniciar.BorderRadius = 15;
-            this.BtnIniciar.BorderSize = 0;
-            this.BtnIniciar.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
-            this.BtnIniciar.FlatAppearance.BorderSize = 0;
-            this.BtnIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.BtnIniciar.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.BtnIniciar.ForeColor = System.Drawing.Color.White;
-            this.BtnIniciar.Location = new System.Drawing.Point(95, 34);
-            this.BtnIniciar.Margin = new System.Windows.Forms.Padding(95, 4, 95, 4);
-            this.BtnIniciar.Name = "BtnIniciar";
-            this.BtnIniciar.Size = new System.Drawing.Size(189, 55);
-            this.BtnIniciar.TabIndex = 0;
-            this.BtnIniciar.TabStop = false;
-            this.BtnIniciar.Text = "Acceder";
-            this.BtnIniciar.TextColor = System.Drawing.Color.White;
-            this.BtnIniciar.UseVisualStyleBackColor = false;
-            this.BtnIniciar.Click += new System.EventHandler(this.BtnIniciar_Click);
             // 
             // ChkRemember
             // 
@@ -514,17 +490,44 @@
             this.ChkRemember.Font = new System.Drawing.Font("Source Sans Pro Black", 14F, System.Drawing.FontStyle.Bold);
             this.ChkRemember.ForeColor = System.Drawing.Color.White;
             this.ChkRemember.LeaveColor = System.Drawing.Color.Gainsboro;
-            this.ChkRemember.Location = new System.Drawing.Point(96, 0);
-            this.ChkRemember.Margin = new System.Windows.Forms.Padding(0);
+            this.ChkRemember.Location = new System.Drawing.Point(106, 10);
+            this.ChkRemember.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.ChkRemember.Name = "ChkRemember";
             this.ChkRemember.Padding = new System.Windows.Forms.Padding(2, 5, 0, 0);
             this.ChkRemember.PaddingCheck = new System.Windows.Forms.Padding(1, 1, 0, 0);
-            this.ChkRemember.Size = new System.Drawing.Size(24, 64);
+            this.ChkRemember.Size = new System.Drawing.Size(24, 74);
             this.ChkRemember.TabIndex = 2;
             this.ChkRemember.Text = "myCheckBox1";
             this.ChkRemember.Click += new System.EventHandler(this.LblRecordarUsuario_Click);
             this.ChkRemember.MouseEnter += new System.EventHandler(this.ChkRemember_MouseEnter);
             this.ChkRemember.MouseLeave += new System.EventHandler(this.ChkRemember_MouseLeave);
+            // 
+            // BtnIniciar
+            // 
+            this.BtnIniciar.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.BtnIniciar.BackColor = System.Drawing.Color.SeaGreen;
+            this.BtnIniciar.BackgroundColor = System.Drawing.Color.SeaGreen;
+            this.BtnIniciar.BorderColor = System.Drawing.Color.SeaGreen;
+            this.BtnIniciar.BorderRadius = 15;
+            this.BtnIniciar.BorderSize = 0;
+            this.BtnIniciar.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.BtnIniciar.FlatAppearance.BorderColor = System.Drawing.Color.SeaGreen;
+            this.BtnIniciar.FlatAppearance.BorderSize = 0;
+            this.BtnIniciar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.BtnIniciar.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
+            this.BtnIniciar.ForeColor = System.Drawing.Color.White;
+            this.BtnIniciar.Location = new System.Drawing.Point(95, 34);
+            this.BtnIniciar.Margin = new System.Windows.Forms.Padding(95, 4, 95, 4);
+            this.BtnIniciar.Name = "BtnIniciar";
+            this.BtnIniciar.Size = new System.Drawing.Size(209, 55);
+            this.BtnIniciar.TabIndex = 0;
+            this.BtnIniciar.TabStop = false;
+            this.BtnIniciar.Text = "Acceder";
+            this.BtnIniciar.TextColor = System.Drawing.Color.White;
+            this.BtnIniciar.UseVisualStyleBackColor = false;
+            this.BtnIniciar.Click += new System.EventHandler(this.BtnIniciar_Click);
             // 
             // FrmInicioSesion
             // 
@@ -536,7 +539,7 @@
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "FrmInicioSesion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Iniciar sesión - Garmoxu";
+            this.Text = "Iniciar sesión - Garmoxu Desktop";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmInicioSesion_FormClosing);
             this.Shown += new System.EventHandler(this.FrmInicioSesion_Shown);
             this.VisibleChanged += new System.EventHandler(this.FrmInicioSesion_VisibleChanged);

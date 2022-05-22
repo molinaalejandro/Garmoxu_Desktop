@@ -12,6 +12,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
 
 namespace Garmoxu_Desktop
 {
@@ -22,6 +23,7 @@ namespace Garmoxu_Desktop
 
         private List<string> DatosIniciales = new List<string>();
         private Image ImagenInicial;
+        private bool ImagenCambiada;
 
         private List<string> IdsCategorias;
 
@@ -68,6 +70,8 @@ namespace Garmoxu_Desktop
         #region Cargar datos
         private void CargarTipoFormulario()
         {
+            ImagenCambiada = false;
+
             if (!string.IsNullOrEmpty(ClavePrimaria))
             {
                 LblTitulo.Text = "Consulta el plato " + ClavePrimaria;
@@ -97,8 +101,7 @@ namespace Garmoxu_Desktop
                     ChkDisponibilidad.Checked = true;
                     disponibilidad = 1;
                 }
-                else
-                    disponibilidad = 0;
+                else disponibilidad = 0;
 
                 int indexCategoria = IdsCategorias.IndexOf(lector["IdCategoria"].ToString());
                 CboCategorias.SelectedIndex = indexCategoria;
@@ -112,7 +115,7 @@ namespace Garmoxu_Desktop
                 DatosIniciales.Add(lector["Descripcion"].ToString());
                 DatosIniciales.Add(lector["Alergenos"].ToString());
                 DatosIniciales.Add(disponibilidad.ToString());
-                DatosIniciales.Add((indexCategoria + 1).ToString());
+                DatosIniciales.Add(IdsCategorias[indexCategoria]);
             }
             lector.Close();
         }
@@ -127,8 +130,7 @@ namespace Garmoxu_Desktop
                 lector.GetBytes(5, 0, imagenBytes, 0, tamañoMaximoArchivo);
                 ImagenInicial = (Bitmap)((new ImageConverter()).ConvertFrom(imagenBytes));
             }
-            else
-                ImagenInicial = Properties.Resources.No_Image_Found;
+            else ImagenInicial = Properties.Resources.No_Image_Found;
 
             PicFotoPlato.Image = ImagenInicial;
             PicFotoPlato.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -212,12 +214,19 @@ namespace Garmoxu_Desktop
         #endregion
 
         #region Boton de confirmar
+        private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar.Equals((char)Keys.Enter))
+            {
+                e.Handled = true;
+                BtnConfirmar_Click(null, null);
+            }
+        }
+
         private void BtnConfirmar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(ClavePrimaria))
-                DarAltaPlato();
-            else
-                ModificarPlato();
+            if (string.IsNullOrEmpty(ClavePrimaria)) DarAltaPlato();
+            else ModificarPlato();
         }
 
         #region Alta plato 
@@ -231,14 +240,17 @@ namespace Garmoxu_Desktop
                 string sql = string.Format(
                     "INSERT INTO PlatosComida(IdPlatoComida, Nombre, PrecioConIVA, PrecioSinIVA, " +
                     "Descripcion, ImagenPlato, Alergenos, Disponibilidad, IdCategoria) " +
-                    "VALUES('{0}', '{1}', '{2}', '{3}', '{4}', @imagen, '{5}', '{6}', '{7}')",
+                    "VALUES('{0}', '{1}', '{2}', '{3}', '{4}', {5}, '{6}', '{7}', '{8}')",
                     datosActuales[0], datosActuales[1], datosActuales[2], datosActuales[3],
-                    datosActuales[4], datosActuales[5], datosActuales[6], datosActuales[7]
+                    datosActuales[4], ImagenCambiada ? "@imagen" : "NULL", datosActuales[5], datosActuales[6], datosActuales[7]
                     );
 
                 MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                byte[] imagenBytes = (byte[])(new ImageConverter()).ConvertTo(PicFotoPlato.Image, typeof(byte[]));
-                cmd.Parameters.Add("@imagen", MySqlDbType.MediumBlob).Value = imagenBytes;
+                if (ImagenCambiada)
+                {
+                    byte[] imagenBytes = (byte[])(new ImageConverter()).ConvertTo(PicFotoPlato.Image, typeof(byte[]));
+                    cmd.Parameters.Add("@imagen", MySqlDbType.MediumBlob).Value = imagenBytes;
+                }
                 cmd.ExecuteNonQuery();
 
                 InformarAccionConExito();
@@ -258,7 +270,7 @@ namespace Garmoxu_Desktop
             {
                 string sql = "UPDATE PlatosComida SET " + valores + " WHERE IdPlatoComida = '" + ClavePrimaria + "'";
                 MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                if (imagenBytes != null) cmd.Parameters.Add("@imagen", MySqlDbType.MediumBlob).Value = imagenBytes;
+                if (ImagenCambiada && imagenBytes != null) cmd.Parameters.Add("@imagen", MySqlDbType.MediumBlob).Value = imagenBytes;
                 cmd.ExecuteNonQuery();
 
                 InformarAccionConExito();
@@ -358,7 +370,7 @@ namespace Garmoxu_Desktop
             if (ChkDisponibilidad.Checked) disponibilidad = "1";
             else disponibilidad = "0";
 
-            int idCategoria = CboCategorias.SelectedIndex + 1;
+            int idCategoria = int.Parse(IdsCategorias[CboCategorias.SelectedIndex]);
 
             datosActuales.Add(TxtIdPlato.Texts.Replace(" ", ""));
             datosActuales.Add(TxtNombre.Texts.Trim());
@@ -376,15 +388,13 @@ namespace Garmoxu_Desktop
         #region Validaciones y comprobaciones
         private bool ValidarDatosCompletados()
         {
-            if (!string.IsNullOrEmpty(TxtIdPlato.Texts.Replace(" ", ""))
-                && !string.IsNullOrEmpty(TxtNombre.Texts.Replace(" ", ""))
-                && !string.IsNullOrEmpty(TxtPrecioSinIva.Texts.Replace(" ", ""))
-                && !string.IsNullOrEmpty(TxtPrecioConIva.Texts.Replace(" ", ""))
+            if (!string.IsNullOrEmpty(TxtIdPlato.Texts.Replace(" ", "")) && !string.IsNullOrEmpty(TxtNombre.Texts.Replace(" ", ""))
+                && !string.IsNullOrEmpty(TxtPrecioSinIva.Texts.Replace(" ", "")) && !string.IsNullOrEmpty(TxtPrecioConIva.Texts.Replace(" ", ""))
                 && CboCategorias.SelectedIndex != -1)
                 return true;
 
             string mensaje = "¡Debes completar todos los datos!";
-            MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            ShowWarningMessage(mensaje, "");
             return false;
         }
 
@@ -393,7 +403,7 @@ namespace Garmoxu_Desktop
             if (TxtIdPlato.Texts.Replace(" ", "").Length > 10)
             {
                 string mensaje = "¡El identificador del plato es demasiado largo!";
-                MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowErrorMessage(mensaje, "");
                 return false;
             }
             return true;
@@ -404,15 +414,13 @@ namespace Garmoxu_Desktop
             string sql = "SELECT IdPlatoComida FROM PlatosComida WHERE IdPlatoComida = '" + TxtIdPlato.Texts.Replace(" ", "") + "'";
             MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
 
-            if (cmd.ExecuteScalar() == null)
-                return true;
+            if (cmd.ExecuteScalar() == null) return true;
 
             bool esIdActual = !string.IsNullOrEmpty(ClavePrimaria) && cmd.ExecuteScalar().ToString().Equals(DatosIniciales[0]);
-            if (esIdActual)
-                return true;
+            if (esIdActual) return true;
 
             string mensaje = "¡El identificador del plato introducido ya está registrado!";
-            MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            ShowWarningMessage(mensaje, "");
             return false;
         }
 
@@ -421,15 +429,13 @@ namespace Garmoxu_Desktop
             string sql = "SELECT Nombre FROM PlatosComida WHERE Nombre = '" + TxtNombre.Texts.Trim() + "'";
             MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
 
-            if (cmd.ExecuteScalar() == null)
-                return true;
+            if (cmd.ExecuteScalar() == null) return true;
 
             bool esNombreActual = !string.IsNullOrEmpty(ClavePrimaria) && cmd.ExecuteScalar().ToString().Equals(DatosIniciales[1]);
-            if (esNombreActual)
-                return true;
+            if (esNombreActual) return true;
 
             string mensaje = "¡El nombre del plato introducido ya está registrado!";
-            MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            ShowWarningMessage(mensaje, "");
             return false;
         }
         #endregion
@@ -440,7 +446,6 @@ namespace Garmoxu_Desktop
         {
             OpenFileDialog ofd = new OpenFileDialog();
             ofd.Title = "Selecciona una imagen para tu plato";
-            //ofd.Filter = "Archivo de imagen |*.jpg| Archivo PNG|*.png|Todos los archivos|*.*";
             ofd.Filter = "Archivo de imagen |*.jpg| Archivo PNG|*.png";
 
             if (ofd.ShowDialog().Equals(DialogResult.OK))
@@ -451,9 +456,9 @@ namespace Garmoxu_Desktop
                 {
                     PicFotoPlato.Image = Image.FromFile(ruta); ;
                     PicFotoPlato.SizeMode = PictureBoxSizeMode.StretchImage;
+                    ImagenCambiada = true;
                 }
-                else
-                    MessageBox.Show("¡La imagen no puede ser mayor de 15MB!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                else ShowWarningMessage("¡La imagen no puede ser mayor de 15MB!", "");
             }
         }
         #endregion
@@ -479,7 +484,7 @@ namespace Garmoxu_Desktop
                 decimal numResult;
 
                 if (txtActual.Parent.Name.Equals("TxtPrecioConIva"))
-                    numResult = decimal.Round(numFormateado - (numFormateado * (ivaLocal - 1)), 2);
+                    numResult = decimal.Round(numFormateado / ivaLocal, 2);
                 else
                     numResult = decimal.Round(numFormateado * ivaLocal, 2);
 
@@ -504,7 +509,7 @@ namespace Garmoxu_Desktop
                 decimal numCalculado;
 
                 if (txtAsignar.Name.Equals("TxtPrecioConIva"))
-                    numCalculado = decimal.Round(numTxtAsignar - (numTxtAsignar * (ivaLocal - 1)), 2);
+                    numCalculado = decimal.Round(numTxtAsignar / ivaLocal, 2);
                 else
                     numCalculado = decimal.Round(numTxtAsignar * ivaLocal, 2);
 
@@ -517,24 +522,20 @@ namespace Garmoxu_Desktop
         private void TxtPrecio_KeyPress(object sender, KeyPressEventArgs e)
         {
             RJTextBox txtActual = sender as RJTextBox;
-            if (txtActual.Name.Equals("TxtPrecioConIva"))
-                TxtPrecioSinIva.Texts = string.Empty;
-            else
-                TxtPrecioConIva.Texts = string.Empty;
+            if (txtActual.Name.Equals("TxtPrecioConIva")) TxtPrecioSinIva.Texts = string.Empty;
+            else TxtPrecioConIva.Texts = string.Empty;
         }
 
         private bool ValidarPrecio(string precio)
         {
             Regex rgx = new Regex("^[0-9]{1,8}[\\.,]$");
-
-            if (rgx.IsMatch(precio))
-                return false;
+            if (rgx.IsMatch(precio)) return false;
 
             rgx = new Regex("^[0-9]{1,8}([\\.,][0-9]{1,2})?$");
-
             if (!rgx.IsMatch(precio))
             {
-                MessageBox.Show("¡Formato de precio no válido!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                string mensaje = "¡Formato de precio no válido!";
+                ShowWarningMessage(mensaje, "");
                 return false;
             }
 
@@ -544,19 +545,18 @@ namespace Garmoxu_Desktop
 
         #region Mensajes
         // Muestra un mensaje de confirmación
-        private bool ConfirmarAccion(String accion)
+        private bool ConfirmarAccion(string accion)
         {
-            DialogResult accionConfirmada =
-                MessageBox.Show("¿Desea " + accion + " el plato actual?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (accionConfirmada.Equals(DialogResult.Yes))
-                return true;
-            return false;
+            string mensaje = "¿Desea " + accion + " el plato actual?";
+            if (ShowQuestionDialog(mensaje, "").Equals(DialogResult.Yes)) return true;
+            else return false;
         }
 
         // Muestra un mensaje de éxito
         private void InformarAccionConExito()
         {
-            MessageBox.Show("¡Operación concluida con éxito!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string mensaje = "¡Operación concluida con éxito!";
+            ShowInfoMessage(mensaje, "");
         }
         #endregion
 
@@ -568,27 +568,13 @@ namespace Garmoxu_Desktop
 
         private void CerrarFormulario()
         {
-            string v = string.Empty;
-            byte[] v2 = null;
-            if (string.IsNullOrEmpty(ClavePrimaria) || ComprobarDatosModificados(ref v, ref v2))
+            string var = string.Empty;
+            byte[] var2 = null;
+            if (string.IsNullOrEmpty(ClavePrimaria) || ComprobarDatosModificados(ref var, ref var2))
             {
-                string mensaje = "Se perderán todos los cambios no guardados. ¿Deseas continuar?";
-                DialogResult cerrarVentana = MessageBox.Show(mensaje, "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (cerrarVentana.Equals(DialogResult.Yes))
-                    this.Close();
+                string mensaje = "¿Desea salir sin guardar? Se perderán todos los cambios realizados.";
+                if (ShowQuestionDialog(mensaje, "").Equals(DialogResult.Yes)) this.Close();
             }
-        }
-
-        private void FrmPlatosDetalles_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            //Instance.Enabled = true;
-            //QuitarSombreadoPantalla();
-        }
-
-        private void QuitarSombreadoPantalla()
-        {
-            //if (FrmShadow != null) FrmShadow.Close();
-            //if (frmShadow != null) frmShadow.Hide();
         }
         #endregion Cierre del formulario
     }

@@ -11,6 +11,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
 
 namespace Garmoxu_Desktop
 {
@@ -33,16 +34,13 @@ namespace Garmoxu_Desktop
         private bool VentanaCompleta;
         private bool ModoDiurno;
 
-        //private Panel PnlTitle;
-        //private Panel PnlLateral;
         private Panel PnlFormularios;
 
         private List<string> DatosIniciales;
 
-        public FrmAjustes(FrmMain instance, FrmInicioSesion instanceInicioSesion, MySqlConnection conexionBD, Panel pnlFormularios, 
-            string usuarioActual, Image imagenUsuario, int nivelPermisos, string nombreRestaurante, string horaApertura, string horaCierre, 
+        public FrmAjustes(FrmMain instance, FrmInicioSesion instanceInicioSesion, MySqlConnection conexionBD, Panel pnlFormularios,
+            string usuarioActual, Image imagenUsuario, int nivelPermisos, string nombreRestaurante, string horaApertura, string horaCierre,
             int iva, bool ventanaCompleta, bool modoDiurno)
-            //bool ventanaCompleta, bool modoDiurno, Panel pnlTitle, Panel pnlLateral, Panel pnlMain)
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
@@ -63,10 +61,6 @@ namespace Garmoxu_Desktop
             Iva = iva;
             VentanaCompleta = ventanaCompleta;
             ModoDiurno = modoDiurno;
-
-            //PnlTitle = pnlTitle;
-            //PnlLateral = pnlLateral;
-            //PnlMain = pnlMain;
 
             LimitarPermisos();
             CargarDatos();
@@ -92,6 +86,8 @@ namespace Garmoxu_Desktop
                 DtpCierre.TextColor = Color.DimGray;
                 NucIva.Enabled = false;
             }
+
+            if (NivelPermisos != 2) TxtNombreUsuario.Enabled = false;
         }
         #endregion
 
@@ -170,6 +166,22 @@ namespace Garmoxu_Desktop
         }
         #endregion
 
+        #region Funcionalidades y diseños de controles
+        private void BtnAtras_MouseEnter(object sender, EventArgs e)
+        {
+            BtnAtras.IconColor = Color.White;
+            BtnAtras.ForeColor = Color.White;
+            BtnAtras.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleLeft;
+        }
+
+        private void BtnAtras_MouseLeave(object sender, EventArgs e)
+        {
+            BtnAtras.IconColor = Color.Silver;
+            BtnAtras.ForeColor = Color.Silver;
+            BtnAtras.IconChar = FontAwesome.Sharp.IconChar.AngleLeft;
+        }
+        #endregion
+
         #region Cambiar foto de perfil
         private void PicPerfil_Click(object sender, EventArgs e)
         {
@@ -185,7 +197,8 @@ namespace Garmoxu_Desktop
                 if (new FileInfo(ruta).Length <= 15000000)
                     PicPerfil.Image = Image.FromFile(ruta);
                 else
-                    MessageBox.Show("¡La imagen no puede ser mayor de 15MB!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    ShowWarningMessage("¡La imagen no puede ser mayor de 15MB!", "");
+
             }
         }
 
@@ -207,11 +220,20 @@ namespace Garmoxu_Desktop
         #endregion
 
         #region Guardar cambios
+        private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar.Equals((char)Keys.Enter))
+            {
+                e.Handled = true;
+                BtnGuardar_Click(null, null);
+            }
+        }
+
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             string datosActuales = string.Empty;
-            if (ComprobarCamposNoVacios() && ValidarFormatoNombreUsuario() && ValidarFormatoNombreRestaurante() 
-                && ComprobarDatosModificados(ref datosActuales) && ConfirmarAccion("guardar los cambios realizados") 
+            if (ComprobarCamposNoVacios() && ValidarFormatoNombreUsuario() && ValidarFormatoNombreRestaurante()
+                && ComprobarDatosModificados(ref datosActuales) && ConfirmarAccion("guardar los cambios realizados")
                 && ValidarUsuarioNoExistente())
             {
                 GuardarDatos(datosActuales);
@@ -309,7 +331,7 @@ namespace Garmoxu_Desktop
             for (int i = 0; i < datosActualesLista.Count; i++)
             {
                 datosActuales += datosActualesLista[i];
-                if (i != datosActualesLista.Count-1) datosActuales += ";";
+                if (i != datosActualesLista.Count - 1) datosActuales += ";";
 
                 if (!DatosIniciales[i].Equals(datosActualesLista[i]))
                     modificacionRealizada = true;
@@ -327,7 +349,7 @@ namespace Garmoxu_Desktop
             if (NumeroMesasIniciales != NucNumeroMesas.Value)
                 modificacionRealizada = true;
 
-            if(!modificacionRealizada) this.Close();
+            if (!modificacionRealizada) this.Close();
             return modificacionRealizada;
         }
 
@@ -335,8 +357,8 @@ namespace Garmoxu_Desktop
         {
             List<string> datosActuales = new List<string>();
             datosActuales.Add(TxtNombreRestaurante.Texts.Trim());
-            datosActuales.Add(DtpApertura.Value.ToString());
-            datosActuales.Add(DtpCierre.Value.ToString());
+            datosActuales.Add(DtpApertura.Value.ToString("HH:mm"));
+            datosActuales.Add(DtpCierre.Value.ToString("HH:mm"));
             datosActuales.Add(NucIva.Value.ToString());
             if (CboVentana.SelectedIndex == 1) datosActuales.Add("False");
             else datosActuales.Add("True");
@@ -357,7 +379,7 @@ namespace Garmoxu_Desktop
                 return true;
 
             string mensaje = "¡Debes completar todos los campos!";
-            MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            ShowWarningMessage(mensaje, "");
             return false;
         }
 
@@ -368,16 +390,16 @@ namespace Garmoxu_Desktop
                 return true;
 
             string mensaje = "¡El nombre de usuario solo puede contener una secuencia de letras sin acentuación y números de 40 caracteres máximo!";
-            MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            ShowWarningMessage(mensaje, "");
             return false;
         }
 
         private bool ValidarFormatoNombreRestaurante()
         {
-            if(TxtNombreRestaurante.Texts.Trim().Contains(";"))
+            if (TxtNombreRestaurante.Texts.Trim().Contains(";"))
             {
                 string mensaje = "¡El nombre del restaurante no puede contener punto y coma!";
-                MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ShowWarningMessage(mensaje, "");
                 return false;
             }
             return true;
@@ -387,10 +409,10 @@ namespace Garmoxu_Desktop
         //{
         //    DateTime horaEntrada = DateTime.Parse(DtpApertura.Value.ToString("HH:mm"));
         //    DateTime horaSalida = DateTime.Parse(DtpApertura.Value.ToString("HH:mm"));
-        //    if(horaSalida <= horaEntrada)
+        //    if (horaSalida <= horaEntrada)
         //    {
         //        string mensaje = "¡La hora de cierre debe ser posterior a la de apertura!";
-        //        MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //        ShowWarningMessage(mensaje, "");
         //        return false;
         //    }
         //    return true;
@@ -406,7 +428,7 @@ namespace Garmoxu_Desktop
             else if (!cmd.ExecuteScalar().ToString().Equals(UsuarioInicial))
             {
                 string mensaje = "¡El nombre de usuario ya está registrado!";
-                MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ShowWarningMessage(mensaje, "");
                 return false;
             }
             return true;
@@ -417,30 +439,18 @@ namespace Garmoxu_Desktop
         // Muestra un mensaje de confirmación
         private bool ConfirmarAccion(string accion)
         {
-            DialogResult accionConfirmada =
-                MessageBox.Show("¿Desea " + accion + "?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (accionConfirmada.Equals(DialogResult.Yes))
-                return true;
-            return false;
+            string mensaje = "¿Desea " + accion + "?";
+            if (ShowQuestionDialog(mensaje, "").Equals(DialogResult.Yes)) return true;
+            else return false;
         }
 
         // Muestra un mensaje de éxito
         private void InformarReinicio()
         {
             string mensaje = "La aplicación se reiniciará para aplicar los cambios.";
-            MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            ShowInfoMessage(mensaje, "");
             PnlFormularios.Visible = false;
             Instance.Close();
-            //DialogResult confirmar = MessageBox.Show(mensaje, "", MessageBoxButtons.RetryCancel, MessageBoxIcon.Information);
-
-            //if (confirmar.Equals(DialogResult.Retry))
-            //    Application.Restart();
-        }
-
-        // Muestra un mensaje de éxito
-        private void InformarAccionConExito()
-        {
-            MessageBox.Show("¡Operación concluida con éxito!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         #endregion
 
@@ -448,8 +458,7 @@ namespace Garmoxu_Desktop
         private void BtnCerrarSesion_Click(object sender, EventArgs e)
         {
             string mensaje = "¿Desea cerrar la sesión actual?";
-            DialogResult cerrarSesion = MessageBox.Show(mensaje, "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (cerrarSesion.Equals(DialogResult.Yes))
+            if (ShowQuestionDialog(mensaje, "").Equals(DialogResult.Yes))
             {
                 try
                 {
@@ -457,7 +466,7 @@ namespace Garmoxu_Desktop
                     if (File.Exists(ruta))
                         File.AppendAllText(ruta, ";" + DateTime.Now.ToString() + ";\n");
                 }
-                catch (Exception ex) { MessageBox.Show(ex.Message); }
+                catch (Exception ex) { ShowErrorMessage(ex.Message, ""); }
 
                 InstanceInicioSesion.Show();
                 Instance.Close();
@@ -469,38 +478,17 @@ namespace Garmoxu_Desktop
         private void BtnClose_Click(object sender, EventArgs e)
         {
             string v = string.Empty;
-            if(ComprobarDatosModificados(ref v))
+            if (ComprobarDatosModificados(ref v))
             {
-                string mensaje = "¿Desea salir sin guardar? Se perderán todos los cambios realizados";
-                DialogResult confirmar = MessageBox.Show(mensaje, "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (confirmar.Equals(DialogResult.Yes))
-                    this.Close();
+                string mensaje = "¿Desea salir sin guardar? Se perderán todos los cambios realizados.";
+                if (ShowQuestionDialog(mensaje, "").Equals(DialogResult.Yes)) this.Close();
             }
-            else
-                this.Close();
+            else this.Close();
         }
 
         private void FrmAjustes_FormClosing(object sender, FormClosingEventArgs e)
         {
             Instance.Visible = true;
-            //PnlTitle.Visible = true;
-            //PnlLateral.Visible = true;
-            //PnlMain.Visible = true;
-        }
-
-        private void BtnAtras_MouseEnter(object sender, EventArgs e)
-        {
-            BtnAtras.IconColor = Color.White;
-            BtnAtras.ForeColor = Color.White;
-            BtnAtras.IconChar = FontAwesome.Sharp.IconChar.AngleDoubleLeft;
-        }
-
-        private void BtnAtras_MouseLeave(object sender, EventArgs e)
-        {
-            BtnAtras.IconColor = Color.Silver;
-            BtnAtras.ForeColor = Color.Silver;
-            BtnAtras.IconChar = FontAwesome.Sharp.IconChar.AngleLeft;
-
         }
         #endregion
     }

@@ -224,6 +224,7 @@ namespace Garmoxu_Desktop
             this.BtnConfirmar.BorderColor = System.Drawing.Color.Black;
             this.BtnConfirmar.BorderRadius = 15;
             this.BtnConfirmar.BorderSize = 0;
+            this.BtnConfirmar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnConfirmar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnConfirmar.FlatAppearance.BorderSize = 0;
             this.BtnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
@@ -247,6 +248,7 @@ namespace Garmoxu_Desktop
             this.BtnCancelar.BorderColor = System.Drawing.Color.Black;
             this.BtnCancelar.BorderRadius = 15;
             this.BtnCancelar.BorderSize = 0;
+            this.BtnCancelar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnCancelar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnCancelar.FlatAppearance.BorderSize = 0;
             this.BtnCancelar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;

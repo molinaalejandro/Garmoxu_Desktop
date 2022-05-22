@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
 
 namespace Garmoxu_Desktop
 {
@@ -57,7 +58,7 @@ namespace Garmoxu_Desktop
                 if (cmd == null)
                 {
                     string mensaje = "¡La categoría seleccionada ya no está disponible!";
-                    MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ShowErrorMessage(mensaje, "");
                     CargarComboBoxCategorias();
                     return false;
                 }
@@ -77,8 +78,7 @@ namespace Garmoxu_Desktop
 
                 return fotoconvertida;
             }
-            else
-                return Properties.Resources.No_Image_Found;
+            else return Properties.Resources.No_Image_Found;
         }
 
         private void CargarComboBoxCategorias()
@@ -88,8 +88,7 @@ namespace Garmoxu_Desktop
             MySqlDataReader lector = cmd.ExecuteReader();
 
             CboCategoria.Items.Clear();
-            while (lector.Read())
-                CboCategoria.Items.Add(lector[0].ToString());
+            while (lector.Read()) CboCategoria.Items.Add(lector[0].ToString());
             lector.Close();
         }
         #endregion
@@ -290,8 +289,7 @@ namespace Garmoxu_Desktop
         {
             if (e.KeyChar.Equals((char)Keys.Enter))
             {
-                if (!string.IsNullOrEmpty(TxtNombre.Texts))
-                    e.Handled = true;
+                if (!string.IsNullOrEmpty(TxtNombre.Texts.Trim())) e.Handled = true;
                 BuscarPlatos();
             }
         }

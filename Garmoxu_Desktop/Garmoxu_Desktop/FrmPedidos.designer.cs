@@ -302,7 +302,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "Pedidos";
             this.Text = "Gestión de Pedidos - Garmoxu";
-            this.EnabledChanged += new System.EventHandler(this.FrmPedidos_EnabledChanged);
             this.PnlMain.ResumeLayout(false);
             this.PnlFoot.ResumeLayout(false);
             this.PnlFoot.PerformLayout();

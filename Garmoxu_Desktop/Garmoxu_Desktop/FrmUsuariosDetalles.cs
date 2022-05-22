@@ -20,6 +20,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
 
 namespace Garmoxu_Desktop
 {
@@ -105,34 +106,29 @@ namespace Garmoxu_Desktop
         #endregion
         #endregion
 
-        #region Funciones y diseños de controles
-        //private void BtnClose_MouseEnter(object sender, EventArgs e)
-        //{
-        //    BtnClose.IconColor = System.Drawing.Color.FromArgb(240, 41, 83);
-        //    BtnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Transparent;
-        //}
-
-        //private void BtnClose_MouseLeave(object sender, EventArgs e)
-        //{
-        //    BtnClose.IconColor = System.Drawing.Color.DarkGray;
-        //}
-        #endregion
-
         #region Alta de usuario
+        private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar.Equals((char)Keys.Enter))
+            {
+                e.Handled = true;
+                BtnGuardar_Click(null, null);
+            }
+        }
+
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
-            if (ComprobarCamposNoVacios() && ValidarFormatoNombreUsuario()
-                && ConfirmarAccion("dar de alta")
-                && ValidarUsuarioNoExistente())
+            if (ComprobarCamposNoVacios() && ValidarFormatoNombreUsuario() && ConfirmarAccion("dar de alta") && ValidarUsuarioNoExistente())
             {
                 string contraseñaSinEncriptar = string.Empty;
                 string contraseñaEncriptada = GenerarContraseñaAleatoria(ref contraseñaSinEncriptar);
 
                 string sql = string.Format(
-                "INSERT INTO Usuarios (NombreUsuario, Contraseña, NombreEmpleado, ImagenUsuario, IdTipoUsuario) " +
-                "VALUES ('{0}', '{1}', '{2}', NULL, {3})",
-                TxtUsuario.Texts.Trim(), contraseñaEncriptada,
-                TxtNombre.Texts.Trim(), IdsTiposUsuario[CboTipoUsuario.SelectedIndex]);
+                    "INSERT INTO Usuarios (NombreUsuario, Contraseña, NombreEmpleado, ImagenUsuario, IdTipoUsuario) " +
+                    "VALUES ('{0}', '{1}', '{2}', NULL, {3})",
+                    TxtUsuario.Texts.Trim(), contraseñaEncriptada,
+                    TxtNombre.Texts.Trim(), IdsTiposUsuario[CboTipoUsuario.SelectedIndex]
+                    );
 
                 MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
                 cmd.ExecuteNonQuery();
@@ -191,21 +187,19 @@ namespace Garmoxu_Desktop
 
             if (!dirSeleccionado)
             {
-                string mensaje = "Se ha generado un archivo PDF con las credenciales del nuevo usuario en \"" + ruta + "\"";
-                MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string mensaje = "Se ha generado un archivo PDF con las credenciales del nuevo usuario en la siguiente ubicación: \n'" + ruta + "'.";
+                ShowInfoMessage(mensaje, "");
             }
         }
 
         private string RecogerRuta(ref bool dirSeleccionado)
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
-            fbd.Description = "Seleccione un directorio para exportar en formato PDF las credenciales del nuevo usuario.";
-            if (fbd.ShowDialog().Equals(DialogResult.OK))
-                return fbd.SelectedPath;
+            fbd.Description = "Seleccione un directorio para exportar a formato PDF las credenciales del nuevo usuario.";
+            if (fbd.ShowDialog().Equals(DialogResult.OK)) return fbd.SelectedPath;
             else
             {
-                if (!Directory.Exists("Credenciales"))
-                    Directory.CreateDirectory("Credenciales");
+                if (!Directory.Exists("Credenciales")) Directory.CreateDirectory("Credenciales");
 
                 dirSeleccionado = false;
                 return "Credenciales";
@@ -222,11 +216,6 @@ namespace Garmoxu_Desktop
 
                 iText.Layout.Element.Image imagenPdf = new iText.Layout.Element.Image(
                     ImageDataFactory.Create(rutaImagenPdf)).ScaleAbsolute(50, 50);
-
-                //byte[] imagenCabecera = (byte[])(new ImageConverter()).ConvertTo(
-                //    Properties.Resources.Garmoxu_Logo_Circle_Red_New, typeof(byte[]));
-                //iText.Layout.Element.Image imagenPdf = new iText.Layout.Element.Image(
-                //    ImageDataFactory.Create(imagenCabecera)).ScaleAbsolute(50, 50);
 
                 Cell celda1Pdf = new Cell(1, 1)
                     .SetBorder(Border.NO_BORDER)
@@ -296,24 +285,38 @@ namespace Garmoxu_Desktop
         #region Validaciones y comprobaciones
         private bool ComprobarCamposNoVacios()
         {
-            if (!string.IsNullOrEmpty(TxtUsuario.Texts.Trim()) &&
-                !string.IsNullOrEmpty(TxtNombre.Texts.Trim()) &&
-                CboTipoUsuario.SelectedIndex != -1)
+            if (!string.IsNullOrEmpty(TxtUsuario.Texts.Trim()) && !string.IsNullOrEmpty(TxtNombre.Texts.Trim()) && CboTipoUsuario.SelectedIndex != -1)
                 return true;
 
-            string mensaje = "¡Debes completar todos los campos!";
-            MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            string mensaje = "¡Debes completar todos los datos!";
+            ShowWarningMessage(mensaje, "");
             return false;
         }
 
         private bool ValidarFormatoNombreUsuario()
         {
-            Regex rgx = new Regex("^[a-zA-Z0-9]{1,40}$");
+            string mensaje;
+            Regex rgx = new Regex("^[a-zA-Z0-9._]{1,40}$");
             if (rgx.IsMatch(TxtUsuario.Texts.Trim()))
-                return true;
+            {
+                if (TxtUsuario.Texts.Trim().StartsWith("."))
+                {
+                    mensaje = "¡El nombre de usuario no puede empezar por punto!";
+                    ShowWarningMessage(mensaje, "");
+                    return false;
+                }
 
-            string mensaje = "¡El nombre de usuario solo puede contener una secuencia de letras sin acentuación y números de 40 caracteres máximo!";
-            MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (TxtUsuario.Texts.Trim().StartsWith("_"))
+                {
+                    mensaje = "¡El nombre de usuario no puede empezar por barra baja!";
+                    ShowWarningMessage(mensaje, "");
+                    return false;
+                }
+                return true;
+            }
+
+            mensaje = "¡El nombre de usuario solo puede contener una cadena 40 caracteres de letras, números, barras bajas o puntos!";
+            ShowWarningMessage(mensaje, "");
             return false;
         }
 
@@ -322,12 +325,11 @@ namespace Garmoxu_Desktop
             string sql = "SELECT NombreUsuario FROM Usuarios WHERE NombreUsuario = '" + TxtUsuario.Texts + "'";
             MySqlCommand comando = new MySqlCommand(sql, ConexionBD);
 
-            if (comando.ExecuteScalar() == null)
-                return true;
+            if (comando.ExecuteScalar() == null) return true;
             else
             {
                 string mensaje = "¡El nombre de usuario ya está registrado!";
-                MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ShowWarningMessage(mensaje, "");
                 return false;
             }
         }
@@ -337,27 +339,24 @@ namespace Garmoxu_Desktop
         // Muestra un mensaje de confirmación
         private bool ConfirmarAccion(string accion)
         {
-            DialogResult accionConfirmada =
-                MessageBox.Show("¿Desea " + accion + " al usuario actual?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (accionConfirmada.Equals(DialogResult.Yes))
-                return true;
-            return false;
+            string mensaje = "¿Desea " + accion + " al usuario actual?";
+            if (ShowQuestionDialog(mensaje, "").Equals(DialogResult.Yes)) return true;
+            else return false;
         }
 
         // Muestra un mensaje de éxito
         private void InformarAccionConExito()
         {
-            MessageBox.Show("¡Operación concluida con éxito!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string mensaje = "¡Operación concluida con éxito!";
+            ShowInfoMessage(mensaje, "");
         }
         #endregion
 
         #region Cierre de formulario
         private void BtnCancelar_Click(object sender, EventArgs e)
         {
-            string mensaje = "Se perderán todos los cambios no guardados. ¿Deseas continuar?";
-            DialogResult cerrarVentana = MessageBox.Show(mensaje, "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (cerrarVentana.Equals(DialogResult.Yes))
-                this.Close();
+            string mensaje = "¿Desea salir sin guardar? Se perderán todos los cambios realizados.";
+            if (ShowQuestionDialog(mensaje, "").Equals(DialogResult.Yes)) this.Close();
         }
         #endregion
     }

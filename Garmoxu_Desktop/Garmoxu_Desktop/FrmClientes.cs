@@ -10,6 +10,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
 
 namespace Garmoxu_Desktop
 {
@@ -152,8 +153,11 @@ namespace Garmoxu_Desktop
 
         private void TxtBuscar_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar.Equals((char)Keys.Enter))
+            if (e.KeyChar.Equals((char)Keys.Enter)) 
+            {
+                e.Handled = true;
                 BtnBuscar_Click(null, null);
+            }
         }
 
         private void TxtBuscar_Enter(object sender, EventArgs e)
@@ -317,12 +321,12 @@ namespace Garmoxu_Desktop
             string sql = "SELECT TelefonoCliente FROM PedidosEnCurso WHERE TelefonoCliente = '" + tlfSeleccionado + "'";
             MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
 
-            if (cmd.ExecuteScalar() == null)
-                return false;
+            if (cmd.ExecuteScalar() == null) return false;
 
             string mensaje = "¡No se puede eliminar el cliente seleccionado debido a que tiene pedidos en curso asociados! " +
                 "Finalice o cancele todos los pedidos en curso antes de continuar.";
-            MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            ShowWarningMessage(mensaje, "");
+
             return true;
         }
 
@@ -339,26 +343,21 @@ namespace Garmoxu_Desktop
 
         //    string mensaje = "¡No se puede eliminar el cliente seleccionado debido a que tiene reservas en curso asociadas! " +
         //        "Finalice o cancele todas las reservas en curso antes de continuar";
-        //    MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+        //    ShowWarningMessage(mensaje, "");
         //    return true;
         //}
 
         private bool ConfirmarEliminacionConReservas()
         {
             string tlfSeleccionado = DtgClientes.SelectedRows[0].Cells[0].Value.ToString();
-            string sql = string.Format(
-                "SELECT TelefonoCliente FROM Reservas WHERE TelefonoCliente = '{0}'",
-                tlfSeleccionado);
+            string sql = string.Format("SELECT TelefonoCliente FROM Reservas WHERE TelefonoCliente = '{0}'", tlfSeleccionado);
             MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
 
-            if (cmd.ExecuteScalar() == null)
-                return true;
+            if (cmd.ExecuteScalar() == null) return true;
 
             string mensaje = "Este cliente tiene asociadas algunas reservas, tenga en cuenta que todas ellas serán eliminadas. ¿Desea continuar?";
-            DialogResult confirmar = MessageBox.Show(mensaje, "", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
-            if (confirmar.Equals(DialogResult.Yes))
-                return true;
-            return false;
+            if (ShowQuestionDialog(mensaje, "").Equals(DialogResult.Yes)) return true;
+            else return false;
         }
         #endregion
 
@@ -370,8 +369,8 @@ namespace Garmoxu_Desktop
 
             if (cmd.ExecuteScalar() == null)
             {
-                string mensaje = "¡El cliente ya no está disponible! Alguien debe haberlo borrado";
-                MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string mensaje = "¡El cliente ya no está disponible! Alguien debe haberlo eliminado.";
+                ShowErrorMessage(mensaje, "");
                 CargarDatos();
                 LimpiarControles();
                 return false;
@@ -398,7 +397,7 @@ namespace Garmoxu_Desktop
             }
 
             string mensaje = "¡Debes completar todos los datos!";
-            MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            ShowWarningMessage(mensaje, "");
             return false;
         }
 
@@ -409,7 +408,7 @@ namespace Garmoxu_Desktop
             if (!rgx.IsMatch(tlf))
             {
                 string mensaje = "¡El formato del teléfono introducido no es válido!";
-                MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ShowWarningMessage(mensaje, "");
                 return false;
             }
 
@@ -428,8 +427,8 @@ namespace Garmoxu_Desktop
             if (esTlfActual)
                 return true;
 
-            string mensaje = "¡El telefono introducido ya está registrado!";
-            MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            string mensaje = "¡El teléfono introducido ya está registrado!";
+            ShowWarningMessage(mensaje, "");
             return false;
         }
 
@@ -522,17 +521,16 @@ namespace Garmoxu_Desktop
         // Muestra un mensaje de confirmación
         private bool ConfirmarAccion(string accion)
         {
-            DialogResult accionConfirmada =
-                MessageBox.Show("¿Desea " + accion + " el cliente actual?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (accionConfirmada.Equals(DialogResult.Yes))
-                return true;
-            return false;
+            string mensaje = "¿Desea " + accion + " el cliente actual?";
+            if (ShowQuestionDialog(mensaje, "").Equals(DialogResult.Yes)) return true;
+            else return false;
         }
 
         // Muestra un mensaje de éxito
         private void InformarAccionConExito()
         {
-            MessageBox.Show("¡Operación concluida con éxito!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string mensaje = "¡Operación concluida con éxito!";
+            ShowInfoMessage(mensaje, "");
         }
         #endregion
     }

@@ -10,25 +10,24 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
 
 namespace Garmoxu_Desktop
 {
     public partial class FrmUsuarios : Form
     {
         private MySqlConnection ConexionBD;
-        private FrmMain Instance;
         private DataSet Ds;
         private string UsuarioActual;
 
         private List<string> DatosIniciales;
         private List<string> IdsTiposUsuario;
 
-        public FrmUsuarios(MySqlConnection conexionBD, FrmMain instance, string usuarioActual)
+        public FrmUsuarios(MySqlConnection conexionBD, string usuarioActual)
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
             ConexionBD = conexionBD;
-            Instance = instance;
             UsuarioActual = usuarioActual;
             CargarDatos();
         }
@@ -133,9 +132,6 @@ namespace Garmoxu_Desktop
             Form frmShadow = new Form();
             FrmUsuariosDetalles f = new FrmUsuariosDetalles(ConexionBD, ref frmShadow);
 
-            //DtgUsuarios.ClearSelection();
-            //BtnEliminar.Enabled = false;
-
             f.ShowDialog();
             frmShadow.Close();
             DeshabilitarControles();
@@ -153,6 +149,7 @@ namespace Garmoxu_Desktop
                 string busqueda = TxtBuscar.Texts.Trim();
                 Ds.Tables["Usuarios"].DefaultView.RowFilter = "NombreUsuario LIKE '%" + busqueda + "%' OR NombreEmpleado LIKE '%" + busqueda + "%'";
                 DtgUsuarios.DataSource = Ds.Tables["Usuarios"];
+                DtgUsuarios.ClearSelection();
             }
             DeshabilitarControles();
         }
@@ -160,7 +157,10 @@ namespace Garmoxu_Desktop
         private void TxtBuscar_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (e.KeyChar.Equals((char)Keys.Enter))
+            {
+                e.Handled = true;
                 BtnBuscar_Click(null, null);
+            }
         }
 
         private void TxtBuscar_Enter(object sender, EventArgs e)
@@ -211,24 +211,22 @@ namespace Garmoxu_Desktop
         {
             string sql = "SELECT NombreUsuario FROM PedidosEnCurso WHERE NombreUsuario = '" + userName + "'";
             MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            if (cmd.ExecuteScalar() == null)
-                return true;
+            if (cmd.ExecuteScalar() == null) return true;
             else
             {
                 string mensaje = "¡No se ha podido eliminar al usuario debido a que tiene pedidos en curso asociados! " +
-                    "Primero debe finalizar o cancelar los pedidos para poder continuar";
-                MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    "Finaliza o cancela los pedidos asociados para poder continuar.";
+                ShowWarningMessage(mensaje, "");
                 return false;
             }
         }
 
         private bool ValidarNoEsUsuarioActual()
         {
-            if (DatosIniciales != null && !DatosIniciales[0].Equals(UsuarioActual))
-                return true;
+            if (DatosIniciales != null && !DatosIniciales[0].Equals(UsuarioActual)) return true;
 
             string mensaje = "¡No puedes eliminar el usuario con el que has iniciado sesión!";
-            MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            ShowWarningMessage(mensaje, "");
             return false;
         }
 
@@ -272,15 +270,12 @@ namespace Garmoxu_Desktop
 
                 TxtUsuario.Texts = lector[0].ToString();
                 TxtNombre.Texts = lector[1].ToString();
-                //GrpUsuario.Text = lector[1].ToString();
 
                 int indexTipoUsuario = IdsTiposUsuario.IndexOf(lector[2].ToString());
                 CboTipoUsuario.SelectedIndex = indexTipoUsuario;
 
-                if (lector[3].ToString().Equals("True"))
-                    TgbRestablecerContraseña.Checked = true;
-                else
-                    TgbRestablecerContraseña.Checked = false;
+                if (lector[3].ToString().Equals("True")) TgbRestablecerContraseña.Checked = true;
+                else TgbRestablecerContraseña.Checked = false;
 
                 CargarImagen(lector);
             }
@@ -314,22 +309,27 @@ namespace Garmoxu_Desktop
                 lector.GetBytes(4, 0, imagenBytes, 0, tamañoMaximoArchivo);
                 PicUsuario.Image = (Bitmap)((new ImageConverter()).ConvertFrom(imagenBytes));
             }
-            else
-                PicUsuario.Image = Properties.Resources.User_Default_Icon;
+            else PicUsuario.Image = Properties.Resources.User_Default_Icon;
         }
         #endregion
 
         #region Modificación de datos
+        private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar.Equals((char)Keys.Enter))
+            {
+                e.Handled = true;
+                BtnGuardar_Click(null, null);
+            }
+        }
+
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             string valores = string.Empty;
-            if (ValidarUsuarioDisponible(DatosIniciales[0]) && ComprobarCamposNoVacios()
-                && ValidarFormatoNombreUsuario() && ComprobarDatosModificados(ref valores)
-                && ConfirmarAccion("guardar los cambios realizados") && ValidarUsuarioNoExistente())
+            if (ValidarUsuarioDisponible(DatosIniciales[0]) && ComprobarCamposNoVacios() && ValidarFormatoNombreUsuario() 
+                && ComprobarDatosModificados(ref valores) && ConfirmarAccion("guardar los cambios realizados en") && ValidarUsuarioNoExistente())
             {
-                string sql = string.Format(
-                    "UPDATE Usuarios SET {0} WHERE NombreUsuario = '{1}'",
-                    valores, DatosIniciales[0]);
+                string sql = string.Format("UPDATE Usuarios SET {0} WHERE NombreUsuario = '{1}'", valores, DatosIniciales[0]);
                 MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
                 cmd.ExecuteNonQuery();
 
@@ -344,11 +344,10 @@ namespace Garmoxu_Desktop
 
         private void InformarCambioContraseña()
         {
-            if (!DatosIniciales[3].Equals(TgbRestablecerContraseña.Checked.ToString())
-                && TgbRestablecerContraseña.Checked)
+            if (!DatosIniciales[3].Equals(TgbRestablecerContraseña.Checked.ToString()) && TgbRestablecerContraseña.Checked)
             {
-                string mensaje = "El cambio de contraseña será llevado a cabo en el próximo inicio de sesión";
-                MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                string mensaje = "El cambio de contraseña será llevado a cabo en el próximo inicio de sesión.";
+                ShowInfoMessage(mensaje, "");
             }
         }
         #endregion
@@ -359,8 +358,6 @@ namespace Garmoxu_Desktop
         {
             tableLayoutPanel2.Visible = true;
             tableLayoutPanel9.Visible = true;
-            //PnlDetalles.Visible = true;
-            //GrpUsuario.Visible = true;
             DatosIniciales = new List<string>();
             BtnEliminar.Enabled = true;
             LimpiarControles();
@@ -370,8 +367,6 @@ namespace Garmoxu_Desktop
         {
             tableLayoutPanel2.Visible = false;
             tableLayoutPanel9.Visible = false;
-            //PnlDetalles.Visible = false;
-            //GrpUsuario.Visible = false;
             DatosIniciales = null;
             BtnEliminar.Enabled = false;
             LimpiarControles();
@@ -381,8 +376,6 @@ namespace Garmoxu_Desktop
         {
             TxtNombre.Texts = string.Empty;
             TxtUsuario.Texts = string.Empty;
-            //TgbRestablecerContraseña.Checked = false;
-            //CboTipoUsuario.Items.Clear();
             PicUsuario.Image = Properties.Resources.User_Default_Icon;
         }
         #endregion
@@ -392,13 +385,12 @@ namespace Garmoxu_Desktop
         {
             string sql = "SELECT NombreUsuario FROM Usuarios WHERE NombreUsuario = '" + userName + "'";
             MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            if (cmd.ExecuteScalar() != null)
-                return true;
+            if (cmd.ExecuteScalar() != null) return true;
             else
             {
                 CargarDatos();
-                string mensaje = "¡El usuario ya no se encuentra disponible! Alguien debe haberlo borrado o modificado.";
-                MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                string mensaje = "¡El usuario ya no se encuentra disponible! Alguien debe haberlo eliminado o modificado.";
+                ShowErrorMessage(mensaje, "");
                 DeshabilitarControles();
                 CargarDatos();
                 return false;
@@ -407,24 +399,38 @@ namespace Garmoxu_Desktop
 
         private bool ComprobarCamposNoVacios()
         {
-            if (!string.IsNullOrEmpty(TxtUsuario.Texts.Trim()) &&
-                !string.IsNullOrEmpty(TxtNombre.Texts.Trim()) &&
-                CboTipoUsuario.SelectedIndex != -1)
+            if (!string.IsNullOrEmpty(TxtUsuario.Texts.Trim()) && !string.IsNullOrEmpty(TxtNombre.Texts.Trim()) && CboTipoUsuario.SelectedIndex != -1)
                 return true;
 
             string mensaje = "¡Debes completar todos los campos!";
-            MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            ShowWarningMessage(mensaje, "");
             return false;
         }
 
         private bool ValidarFormatoNombreUsuario()
         {
-            Regex rgx = new Regex("^[a-zA-Z0-9]{1,40}$");
+            string mensaje;
+            Regex rgx = new Regex("^[a-zA-Z0-9._]{1,40}$");
             if (rgx.IsMatch(TxtUsuario.Texts.Trim()))
-                return true;
+            {
+                if(TxtUsuario.Texts.Trim().StartsWith("."))
+                {
+                    mensaje = "¡El nombre de usuario no puede empezar por punto!";
+                    ShowWarningMessage(mensaje, "");
+                    return false;
+                }
 
-            string mensaje = "¡El nombre de usuario solo puede contener una secuencia de letras sin acentuación y números de 40 caracteres máximo!";
-            MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                if (TxtUsuario.Texts.Trim().StartsWith("_"))
+                {
+                    mensaje = "¡El nombre de usuario no puede empezar por barra baja!";
+                    ShowWarningMessage(mensaje, "");
+                    return false;
+                }
+                return true;
+            }
+
+            mensaje = "¡El nombre de usuario solo puede contener una cadena 40 caracteres de letras, números, barras bajas o puntos!";
+            ShowWarningMessage(mensaje, "");
             return false;
         }
 
@@ -433,12 +439,11 @@ namespace Garmoxu_Desktop
             string sql = "SELECT NombreUsuario FROM Usuarios WHERE NombreUsuario = '" + TxtUsuario.Texts + "'";
             MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
 
-            if (cmd.ExecuteScalar() == null)
-                return true;
+            if (cmd.ExecuteScalar() == null) return true;
             else if(!cmd.ExecuteScalar().ToString().Equals(DatosIniciales[0]))
             {
                 string mensaje = "¡El nombre de usuario ya está registrado!";
-                MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ShowWarningMessage(mensaje, "");
                 return false;
             }
             return true;
@@ -512,34 +517,27 @@ namespace Garmoxu_Desktop
         // Muestra un mensaje de confirmación
         private bool ConfirmarAccion(string accion)
         {
-            DialogResult accionConfirmada =
-                MessageBox.Show("¿Desea " + accion + " el usuario actual?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (accionConfirmada.Equals(DialogResult.Yes))
-                return true;
-            return false;
+            string mensaje = "¿Desea " + accion + " el usuario actual?";
+            if (ShowQuestionDialog(mensaje, "").Equals(DialogResult.Yes)) return true;
+            else return false;
         }
 
         // Muestra un mensaje de éxito
         private void InformarAccionConExito()
         {
-            MessageBox.Show("¡Operación concluida con éxito!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string mensaje = "¡Operación concluida con éxito!";
+            ShowInfoMessage(mensaje, "");
         }
         #endregion
 
         #region Cierre del formulario
-        private void BtnCerrar_Click(object sender, EventArgs e)
-        {
-            this.Close();
-        }
         private void FrmUsuarios_FormClosing(object sender, FormClosingEventArgs e)
         {
-            string v = string.Empty;
-            if (PnlDetalles.Visible && ComprobarDatosModificados(ref v))
+            string var = string.Empty;
+            if (PnlDetalles.Visible && ComprobarDatosModificados(ref var))
             {
-                string mensaje = "Se perderán todos los cambios no guardados. ¿Deseas continuar?";
-                DialogResult cerrarVentana = MessageBox.Show(mensaje, "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (!cerrarVentana.Equals(DialogResult.Yes))
-                    e.Cancel = true;
+                string mensaje = "¿Desea salir sin guardar? Se perderán todos los cambios realizados.";
+                if (ShowQuestionDialog(mensaje, "").Equals(DialogResult.Yes)) e.Cancel = true;
             }
         }
         #endregion

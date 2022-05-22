@@ -115,12 +115,13 @@
             this.DtpReserva.BorderSize = 0;
             this.DtpReserva.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtpReserva.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
-            this.DtpReserva.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
+            this.DtpReserva.Font = new System.Drawing.Font("Source Sans Pro", 18.2F, System.Drawing.FontStyle.Bold);
+            this.DtpReserva.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.DtpReserva.Location = new System.Drawing.Point(0, 151);
             this.DtpReserva.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.DtpReserva.MinimumSize = new System.Drawing.Size(4, 35);
             this.DtpReserva.Name = "DtpReserva";
-            this.DtpReserva.Size = new System.Drawing.Size(317, 41);
+            this.DtpReserva.Size = new System.Drawing.Size(317, 46);
             this.DtpReserva.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.DtpReserva.TabIndex = 63;
             this.DtpReserva.TabStop = false;
@@ -133,7 +134,7 @@
             this.DtpHora.BorderColor = System.Drawing.Color.PaleVioletRed;
             this.DtpHora.BorderSize = 0;
             this.DtpHora.CustomFormat = "HH:mm";
-            this.DtpHora.Dock = System.Windows.Forms.DockStyle.Left;
+            this.DtpHora.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtpHora.Font = new System.Drawing.Font("Source Sans Pro", 18.2F, System.Drawing.FontStyle.Bold);
             this.DtpHora.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.DtpHora.Location = new System.Drawing.Point(387, 151);
@@ -141,7 +142,7 @@
             this.DtpHora.MinimumSize = new System.Drawing.Size(4, 35);
             this.DtpHora.Name = "DtpHora";
             this.DtpHora.ShowUpDown = true;
-            this.DtpHora.Size = new System.Drawing.Size(191, 46);
+            this.DtpHora.Size = new System.Drawing.Size(318, 46);
             this.DtpHora.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.DtpHora.TabIndex = 21;
             this.DtpHora.TabStop = false;
@@ -231,6 +232,7 @@
             this.TxtNombreCliente.TabIndex = 1;
             this.TxtNombreCliente.Texts = "";
             this.TxtNombreCliente.UnderlinedStyle = false;
+            this.TxtNombreCliente.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
             // TxtTelefono
             // 
@@ -255,6 +257,7 @@
             this.TxtTelefono.Texts = "";
             this.TxtTelefono.UnderlinedStyle = false;
             this.TxtTelefono._TextChanged += new System.EventHandler(this.TxtTelefono__TextChanged);
+            this.TxtTelefono.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
             // panel1
             // 
@@ -331,6 +334,7 @@
             this.BtnConfirmar.BorderColor = System.Drawing.Color.Black;
             this.BtnConfirmar.BorderRadius = 15;
             this.BtnConfirmar.BorderSize = 0;
+            this.BtnConfirmar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnConfirmar.FlatAppearance.BorderSize = 0;
             this.BtnConfirmar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnConfirmar.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
@@ -354,6 +358,7 @@
             this.BtnBorrar.BorderColor = System.Drawing.Color.Black;
             this.BtnBorrar.BorderRadius = 15;
             this.BtnBorrar.BorderSize = 0;
+            this.BtnBorrar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.BtnBorrar.FlatAppearance.BorderSize = 0;
             this.BtnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnBorrar.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);

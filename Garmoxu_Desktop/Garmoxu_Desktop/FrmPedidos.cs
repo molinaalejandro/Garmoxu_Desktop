@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
 
 namespace Garmoxu_Desktop
 {
@@ -219,10 +220,8 @@ namespace Garmoxu_Desktop
 
         private void RecogerTablaPedidosEnCurso()
         {
-            if (Ds == null)
-                Ds = new DataSet();
-            else
-                Ds.Tables["PedidosEnCurso"].Rows.Clear();
+            if (Ds == null) Ds = new DataSet();
+            else Ds.Tables["PedidosEnCurso"].Rows.Clear();
             Cmd = new MySqlCommand("SELECT * FROM PedidosEnCurso", ConexionBD);
             Da = new MySqlDataAdapter();
             Da.SelectCommand = Cmd;
@@ -245,7 +244,7 @@ namespace Garmoxu_Desktop
             {
                 if (!UltimoDs.Tables["PedidosEnCurso"].Rows.Contains(row["IdPedido"]))
                 {
-                    Object[] rowCopy = new Object[row.ItemArray.Length];
+                    object[] rowCopy = new object[row.ItemArray.Length];
                     row.ItemArray.CopyTo(rowCopy, 0);
 
                     switch (row["Tipo"].ToString())
@@ -459,17 +458,9 @@ namespace Garmoxu_Desktop
         // Cuando se pulsa en el botón de un pedido en curso se abre una ventana con la clave primaria del pedido.
         private void BtnPedidoEnCurso_Click(object sender, EventArgs e)
         {
-            string clavePrimaria = ((RJCodeAdvance.RJControls.RJButton)sender).Tag.ToString();
-            FrmPedidosDetalles frm = new FrmPedidosDetalles(ConexionBD, clavePrimaria, Instance, UsuarioActual, IVA);
+            string clavePrimaria = ((RJButton)sender).Tag.ToString();
+            FrmPedidosDetalles frm = new FrmPedidosDetalles(ConexionBD, clavePrimaria, UsuarioActual, IVA);
             frm.Show();
-        }
-
-        private void FrmPedidos_EnabledChanged(object sender, EventArgs e)
-        {
-            //if (Enabled)
-            //    TmrComprobarCambiosPedidos.Enabled = true;
-            //else
-            //    TmrComprobarCambiosPedidos.Enabled = false;
         }
         #endregion
 
@@ -477,7 +468,8 @@ namespace Garmoxu_Desktop
         // Comprueba si el código del pedido que se quiere buscar existe y abre una ventana de detalles.
         private void TxtBuscar_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar.Equals((char)Keys.Enter))
+            if (e.KeyChar.Equals((char)Keys.Enter) && !string.IsNullOrEmpty(TxtBuscar.Texts) 
+                && !TxtBuscar.Texts.Equals("Buscar por nº de mesa o teléfono de cliente"))
             {
                 e.Handled = true;
                 BuscarPedido();
@@ -500,7 +492,10 @@ namespace Garmoxu_Desktop
         private void BuscarPedido()
         {
             if (!ValidarDatoExistente("IdMesa") && !ValidarDatoExistente("TelefonoCliente"))
-                MessageBox.Show("¡No se ha encontrado ningún pedido asociado a ese dato!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            {
+                string mensaje = "¡No se ha encontrado ningún pedido asociado a ese dato!";
+                ShowWarningMessage(mensaje, "");
+            }
         }
 
         // Devuelve true y abre una ventana de detalles si el pedido con esa clave existe.
@@ -510,7 +505,7 @@ namespace Garmoxu_Desktop
             MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
             if (cmd.ExecuteScalar() != null)
             {
-                FrmPedidosDetalles frm = new FrmPedidosDetalles(ConexionBD, cmd.ExecuteScalar().ToString(), Instance, UsuarioActual, IVA);
+                FrmPedidosDetalles frm = new FrmPedidosDetalles(ConexionBD, cmd.ExecuteScalar().ToString(), UsuarioActual, IVA);
                 frm.Show();
                 TxtBuscar.Texts = string.Empty;
                 return true;
@@ -522,12 +517,9 @@ namespace Garmoxu_Desktop
         #region Botón Nuevo
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
-            FrmPedidosDetalles frm = new FrmPedidosDetalles(ConexionBD, "", Instance, UsuarioActual, IVA);
+            FrmPedidosDetalles frm = new FrmPedidosDetalles(ConexionBD, "", UsuarioActual, IVA);
 
-            //frm.Width = (Instance.Width / 5) + (Instance.Width / 6);
-            //frm.Height = (Instance.Height / 3) + (Instance.Height / 3);            
-            
-            frm.Size = new Size(700, 750);
+            frm.Size = new Size(700, 750); // Solo se aplica pedidos nuevos para adaptarse a la pestaña de selección de tipo de pedido
             frm.Show();
         }
         #endregion

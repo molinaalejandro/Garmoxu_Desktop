@@ -157,8 +157,8 @@
             this.PnlMid.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.PnlMid.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.PnlMid.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.PnlMid.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.PnlMid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.PnlMid.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.PnlMid.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.PnlMid.Size = new System.Drawing.Size(840, 1049);
             this.PnlMid.TabIndex = 0;
@@ -373,6 +373,7 @@
             this.TxtNombreUsuario.TabIndex = 0;
             this.TxtNombreUsuario.Texts = "";
             this.TxtNombreUsuario.UnderlinedStyle = false;
+            this.TxtNombreUsuario.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
             // tableLayoutPanel8
             // 
@@ -461,14 +462,14 @@
             this.tableLayoutPanel1.Controls.Add(this.BtnGuardar, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.BtnCerrarSesion, 3, 0);
             this.tableLayoutPanel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(83, 849);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(83, 769);
             this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 65F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(674, 65);
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 162F));
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 162F));
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(674, 162);
             this.tableLayoutPanel1.TabIndex = 3;
             // 
             // BtnGuardar
@@ -479,12 +480,12 @@
             this.BtnGuardar.BorderRadius = 15;
             this.BtnGuardar.BorderSize = 0;
             this.BtnGuardar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnGuardar.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnGuardar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BtnGuardar.FlatAppearance.BorderSize = 0;
             this.BtnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnGuardar.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnGuardar.ForeColor = System.Drawing.Color.White;
-            this.BtnGuardar.Location = new System.Drawing.Point(70, 3);
+            this.BtnGuardar.Location = new System.Drawing.Point(70, 104);
             this.BtnGuardar.Name = "BtnGuardar";
             this.BtnGuardar.Size = new System.Drawing.Size(196, 55);
             this.BtnGuardar.TabIndex = 0;
@@ -502,12 +503,12 @@
             this.BtnCerrarSesion.BorderRadius = 15;
             this.BtnCerrarSesion.BorderSize = 0;
             this.BtnCerrarSesion.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnCerrarSesion.Dock = System.Windows.Forms.DockStyle.Top;
+            this.BtnCerrarSesion.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BtnCerrarSesion.FlatAppearance.BorderSize = 0;
             this.BtnCerrarSesion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnCerrarSesion.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.BtnCerrarSesion.ForeColor = System.Drawing.Color.White;
-            this.BtnCerrarSesion.Location = new System.Drawing.Point(407, 3);
+            this.BtnCerrarSesion.Location = new System.Drawing.Point(407, 104);
             this.BtnCerrarSesion.Name = "BtnCerrarSesion";
             this.BtnCerrarSesion.Size = new System.Drawing.Size(196, 55);
             this.BtnCerrarSesion.TabIndex = 1;
@@ -530,7 +531,7 @@
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(674, 340);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(674, 260);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
             // tableLayoutPanel5
@@ -548,10 +549,10 @@
             this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 50);
             this.tableLayoutPanel5.Name = "tableLayoutPanel5";
             this.tableLayoutPanel5.RowCount = 3;
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 100F));
-            this.tableLayoutPanel5.Size = new System.Drawing.Size(668, 287);
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(668, 207);
             this.tableLayoutPanel5.TabIndex = 1;
             // 
             // tableLayoutPanel9
@@ -652,6 +653,7 @@
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel10.Size = new System.Drawing.Size(293, 94);
             this.tableLayoutPanel10.TabIndex = 3;
+            this.tableLayoutPanel10.Visible = false;
             // 
             // label7
             // 
@@ -698,6 +700,7 @@
             this.tableLayoutPanel11.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel11.Size = new System.Drawing.Size(293, 94);
             this.tableLayoutPanel11.TabIndex = 2;
+            this.tableLayoutPanel11.Visible = false;
             // 
             // label8
             // 
@@ -841,6 +844,7 @@
             this.TxtNombreRestaurante.TabIndex = 1;
             this.TxtNombreRestaurante.Texts = "";
             this.TxtNombreRestaurante.UnderlinedStyle = false;
+            this.TxtNombreRestaurante.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
             // label10
             // 
@@ -899,7 +903,7 @@
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel6, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel7, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(83, 671);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(83, 591);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(3, 20, 3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 2;
@@ -1182,22 +1186,16 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private MaterialSkin.Controls.MaterialContextMenuStrip materialContextMenuStrip1;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel12;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel13;
         private RJCodeAdvance.RJControls.RJTextBox TxtNombreRestaurante;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label3;
-        private RJCodeAdvance.RJControls.RJDatePicker DtpApertura;
-        private RJCodeAdvance.RJControls.RJDatePicker DtpCierre;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel14;
         private RJCodeAdvance.RJControls.RJComboBox CboVentana;
-        private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel9;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel20;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel29;
         private System.Windows.Forms.Label label18;
@@ -1227,5 +1225,11 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel22;
         private System.Windows.Forms.NumericUpDown NucNumeroMesas;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
+        private System.Windows.Forms.Label label7;
+        private RJCodeAdvance.RJControls.RJDatePicker DtpCierre;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel11;
+        private System.Windows.Forms.Label label8;
+        private RJCodeAdvance.RJControls.RJDatePicker DtpApertura;
     }
 }

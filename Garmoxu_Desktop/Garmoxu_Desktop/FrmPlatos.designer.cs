@@ -435,7 +435,6 @@
             this.Tag = "Platos";
             this.Text = "Gestión de platos - Garmoxu";
             this.TopMost = true;
-            this.EnabledChanged += new System.EventHandler(this.FrmPlatos_EnabledChanged);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();

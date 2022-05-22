@@ -20,6 +20,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
 
 namespace Garmoxu_Desktop
 {
@@ -30,9 +31,6 @@ namespace Garmoxu_Desktop
 
         // Clave primaria del pedido que se está detallando. Estará vacía si es una pestaña de nuevo pedido.
         private string ClavePrimariaPedidoEnCurso;
-
-        // Instancia del formulario main.
-        private FrmMain Instance;
 
         // Contendrá una lista de las text box de datos que no son necesarias completar.
         private List<RJTextBox> ListaDatosOpcionales = new List<RJTextBox>();
@@ -55,15 +53,13 @@ namespace Garmoxu_Desktop
 
         private Form FrmShadow;
 
-        public FrmPedidosDetalles(MySqlConnection conexionBD, string clavePrimariaPedidoEnCurso, FrmMain instance, string usuarioActual, int iva)
+        public FrmPedidosDetalles(MySqlConnection conexionBD, string clavePrimariaPedidoEnCurso, string usuarioActual, int iva)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
-            SombrearPantalla();
+            ////SombrearPantalla();
             ConexionBD = conexionBD;
             ClavePrimariaPedidoEnCurso = clavePrimariaPedidoEnCurso;
-            Instance = instance;
-            //Instance.Enabled = false;
             UsuarioActual = usuarioActual;
             IVA = iva;
             AsignarMesasLibres();
@@ -92,7 +88,7 @@ namespace Garmoxu_Desktop
                 BtnConfirmar.Text = "Registrar";
                 tableLayoutPanel20.ColumnStyles[1].Width = 0;
                 tableLayoutPanel20.ColumnStyles[2].Width = 0;
-                BtnConfirmar.Margin = new Padding(BtnConfirmar.Width/2-178/2, 0, BtnConfirmar.Width/2 - 178/2, 0);
+                BtnConfirmar.Margin = new Padding(BtnConfirmar.Width / 2 - 178 / 2, 0, BtnConfirmar.Width / 2 - 178 / 2, 0);
                 AsignarFechaHora();
                 CboTipo.SelectedIndex = 0;
             }
@@ -209,6 +205,7 @@ namespace Garmoxu_Desktop
         #endregion
 
         #region Asignacion de datos a controles
+        #region Cargar mesas libres
         // Asigna las mesas libres en la combo box correspondiente.
         private void AsignarMesasLibres()
         {
@@ -223,7 +220,9 @@ namespace Garmoxu_Desktop
         // Carga una tabla con las mesas que están disponibles.
         private void CargarMesasLibres()
         {
-            string sql = "SELECT IdMesa FROM Mesas WHERE Estado = 'Libre'";
+            string sql = "SELECT IdMesa FROM Mesas WHERE Estado = 'Libre' AND IdMesa NOT IN " +
+                "(SELECT IdMesa FROM Reservas WHERE " + CrearSQLConRangoHorario() + ")";
+
             MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
             MySqlDataReader lector = cmd.ExecuteReader();
 
@@ -236,6 +235,43 @@ namespace Garmoxu_Desktop
             }
             lector.Close();
         }
+
+        private string CrearSQLConRangoHorario()
+        {
+            string sql = "";
+
+            DateTime horaActual = DateTime.Now;
+
+            if (horaActual.Hour < 2)
+            {
+                sql = string.Format(
+                    "(Fecha = '{0}' AND Hora BETWEEN '00:00' AND '{1}')" +
+                    " OR (Fecha = '{2}' AND Hora BETWEEN '{3}' AND '23:59')",
+                    horaActual.ToString("yyyy/MM/dd"), horaActual.AddHours(2).ToString("HH:mm"),
+                    horaActual.AddDays(-1).ToString("yyyy/MM/dd"), horaActual.AddHours(-2).ToString("HH:mm"));
+            }
+
+            if (horaActual.Hour >= 22)
+            {
+                sql = string.Format(
+                    "(Fecha = '{0}' AND Hora BETWEEN '{1}' AND '23:59')" +
+                    " OR (Fecha = '{2}' AND Hora BETWEEN '00:00' AND '{3}')",
+                    horaActual.ToString("yyyy/MM/dd"), horaActual.AddHours(-2).ToString("HH:mm"),
+                    horaActual.AddDays(1).ToString("yyyy/MM/dd"), horaActual.AddHours(2).ToString("HH:mm"));
+            }
+
+            if (string.IsNullOrEmpty(sql))
+            {
+                sql = string.Format(
+                    "(Fecha = '{0}' AND Hora BETWEEN '{1}' AND '{2}')",
+                    horaActual.ToString("yyyy/MM/dd"),
+                    horaActual.AddHours(-2).ToString("HH:mm"),
+                    horaActual.AddHours(2).ToString("HH:mm"));
+            }
+
+            return sql;
+        }
+        #endregion
 
         // Añade la fecha y hora actuales a sus etiquetas correspondientes.
         private void AsignarFechaHora()
@@ -252,19 +288,20 @@ namespace Garmoxu_Desktop
             switch (TabTipoDatosDetalles.SelectedIndex)
             {
                 case 0:
-                    CboEstado.Items.Add("En preparación");
+                    CboEstado.Items.Add("En Proceso");
+                    CboEstado.Items.Add("Esperando Pago");
                     CboEstado.Items.Add("Finalizado");
                     break;
 
                 case 1:
-                    CboEstado.Items.Add("En preparación");
+                    CboEstado.Items.Add("En Preparación");
                     CboEstado.Items.Add("Preparado");
-                    CboEstado.Items.Add("En reparto");
+                    CboEstado.Items.Add("En Peparto");
                     CboEstado.Items.Add("Entregado");
                     break;
 
                 case 2:
-                    CboEstado.Items.Add("En preparación");
+                    CboEstado.Items.Add("En Preparación");
                     CboEstado.Items.Add("Preparado");
                     CboEstado.Items.Add("Recogido");
                     break;
@@ -416,6 +453,15 @@ namespace Garmoxu_Desktop
         #endregion
 
         #region Boton siguiente
+        private void TextBoxSiguiente_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar.Equals((char)Keys.Enter))
+            {
+                e.Handled = true;
+                BtnSiguiente_Click(null, null);
+            }
+        }
+
         // Cuando se pulsa el botón de siguiente, valida que los datos introducidos sean correctos
         // y cambia a la pestaña de detalles pasándoselos.
         private void BtnSiguiente_Click(object sender, EventArgs e)
@@ -453,20 +499,6 @@ namespace Garmoxu_Desktop
                     TxtNombreRecogerDetalles.Texts = TxtNombreRecogerTipo.Texts;
                     break;
             }
-
-            //if (CboMesasLocalTipo.SelectedIndex != -1 && TabTipoDatosTipo.SelectedIndex == 0)
-            //    CboMesasLocalDetalles.SelectedIndex = CboMesasLocalTipo.SelectedIndex;
-
-            //for (int i = 0; i < TabTipoDatosTipo.SelectedTab.Controls.Count; i++)
-            //{
-            //    try
-            //    {
-            //        RJTextBox txtTipo = (RJTextBox)TabTipoDatosTipo.SelectedTab.Controls[i];
-            //        RJTextBox txtDetalles = (RJTextBox)TabTipoDatosDetalles.TabPages[TabTipoDatosTipo.SelectedIndex].Controls[i];
-            //        txtDetalles.Texts = txtTipo.Texts.Trim();
-            //    }
-            //    catch (InvalidCastException ex) { }
-            //}
         }
 
         // Valida que todas las text box obligatorias del tab page actual estén completadas.
@@ -477,38 +509,33 @@ namespace Garmoxu_Desktop
                 try
                 {
                     RJTextBox txt = (RJTextBox)control;
-
-                    if (!ListaDatosOpcionales.Contains(txt)
-                        && string.IsNullOrEmpty(txt.Texts.Trim()))
+                    if (!ListaDatosOpcionales.Contains(txt) && string.IsNullOrEmpty(txt.Texts.Trim()))
                     {
-                        MessageBox.Show("¡Debes completar todos los datos!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        string mensaje = "¡Debes completar todos los datos!";
+                        ShowWarningMessage(mensaje, "");
                         return false;
                     }
                 }
                 catch (InvalidCastException ex) { }
             }
 
-            if (TabPrincipal.SelectedIndex == 0
-                && TabTipoDatosTipo.SelectedIndex == 0
-                && CboMesasLocalTipo.SelectedIndex == -1)
+            if (TabPrincipal.SelectedIndex == 0 && TabTipoDatosTipo.SelectedIndex == 0 && CboMesasLocalTipo.SelectedIndex == -1)
             {
-                MessageBox.Show("¡Debes completar todos los datos!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                string mensaje = "¡Debes completar todos los datos!";
+                ShowWarningMessage(mensaje, "");
                 return false;
             }
 
-            if (TabPrincipal.SelectedIndex == 1
-                && ((TabTipoDatosDetalles.SelectedIndex == 0
-                && CboMesasLocalDetalles.SelectedIndex == -1)
+            if (TabPrincipal.SelectedIndex == 1 && ((TabTipoDatosDetalles.SelectedIndex == 0 && CboMesasLocalDetalles.SelectedIndex == -1)
                 || CboEstado.SelectedIndex == -1 || CboTipo.SelectedIndex == -1))
             {
-                MessageBox.Show("¡Debes completar todos los datos!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                string mensaje = "¡Debes completar todos los datos!";
+                ShowWarningMessage(mensaje, "");
                 return false;
             }
 
-            if (TabPrincipal.SelectedIndex == 0)
-                return ValidarNumeroTlfCliente(TabTipoDatosTipo);
-            else
-                return ValidarNumeroTlfCliente(TabTipoDatosDetalles);
+            if (TabPrincipal.SelectedIndex == 0) return ValidarNumeroTlfCliente(TabTipoDatosTipo);
+            else return ValidarNumeroTlfCliente(TabTipoDatosDetalles);
         }
 
         private bool ValidarNumeroTlfCliente(TabControl tab)
@@ -518,26 +545,21 @@ namespace Garmoxu_Desktop
                 string tlf;
                 if (TabPrincipal.SelectedIndex == 0)
                 {
-                    if (tab.SelectedIndex == 1)
-                        tlf = TxtTlfDomicilioTipo.Texts.Replace(" ", "");
-                    else
-                        tlf = TxtTlfRecogerTipo.Texts.Replace(" ", "");
+                    if (tab.SelectedIndex == 1) tlf = TxtTlfDomicilioTipo.Texts.Replace(" ", "");
+                    else tlf = TxtTlfRecogerTipo.Texts.Replace(" ", "");
                 }
                 else
                 {
-                    if (tab.SelectedIndex == 1)
-                        tlf = TxtTlfDomicilioDetalles.Texts.Replace(" ", "");
-                    else
-                        tlf = TxtTlfRecogerDetalles.Texts.Replace(" ", "");
+                    if (tab.SelectedIndex == 1) tlf = TxtTlfDomicilioDetalles.Texts.Replace(" ", "");
+                    else tlf = TxtTlfRecogerDetalles.Texts.Replace(" ", "");
                 }
 
-                //Regex regex = new Regex("^(\\+[0-9][0-9] ?)?([0-9]{3} ?)([0-9]{2} ?){2}([0-9]{2})$");
                 Regex regex = new Regex("^(\\+[0-9][0-9])?([0-9]{9})$");
-                if (regex.IsMatch(tlf))
-                    return true;
+                if (regex.IsMatch(tlf)) return true;
                 else
                 {
-                    MessageBox.Show("¡El formato del teléfono no es válido!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                    string mensaje = "¡El formato del teléfono no es válido!";
+                    ShowWarningMessage(mensaje, "");
                     return false;
                 }
             }
@@ -678,11 +700,10 @@ namespace Garmoxu_Desktop
         {
             string sql = "SELECT * FROM PlatosComida WHERE IdPlatoComida = '" + TxtCodigoPlato.Texts.Trim().ToUpper() + "'";
             MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            if (cmd.ExecuteScalar() != null)
-                return true;
+            if (cmd.ExecuteScalar() != null) return true;
 
             string mensaje = "¡No se ha encontrado ningún plato que corresponda a ese código!";
-            MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            ShowWarningMessage(mensaje, "");
             return false;
         }
 
@@ -722,6 +743,15 @@ namespace Garmoxu_Desktop
         #endregion
 
         #region Boton confirmar/guardar cambios
+        private void TextBoxGuardar_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar.Equals((char)Keys.Enter))
+            {
+                e.Handled = true;
+                BtnConfirmar_Click(null, null);
+            }
+        }
+
         private void BtnConfirmar_Click(object sender, EventArgs e)
         {
             if (ValidarPedidoDisponible() && ValidarDatosCompletados(TabTipoDatosDetalles) && ValidarPlatosAñadidos())
@@ -750,7 +780,7 @@ namespace Garmoxu_Desktop
                 if (cmd.ExecuteScalar() == null)
                 {
                     string mensaje = "¡El pedido ya no está disponible, alguien debe haberlo cancelado o finalizado mientras lo consultabas!";
-                    MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    ShowErrorMessage(mensaje, "");
                     this.Close();
                     return false;
                 }
@@ -761,9 +791,10 @@ namespace Garmoxu_Desktop
         // Valida que se haya añadido mínimo un plato al pedido.
         private bool ValidarPlatosAñadidos()
         {
-            if (DtgPlatosPedidos.RowCount > 0)
-                return true;
-            MessageBox.Show("¡Debes añadir algún plato al pedido!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            if (DtgPlatosPedidos.RowCount > 0) return true;
+
+            string mensaje = "¡Debes añadir algún plato al pedido!";
+            ShowWarningMessage(mensaje, "");
             return false;
         }
 
@@ -834,7 +865,8 @@ namespace Garmoxu_Desktop
 
             if (cmd.ExecuteScalar() != null && !cmd.ExecuteScalar().ToString().Equals(ClavePrimariaPedidoEnCurso))
             {
-                MessageBox.Show("¡Ya existe un pedido asociado a " + clienteAsociado + "!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                string mensaje = "¡Ya existe un pedido asociado a '" + clienteAsociado + "'!";
+                ShowWarningMessage(mensaje, "");
                 return false;
             }
             return true;
@@ -1147,9 +1179,7 @@ namespace Garmoxu_Desktop
                 if (ConfirmarAccion("ir a la ventana para finalizar y pagar") && ValidarCliente())
                 {
                     string precioConIva = LblPrecioConIVA.Text.Remove(LblPrecioConIVA.Text.Length - 1);
-                    FrmPedidosPagos frm = new FrmPedidosPagos(this, precioConIva, ClavePrimariaPedidoEnCurso);
-                    //frm.Width = Instance.Width / 2 - Instance.Width / 5;
-                    //frm.Height = Instance.Height / 2 + Instance.Height / 5;
+                    FrmPedidosPagos frm = new FrmPedidosPagos(this, precioConIva);
                     frm.ShowDialog();
 
                     if (!string.IsNullOrEmpty(MetodoPago))
@@ -1169,34 +1199,14 @@ namespace Garmoxu_Desktop
                     }
                     return false;
                 }
-                else
-                    return false;
+                else return false;
             }
             else
             {
-                string mensaje = "¡Primero debes dar de alta un pedido antes de finalizarlo!";
-                MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                string mensaje = "¡Primero debes dar de alta un pedido antes de pasarlo a estado finalizado!";
+                ShowWarningMessage(mensaje, "");
                 return false;
             }
-        }
-
-        private void FrmDetallesPedido_EnabledChanged(object sender, EventArgs e)
-        {
-            //if (Enabled && !string.IsNullOrEmpty(MetodoPago))
-            //{
-            //    string clavePrimariaHistorial = string.Empty;
-            //    GuardarPedidoEnHistorial(ref clavePrimariaHistorial);
-            //    GuardarPlatosPedidoEnHistorial(ref clavePrimariaHistorial);
-
-            //    BorrarPedidoEnCurso();
-            //    LiberarMesa();
-            //    IncrementarCantidadPedidosCliente();
-
-            //    ConfirmarExportacionFacturaPdf(clavePrimariaHistorial);
-
-            //    InformarAccionConExito();
-            //    this.Close();
-            //}
         }
 
         private void GuardarPedidoEnHistorial(ref string clavePrimaria)
@@ -1279,7 +1289,7 @@ namespace Garmoxu_Desktop
             catch (IOException ex)
             {
                 string mensaje = "¡No se ha podido generar la factura en PDF debido a que existe un archivo con el mismo nombre que ya está en uso!";
-                MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                ShowErrorMessage(mensaje, "");
             }
         }
 
@@ -1287,10 +1297,8 @@ namespace Garmoxu_Desktop
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.Description = "Seleccione un directorio para exportar en formato PDF la factura del pedido.";
-            if (fbd.ShowDialog().Equals(DialogResult.OK))
-                return fbd.SelectedPath;
-            else
-                return string.Empty;
+            if (fbd.ShowDialog().Equals(DialogResult.OK)) return fbd.SelectedPath;
+            else return string.Empty;
         }
 
         #region Cabecera
@@ -1518,9 +1526,7 @@ namespace Garmoxu_Desktop
             if (!ValidarClienteExistente())
             {
                 string mensaje = "El cliente no está registrado, es necesario darlo de alta. ¿Deseas continuar?";
-                DialogResult mensajeConfirmacion = MessageBox.Show(mensaje, "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-                if (mensajeConfirmacion.Equals(DialogResult.Yes))
+                if (ShowQuestionDialog(mensaje, "").Equals(DialogResult.Yes))
                 {
                     string datos = "";
                     switch (TabTipoDatosDetalles.SelectedIndex)
@@ -1535,14 +1541,12 @@ namespace Garmoxu_Desktop
                             break;
                     }
 
-                    string sql = string.Format("INSERT INTO Clientes(TelefonoCliente, Direccion, CantidadPedidos, Nombre) "
-                        + "VALUES('{0}');", datos);
+                    string sql = string.Format("INSERT INTO Clientes(TelefonoCliente, Direccion, CantidadPedidos, Nombre) VALUES('{0}');", datos);
                     MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
                     cmd.ExecuteNonQuery();
                     return true;
                 }
-                else
-                    cancelarOperacion = true;
+                else cancelarOperacion = true;
             }
             return false;
         }
@@ -1593,8 +1597,9 @@ namespace Garmoxu_Desktop
             if (dirModificada || nombreModificado)
             {
                 string mensaje = "¿Desea aplicar los cambios realizados en los datos del cliente?";
-                DialogResult mensajeConfirmacion = MessageBox.Show(mensaje, "", MessageBoxButtons.YesNoCancel, MessageBoxIcon.Question);
-                if (mensajeConfirmacion.Equals(DialogResult.Yes))
+                DialogResult confirmacion = ShowMeDialog(mensaje, "", ButtonYesNoCancel(), IconQuestion());
+
+                if (confirmacion.Equals(DialogResult.Yes))
                 {
                     if (dirModificada)
                     {
@@ -1610,8 +1615,7 @@ namespace Garmoxu_Desktop
                         cmd.ExecuteNonQuery();
                     }
                 }
-                else if (mensajeConfirmacion.Equals(DialogResult.Cancel))
-                    cancelarOperacion = true;
+                else if (confirmacion.Equals(DialogResult.Cancel)) cancelarOperacion = true;
             }
 
             return true;
@@ -1706,12 +1710,11 @@ namespace Garmoxu_Desktop
             string sql = "SELECT * FROM Mesas WHERE IdMesa = " + idMesa + " AND Estado = 'Libre'";
             MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
 
-            if (cmd.ExecuteScalar() != null)
-                return true;
+            if (cmd.ExecuteScalar() != null) return true;
             else
             {
                 string mensaje = "¡La mesa seleccionada ha sido ocupada mientras realizabas el pedido, vuelve a revisar las mesas disponibles!";
-                MessageBox.Show(mensaje, "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                ShowWarningMessage(mensaje, "");
                 CboMesasLocalDetalles.ResetText();
                 CargarMesasLibres();
                 return false;
@@ -1762,7 +1765,7 @@ namespace Garmoxu_Desktop
             switch (TabPrincipal.SelectedIndex)
             {
                 case 0:
-                    if(tab.SelectedIndex == 1)
+                    if (tab.SelectedIndex == 1)
                     {
                         TxtDirDomicilioTipo.Texts = datos[0];
                         TxtNombreDomicilioTipo.Texts = datos[1];
@@ -1826,26 +1829,24 @@ namespace Garmoxu_Desktop
         // Muestra un mensaje de confirmación
         private bool ConfirmarAccion(string accion)
         {
-            DialogResult accionConfirmada =
-                MessageBox.Show("¿Desea " + accion + " el pedido actual?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (accionConfirmada.Equals(DialogResult.Yes))
-                return true;
-            return false;
+            string mensaje = "¿Desea " + accion + " el pedido actual?";
+            if (ShowQuestionDialog(mensaje, "").Equals(DialogResult.Yes)) return true;
+            else return false;
         }
 
+        // Muestra un mensaje de confirmación
         private bool ConfirmarAccion2(string accion)
         {
-            DialogResult accionConfirmada =
-                MessageBox.Show("¿Desea " + accion + " pedido actual?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (accionConfirmada.Equals(DialogResult.Yes))
-                return true;
-            return false;
+            string mensaje = "¿Desea " + accion + " pedido actual?";
+            if (ShowQuestionDialog(mensaje, "").Equals(DialogResult.Yes)) return true;
+            else return false;
         }
 
         // Muestra un mensaje de éxito
         private void InformarAccionConExito()
         {
-            MessageBox.Show("¡Operación concluida con éxito!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string mensaje = "¡Operación concluida con éxito!";
+            ShowInfoMessage(mensaje, "");
         }
         #endregion
         #endregion
@@ -1894,13 +1895,10 @@ namespace Garmoxu_Desktop
         {
             if (!(!string.IsNullOrEmpty(ClavePrimariaPedidoEnCurso) && !ComprobarCualquierDatoModificado()))
             {
-                string mensaje = "Se perderán todos los cambios no guardados. ¿Deseas continuar?";
-                DialogResult cerrarVentana = MessageBox.Show(mensaje, "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-                if (cerrarVentana.Equals(DialogResult.Yes))
-                    this.Close();
+                string mensaje = "¿Desea salir sin guardar? Se perderán todos los cambios realizados.";
+                if (ShowQuestionDialog(mensaje, "").Equals(DialogResult.Yes)) this.Close();
             }
-            else
-                this.Close();
+            else this.Close();
         }
 
         private bool ComprobarCualquierDatoModificado()
@@ -1982,7 +1980,6 @@ namespace Garmoxu_Desktop
         // No poner muchas cosas aquí, ya que varias funciones llaman al this.Close() y se ejecuta lo que haya aquí.
         private void FrmDetallesPedido_FormClosing(object sender, FormClosingEventArgs e)
         {
-            //Instance.Enabled = true;
             QuitarSombreadoPantalla();
         }
 
@@ -1995,10 +1992,5 @@ namespace Garmoxu_Desktop
         #region Getters y setters
         public string MetodoPagoGetSet { get => MetodoPago; set => MetodoPago = value; }
         #endregion
-
-        private void FrmPedidosDetalles_Shown(object sender, EventArgs e)
-        {
-
-        }
     }
 }

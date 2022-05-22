@@ -11,26 +11,23 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
 
 namespace Garmoxu_Desktop
 {
     public partial class FrmPedidosPagos : Form
     {
         private FrmPedidosDetalles Instance;
-
         private string ImporteFinal;
-        private string ClavePrimaria;
-
         private Form FrmShadow;
 
-        public FrmPedidosPagos(FrmPedidosDetalles instance, string importeFinal, string clavePrimaria)
+        public FrmPedidosPagos(FrmPedidosDetalles instance, string importeFinal)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             Instance = instance;
             Instance.Enabled = false;
             ImporteFinal = importeFinal;
-            ClavePrimaria = clavePrimaria;
             CargarDatos();
             SombrearPantalla();
         }
@@ -105,21 +102,23 @@ namespace Garmoxu_Desktop
         #endregion
 
         #region Confirmar
+        private void TextBox_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (e.KeyChar.Equals((char)Keys.Enter))
+            {
+                e.Handled = true;
+                BtnConfirmar_Click(null, null);
+            }
+        }
+
         private void BtnConfirmar_Click(object sender, EventArgs e)
         {
-            if (RdbTarjeta.Checked)
-                Instance.MetodoPagoGetSet = "Tarjeta";
+            if (RdbTarjeta.Checked) Instance.MetodoPagoGetSet = "Tarjeta";
+            if (RdbEfectivo.Checked) Instance.MetodoPagoGetSet = "Efectivo";
+            if (RdbTicket.Checked)  Instance.MetodoPagoGetSet = "Cheque";
 
-            if (RdbEfectivo.Checked)
-                Instance.MetodoPagoGetSet = "Efectivo";
-
-            if (RdbTicket.Checked)
-                Instance.MetodoPagoGetSet = "Cheque";
-
-            if (string.IsNullOrEmpty(Instance.MetodoPagoGetSet))
-                MessageBox.Show("¡Debes seleccionar algún método de pago!", "", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            else if (ConfirmarAccion("pasar a finalizado el estado del"))
-                this.Close();
+            if (string.IsNullOrEmpty(Instance.MetodoPagoGetSet)) ShowWarningMessage("¡Debes seleccionar algún método de pago!", "");
+            else if (ConfirmarAccion("pasar a finalizado el estado del")) this.Close();
         }
         #endregion
 
@@ -199,29 +198,19 @@ namespace Garmoxu_Desktop
 
         #region Mensajes
         // Muestra un mensaje de confirmación
-        private bool ConfirmarAccion(String accion)
+        private bool ConfirmarAccion(string accion)
         {
-            DialogResult accionConfirmada =
-                MessageBox.Show("¿Desea " + accion + " pedido actual?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-            if (accionConfirmada.Equals(DialogResult.Yes))
-                return true;
-            return false;
-        }
-
-        // Muestra un mensaje de éxito
-        private void InformarAccionConExito()
-        {
-            MessageBox.Show("¡Operación concluida con éxito!", "", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            string mensaje = "¿Desea " + accion + " pedido actual?";
+            if (ShowQuestionDialog(mensaje, "").Equals(DialogResult.Yes)) return true;
+            else return false;
         }
         #endregion
 
         #region Cierre del formulario
         private void BtnCerrar_Click(object sender, EventArgs e)
         {
-            string mensaje = "¿Desea cancelar la finalización del pedido? Se perderán todos los datos no guardados";
-            DialogResult confirmacion = MessageBox.Show(mensaje, "", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
-
-            if (confirmacion.Equals(DialogResult.Yes))
+            string mensaje = "¿Desea cancelar la finalización del pedido? Se perderán todos los datos no guardados.";
+            if (ShowQuestionDialog(mensaje, "").Equals(DialogResult.Yes))
             {
                 Instance.MetodoPagoGetSet = string.Empty;
                 this.Close();
