@@ -368,7 +368,7 @@ namespace Garmoxu_Desktop
             this.TxtOldPassword.Margin = new System.Windows.Forms.Padding(5);
             this.TxtOldPassword.Multiline = false;
             this.TxtOldPassword.Name = "TxtOldPassword";
-            this.TxtOldPassword.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtOldPassword.Padding = new System.Windows.Forms.Padding(13, 12, 13, 3);
             this.TxtOldPassword.PasswordChar = false;
             this.TxtOldPassword.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtOldPassword.PlaceholderText = "";
@@ -395,7 +395,7 @@ namespace Garmoxu_Desktop
             this.TxtNewPassword.Margin = new System.Windows.Forms.Padding(5);
             this.TxtNewPassword.Multiline = false;
             this.TxtNewPassword.Name = "TxtNewPassword";
-            this.TxtNewPassword.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtNewPassword.Padding = new System.Windows.Forms.Padding(13, 12, 13, 3);
             this.TxtNewPassword.PasswordChar = false;
             this.TxtNewPassword.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtNewPassword.PlaceholderText = "";
@@ -422,7 +422,7 @@ namespace Garmoxu_Desktop
             this.TxtConfirmPassword.Margin = new System.Windows.Forms.Padding(5);
             this.TxtConfirmPassword.Multiline = false;
             this.TxtConfirmPassword.Name = "TxtConfirmPassword";
-            this.TxtConfirmPassword.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtConfirmPassword.Padding = new System.Windows.Forms.Padding(13, 12, 13, 3);
             this.TxtConfirmPassword.PasswordChar = false;
             this.TxtConfirmPassword.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtConfirmPassword.PlaceholderText = "";

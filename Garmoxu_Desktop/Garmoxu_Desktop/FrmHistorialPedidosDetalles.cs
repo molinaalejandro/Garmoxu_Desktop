@@ -201,11 +201,7 @@ namespace Garmoxu_Desktop
         #region Exportación a PDF
         private void BtnPdf_Click(object sender, EventArgs e)
         {
-            if (ConfirmarAccion("exportar a formato PDF"))
-            {
-                ExportarFacturaPdf(ClavePrimaria);
-                InformarAccionConExito();
-            }
+            if (ConfirmarAccion("exportar a formato PDF")) ExportarFacturaPdf(ClavePrimaria);
         }
 
         private void ExportarFacturaPdf(string clavePrimariaHistorial)
@@ -225,6 +221,7 @@ namespace Garmoxu_Desktop
                     AñadirCuerpoPdf(ref documentoPdf, clavePrimariaHistorial);
 
                     documentoPdf.Close();
+                    InformarAccionConExito();
                 }
             }
             catch (IOException ex)

@@ -125,7 +125,7 @@ namespace Garmoxu_Desktop
             this.TxtImporte.Margin = new System.Windows.Forms.Padding(5);
             this.TxtImporte.Multiline = false;
             this.TxtImporte.Name = "TxtImporte";
-            this.TxtImporte.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtImporte.Padding = new System.Windows.Forms.Padding(13, 12, 13, 3);
             this.TxtImporte.PasswordChar = false;
             this.TxtImporte.PlaceholderColor = System.Drawing.Color.Transparent;
             this.TxtImporte.PlaceholderText = "";
@@ -161,7 +161,7 @@ namespace Garmoxu_Desktop
             this.TxtCliente.Margin = new System.Windows.Forms.Padding(5);
             this.TxtCliente.Multiline = false;
             this.TxtCliente.Name = "TxtCliente";
-            this.TxtCliente.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtCliente.Padding = new System.Windows.Forms.Padding(13, 12, 13, 3);
             this.TxtCliente.PasswordChar = false;
             this.TxtCliente.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtCliente.PlaceholderText = "";
@@ -188,7 +188,7 @@ namespace Garmoxu_Desktop
             this.TxtDevuelto.Margin = new System.Windows.Forms.Padding(5);
             this.TxtDevuelto.Multiline = false;
             this.TxtDevuelto.Name = "TxtDevuelto";
-            this.TxtDevuelto.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtDevuelto.Padding = new System.Windows.Forms.Padding(13, 12, 13, 3);
             this.TxtDevuelto.PasswordChar = false;
             this.TxtDevuelto.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtDevuelto.PlaceholderText = "";

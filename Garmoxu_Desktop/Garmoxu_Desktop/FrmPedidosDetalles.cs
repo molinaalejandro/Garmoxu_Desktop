@@ -57,7 +57,7 @@ namespace Garmoxu_Desktop
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
-            ////SombrearPantalla();
+            SombrearPantalla();
             ConexionBD = conexionBD;
             ClavePrimariaPedidoEnCurso = clavePrimariaPedidoEnCurso;
             UsuarioActual = usuarioActual;
@@ -296,7 +296,7 @@ namespace Garmoxu_Desktop
                 case 1:
                     CboEstado.Items.Add("En Preparación");
                     CboEstado.Items.Add("Preparado");
-                    CboEstado.Items.Add("En Peparto");
+                    CboEstado.Items.Add("En Reparto");
                     CboEstado.Items.Add("Entregado");
                     break;
 
@@ -572,8 +572,7 @@ namespace Garmoxu_Desktop
         #region Tipo de pedido
         private void CboTipo_OnSelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CboTipo.SelectedIndex != -1)
-                TabTipoDatosDetalles.SelectedIndex = CboTipo.SelectedIndex;
+            if (CboTipo.SelectedIndex != -1) TabTipoDatosDetalles.SelectedIndex = CboTipo.SelectedIndex;
             AsignarEstadosPedido();
         }
 
@@ -1053,7 +1052,7 @@ namespace Garmoxu_Desktop
             List<string> datosActuales = new List<string>();
 
             datosActuales.Add(DatosIniciales[0]);
-            datosActuales.Add(CboEstado.SelectedItem.ToString());
+            datosActuales.Add(CboEstado.SelectedIndex != -1 ? CboEstado.SelectedItem.ToString() : "");
             datosActuales.Add(DatosIniciales[2]);
             datosActuales.Add(DatosIniciales[3]);
             string precioConIVAFormateado = LblPrecioConIVA.Text.Remove(LblPrecioConIVA.Text.Length - 1);

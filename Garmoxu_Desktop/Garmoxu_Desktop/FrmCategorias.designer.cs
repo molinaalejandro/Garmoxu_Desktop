@@ -154,7 +154,7 @@ namespace Garmoxu_Desktop
             this.TxtBusqueda.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.TxtBusqueda.Multiline = false;
             this.TxtBusqueda.Name = "TxtBusqueda";
-            this.TxtBusqueda.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtBusqueda.Padding = new System.Windows.Forms.Padding(13, 12, 13, 3);
             this.TxtBusqueda.PasswordChar = false;
             this.TxtBusqueda.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtBusqueda.PlaceholderText = "";

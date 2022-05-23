@@ -215,6 +215,7 @@
             this.DtgPlatosPedidos.GridColor = System.Drawing.Color.MediumSlateBlue;
             this.DtgPlatosPedidos.Location = new System.Drawing.Point(75, 70);
             this.DtgPlatosPedidos.Margin = new System.Windows.Forms.Padding(5, 4, 5, 15);
+            this.DtgPlatosPedidos.MultiSelect = false;
             this.DtgPlatosPedidos.Name = "DtgPlatosPedidos";
             this.DtgPlatosPedidos.ReadOnly = true;
             this.DtgPlatosPedidos.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;

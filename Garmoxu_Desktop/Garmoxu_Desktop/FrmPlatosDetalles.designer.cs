@@ -250,7 +250,7 @@
             this.TxtNombre.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.TxtNombre.Multiline = false;
             this.TxtNombre.Name = "TxtNombre";
-            this.TxtNombre.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtNombre.Padding = new System.Windows.Forms.Padding(13, 12, 13, 3);
             this.TxtNombre.PasswordChar = false;
             this.TxtNombre.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtNombre.PlaceholderText = "";
@@ -274,7 +274,7 @@
             this.TxtIdPlato.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.TxtIdPlato.Multiline = false;
             this.TxtIdPlato.Name = "TxtIdPlato";
-            this.TxtIdPlato.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtIdPlato.Padding = new System.Windows.Forms.Padding(13, 12, 13, 3);
             this.TxtIdPlato.PasswordChar = false;
             this.TxtIdPlato.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtIdPlato.PlaceholderText = "";
@@ -334,7 +334,7 @@
             this.TxtListaAlergenos.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.TxtListaAlergenos.Multiline = true;
             this.TxtListaAlergenos.Name = "TxtListaAlergenos";
-            this.TxtListaAlergenos.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtListaAlergenos.Padding = new System.Windows.Forms.Padding(13, 12, 13, 3);
             this.TxtListaAlergenos.PasswordChar = false;
             this.TxtListaAlergenos.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtListaAlergenos.PlaceholderText = "";
@@ -342,7 +342,6 @@
             this.TxtListaAlergenos.TabIndex = 11;
             this.TxtListaAlergenos.Texts = "";
             this.TxtListaAlergenos.UnderlinedStyle = false;
-            this.TxtListaAlergenos.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
             // label8
             // 
@@ -425,7 +424,7 @@
             this.TxtDescripcion.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.TxtDescripcion.Multiline = true;
             this.TxtDescripcion.Name = "TxtDescripcion";
-            this.TxtDescripcion.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtDescripcion.Padding = new System.Windows.Forms.Padding(13, 12, 13, 3);
             this.TxtDescripcion.PasswordChar = false;
             this.TxtDescripcion.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtDescripcion.PlaceholderText = "";
@@ -433,7 +432,6 @@
             this.TxtDescripcion.TabIndex = 13;
             this.TxtDescripcion.Texts = "";
             this.TxtDescripcion.UnderlinedStyle = false;
-            this.TxtDescripcion.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBox_KeyPress);
             // 
             // TxtPrecioConIva
             // 
@@ -449,7 +447,7 @@
             this.TxtPrecioConIva.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.TxtPrecioConIva.Multiline = false;
             this.TxtPrecioConIva.Name = "TxtPrecioConIva";
-            this.TxtPrecioConIva.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtPrecioConIva.Padding = new System.Windows.Forms.Padding(13, 12, 13, 3);
             this.TxtPrecioConIva.PasswordChar = false;
             this.TxtPrecioConIva.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtPrecioConIva.PlaceholderText = "";
@@ -474,7 +472,7 @@
             this.TxtPrecioSinIva.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.TxtPrecioSinIva.Multiline = false;
             this.TxtPrecioSinIva.Name = "TxtPrecioSinIva";
-            this.TxtPrecioSinIva.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtPrecioSinIva.Padding = new System.Windows.Forms.Padding(13, 12, 13, 3);
             this.TxtPrecioSinIva.PasswordChar = false;
             this.TxtPrecioSinIva.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtPrecioSinIva.PlaceholderText = "";

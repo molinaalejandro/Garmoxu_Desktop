@@ -43,16 +43,16 @@ namespace Garmoxu_Desktop
         private void AbrirConexionBD()
         {
             // Conexión local
-            //string servidor = "localhost"; //Nombre o IP del servidor.
-            //string bd = "garmoxu"; //Nombre de la base de datos.
-            //string usuario = "root"; //Usuario de acceso.
-            //string password = "root"; //Contraseña de usuario de acceso.
+            string servidor = "localhost"; //Nombre o IP del servidor.
+            string bd = "garmoxu"; //Nombre de la base de datos.
+            string usuario = "root"; //Usuario de acceso.
+            string password = "root"; //Contraseña de usuario de acceso.
 
             // Conexión remota
-            string servidor = "sql781.main-hosting.eu"; //Nombre o IP del servidor.
-            string bd = "u184120704_garmoxudb"; //Nombre de la base de datos.
-            string usuario = "u184120704_admindam"; //Usuario de acceso.
-            string password = "damAdmin123"; //Contraseña de usuario de acceso.
+            //string servidor = "sql781.main-hosting.eu"; //Nombre o IP del servidor.
+            //string bd = "u184120704_garmoxudb"; //Nombre de la base de datos.
+            //string usuario = "u184120704_admindam"; //Usuario de acceso.
+            //string password = "damAdmin123"; //Contraseña de usuario de acceso.
 
             // Instancia de la conexión a la BD que recibe la cadena de conexión.
             ConexionBD = new MySqlConnection(

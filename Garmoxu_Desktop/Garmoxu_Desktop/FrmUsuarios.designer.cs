@@ -163,6 +163,7 @@ namespace Garmoxu_Desktop
             this.DtgUsuarios.GridColor = System.Drawing.Color.MediumSlateBlue;
             this.DtgUsuarios.Location = new System.Drawing.Point(5, 86);
             this.DtgUsuarios.Margin = new System.Windows.Forms.Padding(5, 20, 5, 15);
+            this.DtgUsuarios.MultiSelect = false;
             this.DtgUsuarios.Name = "DtgUsuarios";
             this.DtgUsuarios.ReadOnly = true;
             this.DtgUsuarios.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -286,7 +287,7 @@ namespace Garmoxu_Desktop
             this.TxtBuscar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.TxtBuscar.Multiline = false;
             this.TxtBuscar.Name = "TxtBuscar";
-            this.TxtBuscar.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtBuscar.Padding = new System.Windows.Forms.Padding(13, 12, 13, 3);
             this.TxtBuscar.PasswordChar = false;
             this.TxtBuscar.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtBuscar.PlaceholderText = "";
@@ -444,7 +445,7 @@ namespace Garmoxu_Desktop
             this.TxtNombre.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.TxtNombre.Multiline = false;
             this.TxtNombre.Name = "TxtNombre";
-            this.TxtNombre.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtNombre.Padding = new System.Windows.Forms.Padding(13, 12, 13, 3);
             this.TxtNombre.PasswordChar = false;
             this.TxtNombre.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtNombre.PlaceholderText = "";
@@ -468,7 +469,7 @@ namespace Garmoxu_Desktop
             this.TxtUsuario.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.TxtUsuario.Multiline = false;
             this.TxtUsuario.Name = "TxtUsuario";
-            this.TxtUsuario.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtUsuario.Padding = new System.Windows.Forms.Padding(13, 12, 13, 3);
             this.TxtUsuario.PasswordChar = false;
             this.TxtUsuario.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtUsuario.PlaceholderText = "";

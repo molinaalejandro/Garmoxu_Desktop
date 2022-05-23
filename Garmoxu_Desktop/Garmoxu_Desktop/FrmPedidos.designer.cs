@@ -161,11 +161,11 @@
             this.TxtBuscar.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.TxtBuscar.Multiline = false;
             this.TxtBuscar.Name = "TxtBuscar";
-            this.TxtBuscar.Padding = new System.Windows.Forms.Padding(10, 7, 10, 7);
+            this.TxtBuscar.Padding = new System.Windows.Forms.Padding(13, 14, 13, 3);
             this.TxtBuscar.PasswordChar = false;
             this.TxtBuscar.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtBuscar.PlaceholderText = "";
-            this.TxtBuscar.Size = new System.Drawing.Size(798, 51);
+            this.TxtBuscar.Size = new System.Drawing.Size(798, 55);
             this.TxtBuscar.TabIndex = 1;
             this.TxtBuscar.TabStop = false;
             this.TxtBuscar.Texts = "Buscar por nº de mesa o teléfono de cliente";

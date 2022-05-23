@@ -220,7 +220,7 @@
             this.TxtDireccionTB1.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.TxtDireccionTB1.Multiline = true;
             this.TxtDireccionTB1.Name = "TxtDireccionTB1";
-            this.TxtDireccionTB1.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtDireccionTB1.Padding = new System.Windows.Forms.Padding(13, 12, 13, 3);
             this.TxtDireccionTB1.PasswordChar = false;
             this.TxtDireccionTB1.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtDireccionTB1.PlaceholderText = "";
@@ -267,7 +267,7 @@
             this.TxtTelefonoTB1.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.TxtTelefonoTB1.Multiline = false;
             this.TxtTelefonoTB1.Name = "TxtTelefonoTB1";
-            this.TxtTelefonoTB1.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtTelefonoTB1.Padding = new System.Windows.Forms.Padding(13, 12, 13, 3);
             this.TxtTelefonoTB1.PasswordChar = false;
             this.TxtTelefonoTB1.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtTelefonoTB1.PlaceholderText = "";
@@ -291,7 +291,7 @@
             this.TxtNombreTB1.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.TxtNombreTB1.Multiline = false;
             this.TxtNombreTB1.Name = "TxtNombreTB1";
-            this.TxtNombreTB1.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtNombreTB1.Padding = new System.Windows.Forms.Padding(13, 12, 13, 3);
             this.TxtNombreTB1.PasswordChar = false;
             this.TxtNombreTB1.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtNombreTB1.PlaceholderText = "";
@@ -704,6 +704,7 @@
             this.DtgClientes.GridColor = System.Drawing.Color.MediumSlateBlue;
             this.DtgClientes.Location = new System.Drawing.Point(5, 80);
             this.DtgClientes.Margin = new System.Windows.Forms.Padding(5, 20, 5, 15);
+            this.DtgClientes.MultiSelect = false;
             this.DtgClientes.Name = "DtgClientes";
             this.DtgClientes.ReadOnly = true;
             this.DtgClientes.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
@@ -836,7 +837,7 @@
             this.TxtBuscar.Margin = new System.Windows.Forms.Padding(5, 0, 5, 0);
             this.TxtBuscar.Multiline = false;
             this.TxtBuscar.Name = "TxtBuscar";
-            this.TxtBuscar.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtBuscar.Padding = new System.Windows.Forms.Padding(13, 12, 13, 3);
             this.TxtBuscar.PasswordChar = false;
             this.TxtBuscar.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtBuscar.PlaceholderText = "";

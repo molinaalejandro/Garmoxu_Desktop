@@ -285,7 +285,7 @@ namespace Garmoxu_Desktop
             this.TxtNombre.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.TxtNombre.Multiline = false;
             this.TxtNombre.Name = "TxtNombre";
-            this.TxtNombre.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtNombre.Padding = new System.Windows.Forms.Padding(13, 12, 13, 3);
             this.TxtNombre.PasswordChar = false;
             this.TxtNombre.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtNombre.PlaceholderText = "";
@@ -310,7 +310,7 @@ namespace Garmoxu_Desktop
             this.TxtIdPlato.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.TxtIdPlato.Multiline = false;
             this.TxtIdPlato.Name = "TxtIdPlato";
-            this.TxtIdPlato.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtIdPlato.Padding = new System.Windows.Forms.Padding(13, 12, 13, 3);
             this.TxtIdPlato.PasswordChar = false;
             this.TxtIdPlato.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtIdPlato.PlaceholderText = "";
@@ -371,7 +371,7 @@ namespace Garmoxu_Desktop
             this.TxtListaAlergenos.Margin = new System.Windows.Forms.Padding(5, 5, 5, 10);
             this.TxtListaAlergenos.Multiline = true;
             this.TxtListaAlergenos.Name = "TxtListaAlergenos";
-            this.TxtListaAlergenos.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtListaAlergenos.Padding = new System.Windows.Forms.Padding(13, 12, 13, 3);
             this.TxtListaAlergenos.PasswordChar = false;
             this.TxtListaAlergenos.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtListaAlergenos.PlaceholderText = "";
@@ -464,7 +464,7 @@ namespace Garmoxu_Desktop
             this.TxtDescripcion.Margin = new System.Windows.Forms.Padding(5, 5, 5, 10);
             this.TxtDescripcion.Multiline = true;
             this.TxtDescripcion.Name = "TxtDescripcion";
-            this.TxtDescripcion.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtDescripcion.Padding = new System.Windows.Forms.Padding(13, 12, 13, 3);
             this.TxtDescripcion.PasswordChar = false;
             this.TxtDescripcion.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtDescripcion.PlaceholderText = "";
@@ -489,7 +489,7 @@ namespace Garmoxu_Desktop
             this.TxtPrecioConIva.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.TxtPrecioConIva.Multiline = false;
             this.TxtPrecioConIva.Name = "TxtPrecioConIva";
-            this.TxtPrecioConIva.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtPrecioConIva.Padding = new System.Windows.Forms.Padding(13, 12, 13, 3);
             this.TxtPrecioConIva.PasswordChar = false;
             this.TxtPrecioConIva.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtPrecioConIva.PlaceholderText = "";
@@ -514,7 +514,7 @@ namespace Garmoxu_Desktop
             this.TxtPrecioSinIva.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.TxtPrecioSinIva.Multiline = false;
             this.TxtPrecioSinIva.Name = "TxtPrecioSinIva";
-            this.TxtPrecioSinIva.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtPrecioSinIva.Padding = new System.Windows.Forms.Padding(13, 12, 13, 3);
             this.TxtPrecioSinIva.PasswordChar = false;
             this.TxtPrecioSinIva.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtPrecioSinIva.PlaceholderText = "";

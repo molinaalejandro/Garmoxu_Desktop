@@ -112,6 +112,7 @@
             this.DtgHistorial.GridColor = System.Drawing.Color.MediumSlateBlue;
             this.DtgHistorial.Location = new System.Drawing.Point(70, 166);
             this.DtgHistorial.Margin = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.DtgHistorial.MultiSelect = false;
             this.DtgHistorial.Name = "DtgHistorial";
             this.DtgHistorial.ReadOnly = true;
             this.DtgHistorial.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;

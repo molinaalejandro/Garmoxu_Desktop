@@ -537,7 +537,7 @@ namespace Garmoxu_Desktop
             if (PnlDetalles.Visible && ComprobarDatosModificados(ref var))
             {
                 string mensaje = "¿Desea salir sin guardar? Se perderán todos los cambios realizados.";
-                if (ShowQuestionDialog(mensaje, "").Equals(DialogResult.Yes)) e.Cancel = true;
+                if (!ShowQuestionDialog(mensaje, "").Equals(DialogResult.Yes)) e.Cancel = true;
             }
         }
         #endregion

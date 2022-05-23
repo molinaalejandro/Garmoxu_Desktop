@@ -100,13 +100,13 @@
             this.PnlTitleBar.ColumnCount = 9;
             this.PnlTitleBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 150F));
             this.PnlTitleBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.PnlTitleBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 210F));
+            this.PnlTitleBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
             this.PnlTitleBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
             this.PnlTitleBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.PnlTitleBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.PnlTitleBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 210F));
+            this.PnlTitleBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 250F));
             this.PnlTitleBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
-            this.PnlTitleBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 151F));
+            this.PnlTitleBar.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 153F));
             this.PnlTitleBar.Controls.Add(this.PnlSeccion, 4, 0);
             this.PnlTitleBar.Controls.Add(this.PnlBotonesTitleBar, 8, 0);
             this.PnlTitleBar.Controls.Add(this.LblHora, 2, 0);
@@ -132,7 +132,7 @@
             this.PnlSeccion.Controls.Add(this.BtnCerrarSeccion, 2, 0);
             this.PnlSeccion.Controls.Add(this.LblSeccion, 1, 0);
             this.PnlSeccion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlSeccion.Location = new System.Drawing.Point(698, 10);
+            this.PnlSeccion.Location = new System.Drawing.Point(697, 10);
             this.PnlSeccion.Margin = new System.Windows.Forms.Padding(0);
             this.PnlSeccion.Name = "PnlSeccion";
             this.PnlSeccion.RowCount = 1;
@@ -195,12 +195,12 @@
             this.PnlBotonesTitleBar.Controls.Add(this.BtnCerrar, 1, 0);
             this.PnlBotonesTitleBar.Controls.Add(this.BtnMinimizar, 0, 0);
             this.PnlBotonesTitleBar.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.PnlBotonesTitleBar.Location = new System.Drawing.Point(1763, 10);
+            this.PnlBotonesTitleBar.Location = new System.Drawing.Point(1761, 10);
             this.PnlBotonesTitleBar.Margin = new System.Windows.Forms.Padding(0);
             this.PnlBotonesTitleBar.Name = "PnlBotonesTitleBar";
             this.PnlBotonesTitleBar.RowCount = 1;
             this.PnlBotonesTitleBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.PnlBotonesTitleBar.Size = new System.Drawing.Size(151, 80);
+            this.PnlBotonesTitleBar.Size = new System.Drawing.Size(153, 80);
             this.PnlBotonesTitleBar.TabIndex = 1;
             // 
             // BtnCerrar
@@ -220,7 +220,7 @@
             this.BtnCerrar.Location = new System.Drawing.Point(75, 0);
             this.BtnCerrar.Margin = new System.Windows.Forms.Padding(0);
             this.BtnCerrar.Name = "BtnCerrar";
-            this.BtnCerrar.Size = new System.Drawing.Size(76, 80);
+            this.BtnCerrar.Size = new System.Drawing.Size(78, 80);
             this.BtnCerrar.TabIndex = 3;
             this.BtnCerrar.TabStop = false;
             this.BtnCerrar.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -258,10 +258,10 @@
             this.LblHora.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LblHora.Font = new System.Drawing.Font("Source Sans Pro", 22F, System.Drawing.FontStyle.Bold);
             this.LblHora.ForeColor = System.Drawing.Color.White;
-            this.LblHora.Location = new System.Drawing.Point(438, 10);
+            this.LblHora.Location = new System.Drawing.Point(397, 10);
             this.LblHora.Margin = new System.Windows.Forms.Padding(0);
             this.LblHora.Name = "LblHora";
-            this.LblHora.Size = new System.Drawing.Size(210, 80);
+            this.LblHora.Size = new System.Drawing.Size(250, 80);
             this.LblHora.TabIndex = 0;
             this.LblHora.Text = "00:00";
             this.LblHora.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -273,10 +273,10 @@
             this.LblFecha.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LblFecha.Font = new System.Drawing.Font("Source Sans Pro", 22F, System.Drawing.FontStyle.Bold);
             this.LblFecha.ForeColor = System.Drawing.Color.White;
-            this.LblFecha.Location = new System.Drawing.Point(1290, 10);
+            this.LblFecha.Location = new System.Drawing.Point(1289, 10);
             this.LblFecha.Margin = new System.Windows.Forms.Padding(0);
             this.LblFecha.Name = "LblFecha";
-            this.LblFecha.Size = new System.Drawing.Size(210, 80);
+            this.LblFecha.Size = new System.Drawing.Size(250, 80);
             this.LblFecha.TabIndex = 2;
             this.LblFecha.Text = "15/06/2022";
             this.LblFecha.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -687,16 +687,6 @@
         #endregion
         private System.Windows.Forms.Timer TmrRelojMain;
         private System.Windows.Forms.TableLayoutPanel PnlPrincipal;
-        private System.Windows.Forms.TableLayoutPanel PnlTitleBar;
-        private System.Windows.Forms.TableLayoutPanel PnlSeccion;
-        private FontAwesome.Sharp.IconButton BtnCerrarSeccion;
-        private System.Windows.Forms.Label LblSeccion;
-        private System.Windows.Forms.TableLayoutPanel PnlBotonesTitleBar;
-        private FontAwesome.Sharp.IconButton BtnCerrar;
-        private FontAwesome.Sharp.IconButton BtnMinimizar;
-        private System.Windows.Forms.Label LblHora;
-        private System.Windows.Forms.Label LblFecha;
-        private System.Windows.Forms.Label LblMarca;
         private System.Windows.Forms.Panel PnlBody;
         private System.Windows.Forms.Panel PnlFormularios;
         private System.Windows.Forms.TableLayoutPanel PnlLogo;
@@ -714,5 +704,15 @@
         private System.Windows.Forms.TableLayoutPanel PnlCabeceraMenu;
         private RJCodeAdvance.RJControls.RJCircularPictureBox PicUsuario;
         private FontAwesome.Sharp.IconButton BtnEsconderMenu;
+        private System.Windows.Forms.TableLayoutPanel PnlTitleBar;
+        private System.Windows.Forms.TableLayoutPanel PnlSeccion;
+        private FontAwesome.Sharp.IconButton BtnCerrarSeccion;
+        private System.Windows.Forms.Label LblSeccion;
+        private System.Windows.Forms.TableLayoutPanel PnlBotonesTitleBar;
+        private FontAwesome.Sharp.IconButton BtnCerrar;
+        private FontAwesome.Sharp.IconButton BtnMinimizar;
+        private System.Windows.Forms.Label LblHora;
+        private System.Windows.Forms.Label LblFecha;
+        private System.Windows.Forms.Label LblMarca;
     }
 }

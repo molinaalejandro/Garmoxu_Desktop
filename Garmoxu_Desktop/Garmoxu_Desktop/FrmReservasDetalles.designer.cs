@@ -224,7 +224,7 @@
             this.TxtNombreCliente.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.TxtNombreCliente.Multiline = false;
             this.TxtNombreCliente.Name = "TxtNombreCliente";
-            this.TxtNombreCliente.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtNombreCliente.Padding = new System.Windows.Forms.Padding(13, 12, 13, 3);
             this.TxtNombreCliente.PasswordChar = false;
             this.TxtNombreCliente.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtNombreCliente.PlaceholderText = "";
@@ -248,7 +248,7 @@
             this.TxtTelefono.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.TxtTelefono.Multiline = false;
             this.TxtTelefono.Name = "TxtTelefono";
-            this.TxtTelefono.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtTelefono.Padding = new System.Windows.Forms.Padding(13, 12, 13, 3);
             this.TxtTelefono.PasswordChar = false;
             this.TxtTelefono.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtTelefono.PlaceholderText = "";

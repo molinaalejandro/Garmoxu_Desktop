@@ -404,6 +404,7 @@
             this.DtgReservas.GridColor = System.Drawing.Color.MediumSlateBlue;
             this.DtgReservas.Location = new System.Drawing.Point(70, 166);
             this.DtgReservas.Margin = new System.Windows.Forms.Padding(0, 20, 0, 0);
+            this.DtgReservas.MultiSelect = false;
             this.DtgReservas.Name = "DtgReservas";
             this.DtgReservas.ReadOnly = true;
             this.DtgReservas.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
