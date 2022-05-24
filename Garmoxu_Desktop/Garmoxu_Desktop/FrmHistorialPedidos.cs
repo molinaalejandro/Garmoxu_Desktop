@@ -8,21 +8,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Garmoxu_Desktop.ConexionMySql;
 
 namespace Garmoxu_Desktop
 {
     public partial class FrmHistorialPedidos : Form
     {
-        private MySqlConnection ConexionBD;
         private DataSet Ds;
         private int NivelPermisos;
         private int IVA;
 
-        public FrmHistorialPedidos(MySqlConnection conexionBD, int nivelPermisos, int iva)
+        public FrmHistorialPedidos(int nivelPermisos, int iva)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
-            ConexionBD = conexionBD;
             NivelPermisos = nivelPermisos;
             IVA = iva;
             CboTipos.SelectedIndex = 0;
@@ -58,8 +57,7 @@ namespace Garmoxu_Desktop
         #region Funciones y diseño del formulario
         private void FrmHistorialPedidos_EnabledChanged(object sender, EventArgs e)
         {
-            if (this.Enabled)
-                BtnBuscar_Click(null, null);
+            if (this.Enabled) BtnBuscar_Click(null, null);
         }
         #endregion
 
@@ -151,13 +149,9 @@ namespace Garmoxu_Desktop
         private void CargarDatosPedidos(string filtro)
         {
             string sql = "SELECT * FROM HistorialPedidos WHERE " + filtro;
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-
             Ds = new DataSet();
-            adapter.Fill(Ds, "HistorialPedidos");
+            Ds = RecogerTabla(sql, "HistorialPedidos");
             Ds.Tables["HistorialPedidos"].DefaultView.Sort = "Fecha ASC";
-
             DtgHistorial.DataSource = Ds.Tables["HistorialPedidos"];
         }
 
@@ -211,12 +205,11 @@ namespace Garmoxu_Desktop
         {
             string clavePrimaria = DtgHistorial.CurrentRow.Cells[0].Value.ToString();
             Form frmShadow = new Form();
-            FrmHistorialPedidosDetalles frm = new FrmHistorialPedidosDetalles(ConexionBD, clavePrimaria, ref frmShadow, NivelPermisos, IVA);
+            FrmHistorialPedidosDetalles frm = new FrmHistorialPedidosDetalles(clavePrimaria, ref frmShadow, NivelPermisos, IVA);
             frm.ShowDialog();
             frmShadow.Close();
             BtnBuscar_Click(null, null);
         }
-
         #endregion
     }
 }

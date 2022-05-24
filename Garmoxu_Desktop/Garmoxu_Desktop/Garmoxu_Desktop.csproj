@@ -181,6 +181,7 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConexionMySql.cs" />
     <Compile Include="FrmAjustes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -204,12 +205,6 @@
     </Compile>
     <Compile Include="FrmClientes.designer.cs">
       <DependentUpon>FrmClientes.cs</DependentUpon>
-    </Compile>
-    <Compile Include="FrmEstadisticas.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="FrmEstadisticas.designer.cs">
-      <DependentUpon>FrmEstadisticas.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmHistorialPedidos.cs">
       <SubType>Form</SubType>
@@ -326,9 +321,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FrmClientes.resx">
       <DependentUpon>FrmClientes.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FrmEstadisticas.resx">
-      <DependentUpon>FrmEstadisticas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmHistorialPedidos.resx">
       <DependentUpon>FrmHistorialPedidos.cs</DependentUpon>

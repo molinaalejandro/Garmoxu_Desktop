@@ -21,19 +21,18 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
+using static Garmoxu_Desktop.ConexionMySql;
 
 namespace Garmoxu_Desktop
 {
     public partial class FrmUsuariosDetalles : Form
     {
-        private MySqlConnection ConexionBD;
         private List<string> IdsTiposUsuario;
 
-        public FrmUsuariosDetalles(MySqlConnection conexionBD, ref Form frmShadow)
+        public FrmUsuariosDetalles(ref Form frmShadow)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
-            ConexionBD = conexionBD;
             CargarTiposDeUsuario();
             SombrearPantalla(ref frmShadow);
         }
@@ -45,14 +44,14 @@ namespace Garmoxu_Desktop
             IdsTiposUsuario = new List<string>();
 
             string sql = "SELECT Nombre, IdTipoUsuario FROM TiposUsuarios ORDER BY Nombre ASC";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
+            MySqlDataReader lector = EjecutarConsulta(sql);
 
-            MySqlDataReader lector = cmd.ExecuteReader();
             while (lector.Read())
             {
                 CboTipoUsuario.Items.Add(lector[0].ToString());
                 IdsTiposUsuario.Add(lector[1].ToString());
             }
+            CerrarConexion();
             lector.Close();
         }
         #endregion
@@ -130,8 +129,7 @@ namespace Garmoxu_Desktop
                     TxtNombre.Texts.Trim(), IdsTiposUsuario[CboTipoUsuario.SelectedIndex]
                     );
 
-                MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                cmd.ExecuteNonQuery();
+                EjecutarSentencia(sql);
 
                 ExportarAPdf(contraseñaSinEncriptar);
                 InformarAccionConExito();
@@ -323,9 +321,8 @@ namespace Garmoxu_Desktop
         private bool ValidarUsuarioNoExistente()
         {
             string sql = "SELECT NombreUsuario FROM Usuarios WHERE NombreUsuario = '" + TxtUsuario.Texts + "'";
-            MySqlCommand comando = new MySqlCommand(sql, ConexionBD);
 
-            if (comando.ExecuteScalar() == null) return true;
+            if (string.IsNullOrEmpty(EjecutarScalar(sql))) return true;
             else
             {
                 string mensaje = "¡El nombre de usuario ya está registrado!";

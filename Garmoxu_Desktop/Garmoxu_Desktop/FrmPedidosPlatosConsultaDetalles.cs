@@ -13,12 +13,12 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
+using static Garmoxu_Desktop.ConexionMySql;
 
 namespace Garmoxu_Desktop
 {
     public partial class FrmPedidosPlatosConsultaDetalles : Form
     {
-        private MySqlConnection ConexionBD;
         private string ClavePrimaria;
 
         private List<string> DatosIniciales = new List<string>();
@@ -26,11 +26,10 @@ namespace Garmoxu_Desktop
 
         private List<string> IdsCategorias;
 
-        public FrmPedidosPlatosConsultaDetalles(MySqlConnection conexionBD, string clavePrimaria, ref Form frmShadow)
+        public FrmPedidosPlatosConsultaDetalles(string clavePrimaria, ref Form frmShadow)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
-            ConexionBD = conexionBD;
             ClavePrimaria = clavePrimaria;
 
             CargarCategorias();
@@ -47,18 +46,17 @@ namespace Garmoxu_Desktop
         #region Cargar categorias
         public void CargarCategorias()
         {
-            string sql = "SELECT DISTINCT Nombre, IdCategoria FROM Categorias ORDER BY Nombre ASC";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-
             CboCategorias.Items.Clear();
             IdsCategorias = new List<string>();
 
-            MySqlDataReader lector = cmd.ExecuteReader();
+            string sql = "SELECT DISTINCT Nombre, IdCategoria FROM Categorias ORDER BY Nombre ASC";
+            MySqlDataReader lector = EjecutarConsulta(sql);
             while (lector.Read())
             {
                 CboCategorias.Items.Add(lector.GetString(0));
                 IdsCategorias.Add(lector.GetString(1));
             }
+            CerrarConexion();
             lector.Close();
         }
         #endregion
@@ -67,9 +65,8 @@ namespace Garmoxu_Desktop
         private void CargarDatos()
         {
             string sql = "SELECT * FROM PlatosComida WHERE IdPlatoComida = '" + ClavePrimaria + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
 
-            MySqlDataReader lector = cmd.ExecuteReader();
+            MySqlDataReader lector = EjecutarConsulta(sql);
             if (lector.Read())
             {
                 LblTitulo.Text = "Consulta el plato " + ClavePrimaria;
@@ -103,6 +100,7 @@ namespace Garmoxu_Desktop
                 DatosIniciales.Add(disponibilidad.ToString());
                 DatosIniciales.Add((indexCategoria + 1).ToString());
             }
+            CerrarConexion();
             lector.Close();
         }
 

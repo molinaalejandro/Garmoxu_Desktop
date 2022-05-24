@@ -10,19 +10,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
+using static Garmoxu_Desktop.ConexionMySql;
 
 namespace Garmoxu_Desktop
 {
     public partial class FrmPlatos : Form
     {
-        private MySqlConnection ConexionBD;
         private int IVA;
 
-        public FrmPlatos(MySqlConnection conexionBD, int iva)
+        public FrmPlatos(int iva)
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
-            ConexionBD = conexionBD;
             IVA = iva;
             BuscarPlatos();
             CargarComboBoxCategorias();
@@ -35,8 +34,7 @@ namespace Garmoxu_Desktop
 
             if (continuar)
             {
-                MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                MySqlDataReader lector = cmd.ExecuteReader();
+                MySqlDataReader lector = EjecutarConsulta(sql);
 
                 LstPlatos.Items.Clear();
                 ImgImagenesPlatos.Images.Clear();
@@ -46,6 +44,7 @@ namespace Garmoxu_Desktop
                     LstPlatos.Items.Add(lector[1].ToString(), ImgImagenesPlatos.Images.Count - 1); // Metemos nombre y fotos
                     LstPlatos.Items[LstPlatos.Items.Count - 1].Tag = lector[0].ToString(); // Guardamos el código de plato para organizar en detalles
                 }
+                CerrarConexion();
                 lector.Close();
             }
         }
@@ -54,9 +53,8 @@ namespace Garmoxu_Desktop
         {
             if (CboCategoria.SelectedIndex != -1)
             {
-                string sql = "SELECT * FROM Categorias WHERE NombreCategoria = " + CboCategoria.SelectedItem.ToString();
-                MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                if(cmd == null)
+                string sql = "SELECT * FROM Categorias WHERE Nombre = '" + CboCategoria.SelectedItem.ToString() + "'";
+                if(string.IsNullOrEmpty(EjecutarScalar(sql)))
                 {
                     string mensaje = "¡La categoría seleccionada ya no está disponible!";
                     ShowErrorMessage(mensaje, "");
@@ -79,19 +77,18 @@ namespace Garmoxu_Desktop
 
                 return fotoconvertida;
             }
-            else
-                return Properties.Resources.No_Image_Found;
+            else return Properties.Resources.No_Image_Found;
         }
 
         private void CargarComboBoxCategorias()
         {
             string sql = "SELECT DISTINCT Nombre FROM Categorias ORDER BY Nombre ASC";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            MySqlDataReader lector = cmd.ExecuteReader();
+            MySqlDataReader lector = EjecutarConsulta(sql);
 
             CboCategoria.Items.Clear();
             while (lector.Read())
                 CboCategoria.Items.Add(lector[0].ToString());
+            CerrarConexion();
             lector.Close();
         }
         #endregion
@@ -206,21 +203,18 @@ namespace Garmoxu_Desktop
 
             if (ChkCategoría.Checked && CboCategoria.SelectedIndex != -1)
             {
-                if (!string.IsNullOrEmpty(filtro.Trim()))
-                    filtro += " AND ";
+                if (!string.IsNullOrEmpty(filtro.Trim())) filtro += " AND ";
                 filtro += "c.Nombre = '" + CboCategoria.SelectedItem + "'";
             }
 
             if (TgbDisponibilidad.Checked)
             {
-                if (!string.IsNullOrEmpty(filtro.Trim()))
-                    filtro += " AND ";
+                if (!string.IsNullOrEmpty(filtro.Trim())) filtro += " AND ";
                 filtro += "pc.Disponibilidad = 1";
             }
             else
             {
-                if (!string.IsNullOrEmpty(filtro.Trim()))
-                    filtro += " AND ";
+                if (!string.IsNullOrEmpty(filtro.Trim())) filtro += " AND ";
                 filtro += "pc.Disponibilidad = 0";
             }
 
@@ -300,8 +294,7 @@ namespace Garmoxu_Desktop
                     LstPlatos.Items.RemoveAt(LstPlatos.SelectedItems[0].Index);
 
                     string sql = "DELETE FROM PlatosComida WHERE IdPlatoComida = '" + codigoPlatoCogido + "'";
-                    MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                    cmd.ExecuteNonQuery();
+                    EjecutarSentencia(sql);
 
                     InformarAccionConExito();
                 }
@@ -316,9 +309,8 @@ namespace Garmoxu_Desktop
         private bool ComprobarPedidoPlatoAsociado(string codigoPlatoCogido)
         {
             string sql = "SELECT * FROM PedidosEnCursoPlatos WHERE IdPlatoComida = '" + codigoPlatoCogido + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
 
-            if (cmd.ExecuteScalar() == null) return false;
+            if (string.IsNullOrEmpty(EjecutarScalar(sql))) return false;
             else
             {
                 string mensaje = "¡No se ha podido eliminar debido a que existe un pedido en curso que contiene este plato! " +
@@ -330,10 +322,8 @@ namespace Garmoxu_Desktop
 
         private void LstPlatos_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (LstPlatos.SelectedItems.Count > 0)
-                BtnEliminar.Enabled = true;
-            else
-                BtnEliminar.Enabled = false;
+            if (LstPlatos.SelectedItems.Count > 0) BtnEliminar.Enabled = true;
+            else BtnEliminar.Enabled = false;
         }
         #endregion
 
@@ -341,7 +331,7 @@ namespace Garmoxu_Desktop
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
             Form frmShadow = new Form();
-            FrmPlatosDetalles frm = new FrmPlatosDetalles(ConexionBD, string.Empty, IVA, ref frmShadow);
+            FrmPlatosDetalles frm = new FrmPlatosDetalles(string.Empty, IVA, ref frmShadow);
 
             frm.ShowDialog();
             frmShadow.Close();
@@ -354,7 +344,7 @@ namespace Garmoxu_Desktop
         {
             string clavePrimaria = LstPlatos.SelectedItems[0].Tag.ToString();
             Form frmShadow = new Form();
-            FrmPlatosDetalles frm = new FrmPlatosDetalles(ConexionBD, clavePrimaria, IVA, ref frmShadow);
+            FrmPlatosDetalles frm = new FrmPlatosDetalles(clavePrimaria, IVA, ref frmShadow);
 
             frm.ShowDialog();
             frmShadow.Close();

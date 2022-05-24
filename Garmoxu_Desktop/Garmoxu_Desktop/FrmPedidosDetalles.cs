@@ -21,14 +21,12 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
+using static Garmoxu_Desktop.ConexionMySql;
 
 namespace Garmoxu_Desktop
 {
     public partial class FrmPedidosDetalles : Form
     {
-        // Instancia de la conexión a la base de datos.
-        private MySqlConnection ConexionBD;
-
         // Clave primaria del pedido que se está detallando. Estará vacía si es una pestaña de nuevo pedido.
         private string ClavePrimariaPedidoEnCurso;
 
@@ -53,12 +51,11 @@ namespace Garmoxu_Desktop
 
         private Form FrmShadow;
 
-        public FrmPedidosDetalles(MySqlConnection conexionBD, string clavePrimariaPedidoEnCurso, string usuarioActual, int iva)
+        public FrmPedidosDetalles(string clavePrimariaPedidoEnCurso, string usuarioActual, int iva)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             SombrearPantalla();
-            ConexionBD = conexionBD;
             ClavePrimariaPedidoEnCurso = clavePrimariaPedidoEnCurso;
             UsuarioActual = usuarioActual;
             IVA = iva;
@@ -137,10 +134,9 @@ namespace Garmoxu_Desktop
         // Carga los datos del pedido relacionado con la clave primaria en una lista.
         private void CargarDatosPedido(ref string[] datosPedidos)
         {
-            MySqlCommand cmd = new MySqlCommand(
-                "SELECT * FROM PedidosEnCurso WHERE IdPedido = '" + ClavePrimariaPedidoEnCurso + "'", ConexionBD);
+            string sql = "SELECT * FROM PedidosEnCurso WHERE IdPedido = '" + ClavePrimariaPedidoEnCurso + "'";
+            MySqlDataReader lector = EjecutarConsulta(sql);
 
-            MySqlDataReader lector = cmd.ExecuteReader();
             DatosIniciales = new List<string>();
             for (int i = 0; i < lector.FieldCount; i++)
             {
@@ -158,6 +154,7 @@ namespace Garmoxu_Desktop
                 }
                 DatosIniciales.Add(datosPedidos[i]);
             }
+            CerrarConexion();
             lector.Close();
         }
 
@@ -180,8 +177,7 @@ namespace Garmoxu_Desktop
         private void AsignarPlatos()
         {
             string sql = "SELECT * FROM PedidosEnCursoPlatos WHERE IdPedido = '" + ClavePrimariaPedidoEnCurso + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            MySqlDataReader lector = cmd.ExecuteReader();
+            MySqlDataReader lector = EjecutarConsulta(sql);
 
             List<string> idsPlatos = new List<string>();
             List<decimal> cantidades = new List<decimal>();
@@ -193,6 +189,7 @@ namespace Garmoxu_Desktop
 
                 PlatosIniciales.Add(new string[] { lector["IdPlatoComida"].ToString(), lector["Cantidad"].ToString() });
             }
+            CerrarConexion();
             lector.Close();
 
             for (int i = 0; i < idsPlatos.Count; i++)
@@ -222,9 +219,7 @@ namespace Garmoxu_Desktop
         {
             string sql = "SELECT IdMesa FROM Mesas WHERE Estado = 'Libre' AND IdMesa NOT IN " +
                 "(SELECT IdMesa FROM Reservas WHERE " + CrearSQLConRangoHorario() + ")";
-
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            MySqlDataReader lector = cmd.ExecuteReader();
+            MySqlDataReader lector = EjecutarConsulta(sql);
 
             CboMesasLocalDetalles.Items.Clear();
             CboMesasLocalTipo.Items.Clear();
@@ -233,6 +228,7 @@ namespace Garmoxu_Desktop
                 CboMesasLocalDetalles.Items.Add(lector["IdMesa"].ToString());
                 CboMesasLocalTipo.Items.Add(lector["IdMesa"].ToString());
             }
+            CerrarConexion();
             lector.Close();
         }
 
@@ -670,14 +666,14 @@ namespace Garmoxu_Desktop
 
             string sql = "SELECT IdPlatoComida, Nombre, PrecioConIVA FROM PlatosComida " +
                 "WHERE IdPlatoComida = '" + TxtCodigoPlato.Texts.Trim().ToUpper() + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            MySqlDataReader lector = cmd.ExecuteReader();
+            MySqlDataReader lector = EjecutarConsulta(sql);
 
             for (int i = 0; i < lector.FieldCount; i++)
             {
                 lector.Read();
                 datosPlato[i] = lector.GetString(i);
             }
+            CerrarConexion();
             lector.Close();
 
         }
@@ -698,8 +694,7 @@ namespace Garmoxu_Desktop
         private bool ValidarCodigoPlatoExistente()
         {
             string sql = "SELECT * FROM PlatosComida WHERE IdPlatoComida = '" + TxtCodigoPlato.Texts.Trim().ToUpper() + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            if (cmd.ExecuteScalar() != null) return true;
+            if (!string.IsNullOrEmpty(EjecutarScalar(sql))) return true;
 
             string mensaje = "¡No se ha encontrado ningún plato que corresponda a ese código!";
             ShowWarningMessage(mensaje, "");
@@ -774,9 +769,7 @@ namespace Garmoxu_Desktop
             if (!string.IsNullOrEmpty(ClavePrimariaPedidoEnCurso))
             {
                 string sql = "SELECT * FROM PedidosEnCurso WHERE IdPedido = " + ClavePrimariaPedidoEnCurso;
-                MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-
-                if (cmd.ExecuteScalar() == null)
+                if (string.IsNullOrEmpty(EjecutarScalar(sql)))
                 {
                     string mensaje = "¡El pedido ya no está disponible, alguien debe haberlo cancelado o finalizado mientras lo consultabas!";
                     ShowErrorMessage(mensaje, "");
@@ -860,9 +853,9 @@ namespace Garmoxu_Desktop
             }
 
             string sql = "SELECT IdPedido FROM PedidosEnCurso WHERE " + condicion;
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
+            string scalar = EjecutarScalar(sql);
 
-            if (cmd.ExecuteScalar() != null && !cmd.ExecuteScalar().ToString().Equals(ClavePrimariaPedidoEnCurso))
+            if (!string.IsNullOrEmpty(scalar) && !scalar.Equals(ClavePrimariaPedidoEnCurso))
             {
                 string mensaje = "¡Ya existe un pedido asociado a '" + clienteAsociado + "'!";
                 ShowWarningMessage(mensaje, "");
@@ -904,8 +897,7 @@ namespace Garmoxu_Desktop
                 columnas, clavePrimaria, CboEstado.Texts, fechaFormateada, horaFormateada, precioConIVAFormateado,
                 precioSinIVAFormateado, CboTipo.SelectedItem.ToString(), valores);
 
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            cmd.ExecuteNonQuery();
+            EjecutarSentencia(sql);
         }
 
         private void RegistrarPlatosPedido(string clavePrimaria)
@@ -915,8 +907,7 @@ namespace Garmoxu_Desktop
                 string sql = string.Format(
                         "INSERT INTO PedidosEnCursoPlatos(IdPedido, IdPlatoComida, Cantidad) VALUES({0}, '{1}', {2});",
                         clavePrimaria, row.Cells[0].Value.ToString(), row.Cells[2].Value.ToString());
-                MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                cmd.ExecuteNonQuery();
+                EjecutarSentencia(sql);
             }
         }
 
@@ -924,12 +915,12 @@ namespace Garmoxu_Desktop
         private string BuscarUltimaClavePrimaria(string tabla)
         {
             string sql = "SELECT IdPedido FROM " + tabla + " ORDER BY IdPedido DESC";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
+            string scalar = EjecutarScalar(sql);
+
             int clavePrimaria;
-            if (cmd.ExecuteScalar() != null)
-                clavePrimaria = int.Parse(cmd.ExecuteScalar().ToString()) + 1;
-            else
-                clavePrimaria = 1;
+            if (!string.IsNullOrEmpty(scalar)) clavePrimaria = int.Parse(scalar) + 1;
+            else clavePrimaria = 1;
+
             return clavePrimaria.ToString();
         }
         #endregion
@@ -949,16 +940,14 @@ namespace Garmoxu_Desktop
             {
                 if (ConfirmarAccion("guardar los cambios realizados en") && ValidarCliente() && ValidarPedidoNoRepetido() && OcuparMesa())
                 {
-                    string sql = "";
-                    MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
+                    string sql;
 
                     // Actualiza los datos del pedido
                     if (datosHanSidoModificados)
                     {
                         sql = string.Format("UPDATE PedidosEnCurso SET {0} WHERE IdPedido = {1};",
                         valores, ClavePrimariaPedidoEnCurso);
-                        cmd.CommandText = sql;
-                        cmd.ExecuteNonQuery();
+                        EjecutarSentencia(sql);
                     }
 
                     // Actualiza los platos del pedido
@@ -969,8 +958,7 @@ namespace Garmoxu_Desktop
                         {
                             sql = string.Format("INSERT INTO PedidosEnCursoPlatos(IdPedido, IdPlatoComida, Cantidad) "
                                 + "VALUES({0}, '{1}', {2});", ClavePrimariaPedidoEnCurso, plato[0], plato[1]);
-                            cmd.CommandText = sql;
-                            cmd.ExecuteNonQuery();
+                            EjecutarSentencia(sql);
                         }
 
                         // Actualiza los platos eliminados
@@ -978,8 +966,7 @@ namespace Garmoxu_Desktop
                         {
                             sql = string.Format("DELETE FROM PedidosEnCursoPlatos WHERE IdPedido = {0} AND IdPlatoComida = '{1}';",
                                 ClavePrimariaPedidoEnCurso, plato[0]);
-                            cmd.CommandText = sql;
-                            cmd.ExecuteNonQuery();
+                            EjecutarSentencia(sql);
                         }
 
                         // Actualiza los platos cuyos datos han sido modificados
@@ -987,29 +974,22 @@ namespace Garmoxu_Desktop
                         {
                             sql = string.Format("UPDATE PedidosEnCursoPlatos SET Cantidad = {0} WHERE IdPedido = {1} AND IdPlatoComida = '{2}';",
                                 plato[1], ClavePrimariaPedidoEnCurso, plato[0]);
-                            cmd.CommandText = sql;
-                            cmd.ExecuteNonQuery();
+                            EjecutarSentencia(sql);
                         }
                     }
 
                     if (CboTipo.SelectedIndex == 0)
                     {
-                        if (!CboMesasLocalDetalles.SelectedItem.ToString().Equals(IdMesaInicial))
-                            LiberarMesa();
+                        if (!CboMesasLocalDetalles.SelectedItem.ToString().Equals(IdMesaInicial)) LiberarMesa();
                     }
-                    else
-                        LiberarMesa();
+                    else LiberarMesa();
 
                     InformarAccionConExito();
                     return true;
                 }
-                else
-                    return false;
+                else return false;
             }
-            else
-            {
-                return ValidarCliente();
-            }
+            else return ValidarCliente();
         }
 
         private bool ComprobarDatosModificados(ref string valores)
@@ -1064,28 +1044,22 @@ namespace Garmoxu_Desktop
             switch (CboTipo.SelectedIndex)
             {
                 case 0:
-                    if (!DatosIniciales[7].Equals("NULL"))
-                        datosActuales.Add(DatosIniciales[7]);
-                    else
-                        datosActuales.Add(UsuarioActual);
+                    if (!DatosIniciales[7].Equals("NULL")) datosActuales.Add(DatosIniciales[7]);
+                    else datosActuales.Add(UsuarioActual);
                     datosActuales.Add("NULL");
                     datosActuales.Add(CboMesasLocalDetalles.SelectedItem.ToString());
                     break;
 
                 case 1:
-                    if (!DatosIniciales[7].Equals("NULL"))
-                        datosActuales.Add(DatosIniciales[7]);
-                    else
-                        datosActuales.Add("NULL");
+                    if (!DatosIniciales[7].Equals("NULL")) datosActuales.Add(DatosIniciales[7]);
+                    else datosActuales.Add("NULL");
                     datosActuales.Add(TxtTlfDomicilioDetalles.Texts.Replace(" ", ""));
                     datosActuales.Add("NULL");
                     break;
 
                 case 2:
-                    if (!DatosIniciales[7].Equals("NULL"))
-                        datosActuales.Add(DatosIniciales[7]);
-                    else
-                        datosActuales.Add("NULL");
+                    if (!DatosIniciales[7].Equals("NULL")) datosActuales.Add(DatosIniciales[7]);
+                    else datosActuales.Add("NULL");
                     datosActuales.Add(TxtTlfRecogerDetalles.Texts.Replace(" ", ""));
                     datosActuales.Add("NULL");
                     break;
@@ -1159,11 +1133,8 @@ namespace Garmoxu_Desktop
         private List<string[]> RecogerPlatosActuales()
         {
             List<string[]> platosActuales = new List<string[]>();
-            string[] platoActual = new string[2];
             foreach (DataGridViewRow row in DtgPlatosPedidos.Rows)
-            {
                 platosActuales.Add(new string[] { row.Cells[0].Value.ToString(), row.Cells[2].Value.ToString() });
-            }
 
             return platosActuales;
         }
@@ -1237,8 +1208,7 @@ namespace Garmoxu_Desktop
                     tlfColumna, clavePrimaria, fechaFormateada, horaFormateada, precioConIVAFormateado,
                     precioSinIVAFormateado, tipo, MetodoPago, tlf);
 
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            cmd.ExecuteNonQuery();
+            EjecutarSentencia(sql);
         }
 
         private void GuardarPlatosPedidoEnHistorial(ref string clavePrimaria)
@@ -1254,16 +1224,14 @@ namespace Garmoxu_Desktop
                         clavePrimaria, row.Cells[0].Value.ToString(), row.Cells[1].Value.ToString(),
                         precioConIVAFormateado, precioSinIVAFormateado, row.Cells[2].Value.ToString());
 
-                MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                cmd.ExecuteNonQuery();
+                EjecutarSentencia(sql);
             }
         }
 
         #region Generación de PDF
         private void ConfirmarExportacionFacturaPdf(string clavePrimariaHistorial)
         {
-            if (ConfirmarAccion2("exportar a formato PDF la factura del"))
-                ExportarFacturaPdf(clavePrimariaHistorial);
+            if (ConfirmarAccion2("exportar a formato PDF la factura del")) ExportarFacturaPdf(clavePrimariaHistorial);
         }
 
         private void ExportarFacturaPdf(string clavePrimariaHistorial)
@@ -1541,8 +1509,7 @@ namespace Garmoxu_Desktop
                     }
 
                     string sql = string.Format("INSERT INTO Clientes(TelefonoCliente, Direccion, CantidadPedidos, Nombre) VALUES('{0}');", datos);
-                    MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                    cmd.ExecuteNonQuery();
+                    EjecutarSentencia(sql);
                     return true;
                 }
                 else cancelarOperacion = true;
@@ -1557,14 +1524,12 @@ namespace Garmoxu_Desktop
             else tlf = TxtTlfRecogerDetalles.Texts.Replace(" ", "");
 
             string sql = "SELECT * FROM Clientes WHERE TelefonoCliente = '" + tlf + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            return cmd.ExecuteScalar() != null;
+            return !string.IsNullOrEmpty(EjecutarScalar(sql));
         }
 
         private bool GuardarCambiosCliente(ref bool cancelarOperacion)
         {
             string sql = "";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
 
             string tlf = null;
             string dir = null;
@@ -1586,12 +1551,12 @@ namespace Garmoxu_Desktop
             bool dirModificada = false;
             if (dir != null)
             {
-                cmd.CommandText = "SELECT Direccion FROM Clientes WHERE TelefonoCliente = '" + tlf + "'";
-                dirModificada = !cmd.ExecuteScalar().ToString().Equals(dir);
+                sql = "SELECT Direccion FROM Clientes WHERE TelefonoCliente = '" + tlf + "'";
+                dirModificada = !EjecutarScalar(sql).Equals(dir);
             }
 
-            cmd.CommandText = "SELECT Nombre FROM Clientes WHERE TelefonoCliente = '" + tlf + "'";
-            bool nombreModificado = !cmd.ExecuteScalar().ToString().Equals(nombre);
+            sql = "SELECT Nombre FROM Clientes WHERE TelefonoCliente = '" + tlf + "'";
+            bool nombreModificado = !EjecutarScalar(sql).Equals(nombre);
 
             if (dirModificada || nombreModificado)
             {
@@ -1603,15 +1568,13 @@ namespace Garmoxu_Desktop
                     if (dirModificada)
                     {
                         sql = "UPDATE Clientes SET direccion = '" + dir + "' WHERE TelefonoCliente = '" + tlf + "'";
-                        cmd = new MySqlCommand(sql, ConexionBD);
-                        cmd.ExecuteNonQuery();
+                        EjecutarSentencia(sql);
                     }
 
                     if (nombreModificado)
                     {
                         sql = "UPDATE Clientes SET nombre = '" + nombre + "' WHERE TelefonoCliente = '" + tlf + "'";
-                        cmd = new MySqlCommand(sql, ConexionBD);
-                        cmd.ExecuteNonQuery();
+                        EjecutarSentencia(sql);
                     }
                 }
                 else if (confirmacion.Equals(DialogResult.Cancel)) cancelarOperacion = true;
@@ -1625,18 +1588,14 @@ namespace Garmoxu_Desktop
             if (TabTipoDatosDetalles.SelectedIndex != 0)
             {
                 string tlf;
-                if (TabTipoDatosDetalles.SelectedIndex == 1)
-                    tlf = TxtTlfDomicilioDetalles.Texts.Replace(" ", "");
-                else
-                    tlf = TxtTlfRecogerDetalles.Texts.Replace(" ", "");
+                if (TabTipoDatosDetalles.SelectedIndex == 1) tlf = TxtTlfDomicilioDetalles.Texts.Replace(" ", "");
+                else tlf = TxtTlfRecogerDetalles.Texts.Replace(" ", "");
 
                 string sql = "SELECT CantidadPedidos FROM Clientes WHERE TelefonoCliente = '" + tlf + "'";
-                MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                int cantidadPedidos = int.Parse(cmd.ExecuteScalar().ToString());
+                int cantidadPedidos = int.Parse(EjecutarScalar(sql));
 
                 sql = "UPDATE Clientes SET CantidadPedidos = '" + cantidadPedidos++ + "' WHERE TelefonoCliente = '" + tlf + "'";
-                cmd.CommandText = sql;
-                cmd.ExecuteNonQuery();
+                EjecutarSentencia(sql);
             }
         }
         #endregion
@@ -1659,16 +1618,7 @@ namespace Garmoxu_Desktop
         private void BorrarPedidoEnCurso()
         {
             string sql = "DELETE FROM PedidosEnCurso WHERE IdPedido = '" + ClavePrimariaPedidoEnCurso + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            cmd.ExecuteNonQuery();
-
-            //foreach (DataGridViewRow row in DtgPlatosPedidos.Rows)
-            //{
-            //    sql = "DELETE FROM PedidosEnCursoPlatos WHERE IdPedido = " + ClavePrimariaPedidoEnCurso +
-            //        " AND IdPlatoComida = '" + row.Cells[0].Value.ToString() + "'";
-            //    cmd.CommandText = sql;
-            //    cmd.ExecuteNonQuery();
-            //}
+            EjecutarSentencia(sql);
         }
         #endregion
 
@@ -1679,8 +1629,7 @@ namespace Garmoxu_Desktop
             if (!string.IsNullOrEmpty(IdMesaInicial))
             {
                 string sql = "UPDATE Mesas SET Estado = 'Libre' WHERE IdMesa = " + IdMesaInicial;
-                MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                cmd.ExecuteNonQuery();
+                EjecutarSentencia(sql);
             }
         }
 
@@ -1693,12 +1642,10 @@ namespace Garmoxu_Desktop
                 if (mesaEstaLibre)
                 {
                     string sql = "UPDATE Mesas SET Estado = 'Ocupado' WHERE IdMesa = " + CboMesasLocalDetalles.SelectedItem.ToString();
-                    MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                    cmd.ExecuteNonQuery();
+                    EjecutarSentencia(sql);
                     return true;
                 }
-                else
-                    return false;
+                else return false;
             }
             return true;
         }
@@ -1707,9 +1654,8 @@ namespace Garmoxu_Desktop
         private bool ComprobarMesaLibre(string idMesa)
         {
             string sql = "SELECT * FROM Mesas WHERE IdMesa = " + idMesa + " AND Estado = 'Libre'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
 
-            if (cmd.ExecuteScalar() != null) return true;
+            if (!string.IsNullOrEmpty(EjecutarScalar(sql))) return true;
             else
             {
                 string mensaje = "¡La mesa seleccionada ha sido ocupada mientras realizabas el pedido, vuelve a revisar las mesas disponibles!";
@@ -1794,9 +1740,10 @@ namespace Garmoxu_Desktop
         {
             string tlf = txt.Text.Replace(" ", "");
             string[] datosCliente = new string[2];
-            MySqlCommand cmd = new MySqlCommand(
-                "SELECT Direccion, Nombre FROM Clientes WHERE TelefonoCliente = '" + tlf + "'", ConexionBD);
-            MySqlDataReader lector = cmd.ExecuteReader();
+
+            string sql = "SELECT Direccion, Nombre FROM Clientes WHERE TelefonoCliente = '" + tlf + "'";
+            MySqlDataReader lector = EjecutarConsulta(sql);
+
             for (int i = 0; i < lector.FieldCount; i++)
             {
                 lector.Read();
@@ -1809,6 +1756,7 @@ namespace Garmoxu_Desktop
                     datosCliente[i] = string.Empty;
                 }
             }
+            CerrarConexion();
             lector.Close();
             return datosCliente;
         }
@@ -1817,9 +1765,8 @@ namespace Garmoxu_Desktop
         private bool ValidarTelefonoExistente(TextBox txt)
         {
             string tlf = txt.Text.Replace(" ", "");
-            MySqlCommand cmd = new MySqlCommand(
-                "SELECT * FROM Clientes WHERE TelefonoCliente = '" + tlf + "'", ConexionBD);
-            bool telefonoExistente = cmd.ExecuteScalar() != null;
+            string sql = "SELECT * FROM Clientes WHERE TelefonoCliente = '" + tlf + "'";
+            bool telefonoExistente = !string.IsNullOrEmpty(EjecutarScalar(sql));
             return telefonoExistente;
         }
         #endregion
@@ -1854,7 +1801,7 @@ namespace Garmoxu_Desktop
         private void BtnConsultarPlatos_Click(object sender, EventArgs e)
         {
             Form frmShadow = new Form();
-            FrmPedidosPlatosConsulta frm = new FrmPedidosPlatosConsulta(ConexionBD, ref frmShadow);
+            FrmPedidosPlatosConsulta frm = new FrmPedidosPlatosConsulta(ref frmShadow);
 
             frm.ShowDialog();
             frmShadow.Close();
@@ -1921,10 +1868,8 @@ namespace Garmoxu_Desktop
                     switch (TabTipoDatosDetalles.SelectedIndex)
                     {
                         case 1:
-                            sql = "SELECT Direccion, Nombre FROM Clientes WHERE TelefonoCliente = '"
-                                + TxtTlfDomicilioDetalles.Texts.Replace(" ", "") + "'";
-                            cmd = new MySqlCommand(sql, ConexionBD);
-                            MySqlDataReader lector = cmd.ExecuteReader();
+                            sql = "SELECT Direccion, Nombre FROM Clientes WHERE TelefonoCliente = '" + TxtTlfDomicilioDetalles.Texts.Replace(" ", "") + "'";
+                            MySqlDataReader lector = EjecutarConsulta(sql);
 
                             if (lector.Read())
                             {
@@ -1941,24 +1886,22 @@ namespace Garmoxu_Desktop
                                     || !nombre.Equals(TxtNombreDomicilioDetalles.Texts.Trim()))
                                     modificacionRealizada = true;
 
+                                CerrarConexion();
                                 lector.Close();
                             }
-                            else
-                                modificacionRealizada = true;
+                            else modificacionRealizada = true;
                             break;
 
                         case 2:
-                            sql = "SELECT Nombre FROM Clientes WHERE TelefonoCliente = '"
-                               + TxtTlfRecogerDetalles.Texts.Replace(" ", "") + "'";
-                            cmd = new MySqlCommand(sql, ConexionBD);
+                            sql = "SELECT Nombre FROM Clientes WHERE TelefonoCliente = '" + TxtTlfRecogerDetalles.Texts.Replace(" ", "") + "'";
+                            string scalar = EjecutarScalar(sql);
 
-                            if (cmd.ExecuteScalar() != null)
+                            if (!string.IsNullOrEmpty(scalar))
                             {
-                                if (!cmd.ExecuteScalar().ToString().Equals(TxtNombreRecogerDetalles.Texts.Trim()))
+                                if (!scalar.Equals(TxtNombreRecogerDetalles.Texts.Trim())) 
                                     modificacionRealizada = true;
                             }
-                            else
-                                modificacionRealizada = true;
+                            else modificacionRealizada = true;
 
                             break;
                     }
@@ -1972,8 +1915,7 @@ namespace Garmoxu_Desktop
 
                 return modificacionRealizada;
             }
-            else
-                return true;
+            else return true;
         }
 
         // No poner muchas cosas aquí, ya que varias funciones llaman al this.Close() y se ejecuta lo que haya aquí.

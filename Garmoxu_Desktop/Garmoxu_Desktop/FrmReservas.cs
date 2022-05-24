@@ -9,23 +9,22 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
+using static Garmoxu_Desktop.ConexionMySql;
 
 namespace Garmoxu_Desktop
 {
     public partial class FrmReservas : Form
     {
-        private MySqlConnection ConexionBD;
         private DataSet Ds;
         private bool BtnClienteActivado;
         private string HoraApertura;
         private string HoraCierre;
 
-        public FrmReservas(MySqlConnection conexionBD, string horaApertura, string horaCierre)
+        public FrmReservas(string horaApertura, string horaCierre)
         {
             InitializeComponent();
             BtnClienteActivado = true;
             FormBorderStyle = FormBorderStyle.None;
-            ConexionBD = conexionBD;
             HoraApertura = horaApertura;
             HoraCierre = horaCierre;
             DtpBuscar.Value = DateTime.Now;
@@ -41,16 +40,11 @@ namespace Garmoxu_Desktop
         #region Cargar tabla reservas
         private void CargarReservasGridView()
         {
-            string sql = string.Format(
-                "SELECT * FROM Reservas WHERE Fecha BETWEEN '{0}' AND '{1}'",
-                DateTime.Now.ToString("yyyy/MM/dd"),
-                DateTime.Now.AddDays(7).ToString("yyyy/MM/dd"));
-
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            MySqlDataAdapter adapterReservas = new MySqlDataAdapter(cmd);
+            string sql = string.Format("SELECT * FROM Reservas WHERE Fecha BETWEEN '{0}' AND '{1}'",
+                DateTime.Now.ToString("yyyy/MM/dd"), DateTime.Now.AddDays(7).ToString("yyyy/MM/dd"));
 
             Ds = new DataSet();
-            adapterReservas.Fill(Ds, "Reservas");
+            Ds = RecogerTabla(sql, "Reservas");
             Ds.Tables["Reservas"].DefaultView.Sort = "Fecha, Hora ASC";
 
             DtgReservas.DataSource = Ds.Tables["Reservas"];
@@ -157,15 +151,12 @@ namespace Garmoxu_Desktop
         {
             try
             {
-                string filtroSemana = string.Format(
-                        "Fecha BETWEEN '{0}' AND '{1}' ",
-                        DateTime.Now.ToString("yyyy/MM/dd"),
-                        DateTime.Now.AddDays(7).ToString("yyyy/MM/dd"));
+                string filtroSemana = string.Format("Fecha BETWEEN '{0}' AND '{1}' ",
+                        DateTime.Now.ToString("yyyy/MM/dd"), DateTime.Now.AddDays(7).ToString("yyyy/MM/dd"));
 
                 string filtro = "";
 
-                if (ChkCalendar.Checked)
-                    filtro += "Fecha = '" + DtpBuscar.Value.ToString("yyyy/MM/dd") + "'";
+                if (ChkCalendar.Checked) filtro += "Fecha = '" + DtpBuscar.Value.ToString("yyyy/MM/dd") + "'";
 
                 bool textBoxConHint = TxtBuscar.Texts.Trim().Equals(BtnClienteActivado ? "Buscar por teléfono de cliente" : "Buscar por número de mesa");
                 if (!string.IsNullOrEmpty(TxtBuscar.Texts.Replace(" ", "")) && !textBoxConHint)
@@ -175,25 +166,21 @@ namespace Garmoxu_Desktop
                     if (BtnClienteActivado)
                     {
                         filtro += "TelefonoCliente = '" + TxtBuscar.Texts.Replace(" ", "") + "'";
-                        if (!ChkCalendar.Checked)
-                            filtro += " AND Fecha >= '" + DateTime.Now.ToString("yyyy/MM/dd") + "'";
+                        if (!ChkCalendar.Checked) filtro += " AND Fecha >= '" + DateTime.Now.ToString("yyyy/MM/dd") + "'";
                     }
                     else
                     {
                         filtro += "IdMesa = " + TxtBuscar.Texts.Replace(" ", "");
-                        if (!ChkCalendar.Checked)
-                            filtro += " AND " + filtroSemana;
+                        if (!ChkCalendar.Checked) filtro += " AND " + filtroSemana;
                     }
                 }
 
                 if (string.IsNullOrEmpty(filtro)) filtro = filtroSemana;
 
                 string sql = "SELECT * FROM Reservas WHERE " + filtro;
-                MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
 
                 Ds = new DataSet();
-                MySqlDataAdapter adapterReservas = new MySqlDataAdapter(cmd);
-                adapterReservas.Fill(Ds, "Reservas");
+                Ds = RecogerTabla(sql, "Reservas");
                 Ds.Tables["Reservas"].DefaultView.Sort = "Fecha, Hora ASC";
 
                 DtgReservas.DataSource = Ds.Tables["Reservas"];
@@ -213,15 +200,6 @@ namespace Garmoxu_Desktop
         {
             ChkCalendar.Checked = !ChkCalendar.Checked;
             ChkCalendar.Invalidate();
-        }
-
-        private void TxtBuscar__TextChanged(object sender, EventArgs e)
-        {
-            //bool textBoxConHint = TxtBuscar.Texts.Trim().Equals(BtnClienteActivado ? "Buscar por teléfono de cliente" : "Buscar por número de mesa");
-            //bool textBoxVacia = string.IsNullOrEmpty(TxtBuscar.Texts.Trim());
-
-            //ChkCalendar.Checked = !textBoxVacia && !textBoxConHint;
-            //ChkCalendar.Invalidate();
         }
 
         private void BtnCliente_Click(object sender, EventArgs e)
@@ -268,8 +246,7 @@ namespace Garmoxu_Desktop
                     if (ValidarReservaDisponible() && ShowQuestionDialog(mensaje, "").Equals(DialogResult.Yes))
                     {
                         string sql = "DELETE FROM Reservas WHERE IdReserva = " + DtgReservas.SelectedRows[0].Cells[0].Value;
-                        MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                        cmd.ExecuteNonQuery();
+                        EjecutarSentencia(sql);
                         DtgReservas.Rows.RemoveAt(DtgReservas.SelectedRows[0].Index);
                         ShowInfoMessage("¡Operación completada con éxito!", "");
                     }
@@ -284,9 +261,8 @@ namespace Garmoxu_Desktop
             if (!string.IsNullOrEmpty(DtgReservas.SelectedRows[0].Cells[0].Value.ToString()))
             {
                 string sql = "SELECT * FROM Reservas WHERE IdReserva = " + DtgReservas.SelectedRows[0].Cells[0].Value.ToString();
-                MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
 
-                if (cmd.ExecuteScalar() == null)
+                if (string.IsNullOrEmpty(EjecutarScalar(sql)))
                 {
                     string mensaje = "¡La reserva ya no está disponible! Alguien debe haberla eliminado mientras la consultabas.";
                     ShowErrorMessage(mensaje, "");
@@ -302,7 +278,7 @@ namespace Garmoxu_Desktop
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
             Form frmShadow = new Form();
-            FrmReservasDetalles f = new FrmReservasDetalles(ConexionBD, string.Empty, ref frmShadow, HoraApertura, HoraCierre);
+            FrmReservasDetalles f = new FrmReservasDetalles(string.Empty, ref frmShadow, HoraApertura, HoraCierre);
 
             f.ShowDialog();
             frmShadow.Close();
@@ -318,7 +294,7 @@ namespace Garmoxu_Desktop
             {
                 Form frmShadow = new Form();
                 string clavePrimaria = DtgReservas.CurrentRow.Cells[0].Value.ToString();
-                FrmReservasDetalles f = new FrmReservasDetalles(ConexionBD, clavePrimaria, ref frmShadow, HoraApertura, HoraCierre);
+                FrmReservasDetalles f = new FrmReservasDetalles(clavePrimaria, ref frmShadow, HoraApertura, HoraCierre);
 
                 f.ShowDialog();
                 frmShadow.Close();

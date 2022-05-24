@@ -6,7 +6,6 @@ C:\Users\aleja\Archivos\Proyecto 2º DAM\06 - Escritorio\01 - Garmoxu_Desktop\Ga
 C:\Users\aleja\Archivos\Proyecto 2º DAM\06 - Escritorio\01 - Garmoxu_Desktop\Garmoxu_Desktop\Garmoxu_Desktop\obj\Debug\Garmoxu_Desktop.csproj.CoreCompileInputs.cache
 C:\Users\aleja\Archivos\Proyecto 2º DAM\06 - Escritorio\01 - Garmoxu_Desktop\Garmoxu_Desktop\Garmoxu_Desktop\obj\Debug\Garmoxu_Desktop.csproj.AssemblyReference.cache
 C:\Users\aleja\Archivos\Proyecto 2º DAM\06 - Escritorio\01 - Garmoxu_Desktop\Garmoxu_Desktop\Garmoxu_Desktop\obj\Debug\Garmoxu_Desktop.FrmCategorias.resources
-C:\Users\aleja\Archivos\Proyecto 2º DAM\06 - Escritorio\01 - Garmoxu_Desktop\Garmoxu_Desktop\Garmoxu_Desktop\obj\Debug\Garmoxu_Desktop.FrmEstadisticas.resources
 C:\Users\aleja\Archivos\Proyecto 2º DAM\06 - Escritorio\01 - Garmoxu_Desktop\Garmoxu_Desktop\Garmoxu_Desktop\obj\Debug\Garmoxu_Desktop.FrmHistorialPedidos.resources
 C:\Users\aleja\Archivos\Proyecto 2º DAM\06 - Escritorio\01 - Garmoxu_Desktop\Garmoxu_Desktop\Garmoxu_Desktop\obj\Debug\Garmoxu_Desktop.FrmHistorialPedidosDetalles.resources
 C:\Users\aleja\Archivos\Proyecto 2º DAM\06 - Escritorio\01 - Garmoxu_Desktop\Garmoxu_Desktop\Garmoxu_Desktop\obj\Debug\Garmoxu_Desktop.FrmInicioSesion.resources

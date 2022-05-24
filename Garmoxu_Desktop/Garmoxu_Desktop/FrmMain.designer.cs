@@ -665,7 +665,6 @@
             this.Text = "Garmoxu Desktop";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmMain_FormClosing);
-            this.EnabledChanged += new System.EventHandler(this.FrmMain_EnabledChanged);
             this.PnlPrincipal.ResumeLayout(false);
             this.PnlTitleBar.ResumeLayout(false);
             this.PnlTitleBar.PerformLayout();

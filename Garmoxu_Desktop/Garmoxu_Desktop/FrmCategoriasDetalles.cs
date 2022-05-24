@@ -11,22 +11,21 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
+using static Garmoxu_Desktop.ConexionMySql;
 
 namespace Garmoxu_Desktop
 {
     public partial class FrmCategoriasDetalles : Form
     {
-        private MySqlConnection ConexionBD;
         private string ClavePrimaria;
-
         private Image ImagenInicial;
         private List<string> DatosIniciales;
+        private bool ImagenCambiada;
 
-        public FrmCategoriasDetalles(MySqlConnection conexionBD, string clavePrimaria, ref Form frmShadow)
+        public FrmCategoriasDetalles(string clavePrimaria, ref Form frmShadow)
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
-            ConexionBD = conexionBD;
             ClavePrimaria = clavePrimaria;
 
             SombrearPantalla(ref frmShadow);
@@ -37,6 +36,8 @@ namespace Garmoxu_Desktop
         #region Cargar datos
         private void CargarTipoFormulario()
         {
+            ImagenCambiada = false;
+
             if (!string.IsNullOrEmpty(ClavePrimaria))
             {
                 LblTitulo.Text = "Consulta la categoría " + ClavePrimaria;
@@ -48,8 +49,7 @@ namespace Garmoxu_Desktop
         private void CargarDatos()
         {
             string sql = "SELECT * FROM Categorias WHERE IdCategoria = '" + ClavePrimaria + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            MySqlDataReader lector = cmd.ExecuteReader();
+            MySqlDataReader lector = EjecutarConsulta(sql);
 
             if (lector.Read())
             {
@@ -60,6 +60,7 @@ namespace Garmoxu_Desktop
 
                 CargarImagen(lector);
             }
+            CerrarConexion();
             lector.Close();
         }
 
@@ -73,10 +74,9 @@ namespace Garmoxu_Desktop
                 byte[] imagenBytes = new byte[tamañoMaximoArchivo];
 
                 lector.GetBytes(2, 0, imagenBytes, 0, tamañoMaximoArchivo);
-                imagen = (Bitmap)((new ImageConverter()).ConvertFrom(imagenBytes));
+                imagen = (Bitmap)new ImageConverter().ConvertFrom(imagenBytes);
             }
-            else
-                imagen = Properties.Resources.No_Image_Found;
+            else imagen = Properties.Resources.No_Image_Found;
 
             ImagenInicial = imagen;
             PicImagenCategoria.Image = imagen;
@@ -154,7 +154,11 @@ namespace Garmoxu_Desktop
             if (ofd.ShowDialog().Equals(DialogResult.OK))
             {
                 string ruta = ofd.FileName;
-                if (new FileInfo(ruta).Length <= 15000000) PicImagenCategoria.Image = Image.FromFile(ruta);
+                if (new FileInfo(ruta).Length <= 15000000)
+                {
+                    PicImagenCategoria.Image = Image.FromFile(ruta);
+                    ImagenCambiada = true;
+                }
                 else ShowWarningMessage("¡La imagen no puede ser mayor de 15MB!", "");
             }
         }
@@ -163,10 +167,8 @@ namespace Garmoxu_Desktop
         #region Boton de confirmar
         private void BtnConfirmar_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(ClavePrimaria))
-                DarAltaCategoria();
-            else
-                ModificarCategoria();
+            if (string.IsNullOrEmpty(ClavePrimaria)) DarAltaCategoria();
+            else ModificarCategoria();
         }
 
         private void TxtNombre_KeyPress(object sender, KeyPressEventArgs e)
@@ -181,18 +183,17 @@ namespace Garmoxu_Desktop
         #region Alta de categorias
         private void DarAltaCategoria()
         {
-            if (ValidarDatosCompletados() && ValidarFormatoNombre() && ConfirmarAccion("dar de alta")
-                && ValidarNombreNoRegistrado())
+            if (ValidarDatosCompletados() && ValidarFormatoNombre() && ConfirmarAccion("dar de alta") && ValidarNombreNoRegistrado())
             {
-                string sql = string.Format(
-                    "INSERT INTO Categorias (Nombre, ImagenCategoria) " +
-                    "VALUES ('{0}', @imagen)",
-                    TxtNombre.Texts.Trim());
+                string sql = string.Format("INSERT INTO Categorias (Nombre, ImagenCategoria) VALUES ('{0}', {1})", 
+                    TxtNombre.Texts.Trim(), ImagenCambiada ? "@imagen" : "NULL");
 
-                MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                byte[] imagenBytes = (byte[])(new ImageConverter()).ConvertTo(PicImagenCategoria.Image, typeof(byte[]));
-                cmd.Parameters.Add("@imagen", MySqlDbType.MediumBlob).Value = imagenBytes;
-                cmd.ExecuteNonQuery();
+                if (ImagenCambiada)
+                {
+                    byte[] imagenBytes = (byte[])(new ImageConverter()).ConvertTo(PicImagenCategoria.Image, typeof(byte[]));
+                    EjecutarSentencia(sql, imagenBytes);
+                }
+                else EjecutarSentencia(sql);
 
                 InformarAccionConExito();
                 this.Close();
@@ -208,12 +209,9 @@ namespace Garmoxu_Desktop
             if (ValidarDatosCompletados() && ValidarFormatoNombre() && ComprobarDatosModificados(ref valores, ref imagenBytes)
                 && ConfirmarAccion("guardar los cambios realizados en") && ValidarNombreNoRegistrado())
             {
-                string sql = string.Format(
-                    "UPDATE Categorias SET {0} WHERE IdCategoria = {1}",
-                    valores, ClavePrimaria);
-                MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                if (imagenBytes != null) cmd.Parameters.Add("@imagen", MySqlDbType.MediumBlob).Value = imagenBytes;
-                cmd.ExecuteNonQuery();
+                string sql = string.Format("UPDATE Categorias SET {0} WHERE IdCategoria = {1}", valores, ClavePrimaria);
+                if (ImagenCambiada && imagenBytes != null) EjecutarSentencia(sql, imagenBytes);
+                else EjecutarSentencia(sql);
 
                 InformarAccionConExito();
                 this.Close();
@@ -225,8 +223,7 @@ namespace Garmoxu_Desktop
         #region Validaciones y comprobaciones
         private bool ValidarDatosCompletados()
         {
-            if (!string.IsNullOrEmpty(TxtNombre.Texts.Trim()))
-                return true;
+            if (!string.IsNullOrEmpty(TxtNombre.Texts.Trim())) return true;
 
             string mensaje = "¡Debes completar todos los datos!";
             ShowWarningMessage(mensaje, "");
@@ -235,8 +232,7 @@ namespace Garmoxu_Desktop
 
         private bool ValidarFormatoNombre()
         {
-            if (TxtNombre.Texts.Trim().Length < 101)
-                return true;
+            if (TxtNombre.Texts.Trim().Length < 101) return true;
 
             string mensaje = "¡El nombre de la categoría no puede contener más de 100 caracteres!";
             ShowWarningMessage(mensaje, "");
@@ -246,14 +242,10 @@ namespace Garmoxu_Desktop
         private bool ValidarNombreNoRegistrado()
         {
             string sql = "SELECT Nombre FROM Categorias WHERE Nombre = '" + TxtNombre.Texts.Trim() + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
+            string scalar = EjecutarScalar(sql);
 
-            if (cmd.ExecuteScalar() == null)
-                return true;
-
-            bool esIdActual = !string.IsNullOrEmpty(ClavePrimaria) && cmd.ExecuteScalar().ToString().Equals(DatosIniciales[0]);
-            if (esIdActual)
-                return true;
+            if (string.IsNullOrEmpty(scalar)) return true;
+            if (!string.IsNullOrEmpty(ClavePrimaria) && scalar.Equals(DatosIniciales[0])) return true;
 
             string mensaje = "¡El nombre escogido ya está en uso!";
             ShowWarningMessage(mensaje, "");

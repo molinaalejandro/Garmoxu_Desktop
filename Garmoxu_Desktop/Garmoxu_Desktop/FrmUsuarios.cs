@@ -11,23 +11,22 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
+using static Garmoxu_Desktop.ConexionMySql;
 
 namespace Garmoxu_Desktop
 {
     public partial class FrmUsuarios : Form
     {
-        private MySqlConnection ConexionBD;
         private DataSet Ds;
         private string UsuarioActual;
 
         private List<string> DatosIniciales;
         private List<string> IdsTiposUsuario;
 
-        public FrmUsuarios(MySqlConnection conexionBD, string usuarioActual)
+        public FrmUsuarios(string usuarioActual)
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
-            ConexionBD = conexionBD;
             UsuarioActual = usuarioActual;
             CargarDatos();
         }
@@ -38,11 +37,9 @@ namespace Garmoxu_Desktop
         {
             string sql = "SELECT u.NombreUsuario, u.NombreEmpleado, tu.Nombre FROM Usuarios u, TiposUsuarios tu " +
                 "WHERE u.IdTipoUsuario = tu.IdTipoUsuario ORDER BY u.NombreUsuario";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-
-            MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
+            
             Ds = new DataSet();
-            adapter.Fill(Ds, "Usuarios");
+            Ds = RecogerTabla(sql, "Usuarios");
 
             DtgUsuarios.DataSource = Ds.Tables["Usuarios"];
             DtgUsuarios.Columns[0].HeaderText = "Nombre de usuario";
@@ -56,7 +53,6 @@ namespace Garmoxu_Desktop
         private void FrmUsuarios_Shown(object sender, EventArgs e)
         {
             DtgUsuarios.ClearSelection();
-
         }
         #endregion
 
@@ -98,39 +94,11 @@ namespace Garmoxu_Desktop
         #endregion
         #endregion
 
-        #region Carga progresiva de usuarios
-        //private void DtgUsuarios_Scroll(object sender, ScrollEventArgs e)
-        //{
-        //    if ((e.Type == ScrollEventType.SmallIncrement || e.Type == ScrollEventType.LargeIncrement)
-        //        && e.NewValue >= DtgUsuarios.Rows.Count - GetDisplayedRowsCount())
-        //        RellenarDataGrid();
-        //}
-
-        //private int GetDisplayedRowsCount()
-        //{
-        //    int count = DtgUsuarios.Rows[DtgUsuarios.FirstDisplayedScrollingRowIndex].Height;
-        //    count = DtgUsuarios.Height / count;
-        //    return count;
-        //}
-
-        //private void RellenarDataGrid()
-        //{
-        //    for (int i = 0; i < CantidadRegistrosCargadosPorIteraccion; i++)
-        //    {
-        //        if (RegistrosCargados < Ds.Tables["Clientes"].Rows.Count)
-        //        {
-        //            DtgClientes.Rows.Add(Ds.Tables["Clientes"].Rows[RegistrosCargados].ItemArray[0]);
-        //            RegistrosCargados++;
-        //        }
-        //    }
-        //}
-        #endregion
-
         #region Alta de usuarios
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
             Form frmShadow = new Form();
-            FrmUsuariosDetalles f = new FrmUsuariosDetalles(ConexionBD, ref frmShadow);
+            FrmUsuariosDetalles f = new FrmUsuariosDetalles(ref frmShadow);
 
             f.ShowDialog();
             frmShadow.Close();
@@ -196,8 +164,7 @@ namespace Garmoxu_Desktop
                 ValidarNoEsUsuarioActual() && ValidarUsuarioSinPedidosEnCursoAsociados(userName))
             {
                 string sql = "DELETE FROM Usuarios WHERE NombreUsuario = '" + userName + "'";
-                MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                cmd.ExecuteNonQuery();
+                EjecutarScalar(sql);
 
                 DeshabilitarControles();
                 CargarDatos();
@@ -210,8 +177,7 @@ namespace Garmoxu_Desktop
         private bool ValidarUsuarioSinPedidosEnCursoAsociados(string userName)
         {
             string sql = "SELECT NombreUsuario FROM PedidosEnCurso WHERE NombreUsuario = '" + userName + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            if (cmd.ExecuteScalar() == null) return true;
+            if (string.IsNullOrEmpty(EjecutarScalar(sql))) return true;
             else
             {
                 string mensaje = "¡No se ha podido eliminar al usuario debido a que tiene pedidos en curso asociados! " +
@@ -258,9 +224,8 @@ namespace Garmoxu_Desktop
 
             string sql = "SELECT NombreUsuario, NombreEmpleado, IdTipoUsuario, RestablecerContraseña, ImagenUsuario " +
                 "FROM Usuarios WHERE NombreUsuario = '" + DtgUsuarios.SelectedRows[0].Cells[0].Value + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
 
-            MySqlDataReader lector = cmd.ExecuteReader();
+            MySqlDataReader lector = EjecutarConsulta(sql);
             if (lector.Read())
             {
                 DatosIniciales.Add(lector[0].ToString());
@@ -279,6 +244,7 @@ namespace Garmoxu_Desktop
 
                 CargarImagen(lector);
             }
+            CerrarConexion();
             lector.Close();
         }
 
@@ -288,14 +254,14 @@ namespace Garmoxu_Desktop
             IdsTiposUsuario = new List<string>();
 
             string sql = "SELECT Nombre, IdTipoUsuario FROM TiposUsuarios ORDER BY Nombre ASC";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
+            MySqlDataReader lector = EjecutarConsulta(sql);
 
-            MySqlDataReader lector = cmd.ExecuteReader();
             while (lector.Read())
             {
                 CboTipoUsuario.Items.Add(lector[0].ToString());
                 IdsTiposUsuario.Add(lector[1].ToString());
             }
+            CerrarConexion();
             lector.Close();
         }
 
@@ -330,8 +296,7 @@ namespace Garmoxu_Desktop
                 && ComprobarDatosModificados(ref valores) && ConfirmarAccion("guardar los cambios realizados en") && ValidarUsuarioNoExistente())
             {
                 string sql = string.Format("UPDATE Usuarios SET {0} WHERE NombreUsuario = '{1}'", valores, DatosIniciales[0]);
-                MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                cmd.ExecuteNonQuery();
+                EjecutarSentencia(sql);
 
                 InformarCambioContraseña();
 
@@ -384,8 +349,7 @@ namespace Garmoxu_Desktop
         private bool ValidarUsuarioDisponible(string userName)
         {
             string sql = "SELECT NombreUsuario FROM Usuarios WHERE NombreUsuario = '" + userName + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            if (cmd.ExecuteScalar() != null) return true;
+            if (!string.IsNullOrEmpty(EjecutarScalar(sql))) return true;
             else
             {
                 CargarDatos();
@@ -437,10 +401,10 @@ namespace Garmoxu_Desktop
         private bool ValidarUsuarioNoExistente()
         {
             string sql = "SELECT NombreUsuario FROM Usuarios WHERE NombreUsuario = '" + TxtUsuario.Texts + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
+            string scalar = EjecutarScalar(sql);
 
-            if (cmd.ExecuteScalar() == null) return true;
-            else if(!cmd.ExecuteScalar().ToString().Equals(DatosIniciales[0]))
+            if (string.IsNullOrEmpty(scalar)) return true;
+            else if(!scalar.Equals(DatosIniciales[0]))
             {
                 string mensaje = "¡El nombre de usuario ya está registrado!";
                 ShowWarningMessage(mensaje, "");

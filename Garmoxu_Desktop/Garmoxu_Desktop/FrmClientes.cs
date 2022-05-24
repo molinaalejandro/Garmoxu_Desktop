@@ -11,23 +11,21 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
+using static Garmoxu_Desktop.ConexionMySql;
 
 namespace Garmoxu_Desktop
 {
     public partial class FrmClientes : Form
     {
-        private MySqlConnection ConexionBD;
         private DataSet Ds;
         private List<string> DatosIniciales;
-
         private int RegistrosCargados;
         private const int CantidadRegistrosCargadosPorIteraccion = 50;
 
-        public FrmClientes(MySqlConnection conexionBD)
+        public FrmClientes()
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
-            ConexionBD = conexionBD;
             CargarDatos();
         }
 
@@ -41,12 +39,9 @@ namespace Garmoxu_Desktop
         #region Cargar datos
         private void CargarDatos()
         {
-            Ds = new DataSet();
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
             string sql = "SELECT TelefonoCliente FROM Clientes ORDER BY TelefonoCliente ASC";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            adapter.SelectCommand = cmd;
-            adapter.Fill(Ds, "Clientes");
+            Ds = new DataSet();
+            Ds = RecogerTabla(sql, "Clientes");
 
             ResetearDataGrid();
             RellenarDataGrid();
@@ -131,22 +126,17 @@ namespace Garmoxu_Desktop
         {
             if (!string.IsNullOrEmpty(TxtBuscar.Texts.Trim()) || TxtBuscar.Texts.Trim().Equals("Buscar por teléfono de cliente"))
             {
-                Ds = new DataSet();
-                MySqlDataAdapter adapter = new MySqlDataAdapter();
-
                 string busqueda = TxtBuscar.Texts.Replace(" ", "");
                 string sql = "SELECT TelefonoCliente FROM Clientes WHERE TelefonoCliente LIKE '" + busqueda + "%' " +
                     "OR TelefonoCliente LIKE '+__" + busqueda + "%' OR TelefonoCliente LIKE '+" + busqueda + "%' " +
                     "ORDER BY TelefonoCliente ASC";
-                MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                adapter.SelectCommand = cmd;
-                adapter.Fill(Ds, "Clientes");
+                Ds = new DataSet();
+                Ds = RecogerTabla(sql, "Clientes");
 
                 ResetearDataGrid();
                 RellenarDataGrid();
             }
-            else
-                CargarDatos();
+            else CargarDatos();
 
             LimpiarControles();
         }
@@ -184,14 +174,12 @@ namespace Garmoxu_Desktop
         {
             Tbc.SelectedTab = tabPage2;
             tableLayoutPanel4.Visible = true;
-            //Tbc.Visible = true;
         }
 
         #region Boton de guardar
         private void TextBoxAlta_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar.Equals((char)Keys.Enter))
-                BtnRegistrarDatos_Click(null, null);
+            if (e.KeyChar.Equals((char)Keys.Enter)) BtnRegistrarDatos_Click(null, null);
         }
 
         private void BtnRegistrarDatos_Click(object sender, EventArgs e)
@@ -199,15 +187,10 @@ namespace Garmoxu_Desktop
             if (ValidarDatosCompletados() && ValidarFormatoTelefono(TxtTelefonoTB2.Texts.Replace(" ", ""))
                 && ConfirmarAccion("dar de alta") && ValidarTelefonoNoRegistrado(TxtTelefonoTB2))
             {
-                string sql = string.Format(
-                    "INSERT INTO Clientes (TelefonoCliente, Direccion, CantidadPedidos, Nombre) " +
+                string sql = string.Format( "INSERT INTO Clientes (TelefonoCliente, Direccion, CantidadPedidos, Nombre) " +
                     "VALUES ('{0}', '{1}', 0, '{2}')",
-                    TxtTelefonoTB2.Texts.Replace(" ", ""),
-                    TxtDireccionTB2.Texts.Trim(),
-                    TxtNombreTB2.Texts.Trim());
-
-                MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                cmd.ExecuteNonQuery();
+                    TxtTelefonoTB2.Texts.Replace(" ", ""), TxtDireccionTB2.Texts.Trim(), TxtNombreTB2.Texts.Trim());
+                EjecutarSentencia(sql);
 
                 CargarDatos();
                 LimpiarControles();
@@ -226,12 +209,9 @@ namespace Garmoxu_Desktop
             {
                 Tbc.SelectedTab = tabPage1;
                 tableLayoutPanel9.Visible = true;
-                //Tbc.Visible = true;
 
                 string sql = "SELECT * FROM Clientes WHERE TelefonoCliente = '" + tlfSeleccionado + "'";
-
-                MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                MySqlDataReader lector = cmd.ExecuteReader();
+                MySqlDataReader lector = EjecutarConsulta(sql);
 
                 if (lector.Read())
                 {
@@ -245,6 +225,7 @@ namespace Garmoxu_Desktop
                     DatosIniciales.Add(TxtDireccionTB1.Texts);
                     DatosIniciales.Add(TxtNombreTB1.Texts);
                 }
+                CerrarConexion();
                 lector.Close();
             }
         }
@@ -253,8 +234,7 @@ namespace Garmoxu_Desktop
         #region Boton de modificación de cliente
         private void TextBoxModificacion_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if (e.KeyChar.Equals((char)Keys.Enter))
-                BtnModificarCliente_Click(null, null);
+            if (e.KeyChar.Equals((char)Keys.Enter)) BtnModificarCliente_Click(null, null);
         }
 
         private void BtnModificarCliente_Click(object sender, EventArgs e)
@@ -264,12 +244,8 @@ namespace Garmoxu_Desktop
                 && ValidarClienteDisponible(DatosIniciales[0]) && ComprobarDatosModificados(ref valores)
                 && ConfirmarAccion("modificar") && ValidarTelefonoNoRegistrado(TxtTelefonoTB1))
             {
-                string sql = string.Format(
-                    "UPDATE Clientes SET {0} WHERE TelefonoCliente = '{1}'",
-                    valores, DatosIniciales[0]);
-
-                MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                cmd.ExecuteNonQuery();
+                string sql = string.Format("UPDATE Clientes SET {0} WHERE TelefonoCliente = '{1}'", valores, DatosIniciales[0]);
+                EjecutarSentencia(sql);
 
                 CargarDatos();
                 LimpiarControles();
@@ -301,13 +277,12 @@ namespace Garmoxu_Desktop
         private void BtnBorrarCliente_Click(object sender, EventArgs e)
         {
             string tlfActual = TxtTelefonoTB1.Texts.Replace(" ", "");
-            if (ValidarClienteDisponible(tlfActual) && ConfirmarAccion("eliminar permanentemente")
-                && !ComprobarPedidosEnCurso() && ConfirmarEliminacionConReservas())
+            if (ValidarClienteDisponible(tlfActual) && ConfirmarAccion("eliminar permanentemente") && !ComprobarPedidosEnCurso()
+                && ConfirmarEliminacionConReservas())
             {
                 string tlfSeleccionado = DtgClientes.SelectedRows[0].Cells[0].Value.ToString();
                 string sql = "DELETE FROM Clientes WHERE TelefonoCliente = '" + tlfSeleccionado + "'";
-                MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                cmd.ExecuteNonQuery();
+                EjecutarSentencia(sql);
 
                 CargarDatos();
                 LimpiarControles();
@@ -319,9 +294,7 @@ namespace Garmoxu_Desktop
         {
             string tlfSeleccionado = DtgClientes.SelectedRows[0].Cells[0].Value.ToString();
             string sql = "SELECT TelefonoCliente FROM PedidosEnCurso WHERE TelefonoCliente = '" + tlfSeleccionado + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-
-            if (cmd.ExecuteScalar() == null) return false;
+            if (string.IsNullOrEmpty(EjecutarScalar(sql))) return false;
 
             string mensaje = "¡No se puede eliminar el cliente seleccionado debido a que tiene pedidos en curso asociados! " +
                 "Finalice o cancele todos los pedidos en curso antes de continuar.";
@@ -330,30 +303,11 @@ namespace Garmoxu_Desktop
             return true;
         }
 
-        //private bool ComprobarReservasEnCurso()
-        //{
-        //    string tlfSeleccionado = DtgClientes.SelectedRows[0].Cells[0].Value.ToString();
-        //    string sql = string.Format(
-        //        "SELECT TelefonoCliente FROM Reservas WHERE TelefonoCliente = '{0}' AND Fecha >= '{1}'",
-        //        tlfSeleccionado, DateTime.Now.ToString("yyyy/MM/dd"));
-        //    MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-
-        //    if (cmd.ExecuteScalar() == null)
-        //        return false;
-
-        //    string mensaje = "¡No se puede eliminar el cliente seleccionado debido a que tiene reservas en curso asociadas! " +
-        //        "Finalice o cancele todas las reservas en curso antes de continuar";
-        //    ShowWarningMessage(mensaje, "");
-        //    return true;
-        //}
-
         private bool ConfirmarEliminacionConReservas()
         {
             string tlfSeleccionado = DtgClientes.SelectedRows[0].Cells[0].Value.ToString();
             string sql = string.Format("SELECT TelefonoCliente FROM Reservas WHERE TelefonoCliente = '{0}'", tlfSeleccionado);
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-
-            if (cmd.ExecuteScalar() == null) return true;
+            if (string.IsNullOrEmpty(EjecutarScalar(sql))) return true;
 
             string mensaje = "Este cliente tiene asociadas algunas reservas, tenga en cuenta que todas ellas serán eliminadas. ¿Desea continuar?";
             if (ShowQuestionDialog(mensaje, "").Equals(DialogResult.Yes)) return true;
@@ -365,9 +319,7 @@ namespace Garmoxu_Desktop
         private bool ValidarClienteDisponible(string tlf)
         {
             string sql = "SELECT * FROM Clientes WHERE TelefonoCliente = '" + tlf + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-
-            if (cmd.ExecuteScalar() == null)
+            if (string.IsNullOrEmpty(EjecutarScalar(sql)))
             {
                 string mensaje = "¡El cliente ya no está disponible! Alguien debe haberlo eliminado.";
                 ShowErrorMessage(mensaje, "");
@@ -418,14 +370,11 @@ namespace Garmoxu_Desktop
         private bool ValidarTelefonoNoRegistrado(RJTextBox txt)
         {
             string sql = "SELECT TelefonoCliente FROM Clientes WHERE TelefonoCliente = '" + txt.Texts.Replace(" ", "") + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
+            string scalar = EjecutarScalar(sql);
 
-            if (cmd.ExecuteScalar() == null)
-                return true;
+            if (string.IsNullOrEmpty(scalar)) return true;
 
-            bool esTlfActual = (Tbc.SelectedIndex != 1) && cmd.ExecuteScalar().ToString().Equals(DatosIniciales[0]);
-            if (esTlfActual)
-                return true;
+            if ((Tbc.SelectedIndex != 1) && scalar.Equals(DatosIniciales[0])) return true;
 
             string mensaje = "¡El teléfono introducido ya está registrado!";
             ShowWarningMessage(mensaje, "");

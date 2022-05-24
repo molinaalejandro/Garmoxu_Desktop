@@ -9,18 +9,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
+using static Garmoxu_Desktop.ConexionMySql;
 
 namespace Garmoxu_Desktop
 {
     public partial class FrmCategorias : Form
     {
-        private MySqlConnection ConexionBD;
-
-        public FrmCategorias(MySqlConnection conexionBD)
+        public FrmCategorias()
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
-            ConexionBD = conexionBD;
             CargarCategorias();
         }
 
@@ -37,8 +35,7 @@ namespace Garmoxu_Desktop
             LstCategorias.Items.Clear();
             ImgImagenesCateg.Images.Clear();
 
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            MySqlDataReader lector = cmd.ExecuteReader();
+            MySqlDataReader lector = EjecutarConsulta(sql);
 
             while (lector.Read())
             {
@@ -47,6 +44,7 @@ namespace Garmoxu_Desktop
                 LstCategorias.Items[LstCategorias.Items.Count - 1].Tag = lector[0].ToString(); // ClavePrimaria guardada en tag
             }
             lector.Close();
+            CerrarConexion();
         }
 
         private Image CargarImagen(MySqlDataReader lector)
@@ -154,7 +152,7 @@ namespace Garmoxu_Desktop
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
             Form frmShadow = new Form();
-            FrmCategoriasDetalles frm = new FrmCategoriasDetalles(ConexionBD, string.Empty, ref frmShadow);
+            FrmCategoriasDetalles frm = new FrmCategoriasDetalles(string.Empty, ref frmShadow);
             BtnEliminar.Enabled = false;
 
             frm.ShowDialog();
@@ -169,7 +167,7 @@ namespace Garmoxu_Desktop
             string clavePrimaria = LstCategorias.SelectedItems[0].Tag.ToString();
 
             Form frmShadow = new Form();
-            FrmCategoriasDetalles frm = new FrmCategoriasDetalles(ConexionBD, clavePrimaria, ref frmShadow);
+            FrmCategoriasDetalles frm = new FrmCategoriasDetalles(clavePrimaria, ref frmShadow);
             BtnEliminar.Enabled = false;
 
             frm.ShowDialog();
@@ -186,8 +184,7 @@ namespace Garmoxu_Desktop
             if (ConfirmarAccion("eliminar permanentemente") && ValidarCategoriaSinPlatosAsociados(idCategoria))
             {
                 string sql = "DELETE FROM Categorias WHERE IdCategoria = '" + idCategoria + "'";
-                MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                cmd.ExecuteNonQuery();
+                EjecutarSentencia(sql);
 
                 ImgImagenesCateg.Images.RemoveAt(LstCategorias.SelectedItems[0].ImageIndex);
                 LstCategorias.Items.RemoveAt(LstCategorias.SelectedItems[0].Index);
@@ -199,9 +196,8 @@ namespace Garmoxu_Desktop
         private bool ValidarCategoriaSinPlatosAsociados(string idCategoria)
         {
             string sql = "Select IdCategoria FROM PlatosComida WHERE IdCategoria = '" + idCategoria + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
 
-            if (cmd.ExecuteScalar() == null) return true;
+            if (string.IsNullOrEmpty(EjecutarScalar(sql))) return true;
 
             string mensaje = "¡No se ha podido eliminar la categoría ya que tiene platos asociados! " +
                 "Elimínalos o cámbialos de categoría para poder continuar.";

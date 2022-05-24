@@ -190,7 +190,6 @@
             this.TxtBuscar.TabStop = false;
             this.TxtBuscar.Texts = "Buscar por teléfono de cliente";
             this.TxtBuscar.UnderlinedStyle = false;
-            this.TxtBuscar._TextChanged += new System.EventHandler(this.TxtBuscar__TextChanged);
             this.TxtBuscar.Enter += new System.EventHandler(this.TxtBuscar_Enter);
             this.TxtBuscar.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TxtBuscar_KeyPress);
             this.TxtBuscar.Leave += new System.EventHandler(this.TxtBuscar_Leave);

@@ -263,7 +263,7 @@ namespace Garmoxu_Desktop
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Silver;
-            this.label1.Location = new System.Drawing.Point(0, 107);
+            this.label1.Location = new System.Drawing.Point(0, 110);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 33);
@@ -281,7 +281,7 @@ namespace Garmoxu_Desktop
             this.TxtNombre.Enabled = false;
             this.TxtNombre.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
             this.TxtNombre.ForeColor = System.Drawing.Color.Gainsboro;
-            this.TxtNombre.Location = new System.Drawing.Point(5, 145);
+            this.TxtNombre.Location = new System.Drawing.Point(5, 148);
             this.TxtNombre.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.TxtNombre.Multiline = false;
             this.TxtNombre.Name = "TxtNombre";
@@ -289,7 +289,7 @@ namespace Garmoxu_Desktop
             this.TxtNombre.PasswordChar = false;
             this.TxtNombre.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtNombre.PlaceholderText = "";
-            this.TxtNombre.Size = new System.Drawing.Size(345, 55);
+            this.TxtNombre.Size = new System.Drawing.Size(345, 52);
             this.TxtNombre.TabIndex = 3;
             this.TxtNombre.TabStop = false;
             this.TxtNombre.Texts = "";
@@ -314,7 +314,7 @@ namespace Garmoxu_Desktop
             this.TxtIdPlato.PasswordChar = false;
             this.TxtIdPlato.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtIdPlato.PlaceholderText = "";
-            this.TxtIdPlato.Size = new System.Drawing.Size(345, 55);
+            this.TxtIdPlato.Size = new System.Drawing.Size(345, 52);
             this.TxtIdPlato.TabIndex = 1;
             this.TxtIdPlato.TabStop = false;
             this.TxtIdPlato.Texts = "";
@@ -337,7 +337,7 @@ namespace Garmoxu_Desktop
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.Silver;
-            this.label7.Location = new System.Drawing.Point(431, 450);
+            this.label7.Location = new System.Drawing.Point(431, 447);
             this.label7.Margin = new System.Windows.Forms.Padding(0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(149, 33);
@@ -349,7 +349,7 @@ namespace Garmoxu_Desktop
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.Silver;
-            this.label3.Location = new System.Drawing.Point(0, 450);
+            this.label3.Location = new System.Drawing.Point(0, 447);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(128, 33);
@@ -367,7 +367,7 @@ namespace Garmoxu_Desktop
             this.TxtListaAlergenos.Enabled = false;
             this.TxtListaAlergenos.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
             this.TxtListaAlergenos.ForeColor = System.Drawing.Color.Gainsboro;
-            this.TxtListaAlergenos.Location = new System.Drawing.Point(5, 488);
+            this.TxtListaAlergenos.Location = new System.Drawing.Point(5, 485);
             this.TxtListaAlergenos.Margin = new System.Windows.Forms.Padding(5, 5, 5, 10);
             this.TxtListaAlergenos.Multiline = true;
             this.TxtListaAlergenos.Name = "TxtListaAlergenos";
@@ -410,7 +410,7 @@ namespace Garmoxu_Desktop
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.Silver;
-            this.label5.Location = new System.Drawing.Point(0, 339);
+            this.label5.Location = new System.Drawing.Point(0, 336);
             this.label5.Margin = new System.Windows.Forms.Padding(0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(126, 33);
@@ -422,7 +422,7 @@ namespace Garmoxu_Desktop
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
             this.label9.ForeColor = System.Drawing.Color.Silver;
-            this.label9.Location = new System.Drawing.Point(431, 339);
+            this.label9.Location = new System.Drawing.Point(431, 336);
             this.label9.Margin = new System.Windows.Forms.Padding(0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(182, 33);
@@ -436,7 +436,7 @@ namespace Garmoxu_Desktop
             this.ChkDisponibilidad.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ChkDisponibilidad.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ChkDisponibilidad.Enabled = false;
-            this.ChkDisponibilidad.Location = new System.Drawing.Point(435, 376);
+            this.ChkDisponibilidad.Location = new System.Drawing.Point(435, 373);
             this.ChkDisponibilidad.Margin = new System.Windows.Forms.Padding(4);
             this.ChkDisponibilidad.MinimumSize = new System.Drawing.Size(60, 27);
             this.ChkDisponibilidad.Name = "ChkDisponibilidad";
@@ -460,7 +460,7 @@ namespace Garmoxu_Desktop
             this.TxtDescripcion.Enabled = false;
             this.TxtDescripcion.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
             this.TxtDescripcion.ForeColor = System.Drawing.Color.Gainsboro;
-            this.TxtDescripcion.Location = new System.Drawing.Point(436, 488);
+            this.TxtDescripcion.Location = new System.Drawing.Point(436, 485);
             this.TxtDescripcion.Margin = new System.Windows.Forms.Padding(5, 5, 5, 10);
             this.TxtDescripcion.Multiline = true;
             this.TxtDescripcion.Name = "TxtDescripcion";
@@ -493,7 +493,7 @@ namespace Garmoxu_Desktop
             this.TxtPrecioConIva.PasswordChar = false;
             this.TxtPrecioConIva.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtPrecioConIva.PlaceholderText = "";
-            this.TxtPrecioConIva.Size = new System.Drawing.Size(351, 55);
+            this.TxtPrecioConIva.Size = new System.Drawing.Size(351, 52);
             this.TxtPrecioConIva.TabIndex = 3;
             this.TxtPrecioConIva.TabStop = false;
             this.TxtPrecioConIva.Texts = "";
@@ -518,7 +518,7 @@ namespace Garmoxu_Desktop
             this.TxtPrecioSinIva.PasswordChar = false;
             this.TxtPrecioSinIva.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtPrecioSinIva.PlaceholderText = "";
-            this.TxtPrecioSinIva.Size = new System.Drawing.Size(351, 55);
+            this.TxtPrecioSinIva.Size = new System.Drawing.Size(351, 52);
             this.TxtPrecioSinIva.TabIndex = 5;
             this.TxtPrecioSinIva.TabStop = false;
             this.TxtPrecioSinIva.Texts = "";
@@ -529,7 +529,7 @@ namespace Garmoxu_Desktop
             this.panel1.Controls.Add(this.LblCboDisabled);
             this.panel1.Controls.Add(this.CboCategorias);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 375);
+            this.panel1.Location = new System.Drawing.Point(3, 372);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(355, 52);
             this.panel1.TabIndex = 15;

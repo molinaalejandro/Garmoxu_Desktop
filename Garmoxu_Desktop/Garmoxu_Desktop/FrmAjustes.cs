@@ -12,6 +12,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
+using static Garmoxu_Desktop.ConexionMySql;
 
 namespace Garmoxu_Desktop
 {
@@ -19,7 +20,6 @@ namespace Garmoxu_Desktop
     {
         private FrmMain Instance;
         private FrmInicioSesion InstanceInicioSesion;
-        private MySqlConnection ConexionBD;
 
         private int NivelPermisos;
 
@@ -38,7 +38,7 @@ namespace Garmoxu_Desktop
 
         private List<string> DatosIniciales;
 
-        public FrmAjustes(FrmMain instance, FrmInicioSesion instanceInicioSesion, MySqlConnection conexionBD, Panel pnlFormularios,
+        public FrmAjustes(FrmMain instance, FrmInicioSesion instanceInicioSesion, Panel pnlFormularios,
             string usuarioActual, Image imagenUsuario, int nivelPermisos, string nombreRestaurante, string horaApertura, string horaCierre,
             int iva, bool ventanaCompleta, bool modoDiurno)
         {
@@ -50,7 +50,6 @@ namespace Garmoxu_Desktop
 
             Instance = instance;
             InstanceInicioSesion = instanceInicioSesion;
-            ConexionBD = conexionBD;
             PnlFormularios = pnlFormularios;
             UsuarioInicial = usuarioActual;
             ImagenInicial = imagenUsuario;
@@ -142,24 +141,18 @@ namespace Garmoxu_Desktop
         private void CargarDatoRestablecerContraseña()
         {
             string sql = "SELECT RestablecerContraseña FROM Usuarios WHERE NombreUsuario = '" + UsuarioInicial + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            if (cmd.ExecuteScalar() != null)
-            {
-                if (cmd.ExecuteScalar().ToString().Equals("False"))
-                    BtnRestablecer.Checked = false;
-                else
-                    BtnRestablecer.Checked = true;
-            }
+            if (EjecutarScalar(sql).Equals("False")) BtnRestablecer.Checked = false;
+            else BtnRestablecer.Checked = true;
         }
 
         private int CargarDatoNumeroMesas()
         {
             string sql = "SELECT COUNT(*) FROM Mesas";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            if (cmd.ExecuteScalar() != null)
+            string scalar = EjecutarScalar(sql);
+            if (!string.IsNullOrEmpty(scalar))
             {
-                NucNumeroMesas.Value = decimal.Parse(cmd.ExecuteScalar().ToString());
-                return int.Parse(cmd.ExecuteScalar().ToString());
+                NucNumeroMesas.Value = decimal.Parse(scalar);
+                return int.Parse(scalar);
             }
 
             return 0;
@@ -261,29 +254,25 @@ namespace Garmoxu_Desktop
 
         private void ActualizarImagen()
         {
-            byte[] imagenBytes = (byte[])(new ImageConverter()).ConvertTo(PicPerfil.Image, typeof(byte[]));
             string sql = "UPDATE Usuarios SET ImagenUsuario = @imagen WHERE NombreUsuario = '" + UsuarioInicial + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            cmd.Parameters.Add("@imagen", MySqlDbType.MediumBlob).Value = imagenBytes;
-            cmd.ExecuteNonQuery();
+            byte[] imagenBytes = (byte[])new ImageConverter().ConvertTo(PicPerfil.Image, typeof(byte[]));
+            EjecutarSentencia(sql, imagenBytes);
         }
 
         private void ActualizarNombreUsuario()
         {
-            string sql = "UPDATE Usuarios SET NombreUsuario = '" + TxtNombreUsuario.Texts.Trim()
-                + "' WHERE NombreUsuario = '" + UsuarioInicial + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            cmd.ExecuteNonQuery();
+            string sql = "UPDATE Usuarios SET NombreUsuario = '" + TxtNombreUsuario.Texts.Trim() + "' " +
+                "WHERE NombreUsuario = '" + UsuarioInicial + "'";
+            EjecutarSentencia(sql);
         }
 
         private void ActualizarRestablecerContraseña()
         {
             int restablecer = 0;
             if (BtnRestablecer.Checked) restablecer = 1;
-            string sql = "UPDATE Usuarios SET RestablecerContraseña = '" + restablecer
-                + "' WHERE NombreUsuario = '" + UsuarioInicial + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            cmd.ExecuteNonQuery();
+            string sql = "UPDATE Usuarios SET RestablecerContraseña = '" + restablecer + "' " +
+                "WHERE NombreUsuario = '" + UsuarioInicial + "'";
+            EjecutarSentencia(sql);
         }
 
         private void ModificarMesas()
@@ -291,9 +280,8 @@ namespace Garmoxu_Desktop
             int numeroMesasBase = 0;
 
             string sql = "SELECT COUNT(*) FROM Mesas";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            if (cmd.ExecuteScalar() != null)
-                numeroMesasBase = int.Parse(cmd.ExecuteScalar().ToString());
+            string scalar = EjecutarScalar(sql);
+            if (!string.IsNullOrEmpty(scalar)) numeroMesasBase = int.Parse(scalar);
 
             decimal numeroMesasActuales = NucNumeroMesas.Value;
             decimal diferenciaNumeroMesas = 0;
@@ -309,16 +297,13 @@ namespace Garmoxu_Desktop
                 sql = "DELETE FROM Mesas ORDER BY IdMesa DESC LIMIT 1";
             }
 
-            cmd = new MySqlCommand(sql, ConexionBD);
-            for (int i = 0; i < diferenciaNumeroMesas; i++)
-                cmd.ExecuteNonQuery();
+            for (int i = 0; i < diferenciaNumeroMesas; i++) EjecutarSentencia(sql);
 
-            cmd.CommandText = "SELECT COUNT(*) FROM Mesas";
-            string numeroMesasTotales = cmd.ExecuteScalar().ToString();
+            sql = "SELECT COUNT(*) FROM Mesas";
+            string numeroMesasTotales = EjecutarScalar(sql);
 
-            cmd.CommandText = "ALTER TABLE Mesas AUTO_INCREMENT = " + numeroMesasTotales;
-            cmd.ExecuteNonQuery();
-
+            sql = "ALTER TABLE Mesas AUTO_INCREMENT = " + numeroMesasTotales;
+            EjecutarSentencia(sql);
         }
 
         #region Comprobacion de datos modificados
@@ -333,21 +318,13 @@ namespace Garmoxu_Desktop
                 datosActuales += datosActualesLista[i];
                 if (i != datosActualesLista.Count - 1) datosActuales += ";";
 
-                if (!DatosIniciales[i].Equals(datosActualesLista[i]))
-                    modificacionRealizada = true;
+                if (!DatosIniciales[i].Equals(datosActualesLista[i])) modificacionRealizada = true;
             }
 
-            if (!ImagenInicial.Equals(PicPerfil.Image))
-                modificacionRealizada = true;
-
-            if (!UsuarioInicial.Equals(TxtNombreUsuario.Texts.Trim()))
-                modificacionRealizada = true;
-
-            if (!RestablecerContraseña.Equals(BtnRestablecer.Checked))
-                modificacionRealizada = true;
-
-            if (NumeroMesasIniciales != NucNumeroMesas.Value)
-                modificacionRealizada = true;
+            if (!ImagenInicial.Equals(PicPerfil.Image)) modificacionRealizada = true;
+            if (!UsuarioInicial.Equals(TxtNombreUsuario.Texts.Trim())) modificacionRealizada = true;
+            if (!RestablecerContraseña.Equals(BtnRestablecer.Checked)) modificacionRealizada = true;
+            if (NumeroMesasIniciales != NucNumeroMesas.Value) modificacionRealizada = true;
 
             if (!modificacionRealizada) this.Close();
             return modificacionRealizada;
@@ -405,27 +382,13 @@ namespace Garmoxu_Desktop
             return true;
         }
 
-        //private bool ValidarHoraCierre()
-        //{
-        //    DateTime horaEntrada = DateTime.Parse(DtpApertura.Value.ToString("HH:mm"));
-        //    DateTime horaSalida = DateTime.Parse(DtpApertura.Value.ToString("HH:mm"));
-        //    if (horaSalida <= horaEntrada)
-        //    {
-        //        string mensaje = "¡La hora de cierre debe ser posterior a la de apertura!";
-        //        ShowWarningMessage(mensaje, "");
-        //        return false;
-        //    }
-        //    return true;
-        //}
-
         private bool ValidarUsuarioNoExistente()
         {
             string sql = "SELECT NombreUsuario FROM Usuarios WHERE NombreUsuario = '" + TxtNombreUsuario.Texts + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
+            string scalar = EjecutarScalar(sql);
 
-            if (cmd.ExecuteScalar() == null)
-                return true;
-            else if (!cmd.ExecuteScalar().ToString().Equals(UsuarioInicial))
+            if (!string.IsNullOrEmpty(scalar)) return true;
+            else if (!scalar.Equals(UsuarioInicial))
             {
                 string mensaje = "¡El nombre de usuario ya está registrado!";
                 ShowWarningMessage(mensaje, "");
@@ -463,8 +426,7 @@ namespace Garmoxu_Desktop
                 try
                 {
                     string ruta = "Accesos_Usuarios.csv";
-                    if (File.Exists(ruta))
-                        File.AppendAllText(ruta, ";" + DateTime.Now.ToString() + ";\n");
+                    if (File.Exists(ruta)) File.AppendAllText(ruta, ";" + DateTime.Now.ToString() + ";\n");
                 }
                 catch (Exception ex) { ShowErrorMessage(ex.Message, ""); }
 

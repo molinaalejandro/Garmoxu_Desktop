@@ -13,12 +13,12 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
+using static Garmoxu_Desktop.ConexionMySql;
 
 namespace Garmoxu_Desktop
 {
     public partial class FrmPlatosDetalles : Form
     {
-        private MySqlConnection ConexionBD;
         private string ClavePrimaria;
 
         private List<string> DatosIniciales = new List<string>();
@@ -29,11 +29,10 @@ namespace Garmoxu_Desktop
 
         private int IVA;
 
-        public FrmPlatosDetalles(MySqlConnection conexionBD, string clavePrimaria, int iva, ref Form frmShadow)
+        public FrmPlatosDetalles(string clavePrimaria, int iva, ref Form frmShadow)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
-            ConexionBD = conexionBD;
             ClavePrimaria = clavePrimaria;
             IVA = iva;
 
@@ -51,18 +50,18 @@ namespace Garmoxu_Desktop
         #region Cargar categorias
         public void CargarCategorias()
         {
-            string sql = "SELECT DISTINCT Nombre, IdCategoria FROM Categorias ORDER BY Nombre ASC";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-
             CboCategorias.Items.Clear();
             IdsCategorias = new List<string>();
 
-            MySqlDataReader lector = cmd.ExecuteReader();
+            string sql = "SELECT DISTINCT Nombre, IdCategoria FROM Categorias ORDER BY Nombre ASC";
+            MySqlDataReader lector = EjecutarConsulta(sql);
+
             while (lector.Read())
             {
                 CboCategorias.Items.Add(lector.GetString(0));
                 IdsCategorias.Add(lector.GetString(1));
             }
+            CerrarConexion();
             lector.Close();
         }
         #endregion
@@ -83,9 +82,8 @@ namespace Garmoxu_Desktop
         private void CargarDatos()
         {
             string sql = "SELECT * FROM PlatosComida WHERE IdPlatoComida = '" + ClavePrimaria + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
+            MySqlDataReader lector = EjecutarConsulta(sql);
 
-            MySqlDataReader lector = cmd.ExecuteReader();
             if (lector.Read())
             {
                 TxtIdPlato.Texts = lector["IdPlatoComida"].ToString();
@@ -117,6 +115,7 @@ namespace Garmoxu_Desktop
                 DatosIniciales.Add(disponibilidad.ToString());
                 DatosIniciales.Add(IdsCategorias[indexCategoria]);
             }
+            CerrarConexion();
             lector.Close();
         }
 
@@ -135,19 +134,6 @@ namespace Garmoxu_Desktop
             PicFotoPlato.Image = ImagenInicial;
             PicFotoPlato.SizeMode = PictureBoxSizeMode.StretchImage;
         }
-
-        //public string CargarNombreCategoria(string idCategoria)
-        //{
-        //    string sql = "SELECT Nombre FROM Categorias WHERE IdCategoria = " + idCategoria;
-        //    MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-
-        //    MySqlDataReader lector = cmd.ExecuteReader();
-        //    lector.Read();
-        //    string categoria = lector[0].ToString();
-        //    lector.Close();
-
-        //    return categoria;
-        //}
         #endregion
         #endregion
 
@@ -245,13 +231,12 @@ namespace Garmoxu_Desktop
                     datosActuales[4], ImagenCambiada ? "@imagen" : "NULL", datosActuales[5], datosActuales[6], datosActuales[7]
                     );
 
-                MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
                 if (ImagenCambiada)
                 {
-                    byte[] imagenBytes = (byte[])(new ImageConverter()).ConvertTo(PicFotoPlato.Image, typeof(byte[]));
-                    cmd.Parameters.Add("@imagen", MySqlDbType.MediumBlob).Value = imagenBytes;
+                    byte[] imagenBytes = (byte[])new ImageConverter().ConvertTo(PicFotoPlato.Image, typeof(byte[]));
+                    EjecutarSentencia(sql, imagenBytes);
                 }
-                cmd.ExecuteNonQuery();
+                else EjecutarSentencia(sql);
 
                 InformarAccionConExito();
                 this.Close();
@@ -269,9 +254,8 @@ namespace Garmoxu_Desktop
                 && ValidarPlatoNoRepetido() && ValidarNombreNoRegistrado())
             {
                 string sql = "UPDATE PlatosComida SET " + valores + " WHERE IdPlatoComida = '" + ClavePrimaria + "'";
-                MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                if (ImagenCambiada && imagenBytes != null) cmd.Parameters.Add("@imagen", MySqlDbType.MediumBlob).Value = imagenBytes;
-                cmd.ExecuteNonQuery();
+                if (ImagenCambiada && imagenBytes != null) EjecutarSentencia(sql, imagenBytes);
+                else EjecutarSentencia(sql);
 
                 InformarAccionConExito();
                 this.Close();
@@ -349,16 +333,12 @@ namespace Garmoxu_Desktop
             try
             {
                 conIva = decimal.Parse(TxtPrecioConIva.Texts.Replace(".", ",")).ToString(CultureInfo.CreateSpecificCulture("en-GB"));
-                if (!conIva.Contains('.'))
-                    conIva += ".00";
-                else if (conIva.Split('.')[1].Length == 1)
-                    conIva += "0";
+                if (!conIva.Contains('.')) conIva += ".00";
+                else if (conIva.Split('.')[1].Length == 1) conIva += "0";
 
                 sinIva = decimal.Parse(TxtPrecioSinIva.Texts.Replace(".", ",")).ToString(CultureInfo.CreateSpecificCulture("en-GB"));
-                if (!sinIva.Contains('.'))
-                    sinIva += ".00";
-                else if (sinIva.Split('.')[1].Length == 1)
-                    sinIva += "0";
+                if (!sinIva.Contains('.')) sinIva += ".00";
+                else if (sinIva.Split('.')[1].Length == 1) sinIva += "0";
             }
             catch (FormatException ex)
             {
@@ -412,11 +392,11 @@ namespace Garmoxu_Desktop
         private bool ValidarPlatoNoRepetido()
         {
             string sql = "SELECT IdPlatoComida FROM PlatosComida WHERE IdPlatoComida = '" + TxtIdPlato.Texts.Replace(" ", "") + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
+            string scalar = EjecutarScalar(sql);
 
-            if (cmd.ExecuteScalar() == null) return true;
+            if (string.IsNullOrEmpty(scalar)) return true;
 
-            bool esIdActual = !string.IsNullOrEmpty(ClavePrimaria) && cmd.ExecuteScalar().ToString().Equals(DatosIniciales[0]);
+            bool esIdActual = !string.IsNullOrEmpty(ClavePrimaria) && scalar.Equals(DatosIniciales[0]);
             if (esIdActual) return true;
 
             string mensaje = "¡El identificador del plato introducido ya está registrado!";
@@ -427,11 +407,11 @@ namespace Garmoxu_Desktop
         private bool ValidarNombreNoRegistrado()
         {
             string sql = "SELECT Nombre FROM PlatosComida WHERE Nombre = '" + TxtNombre.Texts.Trim() + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
+            string scalar = EjecutarScalar(sql);
 
-            if (cmd.ExecuteScalar() == null) return true;
+            if (string.IsNullOrEmpty(scalar)) return true;
 
-            bool esNombreActual = !string.IsNullOrEmpty(ClavePrimaria) && cmd.ExecuteScalar().ToString().Equals(DatosIniciales[1]);
+            bool esNombreActual = !string.IsNullOrEmpty(ClavePrimaria) && scalar.Equals(DatosIniciales[1]);
             if (esNombreActual) return true;
 
             string mensaje = "¡El nombre del plato introducido ya está registrado!";
@@ -451,11 +431,9 @@ namespace Garmoxu_Desktop
             if (ofd.ShowDialog().Equals(DialogResult.OK))
             {
                 string ruta = ofd.FileName;
-
                 if (new FileInfo(ruta).Length <= 15000000)
                 {
                     PicFotoPlato.Image = Image.FromFile(ruta); ;
-                    PicFotoPlato.SizeMode = PictureBoxSizeMode.StretchImage;
                     ImagenCambiada = true;
                 }
                 else ShowWarningMessage("¡La imagen no puede ser mayor de 15MB!", "");
@@ -467,12 +445,10 @@ namespace Garmoxu_Desktop
         private void TxtPrecio__TextChanged(object sender, EventArgs e)
         {
             TextBox txtActual = sender as TextBox;
-            RJTextBox RJtxtActual = txtActual.Parent as RJTextBox;
             int initialCaretPosition = txtActual.SelectionStart;
 
             RJTextBox txtAsignar = TxtPrecioConIva;
-            if (txtActual.Parent.Name.Equals("TxtPrecioConIva"))
-                txtAsignar = TxtPrecioSinIva;
+            if (txtActual.Parent.Name.Equals("TxtPrecioConIva")) txtAsignar = TxtPrecioSinIva;
 
             decimal ivaLocal = decimal.Parse("1," + IVA.ToString());
 
@@ -483,10 +459,8 @@ namespace Garmoxu_Desktop
                 decimal numFormateado = decimal.Parse(precio, CultureInfo.InvariantCulture);
                 decimal numResult;
 
-                if (txtActual.Parent.Name.Equals("TxtPrecioConIva"))
-                    numResult = decimal.Round(numFormateado / ivaLocal, 2);
-                else
-                    numResult = decimal.Round(numFormateado * ivaLocal, 2);
+                if (txtActual.Parent.Name.Equals("TxtPrecioConIva")) numResult = decimal.Round(numFormateado / ivaLocal, 2);
+                else numResult = decimal.Round(numFormateado * ivaLocal, 2);
 
                 if (!CalcularParadaTextBox(txtAsignar, txtActual, ivaLocal))
                 {
@@ -508,10 +482,8 @@ namespace Garmoxu_Desktop
                 decimal numTxtAsignar = decimal.Parse(textTxtAsignar, CultureInfo.InvariantCulture);
                 decimal numCalculado;
 
-                if (txtAsignar.Name.Equals("TxtPrecioConIva"))
-                    numCalculado = decimal.Round(numTxtAsignar / ivaLocal, 2);
-                else
-                    numCalculado = decimal.Round(numTxtAsignar * ivaLocal, 2);
+                if (txtAsignar.Name.Equals("TxtPrecioConIva")) numCalculado = decimal.Round(numTxtAsignar / ivaLocal, 2);
+                else numCalculado = decimal.Round(numTxtAsignar * ivaLocal, 2);
 
                 debeParar = numCalculado.ToString().Equals(txtActual.Text);
             }

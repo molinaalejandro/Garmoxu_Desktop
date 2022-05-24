@@ -19,21 +19,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
+using static Garmoxu_Desktop.ConexionMySql;
 
 namespace Garmoxu_Desktop
 {
     public partial class FrmHistorialPedidosDetalles : Form
     {
-        MySqlConnection ConexionBD;
         private string ClavePrimaria;
         private int IVA;
         private int NivelPermisos;
 
-        public FrmHistorialPedidosDetalles(MySqlConnection conexion, string clavePrimaria, ref Form frmShadow, int nivelPermisos, int iva)
+        public FrmHistorialPedidosDetalles(string clavePrimaria, ref Form frmShadow, int nivelPermisos, int iva)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
-            ConexionBD = conexion;
             ClavePrimaria = clavePrimaria;
             NivelPermisos = nivelPermisos;
             IVA = iva;
@@ -52,9 +51,8 @@ namespace Garmoxu_Desktop
         public void CargarDatosPedido()
         {
             string sql = "SELECT * FROM HistorialPedidos WHERE IdPedido = " + ClavePrimaria;
-            MySqlCommand comando = new MySqlCommand(sql, ConexionBD);
+            MySqlDataReader lector = EjecutarConsulta(sql);
 
-            MySqlDataReader lector = comando.ExecuteReader();
             if (lector.Read())
             {
                 LblTitulo.Text += ClavePrimaria;
@@ -72,6 +70,7 @@ namespace Garmoxu_Desktop
                     LblTlf.ForeColor = this.BackColor;
                 }
             }
+            CerrarConexion();
             lector.Close();
 
             CargarPlatosPedido();
@@ -80,9 +79,8 @@ namespace Garmoxu_Desktop
         public void CargarPlatosPedido()
         {
             string sql = "SELECT * FROM HistorialPedidosPlatos WHERE IdPedido = " + ClavePrimaria;
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
+            MySqlDataReader lector = EjecutarConsulta(sql);
 
-            MySqlDataReader lector = cmd.ExecuteReader();
             for (int i = 0; lector.Read(); i++)
             {
                 DtgPlatosPedidos.Rows.Add();
@@ -93,7 +91,6 @@ namespace Garmoxu_Desktop
                 DtgPlatosPedidos.Rows[i].Cells[4].Value = lector[5];
 
                 decimal cantidad = decimal.Parse(DtgPlatosPedidos.Rows[i].Cells[4].Value.ToString());
-                string v = DtgPlatosPedidos.Rows[i].Cells[2].Value.ToString();
                 decimal unitarioSinIVA = decimal.Parse(DtgPlatosPedidos.Rows[i].Cells[2].Value.ToString());
                 decimal unitarioConIVA = decimal.Parse(DtgPlatosPedidos.Rows[i].Cells[3].Value.ToString());
 
@@ -101,32 +98,8 @@ namespace Garmoxu_Desktop
                 DtgPlatosPedidos.Rows[i].Cells[6].Value = unitarioConIVA * cantidad;
 
             }
+            CerrarConexion();
             lector.Close();
-
-            //MySqlDataAdapter adapter = new MySqlDataAdapter(cmd);
-            //DataSet ds = new DataSet();
-            //adapter.Fill(ds, "HistorialPedidosPlatos");
-
-            //DtgPlatosPedidos.DataSource = ds.Tables["HistorialPedidosPlatos"];
-            //DtgPlatosPedidos.Columns.Add("PrecioFinalConIVA", "Precio final con IVA");
-            //DtgPlatosPedidos.Columns.Add("PrecioFinalSinIVA", "Precio final sin IVA");
-
-            //DtgPlatosPedidos.Columns[1].HeaderText = "Código";
-            //DtgPlatosPedidos.Columns[2].HeaderText = "Nombre";
-            //DtgPlatosPedidos.Columns[3].HeaderText = "Precio unitario con IVA";
-            //DtgPlatosPedidos.Columns[4].HeaderText = "Precio unitario sin IVA";
-            //DtgPlatosPedidos.Columns[5].HeaderText = "Cantidad";
-            //DtgPlatosPedidos.Columns[6].HeaderText = "Precio final sin IVA";
-            //DtgPlatosPedidos.Columns[7].HeaderText = "Precio final con IVA";
-
-            //foreach (DataGridViewRow row in DtgPlatosPedidos.Rows)
-            //{
-            //    decimal finalConIVA = decimal.Parse(row.Cells[3].Value.ToString()) * decimal.Parse(row.Cells[5].Value.ToString());
-            //    decimal finalSinIVA = decimal.Parse(row.Cells[4].Value.ToString()) * decimal.Parse(row.Cells[5].Value.ToString());
-
-            //    row.Cells[6].Value = finalConIVA;
-            //    row.Cells[7].Value = finalSinIVA;
-            //}
         }
         #endregion
 
@@ -235,10 +208,8 @@ namespace Garmoxu_Desktop
         {
             FolderBrowserDialog fbd = new FolderBrowserDialog();
             fbd.Description = "Seleccione un directorio para exportar en formato PDF los datos del pedido.";
-            if (fbd.ShowDialog().Equals(DialogResult.OK))
-                return fbd.SelectedPath;
-            else
-                return string.Empty;
+            if (fbd.ShowDialog().Equals(DialogResult.OK)) return fbd.SelectedPath;
+            else return string.Empty;
         }
 
         #region Cabecera
@@ -441,9 +412,7 @@ namespace Garmoxu_Desktop
                 if (ConfirmarAccion("eliminar permanentemente"))
                 {
                     string sql = "DELETE FROM HistorialPedidos WHERE IdPedido = " + ClavePrimaria;
-                    MySqlCommand comando = new MySqlCommand(sql, ConexionBD);
-                    comando.ExecuteNonQuery();
-
+                    EjecutarSentencia(sql);
                     InformarAccionConExito();
                     this.Close();
                 }

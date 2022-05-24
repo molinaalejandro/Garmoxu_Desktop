@@ -14,14 +14,12 @@ using System.Threading.Tasks;
 using System.util;
 using System.Windows.Forms;
 using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
+using static Garmoxu_Desktop.ConexionMySql;
 
 namespace Garmoxu_Desktop
 {
     public partial class FrmInicioSesion : Form
     {
-        // Instancia de la conexión a la base de datos.
-        private MySqlConnection ConexionBD;
-
         // Usuario actual con el que está logeado.
         private string UsuarioActual;
 
@@ -29,55 +27,12 @@ namespace Garmoxu_Desktop
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
-            //Region = System.Drawing.Region.FromHrgn(CreateRoundRectRgn(0, 0, Width, Height, 150, 150));
-            AbrirConexionBD();
-
 
 
             TxtContraseña.Texts = "1234abcd";
         }
 
         #region Apertura del formulario
-        #region Conexion BD
-        // Abre la conexion a la base de datos.
-        private void AbrirConexionBD()
-        {
-            // Conexión local
-            string servidor = "localhost"; //Nombre o IP del servidor.
-            string bd = "garmoxu"; //Nombre de la base de datos.
-            string usuario = "root"; //Usuario de acceso.
-            string password = "root"; //Contraseña de usuario de acceso.
-
-            // Conexión remota
-            //string servidor = "sql781.main-hosting.eu"; //Nombre o IP del servidor.
-            //string bd = "u184120704_garmoxudb"; //Nombre de la base de datos.
-            //string usuario = "u184120704_admindam"; //Usuario de acceso.
-            //string password = "damAdmin123"; //Contraseña de usuario de acceso.
-
-            // Instancia de la conexión a la BD que recibe la cadena de conexión.
-            ConexionBD = new MySqlConnection(
-                "Database=" + bd + "; Data Source=" + servidor + "; User Id=" + usuario + "; Password=" + password + ";");
-
-            // Abre la BD y captura sus posibles errores.
-            try
-            {
-                ConexionBD.Open();
-            }
-            catch (AggregateException ex)
-            {
-                string mensaje = "No se ha podido establecer la conexión al servidor, revise su conexión a internet y el estado del servidor.";
-                if (ShowRetryDialog(mensaje, "").Equals(DialogResult.Retry)) AbrirConexionBD();
-                else Environment.Exit(0);
-            }
-            catch (Exception ex)
-            {
-                string mensaje = "No se ha podido conectar al servidor debido al siguiente error de tipo '" + ex.GetType().Name + "' : \n" + ex.Message;
-                if (ShowRetryDialog(mensaje, "").Equals(DialogResult.Retry)) AbrirConexionBD();
-                else Environment.Exit(0);
-            }
-        }
-        #endregion
-
         #region Carga de usuario recordado
         private void FrmInicioSesion_Shown(object sender, EventArgs e)
         {
@@ -283,8 +238,7 @@ namespace Garmoxu_Desktop
         private bool ValidarUsuarioExistente()
         {
             string sql = "SELECT * FROM Usuarios WHERE NombreUsuario = '" + TxtUsuario.Texts + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            bool usuarioEncontrado = cmd.ExecuteScalar() != null;
+            bool usuarioEncontrado = !string.IsNullOrEmpty(EjecutarScalar(sql));
             if (usuarioEncontrado)
             {
                 BtnUsuario.IconColor = Color.FromArgb(100, 200, 100);
@@ -422,13 +376,11 @@ namespace Garmoxu_Desktop
             if (ValidarDatosCompletados())
             {
                 string contraseñaActual = TxtContraseña.Texts;
-
                 string contraseñaActualEncriptada = EncriptarContraseña(contraseñaActual);
 
                 string sql = "SELECT * FROM Usuarios WHERE NombreUsuario = '" + TxtUsuario.Texts + "' " +
                     "AND Contraseña = '" + contraseñaActualEncriptada + "'";
-                MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                if (cmd.ExecuteScalar() != null)
+                if (!string.IsNullOrEmpty(EjecutarScalar(sql)))
                 {
                     UsuarioActual = TxtUsuario.Texts;
                     RegistrarAcceso();
@@ -444,10 +396,8 @@ namespace Garmoxu_Desktop
                     string mensaje = "¡Las credenciales introducidas no son correctas!";
                     ShowErrorMessage(mensaje, "");
                     if (!contraseñaActual.Equals("Contraseña")) TxtContraseña.Texts = string.Empty;
-                    if (TxtUsuario.Texts.Equals("Nombre de usuario"))
-                        TxtUsuario.Focus();
-                    else
-                        TxtContraseña.Focus();
+                    if (TxtUsuario.Texts.Equals("Nombre de usuario")) TxtUsuario.Focus();
+                    else TxtContraseña.Focus();
                 }
             }
         }
@@ -471,16 +421,15 @@ namespace Garmoxu_Desktop
         private void CrearNuevaContraseña()
         {
             string sql = "SELECT RestablecerContraseña FROM Usuarios WHERE NombreUsuario = '" + TxtUsuario.Texts + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            if (cmd.ExecuteScalar().ToString().Equals("True"))
+            if (EjecutarScalar(sql).ToString().Equals("True"))
             {
-                ShowNewPasswordDialog(TxtUsuario.Texts, ConexionBD);
+                ShowNewPasswordDialog(TxtUsuario.Texts);
                 RegistrarCierreDeSesion();
                 this.Visible = true;
             }
             else
             {
-                FrmMain f = new FrmMain(ConexionBD, TxtUsuario.Texts, RecogerNivelDePermisos(), RecogerImagenDelUsuario(), this);
+                FrmMain f = new FrmMain(TxtUsuario.Texts, RecogerNivelDePermisos(), RecogerImagenDelUsuario(), this);
                 f.Show();
             }
         }
@@ -507,16 +456,14 @@ namespace Garmoxu_Desktop
         {
             string sql = "SELECT NivelPermiso FROM TiposUsuarios WHERE IdTipoUsuario = " +
                 "(SELECT IdTipoUsuario FROM Usuarios WHERE NombreUsuario = '" + UsuarioActual + "')";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            return int.Parse(cmd.ExecuteScalar().ToString());
+            return int.Parse(EjecutarScalar(sql));
         }
 
         private Image RecogerImagenDelUsuario()
         {
             string sql = "SELECT ImagenUsuario FROM Usuarios WHERE NombreUsuario = '" + UsuarioActual + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
 
-            MySqlDataReader lector = cmd.ExecuteReader(CommandBehavior.SequentialAccess);
+            MySqlDataReader lector = EjecutarConsulta(sql);
 
             int tamañoMaximoArchivo = 16000000;
             byte[] imagenBytes = new byte[tamañoMaximoArchivo];
@@ -526,11 +473,13 @@ namespace Garmoxu_Desktop
             {
                 lector.GetBytes(0, 0, imagenBytes, 0, tamañoMaximoArchivo);
                 lector.Close();
-                return (Bitmap)((new ImageConverter()).ConvertFrom(imagenBytes));
+                CerrarConexion();
+                return (Bitmap)new ImageConverter().ConvertFrom(imagenBytes);
             }
             else
             {
                 lector.Close();
+                CerrarConexion();
                 return Properties.Resources.User_Default_Icon;
             }
         }
@@ -555,20 +504,8 @@ namespace Garmoxu_Desktop
         // de ser así, cierra la conexión con la BD.
         private void FrmInicioSesion_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (ShowQuestionDialog("¿Desea salir de la aplicación?", "").Equals(DialogResult.Yes))
-            {
-                CerrarConexionBD();
-                RegistrarCierreDeSesion();
-            }
-            else
-                e.Cancel = true;
-        }
-
-        // Cierra la conexión con la BD si está abierta.
-        private void CerrarConexionBD()
-        {
-            if (ConexionBD.State.Equals(ConnectionState.Open))
-                ConexionBD.Close();
+            if (ShowQuestionDialog("¿Desea salir de la aplicación?", "").Equals(DialogResult.Yes)) RegistrarCierreDeSesion();
+            else e.Cancel = true;
         }
 
         // Registra el cierre de sesion en el fichero de accesos.

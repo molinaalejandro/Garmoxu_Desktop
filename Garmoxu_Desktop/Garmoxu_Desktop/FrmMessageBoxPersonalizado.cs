@@ -12,6 +12,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static Garmoxu_Desktop.ConexionMySql;
 
 namespace Garmoxu_Desktop
 {
@@ -19,14 +20,12 @@ namespace Garmoxu_Desktop
     {
         // Resultado que retornará automaticamente cuando se cierre la ventana.
         private static DialogResult Result;
-        private MySqlConnection ConexionBD;
         private static string UsuarioActual;
 
         public FrmMessageBoxPersonalizado()
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
-            //BtnYes.NotifyDefault(false);
         }
 
         #region Apertura del formulario
@@ -156,7 +155,7 @@ namespace Garmoxu_Desktop
         #endregion
 
         #region Password
-        public static DialogResult ShowNewPasswordDialog(string usuarioActual, MySqlConnection conexionBD)
+        public static DialogResult ShowNewPasswordDialog(string usuarioActual)
         {
             FrmMessageBoxPersonalizado frm = new FrmMessageBoxPersonalizado();
             frm.Text = "Crea una nueva contraseña - Garmoxu Desktop";
@@ -169,7 +168,6 @@ namespace Garmoxu_Desktop
             frm.BtnIcon.Visible = false;
             frm.SetButtonsConfig(ButtonYesCancel());
             UsuarioActual = usuarioActual;
-            frm.ConexionBD = conexionBD;
 
             frm.PnlTitleBar.Height = 72;
 
@@ -251,11 +249,9 @@ namespace Garmoxu_Desktop
         private void CambiarContraseña()
         {
             string contraseñaEncriptada = EncriptarContraseña(TxtNewPassword.Texts);
-            string sql = string.Format(
-                "UPDATE Usuarios SET Contraseña = '{0}', RestablecerContraseña = 0 WHERE NombreUsuario = '{1}'",
+            string sql = string.Format("UPDATE Usuarios SET Contraseña = '{0}', RestablecerContraseña = 0 WHERE NombreUsuario = '{1}'",
                 contraseñaEncriptada, UsuarioActual);
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            cmd.ExecuteNonQuery();
+            EjecutarSentencia(sql);
         }
 
         #region Validaciones 
@@ -269,7 +265,7 @@ namespace Garmoxu_Desktop
             string user = UsuarioActual;
             UsuarioActual = string.Empty;
             string mensaje = "¡Debes completar todos los campos! ";
-            FrmMessageBoxPersonalizado.ShowMeDialog(mensaje, "", FrmMessageBoxPersonalizado.ButtonYes(), FrmMessageBoxPersonalizado.IconWarning());
+            ShowMeDialog(mensaje, "", ButtonYes(), IconWarning());
             UsuarioActual = user;
             return false;
         }
@@ -282,7 +278,7 @@ namespace Garmoxu_Desktop
             string user = UsuarioActual;
             UsuarioActual = string.Empty;
             string mensaje = "¡Las contraseñas no coinciden! ";
-            FrmMessageBoxPersonalizado.ShowMeDialog(mensaje, "", FrmMessageBoxPersonalizado.ButtonYes(), FrmMessageBoxPersonalizado.IconWarning());
+            FrmMessageBoxPersonalizado.ShowMeDialog(mensaje, "", ButtonYes(), IconWarning());
             UsuarioActual = user;
             return false;
         }
@@ -297,7 +293,7 @@ namespace Garmoxu_Desktop
                 user = UsuarioActual;
                 UsuarioActual = string.Empty;
                 mensaje = "¡La nueva contraseña no puede contener espacios en blanco!";
-                FrmMessageBoxPersonalizado.ShowMeDialog(mensaje, "", FrmMessageBoxPersonalizado.ButtonYes(), FrmMessageBoxPersonalizado.IconWarning());
+                ShowMeDialog(mensaje, "", ButtonYes(), IconWarning());
                 UsuarioActual = user;
                 return false;
             }
@@ -314,7 +310,7 @@ namespace Garmoxu_Desktop
             user = UsuarioActual;
             UsuarioActual = string.Empty;
             mensaje = "¡La nueva contraseña debe tener entre 8 y 64 caracteres, contener un número y una letra mayúscula!";
-            FrmMessageBoxPersonalizado.ShowMeDialog(mensaje, "", ButtonYes(), FrmMessageBoxPersonalizado.IconWarning());
+            ShowMeDialog(mensaje, "", ButtonYes(), IconWarning());
             UsuarioActual = user;
             return false;
         }
@@ -323,11 +319,9 @@ namespace Garmoxu_Desktop
         {
             string contraseñaEncriptada = EncriptarContraseña(TxtOldPassword.Texts);
 
-            string sql = string.Format(
-                "SELECT * FROM Usuarios WHERE NombreUsuario = '{0}' AND Contraseña = '{1}'",
+            string sql = string.Format("SELECT * FROM Usuarios WHERE NombreUsuario = '{0}' AND Contraseña = '{1}'",
                 UsuarioActual, contraseñaEncriptada);
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            if (cmd.ExecuteScalar() != null) return true;
+            if (string.IsNullOrEmpty(EjecutarScalar(sql))) return true;
 
             string user = UsuarioActual;
             UsuarioActual = string.Empty;
@@ -341,11 +335,9 @@ namespace Garmoxu_Desktop
         {
             string contraseñaEncriptada = EncriptarContraseña(TxtNewPassword.Texts);
 
-            string sql = string.Format(
-                "SELECT * FROM Usuarios WHERE NombreUsuario = '{0}' AND Contraseña = '{1}'",
+            string sql = string.Format("SELECT * FROM Usuarios WHERE NombreUsuario = '{0}' AND Contraseña = '{1}'",
                 UsuarioActual, contraseñaEncriptada);
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            if (cmd.ExecuteScalar() == null) return true;
+            if (string.IsNullOrEmpty(EjecutarScalar(sql))) return true;
 
             string user = UsuarioActual;
             UsuarioActual = string.Empty;

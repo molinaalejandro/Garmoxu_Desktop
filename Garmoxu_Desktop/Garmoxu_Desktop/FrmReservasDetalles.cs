@@ -11,22 +11,21 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
+using static Garmoxu_Desktop.ConexionMySql;
 
 namespace Garmoxu_Desktop
 {
     public partial class FrmReservasDetalles : Form
     {
-        private MySqlConnection ConexionBD;
         private string ClavePrimaria;
         private string HoraApertura;
         private string HoraCierre;
         private List<string> DatosIniciales;
 
-        public FrmReservasDetalles(MySqlConnection conexionBD, string clavePrimaria, ref Form frmShadow, string horaApertura, string horaCierre)
+        public FrmReservasDetalles(string clavePrimaria, ref Form frmShadow, string horaApertura, string horaCierre)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
-            ConexionBD = conexionBD;
             ClavePrimaria = clavePrimaria;
             HoraApertura = horaApertura;
             HoraCierre = horaCierre;
@@ -58,9 +57,8 @@ namespace Garmoxu_Desktop
         private void ConfigurarFormularioDeReservaExistente()
         {
             string sql = "SELECT * FROM Reservas WHERE IdReserva = " + ClavePrimaria;
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
 
-            MySqlDataReader lector = cmd.ExecuteReader();
+            MySqlDataReader lector = EjecutarConsulta(sql);
             lector.Read();
 
             LblTitulo.Text = "Consulta la reserva " + lector["IdReserva"].ToString();
@@ -69,6 +67,7 @@ namespace Garmoxu_Desktop
             string tlfClienteReserva = lector[3].ToString();
             string mesaReservada = lector[4].ToString();
 
+            CerrarConexion();
             lector.Close();
 
             DatosIniciales = new List<string>();
@@ -183,14 +182,11 @@ namespace Garmoxu_Desktop
             CboMesa.ResetText();
             CboMesa.Texts = string.Empty;
 
-            string sql = "SELECT * FROM Mesas WHERE IdMesa NOT IN " +
-                "(SELECT IdMesa FROM Reservas WHERE " + CrearSQLConRangoHorario() + ")";
+            string sql = "SELECT * FROM Mesas WHERE IdMesa NOT IN (SELECT IdMesa FROM Reservas WHERE " + CrearSQLConRangoHorario() + ")";
+            MySqlDataReader lector = EjecutarConsulta(sql);
 
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            MySqlDataReader lector = cmd.ExecuteReader();
-
-            while (lector.Read())
-                CboMesa.Items.Add(lector[0]);
+            while (lector.Read()) CboMesa.Items.Add(lector[0]);
+            CerrarConexion();
             lector.Close();
 
             CargarMesaActualmenteReservada();
@@ -201,16 +197,13 @@ namespace Garmoxu_Desktop
             if (!string.IsNullOrEmpty(ClavePrimaria))
             {
                 string sql = "SELECT IdReserva, IdMesa FROM Reservas WHERE " + CrearSQLConRangoHorario();
-
-                MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                MySqlDataReader lector = cmd.ExecuteReader();
+                MySqlDataReader lector = EjecutarConsulta(sql);
 
                 while (lector.Read())
                 {
-                    if (ClavePrimaria.Equals(lector[0].ToString()))
-                        CboMesa.Items.Add(lector[1].ToString());
+                    if (ClavePrimaria.Equals(lector[0].ToString())) CboMesa.Items.Add(lector[1].ToString());
                 }
-
+                CerrarConexion();
                 lector.Close();
             }
         }
@@ -265,24 +258,19 @@ namespace Garmoxu_Desktop
         {
             string tlf = txt.Text.Replace(" ", "");
             string sql = "SELECT Nombre FROM Clientes WHERE TelefonoCliente = '" + tlf + "'";
+            string scalar = EjecutarScalar(sql);
 
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-
-            if (cmd.ExecuteScalar() != null)
-                return cmd.ExecuteScalar().ToString();
-            else
-                return string.Empty;
+            if (!string.IsNullOrEmpty(scalar)) return scalar;
+            else return string.Empty;
         }
 
         // Devuelve true si el teléfono existe en la BBDD. False si no es así.
         private bool ValidarTelefonoExistente(TextBox txt)
         {
             string tlf = txt.Text.Replace(" ", "");
+            string sql = "SELECT * FROM Clientes WHERE TelefonoCliente = '" + tlf + "'";
 
-            MySqlCommand cmd = new MySqlCommand(
-                "SELECT * FROM Clientes WHERE TelefonoCliente = '" + tlf + "'", ConexionBD);
-
-            bool telefonoExistente = cmd.ExecuteScalar() != null;
+            bool telefonoExistente = !string.IsNullOrEmpty(EjecutarScalar(sql));
             return telefonoExistente;
         }
         #endregion
@@ -316,9 +304,7 @@ namespace Garmoxu_Desktop
             if (!string.IsNullOrEmpty(ClavePrimaria))
             {
                 string sql = "SELECT * FROM Reservas WHERE IdReserva = " + ClavePrimaria;
-                MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-
-                if (cmd.ExecuteScalar() == null)
+                if (string.IsNullOrEmpty(EjecutarScalar(sql)))
                 {
                     string mensaje = "¡La reserva ya no está disponible! Alguien debe haberla eliminado mientras la consultabas.";
                     ShowErrorMessage(mensaje, "");
@@ -358,8 +344,7 @@ namespace Garmoxu_Desktop
         private bool ValidarClienteExistente()
         {
             string sql = "SELECT * FROM Clientes WHERE TelefonoCliente = '" + TxtTelefono.Texts.Replace(" ", "") + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            bool clienteExiste = cmd.ExecuteScalar() != null;
+            bool clienteExiste = !string.IsNullOrEmpty(EjecutarScalar(sql));
 
             if (clienteExiste) return ModificarCliente();
             else return DarAltaCliente();
@@ -374,8 +359,7 @@ namespace Garmoxu_Desktop
                     "INSERT INTO Clientes(TelefonoCliente, Direccion, CantidadPedidos, Nombre) VALUES('{0}', NULL, 0, '{1}')",
                     TxtTelefono.Texts.Replace(" ", ""), TxtNombreCliente.Texts.Trim());
 
-                MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                cmd.ExecuteNonQuery();
+                EjecutarSentencia(sql);
                 return true;
             }
             else return false;
@@ -384,9 +368,8 @@ namespace Garmoxu_Desktop
         private bool ModificarCliente()
         {
             string sql = "SELECT Nombre FROM Clientes WHERE TelefonoCliente = '" + TxtTelefono.Texts.Replace(" ", "") + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
 
-            bool nombreModificado = !cmd.ExecuteScalar().ToString().Equals(TxtNombreCliente.Texts.Trim());
+            bool nombreModificado = !EjecutarScalar(sql).Equals(TxtNombreCliente.Texts.Trim());
             if (nombreModificado)
             {
                 string mensaje = "¿Desea aplicar los cambios realizados en el nombre del cliente?";
@@ -396,8 +379,7 @@ namespace Garmoxu_Desktop
                 {
                     sql = string.Format("UPDATE Clientes SET nombre = '{0}' WHERE TelefonoCliente = '{1}'",
                         TxtNombreCliente.Texts.Trim(), TxtTelefono.Texts.Replace(" ", ""));
-                    cmd.CommandText = sql;
-                    cmd.ExecuteNonQuery();
+                    EjecutarSentencia(sql);
 
                     return true;
                 }
@@ -419,8 +401,7 @@ namespace Garmoxu_Desktop
                     string sql = string.Format(
                         "INSERT INTO Reservas(Fecha, Hora, TelefonoCliente, IdMesa) VALUES ('{0}', '{1}', '{2}', {3})",
                         fechaReserva, horaReserva, TxtTelefono.Texts.Replace(" ", ""), CboMesa.SelectedItem);
-                    MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                    cmd.ExecuteNonQuery();
+                    EjecutarSentencia(sql);
 
                     InformarAccionConExito();
                     this.Close();
@@ -440,9 +421,7 @@ namespace Garmoxu_Desktop
                 if (ConfirmarAccion("guardar los cambios realizados en") && ValidarClienteExistente())
                 {
                     string sql = "UPDATE Reservas SET " + valoresModificados + "  WHERE IdReserva = " + ClavePrimaria;
-
-                    MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                    cmd.ExecuteNonQuery();
+                    EjecutarSentencia(sql);
 
                     InformarAccionConExito();
                     this.Close();
@@ -500,9 +479,7 @@ namespace Garmoxu_Desktop
             if (ValidarReservaDisponible() && ConfirmarAccion("eliminar permanentemente"))
             {
                 string sql = "DELETE FROM Reservas WHERE IdReserva = " + ClavePrimaria;
-
-                MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                cmd.ExecuteNonQuery();
+                EjecutarSentencia(sql);
 
                 InformarAccionConExito();
                 this.Close();
@@ -551,16 +528,13 @@ namespace Garmoxu_Desktop
 
             for (int i = 0; i < DatosIniciales.Count; i++)
             {
-                if (!DatosIniciales[i].Equals(datosActuales[i]))
-                    modificacionRealizada = true;
+                if (!DatosIniciales[i].Equals(datosActuales[i])) modificacionRealizada = true;
             }
 
             if (!modificacionRealizada)
             {
                 string sql = "SELECT Nombre FROM Clientes WHERE TelefonoCliente = '" + TxtTelefono.Texts.Replace(" ", "") + "'";
-                MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                if (!cmd.ExecuteScalar().ToString().Equals(TxtNombreCliente.Texts.Trim()))
-                    modificacionRealizada = true;
+                if (!EjecutarScalar(sql).Equals(TxtNombreCliente.Texts.Trim())) modificacionRealizada = true;
             }
 
             return modificacionRealizada;

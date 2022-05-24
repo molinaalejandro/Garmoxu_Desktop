@@ -11,40 +11,27 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
+using static Garmoxu_Desktop.ConexionMySql;
 
 namespace Garmoxu_Desktop
 {
     public partial class FrmPedidos : Form
     {
-        // Instancia de la conexión a la base de datos.
-        private MySqlConnection ConexionBD;
-
         // Contendrá la tabla de pedidos actuales.
         private DataSet Ds;
 
-        // Almacenará la sentencia que se ejecutará en la BBDD.
-        private MySqlCommand Cmd;
-
-        // Almacenará el adaptador.
-        private MySqlDataAdapter Da;
-
         // Último data set almacenado.
         private DataSet UltimoDs;
-
-        // Instancia del formulario main.
-        private FrmMain Instance;
 
         // Usuario actual con el que está logeado.
         private string UsuarioActual;
 
         private int IVA;
 
-        public FrmPedidos(MySqlConnection conexionBD, FrmMain instance, string usuarioActual, int iva)
+        public FrmPedidos(string usuarioActual, int iva)
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
-            ConexionBD = conexionBD;
-            Instance = instance;
             UsuarioActual = usuarioActual;
             IVA = iva;
             IniciarPedidos();
@@ -124,14 +111,8 @@ namespace Garmoxu_Desktop
                         break;
 
                     case "Recoger":
-                        MySqlCommand cmd = new MySqlCommand(
-                            "SELECT Nombre FROM Clientes WHERE TelefonoCliente = '" + row["TelefonoCliente"].ToString() + "'");
-                        cmd.Connection = ConexionBD;
-                        string cliente;
-                        if (cmd.ExecuteScalar() != null)
-                            cliente = cmd.ExecuteScalar().ToString();
-                        else
-                            cliente = string.Empty;
+                        string sql = "SELECT Nombre FROM Clientes WHERE TelefonoCliente = '" + row["TelefonoCliente"].ToString() + "'";
+                        string cliente = EjecutarScalar(sql);
                         CrearBotonDePedido(PnlRecoger, row["IdPedido"].ToString(), cliente);
                         break;
                 }
@@ -141,7 +122,7 @@ namespace Garmoxu_Desktop
         // Crea un RJButton en ejecución dentro de un flow panel y le asigna el texto que recibe.
         private void CrearBotonDePedido(FlowLayoutPanel pnl, string clavePrimaria, string texto)
         {
-            RJCodeAdvance.RJControls.RJButton btn = new RJCodeAdvance.RJControls.RJButton();
+            RJButton btn = new RJButton();
             btn.AutoSize = true;
 
             btn.BorderColor = Color.White;
@@ -222,18 +203,15 @@ namespace Garmoxu_Desktop
         {
             if (Ds == null) Ds = new DataSet();
             else Ds.Tables["PedidosEnCurso"].Rows.Clear();
-            Cmd = new MySqlCommand("SELECT * FROM PedidosEnCurso", ConexionBD);
-            Da = new MySqlDataAdapter();
-            Da.SelectCommand = Cmd;
-            Da.FillAsync(Ds, "PedidosEnCurso");
+
+            string sql = "SELECT * FROM PedidosEnCurso";
+            LlenarDataSet(sql, "PedidosEnCurso", ref Ds);
         }
 
         private void RecogerTablaClientes()
         {
-            Cmd = new MySqlCommand("SELECT TelefonoCliente, Nombre FROM Clientes", ConexionBD);
-            Da = new MySqlDataAdapter();
-            Da.SelectCommand = Cmd;
-            Da.FillAsync(Ds, "Clientes");
+            string sql = "SELECT TelefonoCliente, Nombre FROM Clientes";
+            LlenarDataSet(sql, "Clientes", ref Ds);
         }
 
         #region Actualización de pedidos añadidos
@@ -260,10 +238,9 @@ namespace Garmoxu_Desktop
                             break;
 
                         case "Recoger":
-                            MySqlCommand cmd = new MySqlCommand(
-                                "SELECT Nombre FROM Clientes WHERE TelefonoCliente = '" + row["TelefonoCliente"].ToString() + "'");
-                            cmd.Connection = ConexionBD;
-                            CrearBotonDePedido(PnlRecoger, row["IdPedido"].ToString(), cmd.ExecuteScalar().ToString());
+                            string sql = "SELECT Nombre FROM Clientes WHERE TelefonoCliente = '" + row["TelefonoCliente"].ToString() + "'";
+                            string scalar = EjecutarScalar(sql);
+                            CrearBotonDePedido(PnlRecoger, row["IdPedido"].ToString(), scalar);
                             UltimoDs.Tables["PedidosEnCurso"].Rows.Add(rowCopy);
                             break;
                     }
@@ -365,8 +342,7 @@ namespace Garmoxu_Desktop
                             pnlNuevo = PnlRecoger;
                             string telefono = Ds.Tables["PedidosEnCurso"].Rows[i]["TelefonoCliente"].ToString();
                             string sql = "SELECT Nombre FROM Clientes WHERE TelefonoCliente = '" + telefono + "'";
-                            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-                            textoNuevo = cmd.ExecuteScalar().ToString();
+                            textoNuevo = EjecutarScalar(sql);
                             break;
                     }
 
@@ -459,7 +435,7 @@ namespace Garmoxu_Desktop
         private void BtnPedidoEnCurso_Click(object sender, EventArgs e)
         {
             string clavePrimaria = ((RJButton)sender).Tag.ToString();
-            FrmPedidosDetalles frm = new FrmPedidosDetalles(ConexionBD, clavePrimaria, UsuarioActual, IVA);
+            FrmPedidosDetalles frm = new FrmPedidosDetalles(clavePrimaria, UsuarioActual, IVA);
             frm.Show();
         }
         #endregion
@@ -499,13 +475,13 @@ namespace Garmoxu_Desktop
         }
 
         // Devuelve true y abre una ventana de detalles si el pedido con esa clave existe.
-        private bool ValidarDatoExistente(String filtro)
+        private bool ValidarDatoExistente(string filtro)
         {
             string sql = "SELECT IdPedido FROM PedidosEnCurso WHERE " + filtro + " = '" + TxtBuscar.Texts.Trim() + "'";
-            MySqlCommand cmd = new MySqlCommand(sql, ConexionBD);
-            if (cmd.ExecuteScalar() != null)
+            string clave = EjecutarScalar(sql);
+            if (!string.IsNullOrEmpty(clave))
             {
-                FrmPedidosDetalles frm = new FrmPedidosDetalles(ConexionBD, cmd.ExecuteScalar().ToString(), UsuarioActual, IVA);
+                FrmPedidosDetalles frm = new FrmPedidosDetalles(clave, UsuarioActual, IVA);
                 frm.Show();
                 TxtBuscar.Texts = string.Empty;
                 return true;
@@ -517,8 +493,7 @@ namespace Garmoxu_Desktop
         #region Botón Nuevo
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
-            FrmPedidosDetalles frm = new FrmPedidosDetalles(ConexionBD, "", UsuarioActual, IVA);
-
+            FrmPedidosDetalles frm = new FrmPedidosDetalles("", UsuarioActual, IVA);
             frm.Size = new Size(700, 750); // Solo se aplica pedidos nuevos para adaptarse a la pestaña de selección de tipo de pedido
             frm.Show();
         }
