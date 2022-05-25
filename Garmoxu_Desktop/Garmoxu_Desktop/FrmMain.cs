@@ -239,7 +239,7 @@ namespace Garmoxu_Desktop
 
         private void BtnReservas_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(new FrmReservas(HoraApertura, HoraCierre));
+            AbrirFormulario(new FrmReservas(HoraApertura, HoraCierre, NivelPermisos));
         }
 
         private void BtnHistorial_Click(object sender, EventArgs e)

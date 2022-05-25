@@ -117,7 +117,7 @@
             this.DtpReserva.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.DtpReserva.Font = new System.Drawing.Font("Source Sans Pro", 18.2F, System.Drawing.FontStyle.Bold);
             this.DtpReserva.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.DtpReserva.Location = new System.Drawing.Point(0, 151);
+            this.DtpReserva.Location = new System.Drawing.Point(0, 148);
             this.DtpReserva.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.DtpReserva.MinimumSize = new System.Drawing.Size(4, 35);
             this.DtpReserva.Name = "DtpReserva";
@@ -137,7 +137,7 @@
             this.DtpHora.Dock = System.Windows.Forms.DockStyle.Fill;
             this.DtpHora.Font = new System.Drawing.Font("Source Sans Pro", 18.2F, System.Drawing.FontStyle.Bold);
             this.DtpHora.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.DtpHora.Location = new System.Drawing.Point(387, 151);
+            this.DtpHora.Location = new System.Drawing.Point(387, 148);
             this.DtpHora.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.DtpHora.MinimumSize = new System.Drawing.Size(4, 35);
             this.DtpHora.Name = "DtpHora";
@@ -155,7 +155,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.Silver;
-            this.label3.Location = new System.Drawing.Point(0, 217);
+            this.label3.Location = new System.Drawing.Point(0, 214);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(205, 33);
@@ -191,7 +191,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.Silver;
-            this.label5.Location = new System.Drawing.Point(0, 113);
+            this.label5.Location = new System.Drawing.Point(0, 110);
             this.label5.Margin = new System.Windows.Forms.Padding(0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(83, 33);
@@ -203,7 +203,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
             this.label9.ForeColor = System.Drawing.Color.Silver;
-            this.label9.Location = new System.Drawing.Point(387, 113);
+            this.label9.Location = new System.Drawing.Point(387, 110);
             this.label9.Margin = new System.Windows.Forms.Padding(0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(70, 33);
@@ -228,7 +228,7 @@
             this.TxtNombreCliente.PasswordChar = false;
             this.TxtNombreCliente.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtNombreCliente.PlaceholderText = "";
-            this.TxtNombreCliente.Size = new System.Drawing.Size(318, 55);
+            this.TxtNombreCliente.Size = new System.Drawing.Size(318, 52);
             this.TxtNombreCliente.TabIndex = 1;
             this.TxtNombreCliente.Texts = "";
             this.TxtNombreCliente.UnderlinedStyle = false;
@@ -252,7 +252,7 @@
             this.TxtTelefono.PasswordChar = false;
             this.TxtTelefono.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtTelefono.PlaceholderText = "";
-            this.TxtTelefono.Size = new System.Drawing.Size(317, 55);
+            this.TxtTelefono.Size = new System.Drawing.Size(317, 52);
             this.TxtTelefono.TabIndex = 0;
             this.TxtTelefono.Texts = "";
             this.TxtTelefono.UnderlinedStyle = false;
@@ -264,7 +264,7 @@
             this.panel1.Controls.Add(this.LblCboDisabled);
             this.panel1.Controls.Add(this.CboMesa);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(3, 253);
+            this.panel1.Location = new System.Drawing.Point(3, 250);
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(311, 52);
             this.panel1.TabIndex = 64;

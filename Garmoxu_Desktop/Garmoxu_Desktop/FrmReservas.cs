@@ -19,14 +19,16 @@ namespace Garmoxu_Desktop
         private bool BtnClienteActivado;
         private string HoraApertura;
         private string HoraCierre;
+        private int NivelPermisos;
 
-        public FrmReservas(string horaApertura, string horaCierre)
+        public FrmReservas(string horaApertura, string horaCierre, int nivelPermisos)
         {
             InitializeComponent();
             BtnClienteActivado = true;
             FormBorderStyle = FormBorderStyle.None;
             HoraApertura = horaApertura;
             HoraCierre = horaCierre;
+            NivelPermisos = nivelPermisos;
             DtpBuscar.Value = DateTime.Now;
             CargarReservasGridView();
         }
@@ -278,7 +280,7 @@ namespace Garmoxu_Desktop
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
             Form frmShadow = new Form();
-            FrmReservasDetalles f = new FrmReservasDetalles(string.Empty, ref frmShadow, HoraApertura, HoraCierre);
+            FrmReservasDetalles f = new FrmReservasDetalles(string.Empty, ref frmShadow, HoraApertura, HoraCierre, NivelPermisos);
 
             f.ShowDialog();
             frmShadow.Close();
@@ -294,7 +296,7 @@ namespace Garmoxu_Desktop
             {
                 Form frmShadow = new Form();
                 string clavePrimaria = DtgReservas.CurrentRow.Cells[0].Value.ToString();
-                FrmReservasDetalles f = new FrmReservasDetalles(clavePrimaria, ref frmShadow, HoraApertura, HoraCierre);
+                FrmReservasDetalles f = new FrmReservasDetalles(clavePrimaria, ref frmShadow, HoraApertura, HoraCierre, NivelPermisos);
 
                 f.ShowDialog();
                 frmShadow.Close();

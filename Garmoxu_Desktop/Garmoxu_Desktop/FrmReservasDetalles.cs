@@ -20,20 +20,35 @@ namespace Garmoxu_Desktop
         private string ClavePrimaria;
         private string HoraApertura;
         private string HoraCierre;
+        private int NivelPermisos;
         private List<string> DatosIniciales;
 
-        public FrmReservasDetalles(string clavePrimaria, ref Form frmShadow, string horaApertura, string horaCierre)
+        public FrmReservasDetalles(string clavePrimaria, ref Form frmShadow, string horaApertura, string horaCierre, int nivelPermisos)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             ClavePrimaria = clavePrimaria;
             HoraApertura = horaApertura;
             HoraCierre = horaCierre;
+            NivelPermisos = nivelPermisos;
+            LimitarPermisos();
             CargarTipoForm();
             SombrearPantalla(ref frmShadow);
         }
 
         #region Apertura del formulario
+        #region Limitación de permisos
+        private void LimitarPermisos()
+        {
+            if (NivelPermisos == 0)
+            {
+                BtnBorrar.Visible = false;
+                PnlBotones.Controls.Add(BtnConfirmar, 2, 0);
+                PnlBotones.ColumnStyles[2] = new ColumnStyle(SizeType.AutoSize, 100f);
+            }
+        }
+        #endregion
+
         // Si la clave primaria está con datos es porque se ha abierto con el doble click, si no NUEVA RESERVA
         private void CargarTipoForm()
         {
