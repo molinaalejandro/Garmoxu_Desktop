@@ -216,7 +216,7 @@
             this.TxtDireccionTB1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtDireccionTB1.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
             this.TxtDireccionTB1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.TxtDireccionTB1.Location = new System.Drawing.Point(0, 166);
+            this.TxtDireccionTB1.Location = new System.Drawing.Point(0, 163);
             this.TxtDireccionTB1.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.TxtDireccionTB1.Multiline = true;
             this.TxtDireccionTB1.Name = "TxtDireccionTB1";
@@ -271,7 +271,7 @@
             this.TxtTelefonoTB1.PasswordChar = false;
             this.TxtTelefonoTB1.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtTelefonoTB1.PlaceholderText = "";
-            this.TxtTelefonoTB1.Size = new System.Drawing.Size(281, 55);
+            this.TxtTelefonoTB1.Size = new System.Drawing.Size(281, 52);
             this.TxtTelefonoTB1.TabIndex = 1;
             this.TxtTelefonoTB1.Texts = "";
             this.TxtTelefonoTB1.UnderlinedStyle = false;
@@ -295,7 +295,7 @@
             this.TxtNombreTB1.PasswordChar = false;
             this.TxtNombreTB1.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtNombreTB1.PlaceholderText = "";
-            this.TxtNombreTB1.Size = new System.Drawing.Size(281, 55);
+            this.TxtNombreTB1.Size = new System.Drawing.Size(281, 52);
             this.TxtNombreTB1.TabIndex = 0;
             this.TxtNombreTB1.Texts = "";
             this.TxtNombreTB1.UnderlinedStyle = false;
@@ -307,7 +307,7 @@
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.Silver;
-            this.label2.Location = new System.Drawing.Point(3, 128);
+            this.label2.Location = new System.Drawing.Point(3, 125);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(275, 33);
             this.label2.TabIndex = 4;
@@ -319,7 +319,7 @@
             this.label5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label5.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.Silver;
-            this.label5.Location = new System.Drawing.Point(334, 128);
+            this.label5.Location = new System.Drawing.Point(334, 125);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(275, 33);
             this.label5.TabIndex = 5;
@@ -333,7 +333,7 @@
             this.tableLayoutPanel7.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel7.Controls.Add(this.LblCantidadPedidos, 0, 0);
             this.tableLayoutPanel7.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel7.Location = new System.Drawing.Point(334, 164);
+            this.tableLayoutPanel7.Location = new System.Drawing.Point(334, 161);
             this.tableLayoutPanel7.Name = "tableLayoutPanel7";
             this.tableLayoutPanel7.RowCount = 1;
             this.tableLayoutPanel7.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -361,7 +361,7 @@
             this.tableLayoutPanel8.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel8.Controls.Add(this.BtnModificarCliente, 1, 0);
             this.tableLayoutPanel8.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 369);
+            this.tableLayoutPanel8.Location = new System.Drawing.Point(3, 366);
             this.tableLayoutPanel8.Name = "tableLayoutPanel8";
             this.tableLayoutPanel8.RowCount = 1;
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -400,7 +400,7 @@
             this.tableLayoutPanel10.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15F));
             this.tableLayoutPanel10.Controls.Add(this.BtnBorrarCliente, 1, 0);
             this.tableLayoutPanel10.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel10.Location = new System.Drawing.Point(334, 369);
+            this.tableLayoutPanel10.Location = new System.Drawing.Point(334, 366);
             this.tableLayoutPanel10.Name = "tableLayoutPanel10";
             this.tableLayoutPanel10.RowCount = 1;
             this.tableLayoutPanel10.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -841,7 +841,7 @@
             this.TxtBuscar.PasswordChar = false;
             this.TxtBuscar.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtBuscar.PlaceholderText = "";
-            this.TxtBuscar.Size = new System.Drawing.Size(840, 55);
+            this.TxtBuscar.Size = new System.Drawing.Size(840, 52);
             this.TxtBuscar.TabIndex = 2;
             this.TxtBuscar.TabStop = false;
             this.TxtBuscar.Texts = "Buscar por teléfono de cliente";
@@ -863,6 +863,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "Clientes";
             this.Text = "Gestión de clientes - Garmoxu";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmClientes_FormClosing);
             this.Shown += new System.EventHandler(this.FrmClientes_Shown);
             this.PnlMain.ResumeLayout(false);
             this.PnlClientes.ResumeLayout(false);

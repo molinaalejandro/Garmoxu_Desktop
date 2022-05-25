@@ -482,5 +482,17 @@ namespace Garmoxu_Desktop
             ShowInfoMessage(mensaje, "");
         }
         #endregion
+
+        #region Cierre del formulario
+        private void FrmClientes_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            string var = string.Empty;
+            if ((Tbc.SelectedIndex == 1 && tableLayoutPanel4.Visible) || ComprobarDatosModificados(ref var))
+            {
+                string mensaje = "¿Desea salir sin guardar? Se perderán todos los cambios realizados.";
+                if (!ShowQuestionDialog(mensaje, "").Equals(DialogResult.Yes)) e.Cancel = true;
+            }
+        }
+        #endregion
     }
 }
