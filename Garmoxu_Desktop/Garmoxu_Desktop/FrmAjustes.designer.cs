@@ -369,7 +369,7 @@
             this.TxtNombreUsuario.PasswordChar = false;
             this.TxtNombreUsuario.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtNombreUsuario.PlaceholderText = "";
-            this.TxtNombreUsuario.Size = new System.Drawing.Size(326, 55);
+            this.TxtNombreUsuario.Size = new System.Drawing.Size(326, 52);
             this.TxtNombreUsuario.TabIndex = 0;
             this.TxtNombreUsuario.Texts = "";
             this.TxtNombreUsuario.UnderlinedStyle = false;
@@ -840,7 +840,7 @@
             this.TxtNombreRestaurante.PasswordChar = false;
             this.TxtNombreRestaurante.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtNombreRestaurante.PlaceholderText = "";
-            this.TxtNombreRestaurante.Size = new System.Drawing.Size(323, 55);
+            this.TxtNombreRestaurante.Size = new System.Drawing.Size(323, 52);
             this.TxtNombreRestaurante.TabIndex = 1;
             this.TxtNombreRestaurante.Texts = "";
             this.TxtNombreRestaurante.UnderlinedStyle = false;
@@ -943,6 +943,7 @@
             this.tableLayoutPanel15.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel15.Size = new System.Drawing.Size(323, 95);
             this.tableLayoutPanel15.TabIndex = 1;
+            this.tableLayoutPanel15.Visible = false;
             // 
             // label11
             // 

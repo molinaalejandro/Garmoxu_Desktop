@@ -16,20 +16,20 @@ using static Garmoxu_Desktop.ConexionMySql;
 
 namespace Garmoxu_Desktop
 {
-    public partial class FrmMessageBoxPersonalizado : Form
+    public partial class MessageBoxPersonalizado : Form
     {
         // Resultado que retornará automaticamente cuando se cierre la ventana.
         private static DialogResult Result;
         private static string UsuarioActual;
 
-        public FrmMessageBoxPersonalizado()
+        public MessageBoxPersonalizado()
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
         }
 
         #region Apertura del formulario
-        private void FrmMessageBoxPersonalizado_Shown(object sender, EventArgs e)
+        private void MessageBoxPersonalizado_Shown(object sender, EventArgs e)
         {
             BtnYes.NotifyDefault(false);
 
@@ -133,7 +133,7 @@ namespace Garmoxu_Desktop
 
         public static DialogResult ShowMeDialog(string mensaje, string titulo, int button, IconChar icon)
         {
-            FrmMessageBoxPersonalizado frm = new FrmMessageBoxPersonalizado();
+            MessageBoxPersonalizado frm = new MessageBoxPersonalizado();
 
             frm.LblText.Text = mensaje;
             if (string.IsNullOrEmpty(titulo.Trim())) frm.LblTitle.Visible = false;
@@ -157,7 +157,7 @@ namespace Garmoxu_Desktop
         #region Password
         public static DialogResult ShowNewPasswordDialog(string usuarioActual)
         {
-            FrmMessageBoxPersonalizado frm = new FrmMessageBoxPersonalizado();
+            MessageBoxPersonalizado frm = new MessageBoxPersonalizado();
             frm.Text = "Crea una nueva contraseña - Garmoxu Desktop";
             frm.Size = new Size(700, 550);
             frm.TopMost = false;
@@ -278,7 +278,7 @@ namespace Garmoxu_Desktop
             string user = UsuarioActual;
             UsuarioActual = string.Empty;
             string mensaje = "¡Las contraseñas no coinciden! ";
-            FrmMessageBoxPersonalizado.ShowMeDialog(mensaje, "", ButtonYes(), IconWarning());
+            MessageBoxPersonalizado.ShowMeDialog(mensaje, "", ButtonYes(), IconWarning());
             UsuarioActual = user;
             return false;
         }

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
+using static Garmoxu_Desktop.MessageBoxPersonalizado;
 
 namespace Garmoxu_Desktop
 {

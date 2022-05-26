@@ -12,7 +12,7 @@ using MySql.Data.MySqlClient;
 using System.IO;
 using FontAwesome.Sharp;
 using RJCodeAdvance.RJControls;
-using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
+using static Garmoxu_Desktop.MessageBoxPersonalizado;
 using static Garmoxu_Desktop.ConexionMySql;
 
 namespace Garmoxu_Desktop

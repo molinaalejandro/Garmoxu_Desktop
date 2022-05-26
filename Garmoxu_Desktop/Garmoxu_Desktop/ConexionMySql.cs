@@ -6,27 +6,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
+using static Garmoxu_Desktop.MessageBoxPersonalizado;
 
 namespace Garmoxu_Desktop
 {
     class ConexionMySql
     {
         // Conexión local
-        //private const string servidor = "localhost"; //Nombre o IP del servidor.
-        //private const string bd = "garmoxu"; //Nombre de la base de datos.
-        //private const string usuario = "root"; //Usuario de acceso.
-        //private const string password = "root"; //Contraseña de usuario de acceso.
+        //private const string SERVIDOR = "localhost"; //Nombre o IP del servidor.
+        //private const string BD = "garmoxu"; //Nombre de la base de datos.
+        //private const string USUARIO = "root"; //Usuario de acceso.
+        //private const string PASSWORD = "root"; //Contraseña de usuario de acceso.
 
         // Conexión remota
-        private const string servidor = "sql781.main-hosting.eu"; //Nombre o IP del servidor.
-        private const string bd = "u184120704_garmoxudb"; //Nombre de la base de datos.
-        private const string usuario = "u184120704_admindam"; //Usuario de acceso.
-        private const string password = "damAdmin123"; //Contraseña de usuario de acceso.
+        private const string SERVIDOR = "sql781.main-hosting.eu"; //Nombre o IP del servidor.
+        private const string BD = "u184120704_garmoxudb"; //Nombre de la base de datos.
+        private const string USUARIO = "u184120704_admindam"; //Usuario de acceso.
+        private const string PASSWORD = "damAdmin123"; //Contraseña de usuario de acceso.
 
         // Instancia de la conexión a la base de datos.
         private static MySqlConnection Conexion = new MySqlConnection(
-                "Database=" + bd + "; Data Source=" + servidor + "; User Id=" + usuario + "; Password=" + password + ";");
+                "Database=" + BD + "; Data Source=" + SERVIDOR + "; User Id=" + USUARIO + "; Password=" + PASSWORD + ";");
 
         public static MySqlDataReader EjecutarConsulta(string sql)
         {

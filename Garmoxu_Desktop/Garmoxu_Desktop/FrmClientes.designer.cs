@@ -142,7 +142,7 @@
             this.GrpUsuario.TabIndex = 10;
             this.GrpUsuario.TabStop = false;
             this.GrpUsuario.Text = "Usuario";
-            this.GrpUsuario.TextActivated = false;
+            this.GrpUsuario.EnabledText = false;
             // 
             // Tbc
             // 

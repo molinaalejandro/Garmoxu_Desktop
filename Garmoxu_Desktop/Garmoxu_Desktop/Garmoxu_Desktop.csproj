@@ -230,11 +230,11 @@
     <Compile Include="FrmMain.designer.cs">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </Compile>
-    <Compile Include="FrmMessageBoxPersonalizado.cs">
+    <Compile Include="MessageBoxPersonalizado.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FrmMessageBoxPersonalizado.designer.cs">
-      <DependentUpon>FrmMessageBoxPersonalizado.cs</DependentUpon>
+    <Compile Include="MessageBoxPersonalizado.designer.cs">
+      <DependentUpon>MessageBoxPersonalizado.cs</DependentUpon>
     </Compile>
     <Compile Include="FrmPedidos.cs">
       <SubType>Form</SubType>
@@ -334,8 +334,8 @@
     <EmbeddedResource Include="FrmMain.resx">
       <DependentUpon>FrmMain.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="FrmMessageBoxPersonalizado.resx">
-      <DependentUpon>FrmMessageBoxPersonalizado.cs</DependentUpon>
+    <EmbeddedResource Include="MessageBoxPersonalizado.resx">
+      <DependentUpon>MessageBoxPersonalizado.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FrmPedidos.resx">
       <DependentUpon>FrmPedidos.cs</DependentUpon>

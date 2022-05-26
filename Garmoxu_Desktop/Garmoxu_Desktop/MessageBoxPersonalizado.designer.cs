@@ -1,7 +1,7 @@
 ﻿
 namespace Garmoxu_Desktop
 {
-    partial class FrmMessageBoxPersonalizado
+    partial class MessageBoxPersonalizado
     {
         /// <summary>
         /// Required designer variable.
@@ -29,7 +29,7 @@ namespace Garmoxu_Desktop
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FrmMessageBoxPersonalizado));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MessageBoxPersonalizado));
             this.PnlBody = new System.Windows.Forms.TableLayoutPanel();
             this.PnlTitleBar = new System.Windows.Forms.TableLayoutPanel();
             this.BtnClose = new FontAwesome.Sharp.IconButton();
@@ -372,7 +372,7 @@ namespace Garmoxu_Desktop
             this.TxtOldPassword.PasswordChar = false;
             this.TxtOldPassword.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtOldPassword.PlaceholderText = "";
-            this.TxtOldPassword.Size = new System.Drawing.Size(617, 55);
+            this.TxtOldPassword.Size = new System.Drawing.Size(617, 52);
             this.TxtOldPassword.TabIndex = 0;
             this.TxtOldPassword.Tag = "Contraseña actual";
             this.TxtOldPassword.Texts = "Contraseña actual";
@@ -399,7 +399,7 @@ namespace Garmoxu_Desktop
             this.TxtNewPassword.PasswordChar = false;
             this.TxtNewPassword.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtNewPassword.PlaceholderText = "";
-            this.TxtNewPassword.Size = new System.Drawing.Size(617, 55);
+            this.TxtNewPassword.Size = new System.Drawing.Size(617, 52);
             this.TxtNewPassword.TabIndex = 1;
             this.TxtNewPassword.Tag = "Nueva contraseña";
             this.TxtNewPassword.Texts = "Nueva contraseña";
@@ -426,7 +426,7 @@ namespace Garmoxu_Desktop
             this.TxtConfirmPassword.PasswordChar = false;
             this.TxtConfirmPassword.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtConfirmPassword.PlaceholderText = "";
-            this.TxtConfirmPassword.Size = new System.Drawing.Size(617, 55);
+            this.TxtConfirmPassword.Size = new System.Drawing.Size(617, 52);
             this.TxtConfirmPassword.TabIndex = 2;
             this.TxtConfirmPassword.Tag = "Confirmar contraseña";
             this.TxtConfirmPassword.Texts = "Confirmar contraseña";
@@ -526,7 +526,7 @@ namespace Garmoxu_Desktop
             this.BtnIcon.TabStop = false;
             this.BtnIcon.UseVisualStyleBackColor = false;
             // 
-            // FrmMessageBoxPersonalizado
+            // MessageBoxPersonalizado
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -535,12 +535,12 @@ namespace Garmoxu_Desktop
             this.Controls.Add(this.PnlBody);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.Name = "FrmMessageBoxPersonalizado";
+            this.Name = "MessageBoxPersonalizado";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mensaje - Garmoxu";
             this.TopMost = true;
-            this.Shown += new System.EventHandler(this.FrmMessageBoxPersonalizado_Shown);
+            this.Shown += new System.EventHandler(this.MessageBoxPersonalizado_Shown);
             this.PnlBody.ResumeLayout(false);
             this.PnlTitleBar.ResumeLayout(false);
             this.PnlTitleBar.PerformLayout();

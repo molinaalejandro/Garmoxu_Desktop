@@ -10,7 +10,6 @@ C:\Users\aleja\Archivos\Proyecto 2º DAM\06 - Escritorio\01 - Garmoxu_Desktop\Ga
 C:\Users\aleja\Archivos\Proyecto 2º DAM\06 - Escritorio\01 - Garmoxu_Desktop\Garmoxu_Desktop\Garmoxu_Desktop\obj\Debug\Garmoxu_Desktop.FrmHistorialPedidosDetalles.resources
 C:\Users\aleja\Archivos\Proyecto 2º DAM\06 - Escritorio\01 - Garmoxu_Desktop\Garmoxu_Desktop\Garmoxu_Desktop\obj\Debug\Garmoxu_Desktop.FrmInicioSesion.resources
 C:\Users\aleja\Archivos\Proyecto 2º DAM\06 - Escritorio\01 - Garmoxu_Desktop\Garmoxu_Desktop\Garmoxu_Desktop\obj\Debug\Garmoxu_Desktop.FrmMain.resources
-C:\Users\aleja\Archivos\Proyecto 2º DAM\06 - Escritorio\01 - Garmoxu_Desktop\Garmoxu_Desktop\Garmoxu_Desktop\obj\Debug\Garmoxu_Desktop.FrmMessageBoxPersonalizado.resources
 C:\Users\aleja\Archivos\Proyecto 2º DAM\06 - Escritorio\01 - Garmoxu_Desktop\Garmoxu_Desktop\Garmoxu_Desktop\obj\Debug\Garmoxu_Desktop.FrmPedidos.resources
 C:\Users\aleja\Archivos\Proyecto 2º DAM\06 - Escritorio\01 - Garmoxu_Desktop\Garmoxu_Desktop\Garmoxu_Desktop\obj\Debug\Garmoxu_Desktop.FrmPedidosDetalles.resources
 C:\Users\aleja\Archivos\Proyecto 2º DAM\06 - Escritorio\01 - Garmoxu_Desktop\Garmoxu_Desktop\Garmoxu_Desktop\obj\Debug\Garmoxu_Desktop.FrmPedidosPagos.resources
@@ -95,3 +94,4 @@ C:\Users\aleja\Archivos\Proyecto 2º DAM\06 - Escritorio\01 - Garmoxu_Desktop\Ga
 C:\Users\aleja\Archivos\Proyecto 2º DAM\06 - Escritorio\01 - Garmoxu_Desktop\Garmoxu_Desktop\Garmoxu_Desktop\bin\Debug\Garmoxu_Desktop.application
 C:\Users\aleja\Archivos\Proyecto 2º DAM\06 - Escritorio\01 - Garmoxu_Desktop\Garmoxu_Desktop\Garmoxu_Desktop\obj\Debug\Garmoxu_Desktop.exe.manifest
 C:\Users\aleja\Archivos\Proyecto 2º DAM\06 - Escritorio\01 - Garmoxu_Desktop\Garmoxu_Desktop\Garmoxu_Desktop\obj\Debug\Garmoxu_Desktop.application
+C:\Users\aleja\Archivos\Proyecto 2º DAM\06 - Escritorio\01 - Garmoxu_Desktop\Garmoxu_Desktop\Garmoxu_Desktop\obj\Debug\Garmoxu_Desktop.MessageBoxPersonalizado.resources

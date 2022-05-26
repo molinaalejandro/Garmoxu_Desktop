@@ -11,34 +11,13 @@ namespace Garmoxu_Desktop
 {
     public class MyGroupBox : GroupBox
     {
-        private Color _background = Color.Transparent;
-        private Color _borderColor = Color.Silver;
-        private int _borderSize = 3;
-        private bool _textActivated = true;
+        public Color Background { get; set; }
 
-        public Color Background
-        {
-            get { return this._background; }
-            set { this._background = value; }
-        }
+        public Color BorderColor { get; set; }
 
-        public Color BorderColor
-        {
-            get { return this._borderColor; }
-            set { this._borderColor = value; }
-        }
+        public int BorderSize { get; set; }
 
-        public int BorderSize
-        {
-            get { return this._borderSize; }
-            set { this._borderSize = value; }
-        }
-
-        public bool TextActivated
-        {
-            get { return this._textActivated; }
-            set { this._textActivated = value; }
-        }
+        public bool EnabledText { get; set; }
 
         protected override void OnPaint(PaintEventArgs e)
         {
@@ -52,7 +31,7 @@ namespace Garmoxu_Desktop
             borderRect.Height = (borderRect.Height - (tSize.Height / 1) - (tSize.Height / 350));
 
             float X = borderRect.X;
-            float Y = borderRect.Y; 
+            float Y = borderRect.Y;
             float width = borderRect.Width;
             float height = borderRect.Height;
             float radius = 10;
@@ -63,13 +42,13 @@ namespace Garmoxu_Desktop
             gp.AddArc(X, Y + height - (radius * 2), radius * 2, radius * 2, 90, 90);
             gp.AddArc(X, Y, radius * 2, radius * 2, 180, 90);
             gp.CloseFigure();
-            e.Graphics.FillPath(new SolidBrush(this._background), gp);
-            e.Graphics.DrawPath(new Pen(this._borderColor, this._borderSize), gp);
+            e.Graphics.FillPath(new SolidBrush(Background), gp);
+            e.Graphics.DrawPath(new Pen(BorderColor, BorderSize), gp);
             gp.Dispose();
 
             //ControlPaint.DrawBorder(e.Graphics, borderRect, this._borderColor, ButtonBorderStyle.Solid);
 
-            if (this._textActivated)
+            if (EnabledText)
             {
                 Rectangle textRect = e.ClipRectangle;
                 textRect.X = (textRect.X + 20);
@@ -79,7 +58,6 @@ namespace Garmoxu_Desktop
                 e.Graphics.DrawString(this.Text, this.Font, new SolidBrush(this.ForeColor), textRect);
             }
         }
-
     }
 }
 

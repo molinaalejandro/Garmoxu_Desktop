@@ -207,7 +207,7 @@ namespace Garmoxu_Desktop
             this.myGroupBox1.TabIndex = 1;
             this.myGroupBox1.TabStop = false;
             this.myGroupBox1.Text = "Platos";
-            this.myGroupBox1.TextActivated = false;
+            this.myGroupBox1.EnabledText = false;
             // 
             // LstCategorias
             // 

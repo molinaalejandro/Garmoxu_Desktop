@@ -783,7 +783,7 @@
             this.GrpTipoPedido.TabIndex = 2;
             this.GrpTipoPedido.TabStop = false;
             this.GrpTipoPedido.Text = "Tipo pedido";
-            this.GrpTipoPedido.TextActivated = true;
+            this.GrpTipoPedido.EnabledText = true;
             // 
             // tableLayoutPanel10
             // 

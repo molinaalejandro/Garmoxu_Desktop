@@ -213,7 +213,7 @@
             this.GrpRecoger.TabIndex = 2;
             this.GrpRecoger.TabStop = false;
             this.GrpRecoger.Text = "Recoger";
-            this.GrpRecoger.TextActivated = true;
+            this.GrpRecoger.EnabledText = true;
             // 
             // PnlRecoger
             // 
@@ -244,7 +244,7 @@
             this.GrpDomicilio.TabIndex = 1;
             this.GrpDomicilio.TabStop = false;
             this.GrpDomicilio.Text = "Domicilio";
-            this.GrpDomicilio.TextActivated = true;
+            this.GrpDomicilio.EnabledText = true;
             // 
             // PnlDomicilio
             // 
@@ -275,7 +275,7 @@
             this.GrpLocal.TabIndex = 0;
             this.GrpLocal.TabStop = false;
             this.GrpLocal.Text = "Local";
-            this.GrpLocal.TextActivated = true;
+            this.GrpLocal.EnabledText = true;
             // 
             // PnlLocal
             // 

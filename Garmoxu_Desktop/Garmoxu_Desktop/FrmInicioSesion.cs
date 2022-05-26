@@ -13,7 +13,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.util;
 using System.Windows.Forms;
-using static Garmoxu_Desktop.FrmMessageBoxPersonalizado;
+using static Garmoxu_Desktop.MessageBoxPersonalizado;
 using static Garmoxu_Desktop.ConexionMySql;
 
 namespace Garmoxu_Desktop
