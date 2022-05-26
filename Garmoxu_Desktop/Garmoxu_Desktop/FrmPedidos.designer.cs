@@ -111,10 +111,10 @@
             this.BtnBuscar.IconColor = System.Drawing.Color.DodgerBlue;
             this.BtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnBuscar.IconSize = 55;
-            this.BtnBuscar.Location = new System.Drawing.Point(899, 0);
-            this.BtnBuscar.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnBuscar.Location = new System.Drawing.Point(895, 2);
+            this.BtnBuscar.Margin = new System.Windows.Forms.Padding(0, 2, 4, 2);
             this.BtnBuscar.Name = "BtnBuscar";
-            this.BtnBuscar.Size = new System.Drawing.Size(61, 55);
+            this.BtnBuscar.Size = new System.Drawing.Size(61, 51);
             this.BtnBuscar.TabIndex = 2;
             this.BtnBuscar.TabStop = false;
             this.BtnBuscar.UseVisualStyleBackColor = true;
@@ -136,10 +136,10 @@
             this.BtnNuevo.IconColor = System.Drawing.Color.NavajoWhite;
             this.BtnNuevo.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnNuevo.IconSize = 55;
-            this.BtnNuevo.Location = new System.Drawing.Point(0, 0);
-            this.BtnNuevo.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnNuevo.Location = new System.Drawing.Point(4, 2);
+            this.BtnNuevo.Margin = new System.Windows.Forms.Padding(4, 2, 0, 3);
             this.BtnNuevo.Name = "BtnNuevo";
-            this.BtnNuevo.Size = new System.Drawing.Size(61, 55);
+            this.BtnNuevo.Size = new System.Drawing.Size(61, 50);
             this.BtnNuevo.TabIndex = 0;
             this.BtnNuevo.TabStop = false;
             this.BtnNuevo.UseVisualStyleBackColor = true;
@@ -157,7 +157,7 @@
             this.TxtBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtBuscar.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
             this.TxtBuscar.ForeColor = System.Drawing.Color.Gray;
-            this.TxtBuscar.Location = new System.Drawing.Point(81, 0);
+            this.TxtBuscar.Location = new System.Drawing.Point(85, 0);
             this.TxtBuscar.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.TxtBuscar.Multiline = false;
             this.TxtBuscar.Name = "TxtBuscar";
@@ -165,7 +165,7 @@
             this.TxtBuscar.PasswordChar = false;
             this.TxtBuscar.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtBuscar.PlaceholderText = "";
-            this.TxtBuscar.Size = new System.Drawing.Size(798, 55);
+            this.TxtBuscar.Size = new System.Drawing.Size(790, 54);
             this.TxtBuscar.TabIndex = 1;
             this.TxtBuscar.TabStop = false;
             this.TxtBuscar.Texts = "Buscar por nº de mesa o teléfono de cliente";
@@ -203,6 +203,7 @@
             this.GrpRecoger.BorderSize = 5;
             this.GrpRecoger.Controls.Add(this.PnlRecoger);
             this.GrpRecoger.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GrpRecoger.EnabledText = true;
             this.GrpRecoger.Font = new System.Drawing.Font("Source Sans Pro", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GrpRecoger.ForeColor = System.Drawing.Color.Silver;
             this.GrpRecoger.Location = new System.Drawing.Point(0, 388);
@@ -213,7 +214,6 @@
             this.GrpRecoger.TabIndex = 2;
             this.GrpRecoger.TabStop = false;
             this.GrpRecoger.Text = "Recoger";
-            this.GrpRecoger.EnabledText = true;
             // 
             // PnlRecoger
             // 
@@ -234,6 +234,7 @@
             this.GrpDomicilio.BorderSize = 5;
             this.GrpDomicilio.Controls.Add(this.PnlDomicilio);
             this.GrpDomicilio.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GrpDomicilio.EnabledText = true;
             this.GrpDomicilio.Font = new System.Drawing.Font("Source Sans Pro", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GrpDomicilio.ForeColor = System.Drawing.Color.Silver;
             this.GrpDomicilio.Location = new System.Drawing.Point(0, 204);
@@ -244,7 +245,6 @@
             this.GrpDomicilio.TabIndex = 1;
             this.GrpDomicilio.TabStop = false;
             this.GrpDomicilio.Text = "Domicilio";
-            this.GrpDomicilio.EnabledText = true;
             // 
             // PnlDomicilio
             // 
@@ -265,6 +265,7 @@
             this.GrpLocal.BorderSize = 5;
             this.GrpLocal.Controls.Add(this.PnlLocal);
             this.GrpLocal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GrpLocal.EnabledText = true;
             this.GrpLocal.Font = new System.Drawing.Font("Source Sans Pro", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.GrpLocal.ForeColor = System.Drawing.Color.Silver;
             this.GrpLocal.Location = new System.Drawing.Point(0, 20);
@@ -275,7 +276,6 @@
             this.GrpLocal.TabIndex = 0;
             this.GrpLocal.TabStop = false;
             this.GrpLocal.Text = "Local";
-            this.GrpLocal.EnabledText = true;
             // 
             // PnlLocal
             // 

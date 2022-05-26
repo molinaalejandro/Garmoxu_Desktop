@@ -132,6 +132,7 @@
             this.GrpUsuario.BorderSize = 5;
             this.GrpUsuario.Controls.Add(this.Tbc);
             this.GrpUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GrpUsuario.EnabledText = false;
             this.GrpUsuario.Font = new System.Drawing.Font("Source Sans Pro", 18F, System.Drawing.FontStyle.Bold);
             this.GrpUsuario.ForeColor = System.Drawing.Color.Silver;
             this.GrpUsuario.Location = new System.Drawing.Point(0, 0);
@@ -142,7 +143,6 @@
             this.GrpUsuario.TabIndex = 10;
             this.GrpUsuario.TabStop = false;
             this.GrpUsuario.Text = "Usuario";
-            this.GrpUsuario.EnabledText = false;
             // 
             // Tbc
             // 
@@ -215,7 +215,7 @@
             this.TxtDireccionTB1.BorderSize = 2;
             this.TxtDireccionTB1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtDireccionTB1.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtDireccionTB1.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtDireccionTB1.ForeColor = System.Drawing.Color.White;
             this.TxtDireccionTB1.Location = new System.Drawing.Point(0, 163);
             this.TxtDireccionTB1.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.TxtDireccionTB1.Multiline = true;
@@ -262,7 +262,7 @@
             this.TxtTelefonoTB1.BorderSize = 2;
             this.TxtTelefonoTB1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtTelefonoTB1.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtTelefonoTB1.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtTelefonoTB1.ForeColor = System.Drawing.Color.White;
             this.TxtTelefonoTB1.Location = new System.Drawing.Point(331, 38);
             this.TxtTelefonoTB1.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.TxtTelefonoTB1.Multiline = false;
@@ -286,7 +286,7 @@
             this.TxtNombreTB1.BorderSize = 2;
             this.TxtNombreTB1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtNombreTB1.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtNombreTB1.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtNombreTB1.ForeColor = System.Drawing.Color.White;
             this.TxtNombreTB1.Location = new System.Drawing.Point(0, 38);
             this.TxtNombreTB1.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.TxtNombreTB1.Multiline = false;
@@ -346,7 +346,7 @@
             this.LblCantidadPedidos.AutoSize = true;
             this.LblCantidadPedidos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LblCantidadPedidos.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.LblCantidadPedidos.ForeColor = System.Drawing.Color.Gainsboro;
+            this.LblCantidadPedidos.ForeColor = System.Drawing.Color.White;
             this.LblCantidadPedidos.Location = new System.Drawing.Point(3, 0);
             this.LblCantidadPedidos.Name = "LblCantidadPedidos";
             this.LblCantidadPedidos.Size = new System.Drawing.Size(29, 129);
@@ -536,7 +536,7 @@
             this.TxtDireccionTB2.BorderSize = 2;
             this.TxtDireccionTB2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtDireccionTB2.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtDireccionTB2.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtDireccionTB2.ForeColor = System.Drawing.Color.White;
             this.TxtDireccionTB2.Location = new System.Drawing.Point(0, 166);
             this.TxtDireccionTB2.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.TxtDireccionTB2.Multiline = true;
@@ -583,7 +583,7 @@
             this.TxtTelefonoTB2.BorderSize = 2;
             this.TxtTelefonoTB2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtTelefonoTB2.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtTelefonoTB2.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtTelefonoTB2.ForeColor = System.Drawing.Color.White;
             this.TxtTelefonoTB2.Location = new System.Drawing.Point(331, 38);
             this.TxtTelefonoTB2.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.TxtTelefonoTB2.Multiline = false;
@@ -607,7 +607,7 @@
             this.TxtNombreTB2.BorderSize = 2;
             this.TxtNombreTB2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtNombreTB2.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtNombreTB2.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtNombreTB2.ForeColor = System.Drawing.Color.White;
             this.TxtNombreTB2.Location = new System.Drawing.Point(0, 38);
             this.TxtNombreTB2.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.TxtNombreTB2.Multiline = false;
@@ -682,7 +682,7 @@
             this.DtgClientes.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Source Sans Pro", 15F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Silver;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Silver;
@@ -693,7 +693,7 @@
             this.Column1});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Source Sans Pro", 15F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(190)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;

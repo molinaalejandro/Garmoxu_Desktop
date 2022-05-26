@@ -588,7 +588,7 @@ namespace Garmoxu_Desktop
             if (TxtCodigoPlato.Texts.Trim().Equals("Introducir código de plato"))
             {
                 TxtCodigoPlato.Texts = string.Empty;
-                TxtCodigoPlato.ForeColor = Color.Gainsboro;
+                TxtCodigoPlato.ForeColor = Color.White;
             }
         }
 
@@ -1149,8 +1149,11 @@ namespace Garmoxu_Desktop
                 if (ConfirmarAccion("ir a la ventana para finalizar y pagar") && ValidarCliente())
                 {
                     string precioConIva = LblPrecioConIVA.Text.Remove(LblPrecioConIVA.Text.Length - 1);
-                    FrmPedidosPagos frm = new FrmPedidosPagos(this, precioConIva);
+                    Form frmShadow = new Form();
+                    FrmPedidosPagos frm = new FrmPedidosPagos(this, precioConIva, ref frmShadow);
+
                     frm.ShowDialog();
+                    frmShadow.Close();
 
                     if (!string.IsNullOrEmpty(MetodoPago))
                     {

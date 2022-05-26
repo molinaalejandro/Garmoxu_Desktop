@@ -450,8 +450,8 @@
             this.CboMesasLocalTipo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CboMesasLocalTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CboMesasLocalTipo.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
-            this.CboMesasLocalTipo.ForeColor = System.Drawing.Color.Gainsboro;
-            this.CboMesasLocalTipo.IconColor = System.Drawing.Color.Gainsboro;
+            this.CboMesasLocalTipo.ForeColor = System.Drawing.Color.White;
+            this.CboMesasLocalTipo.IconColor = System.Drawing.Color.White;
             this.CboMesasLocalTipo.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
             this.CboMesasLocalTipo.ListTextColor = System.Drawing.Color.DimGray;
             this.CboMesasLocalTipo.Location = new System.Drawing.Point(5, 38);
@@ -510,7 +510,7 @@
             this.TxtNombreDomicilioTipo.BorderSize = 2;
             this.TxtNombreDomicilioTipo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtNombreDomicilioTipo.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtNombreDomicilioTipo.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtNombreDomicilioTipo.ForeColor = System.Drawing.Color.White;
             this.TxtNombreDomicilioTipo.Location = new System.Drawing.Point(5, 278);
             this.TxtNombreDomicilioTipo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.TxtNombreDomicilioTipo.Multiline = false;
@@ -534,7 +534,7 @@
             this.TxtTlfDomicilioTipo.BorderSize = 2;
             this.TxtTlfDomicilioTipo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtTlfDomicilioTipo.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtTlfDomicilioTipo.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtTlfDomicilioTipo.ForeColor = System.Drawing.Color.White;
             this.TxtTlfDomicilioTipo.Location = new System.Drawing.Point(5, 38);
             this.TxtTlfDomicilioTipo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.TxtTlfDomicilioTipo.Multiline = false;
@@ -571,7 +571,7 @@
             this.TxtDirDomicilioTipo.BorderSize = 2;
             this.TxtDirDomicilioTipo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtDirDomicilioTipo.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtDirDomicilioTipo.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtDirDomicilioTipo.ForeColor = System.Drawing.Color.White;
             this.TxtDirDomicilioTipo.Location = new System.Drawing.Point(5, 158);
             this.TxtDirDomicilioTipo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.TxtDirDomicilioTipo.Multiline = false;
@@ -664,7 +664,7 @@
             this.TxtNombreRecogerTipo.BorderSize = 2;
             this.TxtNombreRecogerTipo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtNombreRecogerTipo.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtNombreRecogerTipo.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtNombreRecogerTipo.ForeColor = System.Drawing.Color.White;
             this.TxtNombreRecogerTipo.Location = new System.Drawing.Point(5, 158);
             this.TxtNombreRecogerTipo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.TxtNombreRecogerTipo.Multiline = false;
@@ -700,7 +700,7 @@
             this.TxtTlfRecogerTipo.BorderSize = 2;
             this.TxtTlfRecogerTipo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtTlfRecogerTipo.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtTlfRecogerTipo.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtTlfRecogerTipo.ForeColor = System.Drawing.Color.White;
             this.TxtTlfRecogerTipo.Location = new System.Drawing.Point(5, 38);
             this.TxtTlfRecogerTipo.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.TxtTlfRecogerTipo.Multiline = false;
@@ -773,6 +773,7 @@
             this.GrpTipoPedido.BorderSize = 5;
             this.GrpTipoPedido.Controls.Add(this.tableLayoutPanel10);
             this.GrpTipoPedido.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GrpTipoPedido.EnabledText = true;
             this.GrpTipoPedido.Font = new System.Drawing.Font("Source Sans Pro", 19.2F, System.Drawing.FontStyle.Bold);
             this.GrpTipoPedido.ForeColor = System.Drawing.Color.Silver;
             this.GrpTipoPedido.Location = new System.Drawing.Point(0, 110);
@@ -783,7 +784,6 @@
             this.GrpTipoPedido.TabIndex = 2;
             this.GrpTipoPedido.TabStop = false;
             this.GrpTipoPedido.Text = "Tipo pedido";
-            this.GrpTipoPedido.EnabledText = true;
             // 
             // tableLayoutPanel10
             // 
@@ -809,8 +809,8 @@
             this.CboTipo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CboTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CboTipo.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
-            this.CboTipo.ForeColor = System.Drawing.Color.Gainsboro;
-            this.CboTipo.IconColor = System.Drawing.Color.Gainsboro;
+            this.CboTipo.ForeColor = System.Drawing.Color.White;
+            this.CboTipo.IconColor = System.Drawing.Color.White;
             this.CboTipo.Items.AddRange(new object[] {
             "Local",
             "Domicilio",
@@ -881,8 +881,8 @@
             this.CboMesasLocalDetalles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CboMesasLocalDetalles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CboMesasLocalDetalles.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
-            this.CboMesasLocalDetalles.ForeColor = System.Drawing.Color.Gainsboro;
-            this.CboMesasLocalDetalles.IconColor = System.Drawing.Color.Gainsboro;
+            this.CboMesasLocalDetalles.ForeColor = System.Drawing.Color.White;
+            this.CboMesasLocalDetalles.IconColor = System.Drawing.Color.White;
             this.CboMesasLocalDetalles.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
             this.CboMesasLocalDetalles.ListTextColor = System.Drawing.Color.DimGray;
             this.CboMesasLocalDetalles.Location = new System.Drawing.Point(5, 38);
@@ -962,7 +962,7 @@
             this.TxtNombreDomicilioDetalles.BorderSize = 2;
             this.TxtNombreDomicilioDetalles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtNombreDomicilioDetalles.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtNombreDomicilioDetalles.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtNombreDomicilioDetalles.ForeColor = System.Drawing.Color.White;
             this.TxtNombreDomicilioDetalles.Location = new System.Drawing.Point(5, 268);
             this.TxtNombreDomicilioDetalles.Margin = new System.Windows.Forms.Padding(5);
             this.TxtNombreDomicilioDetalles.Multiline = false;
@@ -999,7 +999,7 @@
             this.TxtDirDomicilioDetalles.BorderSize = 2;
             this.TxtDirDomicilioDetalles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtDirDomicilioDetalles.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtDirDomicilioDetalles.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtDirDomicilioDetalles.ForeColor = System.Drawing.Color.White;
             this.TxtDirDomicilioDetalles.Location = new System.Drawing.Point(5, 153);
             this.TxtDirDomicilioDetalles.Margin = new System.Windows.Forms.Padding(5);
             this.TxtDirDomicilioDetalles.Multiline = false;
@@ -1036,7 +1036,7 @@
             this.TxtTlfDomicilioDetalles.BorderSize = 2;
             this.TxtTlfDomicilioDetalles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtTlfDomicilioDetalles.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtTlfDomicilioDetalles.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtTlfDomicilioDetalles.ForeColor = System.Drawing.Color.White;
             this.TxtTlfDomicilioDetalles.Location = new System.Drawing.Point(5, 38);
             this.TxtTlfDomicilioDetalles.Margin = new System.Windows.Forms.Padding(5);
             this.TxtTlfDomicilioDetalles.Multiline = false;
@@ -1107,7 +1107,7 @@
             this.TxtNombreRecogerDetalles.BorderSize = 2;
             this.TxtNombreRecogerDetalles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtNombreRecogerDetalles.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtNombreRecogerDetalles.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtNombreRecogerDetalles.ForeColor = System.Drawing.Color.White;
             this.TxtNombreRecogerDetalles.Location = new System.Drawing.Point(5, 153);
             this.TxtNombreRecogerDetalles.Margin = new System.Windows.Forms.Padding(5);
             this.TxtNombreRecogerDetalles.Multiline = false;
@@ -1144,7 +1144,7 @@
             this.TxtTlfRecogerDetalles.BorderSize = 2;
             this.TxtTlfRecogerDetalles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtTlfRecogerDetalles.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtTlfRecogerDetalles.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtTlfRecogerDetalles.ForeColor = System.Drawing.Color.White;
             this.TxtTlfRecogerDetalles.Location = new System.Drawing.Point(5, 38);
             this.TxtTlfRecogerDetalles.Margin = new System.Windows.Forms.Padding(5);
             this.TxtTlfRecogerDetalles.Multiline = false;
@@ -1258,8 +1258,8 @@
             this.CboEstado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CboEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CboEstado.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
-            this.CboEstado.ForeColor = System.Drawing.Color.Gainsboro;
-            this.CboEstado.IconColor = System.Drawing.Color.Gainsboro;
+            this.CboEstado.ForeColor = System.Drawing.Color.White;
+            this.CboEstado.IconColor = System.Drawing.Color.White;
             this.CboEstado.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
             this.CboEstado.ListTextColor = System.Drawing.Color.DimGray;
             this.CboEstado.Location = new System.Drawing.Point(5, 38);
@@ -1365,7 +1365,7 @@
             this.NucCantidad.Cursor = System.Windows.Forms.Cursors.Default;
             this.NucCantidad.Dock = System.Windows.Forms.DockStyle.Fill;
             this.NucCantidad.Font = new System.Drawing.Font("Source Sans Pro", 18.2F, System.Drawing.FontStyle.Bold);
-            this.NucCantidad.ForeColor = System.Drawing.Color.Silver;
+            this.NucCantidad.ForeColor = System.Drawing.Color.White;
             this.NucCantidad.Location = new System.Drawing.Point(15, 2);
             this.NucCantidad.Margin = new System.Windows.Forms.Padding(15, 2, 0, 0);
             this.NucCantidad.Maximum = new decimal(new int[] {
@@ -1474,7 +1474,7 @@
             this.DtgPlatosPedidos.AllowUserToOrderColumns = true;
             this.DtgPlatosPedidos.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Source Sans Pro", 15F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(190)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
@@ -1487,7 +1487,7 @@
             this.DtgPlatosPedidos.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Source Sans Pro", 15F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Silver;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Silver;
@@ -1502,7 +1502,7 @@
             this.Column5});
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Source Sans Pro", 15F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(190)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
@@ -1537,7 +1537,7 @@
             // 
             // Column1
             // 
-            this.Column1.FillWeight = 80.21391F;
+            this.Column1.FillWeight = 58.01494F;
             this.Column1.HeaderText = "Código";
             this.Column1.MinimumWidth = 6;
             this.Column1.Name = "Column1";
@@ -1545,7 +1545,7 @@
             // 
             // Column2
             // 
-            this.Column2.FillWeight = 112.0693F;
+            this.Column2.FillWeight = 240.18F;
             this.Column2.HeaderText = "Nombre";
             this.Column2.MinimumWidth = 6;
             this.Column2.Name = "Column2";
@@ -1553,7 +1553,7 @@
             // 
             // Column3
             // 
-            this.Column3.FillWeight = 83.57816F;
+            this.Column3.FillWeight = 67.006F;
             this.Column3.HeaderText = "Cantidad";
             this.Column3.MinimumWidth = 6;
             this.Column3.Name = "Column3";
@@ -1561,7 +1561,7 @@
             // 
             // Column4
             // 
-            this.Column4.FillWeight = 112.0693F;
+            this.Column4.FillWeight = 66.84492F;
             this.Column4.HeaderText = "Precio unitario";
             this.Column4.MinimumWidth = 6;
             this.Column4.Name = "Column4";
@@ -1569,7 +1569,7 @@
             // 
             // Column5
             // 
-            this.Column5.FillWeight = 112.0693F;
+            this.Column5.FillWeight = 67.95413F;
             this.Column5.HeaderText = "Precio final";
             this.Column5.MinimumWidth = 6;
             this.Column5.Name = "Column5";
@@ -1580,19 +1580,18 @@
             this.tableLayoutPanel11.ColumnCount = 8;
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
-            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel11.Controls.Add(this.LblHora, 6, 0);
-            this.tableLayoutPanel11.Controls.Add(this.LblFecha, 7, 0);
-            this.tableLayoutPanel11.Controls.Add(this.label15, 0, 0);
-            this.tableLayoutPanel11.Controls.Add(this.label10, 3, 0);
-            this.tableLayoutPanel11.Controls.Add(this.LblPrecioConIVA, 4, 0);
-            this.tableLayoutPanel11.Controls.Add(this.LblPrecioSinIVA, 1, 0);
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 50F));
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel11.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
+            this.tableLayoutPanel11.Controls.Add(this.LblHora, 1, 0);
+            this.tableLayoutPanel11.Controls.Add(this.LblFecha, 0, 0);
+            this.tableLayoutPanel11.Controls.Add(this.label15, 3, 0);
+            this.tableLayoutPanel11.Controls.Add(this.label10, 6, 0);
+            this.tableLayoutPanel11.Controls.Add(this.LblPrecioConIVA, 7, 0);
+            this.tableLayoutPanel11.Controls.Add(this.LblPrecioSinIVA, 4, 0);
             this.tableLayoutPanel11.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel11.Location = new System.Drawing.Point(3, 678);
             this.tableLayoutPanel11.Name = "tableLayoutPanel11";
@@ -1606,8 +1605,8 @@
             this.LblHora.AutoSize = true;
             this.LblHora.Dock = System.Windows.Forms.DockStyle.Left;
             this.LblHora.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.LblHora.ForeColor = System.Drawing.Color.Silver;
-            this.LblHora.Location = new System.Drawing.Point(705, 0);
+            this.LblHora.ForeColor = System.Drawing.Color.White;
+            this.LblHora.Location = new System.Drawing.Point(154, 0);
             this.LblHora.Name = "LblHora";
             this.LblHora.Size = new System.Drawing.Size(79, 65);
             this.LblHora.TabIndex = 57;
@@ -1619,8 +1618,8 @@
             this.LblFecha.AutoSize = true;
             this.LblFecha.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LblFecha.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.LblFecha.ForeColor = System.Drawing.Color.Silver;
-            this.LblFecha.Location = new System.Drawing.Point(790, 0);
+            this.LblFecha.ForeColor = System.Drawing.Color.White;
+            this.LblFecha.Location = new System.Drawing.Point(3, 0);
             this.LblFecha.Name = "LblFecha";
             this.LblFecha.Size = new System.Drawing.Size(145, 65);
             this.LblFecha.TabIndex = 0;
@@ -1634,7 +1633,7 @@
             this.label15.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label15.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
             this.label15.ForeColor = System.Drawing.Color.Silver;
-            this.label15.Location = new System.Drawing.Point(3, 0);
+            this.label15.Location = new System.Drawing.Point(457, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(159, 65);
             this.label15.TabIndex = 56;
@@ -1648,7 +1647,7 @@
             this.label10.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label10.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
             this.label10.ForeColor = System.Drawing.Color.Silver;
-            this.label10.Location = new System.Drawing.Point(267, 0);
+            this.label10.Location = new System.Drawing.Point(721, 0);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(165, 65);
             this.label10.TabIndex = 55;
@@ -1661,8 +1660,8 @@
             this.LblPrecioConIVA.BackColor = System.Drawing.Color.Transparent;
             this.LblPrecioConIVA.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LblPrecioConIVA.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.LblPrecioConIVA.ForeColor = System.Drawing.Color.Silver;
-            this.LblPrecioConIVA.Location = new System.Drawing.Point(438, 0);
+            this.LblPrecioConIVA.ForeColor = System.Drawing.Color.White;
+            this.LblPrecioConIVA.Location = new System.Drawing.Point(892, 0);
             this.LblPrecioConIVA.Name = "LblPrecioConIVA";
             this.LblPrecioConIVA.Size = new System.Drawing.Size(43, 65);
             this.LblPrecioConIVA.TabIndex = 53;
@@ -1675,8 +1674,8 @@
             this.LblPrecioSinIVA.BackColor = System.Drawing.Color.Transparent;
             this.LblPrecioSinIVA.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LblPrecioSinIVA.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.LblPrecioSinIVA.ForeColor = System.Drawing.Color.Silver;
-            this.LblPrecioSinIVA.Location = new System.Drawing.Point(168, 0);
+            this.LblPrecioSinIVA.ForeColor = System.Drawing.Color.White;
+            this.LblPrecioSinIVA.Location = new System.Drawing.Point(622, 0);
             this.LblPrecioSinIVA.Name = "LblPrecioSinIVA";
             this.LblPrecioSinIVA.Size = new System.Drawing.Size(43, 65);
             this.LblPrecioSinIVA.TabIndex = 54;

@@ -65,8 +65,8 @@
             // 
             this.LblDisponibilidad.AutoSize = true;
             this.LblDisponibilidad.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.LblDisponibilidad.ForeColor = System.Drawing.Color.Gainsboro;
-            this.LblDisponibilidad.Location = new System.Drawing.Point(916, 0);
+            this.LblDisponibilidad.ForeColor = System.Drawing.Color.Silver;
+            this.LblDisponibilidad.Location = new System.Drawing.Point(912, 0);
             this.LblDisponibilidad.Margin = new System.Windows.Forms.Padding(30, 0, 3, 0);
             this.LblDisponibilidad.Name = "LblDisponibilidad";
             this.LblDisponibilidad.Size = new System.Drawing.Size(182, 33);
@@ -128,7 +128,7 @@
             this.TgbDisponibilidad.Checked = true;
             this.TgbDisponibilidad.CheckState = System.Windows.Forms.CheckState.Checked;
             this.TgbDisponibilidad.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.TgbDisponibilidad.Location = new System.Drawing.Point(921, 47);
+            this.TgbDisponibilidad.Location = new System.Drawing.Point(917, 47);
             this.TgbDisponibilidad.Margin = new System.Windows.Forms.Padding(35, 4, 4, 4);
             this.TgbDisponibilidad.MinimumSize = new System.Drawing.Size(60, 27);
             this.TgbDisponibilidad.Name = "TgbDisponibilidad";
@@ -154,10 +154,10 @@
             this.BtnNuevo.IconChar = FontAwesome.Sharp.IconChar.Plus;
             this.BtnNuevo.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(225)))), ((int)(((byte)(70)))));
             this.BtnNuevo.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnNuevo.Location = new System.Drawing.Point(0, 43);
-            this.BtnNuevo.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnNuevo.Location = new System.Drawing.Point(4, 45);
+            this.BtnNuevo.Margin = new System.Windows.Forms.Padding(4, 2, 0, 3);
             this.BtnNuevo.Name = "BtnNuevo";
-            this.BtnNuevo.Size = new System.Drawing.Size(35, 53);
+            this.BtnNuevo.Size = new System.Drawing.Size(35, 48);
             this.BtnNuevo.TabIndex = 43;
             this.BtnNuevo.TabStop = false;
             this.BtnNuevo.UseVisualStyleBackColor = true;
@@ -178,10 +178,10 @@
             this.BtnEliminar.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
             this.BtnEliminar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.BtnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnEliminar.Location = new System.Drawing.Point(50, 43);
-            this.BtnEliminar.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
+            this.BtnEliminar.Location = new System.Drawing.Point(54, 45);
+            this.BtnEliminar.Margin = new System.Windows.Forms.Padding(15, 2, 0, 2);
             this.BtnEliminar.Name = "BtnEliminar";
-            this.BtnEliminar.Size = new System.Drawing.Size(61, 53);
+            this.BtnEliminar.Size = new System.Drawing.Size(61, 49);
             this.BtnEliminar.TabIndex = 44;
             this.BtnEliminar.TabStop = false;
             this.BtnEliminar.UseVisualStyleBackColor = true;
@@ -199,7 +199,7 @@
             this.TxtNombre.Dock = System.Windows.Forms.DockStyle.Top;
             this.TxtNombre.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
             this.TxtNombre.ForeColor = System.Drawing.Color.Gray;
-            this.TxtNombre.Location = new System.Drawing.Point(131, 43);
+            this.TxtNombre.Location = new System.Drawing.Point(135, 43);
             this.TxtNombre.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.TxtNombre.Multiline = false;
             this.TxtNombre.Name = "TxtNombre";
@@ -207,7 +207,7 @@
             this.TxtNombre.PasswordChar = false;
             this.TxtNombre.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtNombre.PlaceholderText = "";
-            this.TxtNombre.Size = new System.Drawing.Size(425, 52);
+            this.TxtNombre.Size = new System.Drawing.Size(417, 52);
             this.TxtNombre.TabIndex = 49;
             this.TxtNombre.TabStop = false;
             this.TxtNombre.Texts = "Buscar por nombre de plato";
@@ -225,11 +225,11 @@
             this.CboCategoria.Dock = System.Windows.Forms.DockStyle.Top;
             this.CboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CboCategoria.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
-            this.CboCategoria.ForeColor = System.Drawing.Color.Gainsboro;
-            this.CboCategoria.IconColor = System.Drawing.Color.Gainsboro;
+            this.CboCategoria.ForeColor = System.Drawing.Color.White;
+            this.CboCategoria.IconColor = System.Drawing.Color.White;
             this.CboCategoria.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
             this.CboCategoria.ListTextColor = System.Drawing.Color.DimGray;
-            this.CboCategoria.Location = new System.Drawing.Point(586, 43);
+            this.CboCategoria.Location = new System.Drawing.Point(582, 43);
             this.CboCategoria.Margin = new System.Windows.Forms.Padding(30, 0, 0, 0);
             this.CboCategoria.MinimumSize = new System.Drawing.Size(200, 30);
             this.CboCategoria.Name = "CboCategoria";
@@ -253,10 +253,10 @@
             this.BtnBuscar.IconChar = FontAwesome.Sharp.IconChar.Search;
             this.BtnBuscar.IconColor = System.Drawing.Color.MediumSlateBlue;
             this.BtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnBuscar.Location = new System.Drawing.Point(1121, 43);
-            this.BtnBuscar.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.BtnBuscar.Location = new System.Drawing.Point(1117, 45);
+            this.BtnBuscar.Margin = new System.Windows.Forms.Padding(20, 2, 4, 3);
             this.BtnBuscar.Name = "BtnBuscar";
-            this.BtnBuscar.Size = new System.Drawing.Size(42, 53);
+            this.BtnBuscar.Size = new System.Drawing.Size(42, 48);
             this.BtnBuscar.TabIndex = 45;
             this.BtnBuscar.TabStop = false;
             this.BtnBuscar.UseVisualStyleBackColor = true;
@@ -276,7 +276,7 @@
             this.tableLayoutPanel2.Controls.Add(this.ChkCategoría, 1, 0);
             this.tableLayoutPanel2.Controls.Add(this.LblCategoria, 0, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(559, 3);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(555, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -288,15 +288,15 @@
             this.ChkCategoría.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ChkCategoría.BackColor = System.Drawing.Color.Transparent;
             this.ChkCategoría.Background = System.Drawing.Color.Transparent;
-            this.ChkCategoría.BorderColor = System.Drawing.Color.Gainsboro;
+            this.ChkCategoría.BorderColor = System.Drawing.Color.Silver;
             this.ChkCategoría.BorderHeight = 15;
             this.ChkCategoría.BorderWidth = 15;
             this.ChkCategoría.Checked = false;
             this.ChkCategoría.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ChkCategoría.EnterColor = System.Drawing.Color.White;
             this.ChkCategoría.Font = new System.Drawing.Font("Source Sans Pro Black", 14F, System.Drawing.FontStyle.Bold);
-            this.ChkCategoría.ForeColor = System.Drawing.Color.White;
-            this.ChkCategoría.LeaveColor = System.Drawing.Color.Gainsboro;
+            this.ChkCategoría.ForeColor = System.Drawing.Color.Silver;
+            this.ChkCategoría.LeaveColor = System.Drawing.Color.Silver;
             this.ChkCategoría.Location = new System.Drawing.Point(162, 4);
             this.ChkCategoría.Name = "ChkCategoría";
             this.ChkCategoría.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
@@ -312,7 +312,7 @@
             this.LblCategoria.AutoSize = true;
             this.LblCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LblCategoria.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.LblCategoria.ForeColor = System.Drawing.Color.Gainsboro;
+            this.LblCategoria.ForeColor = System.Drawing.Color.Silver;
             this.LblCategoria.Location = new System.Drawing.Point(30, 0);
             this.LblCategoria.Margin = new System.Windows.Forms.Padding(30, 0, 3, 0);
             this.LblCategoria.Name = "LblCategoria";
@@ -333,11 +333,11 @@
             this.tableLayoutPanel3.Controls.Add(this.ChkNombre, 1, 0);
             this.tableLayoutPanel3.Controls.Add(this.LblNombre, 0, 0);
             this.tableLayoutPanel3.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel3.Location = new System.Drawing.Point(114, 3);
+            this.tableLayoutPanel3.Location = new System.Drawing.Point(118, 3);
             this.tableLayoutPanel3.Name = "tableLayoutPanel3";
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(439, 37);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(431, 37);
             this.tableLayoutPanel3.TabIndex = 61;
             // 
             // ChkNombre
@@ -345,15 +345,15 @@
             this.ChkNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ChkNombre.BackColor = System.Drawing.Color.Transparent;
             this.ChkNombre.Background = System.Drawing.Color.Transparent;
-            this.ChkNombre.BorderColor = System.Drawing.Color.Gainsboro;
+            this.ChkNombre.BorderColor = System.Drawing.Color.Silver;
             this.ChkNombre.BorderHeight = 15;
             this.ChkNombre.BorderWidth = 15;
             this.ChkNombre.Checked = false;
             this.ChkNombre.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ChkNombre.EnterColor = System.Drawing.Color.White;
             this.ChkNombre.Font = new System.Drawing.Font("Source Sans Pro Black", 14F, System.Drawing.FontStyle.Bold);
-            this.ChkNombre.ForeColor = System.Drawing.Color.White;
-            this.ChkNombre.LeaveColor = System.Drawing.Color.Gainsboro;
+            this.ChkNombre.ForeColor = System.Drawing.Color.Silver;
+            this.ChkNombre.LeaveColor = System.Drawing.Color.Silver;
             this.ChkNombre.Location = new System.Drawing.Point(230, 4);
             this.ChkNombre.Name = "ChkNombre";
             this.ChkNombre.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
@@ -370,7 +370,7 @@
             this.LblNombre.AutoSize = true;
             this.LblNombre.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LblNombre.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.LblNombre.ForeColor = System.Drawing.Color.Gainsboro;
+            this.LblNombre.ForeColor = System.Drawing.Color.Silver;
             this.LblNombre.Location = new System.Drawing.Point(20, 0);
             this.LblNombre.Margin = new System.Windows.Forms.Padding(20, 0, 3, 0);
             this.LblNombre.Name = "LblNombre";
@@ -390,6 +390,7 @@
             this.myGroupBox1.BorderSize = 5;
             this.myGroupBox1.Controls.Add(this.LstPlatos);
             this.myGroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.myGroupBox1.EnabledText = false;
             this.myGroupBox1.Location = new System.Drawing.Point(73, 162);
             this.myGroupBox1.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.myGroupBox1.Name = "myGroupBox1";
@@ -398,7 +399,6 @@
             this.myGroupBox1.TabIndex = 1;
             this.myGroupBox1.TabStop = false;
             this.myGroupBox1.Text = "Platos";
-            this.myGroupBox1.EnabledText = false;
             // 
             // LstPlatos
             // 

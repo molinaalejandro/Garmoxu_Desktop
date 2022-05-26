@@ -280,7 +280,7 @@ namespace Garmoxu_Desktop
             this.TxtNombre.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtNombre.Enabled = false;
             this.TxtNombre.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtNombre.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtNombre.ForeColor = System.Drawing.Color.White;
             this.TxtNombre.Location = new System.Drawing.Point(5, 148);
             this.TxtNombre.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.TxtNombre.Multiline = false;
@@ -305,7 +305,7 @@ namespace Garmoxu_Desktop
             this.TxtIdPlato.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtIdPlato.Enabled = false;
             this.TxtIdPlato.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtIdPlato.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtIdPlato.ForeColor = System.Drawing.Color.White;
             this.TxtIdPlato.Location = new System.Drawing.Point(5, 38);
             this.TxtIdPlato.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.TxtIdPlato.Multiline = false;
@@ -366,7 +366,7 @@ namespace Garmoxu_Desktop
             this.TxtListaAlergenos.Dock = System.Windows.Forms.DockStyle.Top;
             this.TxtListaAlergenos.Enabled = false;
             this.TxtListaAlergenos.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtListaAlergenos.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtListaAlergenos.ForeColor = System.Drawing.Color.White;
             this.TxtListaAlergenos.Location = new System.Drawing.Point(5, 485);
             this.TxtListaAlergenos.Margin = new System.Windows.Forms.Padding(5, 5, 5, 10);
             this.TxtListaAlergenos.Multiline = true;
@@ -459,7 +459,7 @@ namespace Garmoxu_Desktop
             this.TxtDescripcion.Dock = System.Windows.Forms.DockStyle.Top;
             this.TxtDescripcion.Enabled = false;
             this.TxtDescripcion.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtDescripcion.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtDescripcion.ForeColor = System.Drawing.Color.White;
             this.TxtDescripcion.Location = new System.Drawing.Point(436, 485);
             this.TxtDescripcion.Margin = new System.Windows.Forms.Padding(5, 5, 5, 10);
             this.TxtDescripcion.Multiline = true;
@@ -484,7 +484,7 @@ namespace Garmoxu_Desktop
             this.TxtPrecioConIva.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtPrecioConIva.Enabled = false;
             this.TxtPrecioConIva.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtPrecioConIva.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtPrecioConIva.ForeColor = System.Drawing.Color.White;
             this.TxtPrecioConIva.Location = new System.Drawing.Point(5, 264);
             this.TxtPrecioConIva.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.TxtPrecioConIva.Multiline = false;
@@ -509,7 +509,7 @@ namespace Garmoxu_Desktop
             this.TxtPrecioSinIva.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtPrecioSinIva.Enabled = false;
             this.TxtPrecioSinIva.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtPrecioSinIva.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtPrecioSinIva.ForeColor = System.Drawing.Color.White;
             this.TxtPrecioSinIva.Location = new System.Drawing.Point(436, 264);
             this.TxtPrecioSinIva.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.TxtPrecioSinIva.Multiline = false;
@@ -558,8 +558,8 @@ namespace Garmoxu_Desktop
             this.CboCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CboCategorias.Enabled = false;
             this.CboCategorias.Font = new System.Drawing.Font("Source Sans Pro", 14.2F, System.Drawing.FontStyle.Bold);
-            this.CboCategorias.ForeColor = System.Drawing.Color.Gainsboro;
-            this.CboCategorias.IconColor = System.Drawing.Color.Gainsboro;
+            this.CboCategorias.ForeColor = System.Drawing.Color.White;
+            this.CboCategorias.IconColor = System.Drawing.Color.White;
             this.CboCategorias.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
             this.CboCategorias.ListTextColor = System.Drawing.Color.DimGray;
             this.CboCategorias.Location = new System.Drawing.Point(0, 0);

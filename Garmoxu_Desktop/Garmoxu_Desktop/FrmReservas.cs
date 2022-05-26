@@ -65,7 +65,7 @@ namespace Garmoxu_Desktop
             if (TxtBuscar.Texts.Trim().Equals(BtnClienteActivado ? "Buscar por teléfono de cliente" : "Buscar por número de mesa"))
             {
                 TxtBuscar.Texts = string.Empty;
-                TxtBuscar.ForeColor = Color.Gainsboro;
+                TxtBuscar.ForeColor = Color.White;
             }
         }
 
@@ -292,7 +292,7 @@ namespace Garmoxu_Desktop
         #region Modificación de reservas
         private void DtgReservas_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            if (ValidarReservaDisponible())
+            if (DtgReservas.SelectedRows.Count > 0 && ValidarReservaDisponible())
             {
                 Form frmShadow = new Form();
                 string clavePrimaria = DtgReservas.CurrentRow.Cells[0].Value.ToString();

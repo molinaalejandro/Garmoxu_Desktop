@@ -136,7 +136,7 @@ namespace Garmoxu_Desktop
             if (TxtBuscar.Texts.Trim().Equals("Buscar por nombre de usuario / empleado"))
             {
                 TxtBuscar.Texts = string.Empty;
-                TxtBuscar.ForeColor = Color.Gainsboro;
+                TxtBuscar.ForeColor = Color.White;
             }
         }
 
@@ -219,33 +219,36 @@ namespace Garmoxu_Desktop
         #region Carga de datos
         private void DtgUsuarios_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            HabilitarControles();
-            CargarTiposDeUsuario();
-
-            string sql = "SELECT NombreUsuario, NombreEmpleado, IdTipoUsuario, RestablecerContraseña, ImagenUsuario " +
-                "FROM Usuarios WHERE NombreUsuario = '" + DtgUsuarios.SelectedRows[0].Cells[0].Value + "'";
-
-            MySqlDataReader lector = EjecutarConsulta(sql);
-            if (lector.Read())
+            if (DtgUsuarios.SelectedRows.Count > 0)
             {
-                DatosIniciales.Add(lector[0].ToString());
-                DatosIniciales.Add(lector[1].ToString());
-                DatosIniciales.Add(lector[2].ToString());
-                DatosIniciales.Add(lector[3].ToString());
+                HabilitarControles();
+                CargarTiposDeUsuario();
 
-                TxtUsuario.Texts = lector[0].ToString();
-                TxtNombre.Texts = lector[1].ToString();
+                string sql = "SELECT NombreUsuario, NombreEmpleado, IdTipoUsuario, RestablecerContraseña, ImagenUsuario " +
+                    "FROM Usuarios WHERE NombreUsuario = '" + DtgUsuarios.SelectedRows[0].Cells[0].Value + "'";
 
-                int indexTipoUsuario = IdsTiposUsuario.IndexOf(lector[2].ToString());
-                CboTipoUsuario.SelectedIndex = indexTipoUsuario;
+                MySqlDataReader lector = EjecutarConsulta(sql);
+                if (lector.Read())
+                {
+                    DatosIniciales.Add(lector[0].ToString());
+                    DatosIniciales.Add(lector[1].ToString());
+                    DatosIniciales.Add(lector[2].ToString());
+                    DatosIniciales.Add(lector[3].ToString());
 
-                if (lector[3].ToString().Equals("True")) TgbRestablecerContraseña.Checked = true;
-                else TgbRestablecerContraseña.Checked = false;
+                    TxtUsuario.Texts = lector[0].ToString();
+                    TxtNombre.Texts = lector[1].ToString();
 
-                CargarImagen(lector);
+                    int indexTipoUsuario = IdsTiposUsuario.IndexOf(lector[2].ToString());
+                    CboTipoUsuario.SelectedIndex = indexTipoUsuario;
+
+                    if (lector[3].ToString().Equals("True")) TgbRestablecerContraseña.Checked = true;
+                    else TgbRestablecerContraseña.Checked = false;
+
+                    CargarImagen(lector);
+                }
+                CerrarConexion();
+                lector.Close();
             }
-            CerrarConexion();
-            lector.Close();
         }
 
         private void CargarTiposDeUsuario()
@@ -253,7 +256,7 @@ namespace Garmoxu_Desktop
             CboTipoUsuario.Items.Clear();
             IdsTiposUsuario = new List<string>();
 
-            string sql = "SELECT Nombre, IdTipoUsuario FROM TiposUsuarios ORDER BY Nombre ASC";
+            string sql = "SELECT Nombre, IdTipoUsuario FROM TiposUsuarios ORDER BY IdTipoUsuario ASC";
             MySqlDataReader lector = EjecutarConsulta(sql);
 
             while (lector.Read())

@@ -26,7 +26,7 @@ namespace Garmoxu_Desktop
         #region Cargar datos
         private void CargarCategorias()
         {
-            string sql = "SELECT IdCategoria, Nombre, ImagenCategoria FROM Categorias ORDER BY Nombre DESC";
+            string sql = "SELECT IdCategoria, Nombre, ImagenCategoria FROM Categorias ORDER BY Nombre ASC";
             RellenarListView(sql);
         }
 
@@ -72,7 +72,7 @@ namespace Garmoxu_Desktop
             if (TxtBusqueda.Texts.Trim().Equals("Buscar por nombre de categoría"))
             {
                 TxtBusqueda.Texts = string.Empty;
-                TxtBusqueda.ForeColor = Color.Gainsboro;
+                TxtBusqueda.ForeColor = Color.White;
             }
         }
 
@@ -131,7 +131,7 @@ namespace Garmoxu_Desktop
             if (!string.IsNullOrEmpty(TxtBusqueda.Texts.Trim()) && !TxtBusqueda.Texts.Equals("Buscar por nombre de categoría"))
             {
                 string sql = "SELECT IdCategoria, Nombre, ImagenCategoria FROM Categorias " +
-                    "WHERE Nombre LIKE '%" + TxtBusqueda.Texts.Trim() + "%' ORDER BY Nombre DESC";
+                    "WHERE Nombre LIKE '%" + TxtBusqueda.Texts.Trim() + "%' ORDER BY Nombre ASC";
                 RellenarListView(sql);
             }
             else

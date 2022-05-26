@@ -109,7 +109,7 @@ namespace Garmoxu_Desktop
 
             CboMesa.SelectedIndex = CboMesa.Items.Count - 1;
             LblCboDisabled.Text = CboMesa.Items[CboMesa.Items.Count - 1].ToString();
-            CboMesa.IconColor = Color.DimGray;
+            //CboMesa.IconColor = Color.DimGray;
         }
 
         private void ConfigurarFormularioDeReservaHistorial()

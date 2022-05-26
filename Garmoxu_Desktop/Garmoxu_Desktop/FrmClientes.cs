@@ -155,7 +155,7 @@ namespace Garmoxu_Desktop
             if (TxtBuscar.Texts.Trim().Equals("Buscar por teléfono de cliente"))
             {
                 TxtBuscar.Texts = string.Empty;
-                TxtBuscar.ForeColor = Color.Gainsboro;
+                TxtBuscar.ForeColor = Color.White;
             }
         }
 
@@ -204,29 +204,32 @@ namespace Garmoxu_Desktop
         #region Carga de los detalles del cliente
         private void DtgClientes_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            string tlfSeleccionado = DtgClientes.SelectedRows[0].Cells[0].Value.ToString();
-            if (ValidarClienteDisponible(tlfSeleccionado))
+            if (DtgClientes.SelectedRows.Count > 0)
             {
-                Tbc.SelectedTab = tabPage1;
-                tableLayoutPanel9.Visible = true;
-
-                string sql = "SELECT * FROM Clientes WHERE TelefonoCliente = '" + tlfSeleccionado + "'";
-                MySqlDataReader lector = EjecutarConsulta(sql);
-
-                if (lector.Read())
+                string tlfSeleccionado = DtgClientes.SelectedRows[0].Cells[0].Value.ToString();
+                if (ValidarClienteDisponible(tlfSeleccionado))
                 {
-                    TxtTelefonoTB1.Texts = lector[0].ToString();
-                    TxtDireccionTB1.Texts = lector[1].ToString();
-                    LblCantidadPedidos.Text = lector[2].ToString();
-                    TxtNombreTB1.Texts = lector[3].ToString();
+                    Tbc.SelectedTab = tabPage1;
+                    tableLayoutPanel9.Visible = true;
 
-                    DatosIniciales = new List<string>();
-                    DatosIniciales.Add(TxtTelefonoTB1.Texts);
-                    DatosIniciales.Add(TxtDireccionTB1.Texts);
-                    DatosIniciales.Add(TxtNombreTB1.Texts);
+                    string sql = "SELECT * FROM Clientes WHERE TelefonoCliente = '" + tlfSeleccionado + "'";
+                    MySqlDataReader lector = EjecutarConsulta(sql);
+
+                    if (lector.Read())
+                    {
+                        TxtTelefonoTB1.Texts = lector[0].ToString();
+                        TxtDireccionTB1.Texts = lector[1].ToString();
+                        LblCantidadPedidos.Text = lector[2].ToString();
+                        TxtNombreTB1.Texts = lector[3].ToString();
+
+                        DatosIniciales = new List<string>();
+                        DatosIniciales.Add(TxtTelefonoTB1.Texts);
+                        DatosIniciales.Add(TxtDireccionTB1.Texts);
+                        DatosIniciales.Add(TxtNombreTB1.Texts);
+                    }
+                    CerrarConexion();
+                    lector.Close();
                 }
-                CerrarConexion();
-                lector.Close();
             }
         }
         #endregion

@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Garmoxu_Desktop.MessageBoxPersonalizado;
+using static Garmoxu_Desktop.ConexionMySql;
 
 namespace Garmoxu_Desktop
 {
@@ -25,12 +26,14 @@ namespace Garmoxu_Desktop
             }
             catch (MySqlException ex)
             {
+                CerrarConexion();
                 string mensaje = "Se ha perdido la conexión con el servidor, revise su conexión a internet y el estado del servidor.";
                 if (ShowRetryDialog(mensaje, "").Equals(DialogResult.Retry)) Application.Restart();
                 else Environment.Exit(0);
             }
             catch (Exception ex) 
             {
+                CerrarConexion();
                 string mensaje = "Ha ocurrido el siguiente error de tipo " + ex.GetType() + ": \n" + ex.Message;
                 if (ShowRetryDialog(mensaje, "").Equals(DialogResult.Retry)) Application.Restart();
                 else Environment.Exit(0);

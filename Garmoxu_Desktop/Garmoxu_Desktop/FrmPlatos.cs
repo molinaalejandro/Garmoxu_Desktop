@@ -100,7 +100,7 @@ namespace Garmoxu_Desktop
             if (TxtNombre.Texts.Trim().Equals("Buscar por nombre de plato"))
             {
                 TxtNombre.Texts = string.Empty;
-                TxtNombre.ForeColor = Color.Gainsboro;
+                TxtNombre.ForeColor = Color.White;
             }
         }
 

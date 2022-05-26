@@ -79,7 +79,7 @@
             this.DtgHistorial.AllowUserToOrderColumns = true;
             this.DtgHistorial.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Source Sans Pro", 15F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(190)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
@@ -92,7 +92,7 @@
             this.DtgHistorial.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Source Sans Pro", 15F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Silver;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Silver;
@@ -101,7 +101,7 @@
             this.DtgHistorial.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Source Sans Pro", 15F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(190)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
@@ -167,7 +167,7 @@
             this.label1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label1.ForeColor = System.Drawing.Color.Silver;
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.label1.Name = "label1";
@@ -191,7 +191,7 @@
             this.DtpFechaPedido.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.DtpFechaPedido.TabIndex = 62;
             this.DtpFechaPedido.TabStop = false;
-            this.DtpFechaPedido.TextColor = System.Drawing.Color.Gainsboro;
+            this.DtpFechaPedido.TextColor = System.Drawing.Color.White;
             this.DtpFechaPedido.Value = new System.DateTime(2022, 5, 19, 0, 0, 0, 0);
             this.DtpFechaPedido.ValueChanged += new System.EventHandler(this.DtpBuscar_ValueChanged);
             // 
@@ -231,8 +231,8 @@
             this.CboTipos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CboTipos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CboTipos.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
-            this.CboTipos.ForeColor = System.Drawing.Color.Gainsboro;
-            this.CboTipos.IconColor = System.Drawing.Color.Gainsboro;
+            this.CboTipos.ForeColor = System.Drawing.Color.White;
+            this.CboTipos.IconColor = System.Drawing.Color.White;
             this.CboTipos.Items.AddRange(new object[] {
             "Local",
             "Domicilio",
@@ -299,15 +299,15 @@
             this.ChkTipo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ChkTipo.BackColor = System.Drawing.Color.Transparent;
             this.ChkTipo.Background = System.Drawing.Color.Transparent;
-            this.ChkTipo.BorderColor = System.Drawing.Color.Gainsboro;
+            this.ChkTipo.BorderColor = System.Drawing.Color.Silver;
             this.ChkTipo.BorderHeight = 15;
             this.ChkTipo.BorderWidth = 15;
             this.ChkTipo.Checked = false;
             this.ChkTipo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ChkTipo.EnterColor = System.Drawing.Color.White;
             this.ChkTipo.Font = new System.Drawing.Font("Source Sans Pro Black", 14F, System.Drawing.FontStyle.Bold);
-            this.ChkTipo.ForeColor = System.Drawing.Color.White;
-            this.ChkTipo.LeaveColor = System.Drawing.Color.Gainsboro;
+            this.ChkTipo.ForeColor = System.Drawing.Color.Silver;
+            this.ChkTipo.LeaveColor = System.Drawing.Color.Silver;
             this.ChkTipo.Location = new System.Drawing.Point(218, 7);
             this.ChkTipo.Name = "ChkTipo";
             this.ChkTipo.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
@@ -324,7 +324,7 @@
             this.LblTipo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LblTipo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LblTipo.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.LblTipo.ForeColor = System.Drawing.Color.Gainsboro;
+            this.LblTipo.ForeColor = System.Drawing.Color.Silver;
             this.LblTipo.Location = new System.Drawing.Point(30, 0);
             this.LblTipo.Margin = new System.Windows.Forms.Padding(30, 0, 3, 0);
             this.LblTipo.Name = "LblTipo";
@@ -358,15 +358,15 @@
             this.ChkTelefono.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ChkTelefono.BackColor = System.Drawing.Color.Transparent;
             this.ChkTelefono.Background = System.Drawing.Color.Transparent;
-            this.ChkTelefono.BorderColor = System.Drawing.Color.Gainsboro;
+            this.ChkTelefono.BorderColor = System.Drawing.Color.Silver;
             this.ChkTelefono.BorderHeight = 15;
             this.ChkTelefono.BorderWidth = 15;
             this.ChkTelefono.Checked = false;
             this.ChkTelefono.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ChkTelefono.EnterColor = System.Drawing.Color.White;
             this.ChkTelefono.Font = new System.Drawing.Font("Source Sans Pro Black", 14F, System.Drawing.FontStyle.Bold);
-            this.ChkTelefono.ForeColor = System.Drawing.Color.White;
-            this.ChkTelefono.LeaveColor = System.Drawing.Color.Gainsboro;
+            this.ChkTelefono.ForeColor = System.Drawing.Color.Silver;
+            this.ChkTelefono.LeaveColor = System.Drawing.Color.Silver;
             this.ChkTelefono.Location = new System.Drawing.Point(263, 7);
             this.ChkTelefono.Name = "ChkTelefono";
             this.ChkTelefono.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
@@ -384,7 +384,7 @@
             this.LblTelefono.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LblTelefono.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LblTelefono.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.LblTelefono.ForeColor = System.Drawing.Color.Gainsboro;
+            this.LblTelefono.ForeColor = System.Drawing.Color.Silver;
             this.LblTelefono.Location = new System.Drawing.Point(30, 0);
             this.LblTelefono.Margin = new System.Windows.Forms.Padding(30, 0, 3, 0);
             this.LblTelefono.Name = "LblTelefono";

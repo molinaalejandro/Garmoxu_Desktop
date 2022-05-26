@@ -138,9 +138,9 @@
             this.BtnEliminar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
             this.BtnEliminar.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnEliminar.Location = new System.Drawing.Point(50, 48);
-            this.BtnEliminar.Margin = new System.Windows.Forms.Padding(15, 5, 0, 0);
+            this.BtnEliminar.Margin = new System.Windows.Forms.Padding(15, 5, 0, 2);
             this.BtnEliminar.Name = "BtnEliminar";
-            this.BtnEliminar.Size = new System.Drawing.Size(51, 48);
+            this.BtnEliminar.Size = new System.Drawing.Size(51, 46);
             this.BtnEliminar.TabIndex = 64;
             this.BtnEliminar.TabStop = false;
             this.BtnEliminar.UseVisualStyleBackColor = true;
@@ -163,7 +163,7 @@
             this.DtpBuscar.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.DtpBuscar.TabIndex = 62;
             this.DtpBuscar.TabStop = false;
-            this.DtpBuscar.TextColor = System.Drawing.Color.Gainsboro;
+            this.DtpBuscar.TextColor = System.Drawing.Color.White;
             this.DtpBuscar.Value = new System.DateTime(2022, 5, 19, 0, 0, 0, 0);
             this.DtpBuscar.ValueChanged += new System.EventHandler(this.DtpBuscar_ValueChanged);
             // 
@@ -185,7 +185,7 @@
             this.TxtBuscar.PasswordChar = false;
             this.TxtBuscar.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtBuscar.PlaceholderText = "";
-            this.TxtBuscar.Size = new System.Drawing.Size(1121, 55);
+            this.TxtBuscar.Size = new System.Drawing.Size(1118, 55);
             this.TxtBuscar.TabIndex = 49;
             this.TxtBuscar.TabStop = false;
             this.TxtBuscar.Texts = "Buscar por teléfono de cliente";
@@ -208,10 +208,10 @@
             this.BtnBuscar.IconChar = FontAwesome.Sharp.IconChar.Search;
             this.BtnBuscar.IconColor = System.Drawing.Color.MediumSlateBlue;
             this.BtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnBuscar.Location = new System.Drawing.Point(1742, 48);
-            this.BtnBuscar.Margin = new System.Windows.Forms.Padding(20, 5, 0, 0);
+            this.BtnBuscar.Location = new System.Drawing.Point(1739, 48);
+            this.BtnBuscar.Margin = new System.Windows.Forms.Padding(20, 5, 3, 2);
             this.BtnBuscar.Name = "BtnBuscar";
-            this.BtnBuscar.Size = new System.Drawing.Size(42, 48);
+            this.BtnBuscar.Size = new System.Drawing.Size(42, 46);
             this.BtnBuscar.TabIndex = 45;
             this.BtnBuscar.TabStop = false;
             this.BtnBuscar.UseVisualStyleBackColor = true;
@@ -237,7 +237,7 @@
             this.tableLayoutPanel3.RowCount = 1;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 43F));
-            this.tableLayoutPanel3.Size = new System.Drawing.Size(1151, 43);
+            this.tableLayoutPanel3.Size = new System.Drawing.Size(1148, 43);
             this.tableLayoutPanel3.TabIndex = 58;
             // 
             // BtnMesa
@@ -256,7 +256,7 @@
             this.BtnMesa.Location = new System.Drawing.Point(288, 5);
             this.BtnMesa.Margin = new System.Windows.Forms.Padding(20, 5, 0, 5);
             this.BtnMesa.Name = "BtnMesa";
-            this.BtnMesa.Size = new System.Drawing.Size(90, 33);
+            this.BtnMesa.Size = new System.Drawing.Size(95, 33);
             this.BtnMesa.TabIndex = 65;
             this.BtnMesa.TabStop = false;
             this.BtnMesa.Text = "Mesa";
@@ -280,7 +280,7 @@
             this.BtnCliente.Location = new System.Drawing.Point(178, 5);
             this.BtnCliente.Margin = new System.Windows.Forms.Padding(10, 5, 0, 5);
             this.BtnCliente.Name = "BtnCliente";
-            this.BtnCliente.Size = new System.Drawing.Size(90, 33);
+            this.BtnCliente.Size = new System.Drawing.Size(95, 33);
             this.BtnCliente.TabIndex = 64;
             this.BtnCliente.TabStop = false;
             this.BtnCliente.Text = "Cliente";
@@ -294,7 +294,7 @@
             this.label1.Cursor = System.Windows.Forms.Cursors.Arrow;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.Gainsboro;
+            this.label1.ForeColor = System.Drawing.Color.Silver;
             this.label1.Location = new System.Drawing.Point(27, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(27, 0, 3, 0);
             this.label1.Name = "label1";
@@ -325,15 +325,15 @@
             this.ChkCalendar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ChkCalendar.BackColor = System.Drawing.Color.Transparent;
             this.ChkCalendar.Background = System.Drawing.Color.Transparent;
-            this.ChkCalendar.BorderColor = System.Drawing.Color.Gainsboro;
+            this.ChkCalendar.BorderColor = System.Drawing.Color.Silver;
             this.ChkCalendar.BorderHeight = 15;
             this.ChkCalendar.BorderWidth = 15;
             this.ChkCalendar.Checked = false;
             this.ChkCalendar.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ChkCalendar.EnterColor = System.Drawing.Color.White;
             this.ChkCalendar.Font = new System.Drawing.Font("Source Sans Pro Black", 14F, System.Drawing.FontStyle.Bold);
-            this.ChkCalendar.ForeColor = System.Drawing.Color.White;
-            this.ChkCalendar.LeaveColor = System.Drawing.Color.Gainsboro;
+            this.ChkCalendar.ForeColor = System.Drawing.Color.Silver;
+            this.ChkCalendar.LeaveColor = System.Drawing.Color.Silver;
             this.ChkCalendar.Location = new System.Drawing.Point(239, 7);
             this.ChkCalendar.Name = "ChkCalendar";
             this.ChkCalendar.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
@@ -351,7 +351,7 @@
             this.LblFecha.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LblFecha.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LblFecha.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.LblFecha.ForeColor = System.Drawing.Color.Gainsboro;
+            this.LblFecha.ForeColor = System.Drawing.Color.Silver;
             this.LblFecha.Location = new System.Drawing.Point(27, 0);
             this.LblFecha.Margin = new System.Windows.Forms.Padding(27, 0, 3, 0);
             this.LblFecha.Name = "LblFecha";
@@ -370,7 +370,7 @@
             this.DtgReservas.AllowUserToOrderColumns = true;
             this.DtgReservas.AllowUserToResizeRows = false;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.Silver;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Source Sans Pro", 15F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Black;
             dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(190)))));
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
@@ -383,7 +383,7 @@
             this.DtgReservas.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Source Sans Pro", 15F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Silver;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Silver;
@@ -392,7 +392,7 @@
             this.DtgReservas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Source Sans Pro", 15F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(190)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;

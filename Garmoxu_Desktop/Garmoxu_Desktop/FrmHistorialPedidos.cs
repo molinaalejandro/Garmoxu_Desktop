@@ -68,7 +68,7 @@ namespace Garmoxu_Desktop
             if (TxtTelefono.Texts.Trim().Equals("Buscar por teléfono de cliente"))
             {
                 TxtTelefono.Texts = string.Empty;
-                TxtTelefono.ForeColor = Color.Gainsboro;
+                TxtTelefono.ForeColor = Color.White;
             }
         }
 
@@ -203,12 +203,15 @@ namespace Garmoxu_Desktop
         #region Apertura de detalles
         private void DtgHistorial_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
-            string clavePrimaria = DtgHistorial.CurrentRow.Cells[0].Value.ToString();
-            Form frmShadow = new Form();
-            FrmHistorialPedidosDetalles frm = new FrmHistorialPedidosDetalles(clavePrimaria, ref frmShadow, NivelPermisos, IVA);
-            frm.ShowDialog();
-            frmShadow.Close();
-            BtnBuscar_Click(null, null);
+            if (DtgHistorial.SelectedRows.Count > 0)
+            {
+                string clavePrimaria = DtgHistorial.CurrentRow.Cells[0].Value.ToString();
+                Form frmShadow = new Form();
+                FrmHistorialPedidosDetalles frm = new FrmHistorialPedidosDetalles(clavePrimaria, ref frmShadow, NivelPermisos, IVA);
+                frm.ShowDialog();
+                frmShadow.Close();
+                BtnBuscar_Click(null, null);
+            }
         }
         #endregion
     }

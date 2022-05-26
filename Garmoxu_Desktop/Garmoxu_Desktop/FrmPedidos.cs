@@ -68,7 +68,7 @@ namespace Garmoxu_Desktop
             if (TxtBuscar.Texts.Trim().Equals("Buscar por nº de mesa o teléfono de cliente"))
             {
                 TxtBuscar.Texts = string.Empty;
-                TxtBuscar.ForeColor = Color.Gainsboro;
+                TxtBuscar.ForeColor = Color.White;
             }
         }
 
@@ -477,7 +477,7 @@ namespace Garmoxu_Desktop
         // Devuelve true y abre una ventana de detalles si el pedido con esa clave existe.
         private bool ValidarDatoExistente(string filtro)
         {
-            string sql = "SELECT IdPedido FROM PedidosEnCurso WHERE " + filtro + " = '" + TxtBuscar.Texts.Trim() + "'";
+            string sql = "SELECT IdPedido FROM PedidosEnCurso WHERE " + filtro + " = '" + TxtBuscar.Texts.Replace(" ", "") + "'";
             string clave = EjecutarScalar(sql);
             if (!string.IsNullOrEmpty(clave))
             {
@@ -494,7 +494,7 @@ namespace Garmoxu_Desktop
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
             FrmPedidosDetalles frm = new FrmPedidosDetalles("", UsuarioActual, IVA);
-            frm.Size = new Size(700, 750); // Solo se aplica pedidos nuevos para adaptarse a la pestaña de selección de tipo de pedido
+            frm.Size = new Size(750, 750); // Solo se aplica pedidos nuevos para adaptarse a la pestaña de selección de tipo de pedido
             frm.Show();
         }
         #endregion

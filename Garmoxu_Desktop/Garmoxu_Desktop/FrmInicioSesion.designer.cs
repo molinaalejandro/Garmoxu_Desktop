@@ -464,7 +464,7 @@
             this.LblRecordarUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LblRecordarUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LblRecordarUsuario.Font = new System.Drawing.Font("Source Sans Pro", 11F, System.Drawing.FontStyle.Bold);
-            this.LblRecordarUsuario.ForeColor = System.Drawing.Color.Gainsboro;
+            this.LblRecordarUsuario.ForeColor = System.Drawing.Color.Silver;
             this.LblRecordarUsuario.Location = new System.Drawing.Point(130, 10);
             this.LblRecordarUsuario.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.LblRecordarUsuario.Name = "LblRecordarUsuario";
@@ -480,7 +480,7 @@
             // 
             this.ChkRemember.BackColor = System.Drawing.Color.Transparent;
             this.ChkRemember.Background = System.Drawing.Color.Transparent;
-            this.ChkRemember.BorderColor = System.Drawing.Color.Gainsboro;
+            this.ChkRemember.BorderColor = System.Drawing.Color.Silver;
             this.ChkRemember.BorderHeight = 15;
             this.ChkRemember.BorderWidth = 15;
             this.ChkRemember.Checked = false;
@@ -488,8 +488,8 @@
             this.ChkRemember.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ChkRemember.EnterColor = System.Drawing.Color.White;
             this.ChkRemember.Font = new System.Drawing.Font("Source Sans Pro Black", 14F, System.Drawing.FontStyle.Bold);
-            this.ChkRemember.ForeColor = System.Drawing.Color.White;
-            this.ChkRemember.LeaveColor = System.Drawing.Color.Gainsboro;
+            this.ChkRemember.ForeColor = System.Drawing.Color.Silver;
+            this.ChkRemember.LeaveColor = System.Drawing.Color.Silver;
             this.ChkRemember.Location = new System.Drawing.Point(106, 10);
             this.ChkRemember.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
             this.ChkRemember.Name = "ChkRemember";

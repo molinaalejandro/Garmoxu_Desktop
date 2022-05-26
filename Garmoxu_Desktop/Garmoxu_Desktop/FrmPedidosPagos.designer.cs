@@ -103,7 +103,7 @@ namespace Garmoxu_Desktop
             this.label1.AutoSize = true;
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.label1.ForeColor = System.Drawing.Color.LightGray;
+            this.label1.ForeColor = System.Drawing.Color.Silver;
             this.label1.Location = new System.Drawing.Point(73, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(413, 33);
@@ -120,7 +120,7 @@ namespace Garmoxu_Desktop
             this.TxtImporte.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtImporte.Enabled = false;
             this.TxtImporte.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtImporte.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtImporte.ForeColor = System.Drawing.Color.White;
             this.TxtImporte.Location = new System.Drawing.Point(75, 38);
             this.TxtImporte.Margin = new System.Windows.Forms.Padding(5);
             this.TxtImporte.Multiline = false;
@@ -129,7 +129,7 @@ namespace Garmoxu_Desktop
             this.TxtImporte.PasswordChar = false;
             this.TxtImporte.PlaceholderColor = System.Drawing.Color.Transparent;
             this.TxtImporte.PlaceholderText = "";
-            this.TxtImporte.Size = new System.Drawing.Size(409, 55);
+            this.TxtImporte.Size = new System.Drawing.Size(409, 52);
             this.TxtImporte.TabIndex = 1;
             this.TxtImporte.TabStop = false;
             this.TxtImporte.Texts = "";
@@ -140,8 +140,8 @@ namespace Garmoxu_Desktop
             this.label2.AutoSize = true;
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.label2.ForeColor = System.Drawing.Color.LightGray;
-            this.label2.Location = new System.Drawing.Point(73, 118);
+            this.label2.ForeColor = System.Drawing.Color.Silver;
+            this.label2.Location = new System.Drawing.Point(73, 115);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(413, 33);
             this.label2.TabIndex = 36;
@@ -156,8 +156,8 @@ namespace Garmoxu_Desktop
             this.TxtCliente.BorderSize = 2;
             this.TxtCliente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtCliente.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtCliente.ForeColor = System.Drawing.Color.Gainsboro;
-            this.TxtCliente.Location = new System.Drawing.Point(75, 156);
+            this.TxtCliente.ForeColor = System.Drawing.Color.White;
+            this.TxtCliente.Location = new System.Drawing.Point(75, 153);
             this.TxtCliente.Margin = new System.Windows.Forms.Padding(5);
             this.TxtCliente.Multiline = false;
             this.TxtCliente.Name = "TxtCliente";
@@ -165,7 +165,7 @@ namespace Garmoxu_Desktop
             this.TxtCliente.PasswordChar = false;
             this.TxtCliente.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtCliente.PlaceholderText = "";
-            this.TxtCliente.Size = new System.Drawing.Size(409, 55);
+            this.TxtCliente.Size = new System.Drawing.Size(409, 52);
             this.TxtCliente.TabIndex = 2;
             this.TxtCliente.TabStop = false;
             this.TxtCliente.Texts = "";
@@ -183,8 +183,8 @@ namespace Garmoxu_Desktop
             this.TxtDevuelto.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtDevuelto.Enabled = false;
             this.TxtDevuelto.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtDevuelto.ForeColor = System.Drawing.Color.Gainsboro;
-            this.TxtDevuelto.Location = new System.Drawing.Point(75, 380);
+            this.TxtDevuelto.ForeColor = System.Drawing.Color.White;
+            this.TxtDevuelto.Location = new System.Drawing.Point(75, 374);
             this.TxtDevuelto.Margin = new System.Windows.Forms.Padding(5);
             this.TxtDevuelto.Multiline = false;
             this.TxtDevuelto.Name = "TxtDevuelto";
@@ -192,7 +192,7 @@ namespace Garmoxu_Desktop
             this.TxtDevuelto.PasswordChar = false;
             this.TxtDevuelto.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtDevuelto.PlaceholderText = "";
-            this.TxtDevuelto.Size = new System.Drawing.Size(409, 55);
+            this.TxtDevuelto.Size = new System.Drawing.Size(409, 52);
             this.TxtDevuelto.TabIndex = 6;
             this.TxtDevuelto.TabStop = false;
             this.TxtDevuelto.Texts = "0.00";
@@ -203,8 +203,8 @@ namespace Garmoxu_Desktop
             this.label3.AutoSize = true;
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.label3.ForeColor = System.Drawing.Color.LightGray;
-            this.label3.Location = new System.Drawing.Point(73, 342);
+            this.label3.ForeColor = System.Drawing.Color.Silver;
+            this.label3.Location = new System.Drawing.Point(73, 336);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(413, 33);
             this.label3.TabIndex = 26;
@@ -214,8 +214,8 @@ namespace Garmoxu_Desktop
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.label5.ForeColor = System.Drawing.Color.LightGray;
-            this.label5.Location = new System.Drawing.Point(73, 236);
+            this.label5.ForeColor = System.Drawing.Color.Silver;
+            this.label5.Location = new System.Drawing.Point(73, 230);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(160, 33);
             this.label5.TabIndex = 41;
@@ -233,7 +233,7 @@ namespace Garmoxu_Desktop
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel5, 4, 0);
             this.tableLayoutPanel2.Controls.Add(this.tableLayoutPanel6, 2, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(73, 272);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(73, 266);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -583,7 +583,6 @@ namespace Garmoxu_Desktop
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Fase de pago - Garmoxu";
             this.TopMost = true;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmPago_FormClosing);
             this.Shown += new System.EventHandler(this.FrmPedidosPagos_Shown);
             this.tableLayoutPanel11.ResumeLayout(false);
             this.tableLayoutPanel11.PerformLayout();

@@ -28,8 +28,7 @@ namespace Garmoxu_Desktop
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
 
-
-            TxtContraseña.Texts = "1234abcd";
+            //TxtContraseña.Texts = "1234abcd";
         }
 
         #region Apertura del formulario
@@ -180,9 +179,8 @@ namespace Garmoxu_Desktop
         {
             LblRecordarUsuario.Tag = LblRecordarUsuario.ForeColor.Name;
             LblRecordarUsuario.ForeColor = ChkRemember.EnterColor;
-
-            //ChkRemember.BorderColor = ChkRemember.EnterColor;
-            //ChkRemember.ForeColor = ChkRemember.EnterColor;
+            ChkRemember.BorderColor = ChkRemember.EnterColor;
+            ChkRemember.ForeColor = ChkRemember.EnterColor;
 
             ChkRemember.Invalidate();
         }
@@ -190,10 +188,9 @@ namespace Garmoxu_Desktop
         private void ChkRemember_MouseLeave(object sender, EventArgs e)
         {
             LblRecordarUsuario.ForeColor = Color.FromName(LblRecordarUsuario.Tag.ToString());
-
-            //ChkRemember.ForeColor = ChkRemember.LeaveColor;
             //LblRecordarUsuario.ForeColor = ChkRemember.LeaveColor;
-            //ChkRemember.BorderColor = ChkRemember.LeaveColor;
+            ChkRemember.BorderColor = ChkRemember.LeaveColor;
+            ChkRemember.ForeColor = ChkRemember.LeaveColor;
 
             ChkRemember.Invalidate();
         }

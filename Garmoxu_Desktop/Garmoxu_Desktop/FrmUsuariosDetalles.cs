@@ -43,7 +43,7 @@ namespace Garmoxu_Desktop
         {
             IdsTiposUsuario = new List<string>();
 
-            string sql = "SELECT Nombre, IdTipoUsuario FROM TiposUsuarios ORDER BY Nombre ASC";
+            string sql = "SELECT Nombre, IdTipoUsuario FROM TiposUsuarios ORDER BY IdTipoUsuario ASC";
             MySqlDataReader lector = EjecutarConsulta(sql);
 
             while (lector.Read())

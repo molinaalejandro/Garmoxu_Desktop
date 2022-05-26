@@ -143,7 +143,7 @@ namespace Garmoxu_Desktop
             this.DtgUsuarios.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Source Sans Pro", 15F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle2.ForeColor = System.Drawing.Color.Silver;
             dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.Silver;
@@ -152,7 +152,7 @@ namespace Garmoxu_Desktop
             this.DtgUsuarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
             dataGridViewCellStyle3.BackColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Source Sans Pro", 15F, System.Drawing.FontStyle.Bold);
             dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.ControlText;
             dataGridViewCellStyle3.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(190)))));
             dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.White;
@@ -218,7 +218,7 @@ namespace Garmoxu_Desktop
             this.BtnNuevo.Location = new System.Drawing.Point(0, 0);
             this.BtnNuevo.Margin = new System.Windows.Forms.Padding(0);
             this.BtnNuevo.Name = "BtnNuevo";
-            this.BtnNuevo.Size = new System.Drawing.Size(40, 60);
+            this.BtnNuevo.Size = new System.Drawing.Size(40, 68);
             this.BtnNuevo.TabIndex = 0;
             this.BtnNuevo.TabStop = false;
             this.BtnNuevo.UseVisualStyleBackColor = true;
@@ -241,7 +241,7 @@ namespace Garmoxu_Desktop
             this.BtnQuitar.Location = new System.Drawing.Point(55, 0);
             this.BtnQuitar.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.BtnQuitar.Name = "BtnQuitar";
-            this.BtnQuitar.Size = new System.Drawing.Size(51, 60);
+            this.BtnQuitar.Size = new System.Drawing.Size(51, 68);
             this.BtnQuitar.TabIndex = 1;
             this.BtnQuitar.TabStop = false;
             this.BtnQuitar.UseVisualStyleBackColor = true;
@@ -262,8 +262,8 @@ namespace Garmoxu_Desktop
             this.BtnBuscar.IconChar = FontAwesome.Sharp.IconChar.Search;
             this.BtnBuscar.IconColor = System.Drawing.Color.DodgerBlue;
             this.BtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnBuscar.Location = new System.Drawing.Point(974, 0);
-            this.BtnBuscar.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
+            this.BtnBuscar.Location = new System.Drawing.Point(970, 2);
+            this.BtnBuscar.Margin = new System.Windows.Forms.Padding(20, 2, 4, 6);
             this.BtnBuscar.Name = "BtnBuscar";
             this.BtnBuscar.Size = new System.Drawing.Size(42, 60);
             this.BtnBuscar.TabIndex = 3;
@@ -291,7 +291,7 @@ namespace Garmoxu_Desktop
             this.TxtBuscar.PasswordChar = false;
             this.TxtBuscar.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtBuscar.PlaceholderText = "";
-            this.TxtBuscar.Size = new System.Drawing.Size(838, 52);
+            this.TxtBuscar.Size = new System.Drawing.Size(834, 52);
             this.TxtBuscar.TabIndex = 2;
             this.TxtBuscar.TabStop = false;
             this.TxtBuscar.Texts = "Buscar por nombre de usuario / empleado";
@@ -308,6 +308,7 @@ namespace Garmoxu_Desktop
             this.GrpUsuario.BorderSize = 5;
             this.GrpUsuario.Controls.Add(this.PnlDetalles);
             this.GrpUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.GrpUsuario.EnabledText = false;
             this.GrpUsuario.Font = new System.Drawing.Font("Source Sans Pro", 18F, System.Drawing.FontStyle.Bold);
             this.GrpUsuario.ForeColor = System.Drawing.Color.Silver;
             this.GrpUsuario.Location = new System.Drawing.Point(0, 0);
@@ -318,7 +319,6 @@ namespace Garmoxu_Desktop
             this.GrpUsuario.TabIndex = 0;
             this.GrpUsuario.TabStop = false;
             this.GrpUsuario.Text = "Usuario";
-            this.GrpUsuario.EnabledText = false;
             // 
             // PnlDetalles
             // 
@@ -361,7 +361,7 @@ namespace Garmoxu_Desktop
             this.PicUsuario.BackColor = System.Drawing.Color.LightGray;
             this.PicUsuario.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Triangle;
             this.PicUsuario.BorderColor = System.Drawing.Color.White;
-            this.PicUsuario.BorderColor2 = System.Drawing.Color.Silver;
+            this.PicUsuario.BorderColor2 = System.Drawing.Color.White;
             this.PicUsuario.BorderLineStyle = System.Drawing.Drawing2D.DashStyle.Solid;
             this.PicUsuario.BorderSize = 3;
             this.PicUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -440,7 +440,7 @@ namespace Garmoxu_Desktop
             this.TxtNombre.BorderSize = 2;
             this.TxtNombre.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtNombre.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtNombre.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtNombre.ForeColor = System.Drawing.Color.White;
             this.TxtNombre.Location = new System.Drawing.Point(335, 38);
             this.TxtNombre.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.TxtNombre.Multiline = false;
@@ -464,7 +464,7 @@ namespace Garmoxu_Desktop
             this.TxtUsuario.BorderSize = 2;
             this.TxtUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtUsuario.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtUsuario.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtUsuario.ForeColor = System.Drawing.Color.White;
             this.TxtUsuario.Location = new System.Drawing.Point(0, 38);
             this.TxtUsuario.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.TxtUsuario.Multiline = false;
@@ -511,8 +511,8 @@ namespace Garmoxu_Desktop
             this.CboTipoUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CboTipoUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CboTipoUsuario.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
-            this.CboTipoUsuario.ForeColor = System.Drawing.Color.Gainsboro;
-            this.CboTipoUsuario.IconColor = System.Drawing.Color.Gainsboro;
+            this.CboTipoUsuario.ForeColor = System.Drawing.Color.White;
+            this.CboTipoUsuario.IconColor = System.Drawing.Color.White;
             this.CboTipoUsuario.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
             this.CboTipoUsuario.ListTextColor = System.Drawing.Color.DimGray;
             this.CboTipoUsuario.Location = new System.Drawing.Point(3, 158);

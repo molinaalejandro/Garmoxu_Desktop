@@ -20,17 +20,15 @@ namespace Garmoxu_Desktop
     {
         private FrmPedidosDetalles Instance;
         private string ImporteFinal;
-        private Form FrmShadow;
 
-        public FrmPedidosPagos(FrmPedidosDetalles instance, string importeFinal)
+        public FrmPedidosPagos(FrmPedidosDetalles instance, string importeFinal, ref Form frmShadow)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             Instance = instance;
-            Instance.Enabled = false;
             ImporteFinal = importeFinal;
             CargarDatos();
-            SombrearPantalla();
+            SombrearPantalla(ref frmShadow);
         }
 
         #region Apertura del formulario
@@ -75,20 +73,20 @@ namespace Garmoxu_Desktop
         #endregion
 
         #region Sombreado de pantalla
-        private void SombrearPantalla()
+        private void SombrearPantalla(ref Form frmShadow)
         {
-            FrmShadow = new Form();
-            FrmShadow.ShowInTaskbar = false;
-            FrmShadow.Text = "";
-            FrmShadow.FormBorderStyle = FormBorderStyle.None;
-            FrmShadow.Size = Size;
-            FrmShadow.WindowState = FormWindowState.Maximized;
-            FrmShadow.BackColor = Color.Black;
-            FrmShadow.Opacity = 0.7;
-            FrmShadow.Show();
-            FrmShadow.Location = Location;
-            FrmShadow.Enabled = false;
-            FrmShadow.TopMost = true;
+            frmShadow = new Form();
+            frmShadow.ShowInTaskbar = false;
+            frmShadow.Text = "";
+            frmShadow.FormBorderStyle = FormBorderStyle.None;
+            frmShadow.Size = Size;
+            frmShadow.WindowState = FormWindowState.Maximized;
+            frmShadow.BackColor = Color.Black;
+            frmShadow.Opacity = 0.7;
+            frmShadow.Location = Location;
+            frmShadow.Enabled = false;
+            frmShadow.TopMost = true;
+            frmShadow.Show();
         }
         #endregion
         #endregion
@@ -216,17 +214,6 @@ namespace Garmoxu_Desktop
                 Instance.MetodoPagoGetSet = string.Empty;
                 this.Close();
             }
-        }
-
-        private void FrmPago_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            Instance.Enabled = true;
-            QuitarSombreadoPantalla();
-        }
-
-        private void QuitarSombreadoPantalla()
-        {
-            if (FrmShadow != null) FrmShadow.Close();
         }
         #endregion
     }

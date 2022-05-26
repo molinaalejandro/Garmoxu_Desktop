@@ -76,6 +76,7 @@ namespace Garmoxu_Desktop
             this.myGroupBox1.BorderSize = 5;
             this.myGroupBox1.Controls.Add(this.LstPlatos);
             this.myGroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.myGroupBox1.EnabledText = false;
             this.myGroupBox1.Location = new System.Drawing.Point(3, 112);
             this.myGroupBox1.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.myGroupBox1.Name = "myGroupBox1";
@@ -84,7 +85,6 @@ namespace Garmoxu_Desktop
             this.myGroupBox1.TabIndex = 1;
             this.myGroupBox1.TabStop = false;
             this.myGroupBox1.Text = "Platos";
-            this.myGroupBox1.EnabledText = false;
             // 
             // LstPlatos
             // 
@@ -186,7 +186,7 @@ namespace Garmoxu_Desktop
             // 
             this.LblDisponibilidad.AutoSize = true;
             this.LblDisponibilidad.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.LblDisponibilidad.ForeColor = System.Drawing.Color.Gainsboro;
+            this.LblDisponibilidad.ForeColor = System.Drawing.Color.Silver;
             this.LblDisponibilidad.Location = new System.Drawing.Point(1143, 0);
             this.LblDisponibilidad.Margin = new System.Windows.Forms.Padding(30, 0, 3, 0);
             this.LblDisponibilidad.Name = "LblDisponibilidad";
@@ -203,8 +203,8 @@ namespace Garmoxu_Desktop
             this.CboCategoria.Dock = System.Windows.Forms.DockStyle.Top;
             this.CboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CboCategoria.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
-            this.CboCategoria.ForeColor = System.Drawing.Color.Gainsboro;
-            this.CboCategoria.IconColor = System.Drawing.Color.Gainsboro;
+            this.CboCategoria.ForeColor = System.Drawing.Color.White;
+            this.CboCategoria.IconColor = System.Drawing.Color.White;
             this.CboCategoria.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
             this.CboCategoria.ListTextColor = System.Drawing.Color.DimGray;
             this.CboCategoria.Location = new System.Drawing.Point(813, 43);
@@ -266,15 +266,15 @@ namespace Garmoxu_Desktop
             this.ChkCategoría.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ChkCategoría.BackColor = System.Drawing.Color.Transparent;
             this.ChkCategoría.Background = System.Drawing.Color.Transparent;
-            this.ChkCategoría.BorderColor = System.Drawing.Color.Gainsboro;
+            this.ChkCategoría.BorderColor = System.Drawing.Color.Silver;
             this.ChkCategoría.BorderHeight = 15;
             this.ChkCategoría.BorderWidth = 15;
             this.ChkCategoría.Checked = false;
             this.ChkCategoría.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ChkCategoría.EnterColor = System.Drawing.Color.White;
             this.ChkCategoría.Font = new System.Drawing.Font("Source Sans Pro Black", 14F, System.Drawing.FontStyle.Bold);
-            this.ChkCategoría.ForeColor = System.Drawing.Color.White;
-            this.ChkCategoría.LeaveColor = System.Drawing.Color.Gainsboro;
+            this.ChkCategoría.ForeColor = System.Drawing.Color.Silver;
+            this.ChkCategoría.LeaveColor = System.Drawing.Color.Silver;
             this.ChkCategoría.Location = new System.Drawing.Point(162, 4);
             this.ChkCategoría.Name = "ChkCategoría";
             this.ChkCategoría.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
@@ -290,7 +290,7 @@ namespace Garmoxu_Desktop
             this.LblCategoria.AutoSize = true;
             this.LblCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LblCategoria.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.LblCategoria.ForeColor = System.Drawing.Color.Gainsboro;
+            this.LblCategoria.ForeColor = System.Drawing.Color.Silver;
             this.LblCategoria.Location = new System.Drawing.Point(30, 0);
             this.LblCategoria.Margin = new System.Windows.Forms.Padding(30, 0, 3, 0);
             this.LblCategoria.Name = "LblCategoria";
@@ -323,15 +323,15 @@ namespace Garmoxu_Desktop
             this.ChkNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ChkNombre.BackColor = System.Drawing.Color.Transparent;
             this.ChkNombre.Background = System.Drawing.Color.Transparent;
-            this.ChkNombre.BorderColor = System.Drawing.Color.Gainsboro;
+            this.ChkNombre.BorderColor = System.Drawing.Color.Silver;
             this.ChkNombre.BorderHeight = 15;
             this.ChkNombre.BorderWidth = 15;
             this.ChkNombre.Checked = false;
             this.ChkNombre.Cursor = System.Windows.Forms.Cursors.Hand;
             this.ChkNombre.EnterColor = System.Drawing.Color.White;
             this.ChkNombre.Font = new System.Drawing.Font("Source Sans Pro Black", 14F, System.Drawing.FontStyle.Bold);
-            this.ChkNombre.ForeColor = System.Drawing.Color.White;
-            this.ChkNombre.LeaveColor = System.Drawing.Color.Gainsboro;
+            this.ChkNombre.ForeColor = System.Drawing.Color.Silver;
+            this.ChkNombre.LeaveColor = System.Drawing.Color.Silver;
             this.ChkNombre.Location = new System.Drawing.Point(210, 4);
             this.ChkNombre.Name = "ChkNombre";
             this.ChkNombre.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
@@ -348,7 +348,7 @@ namespace Garmoxu_Desktop
             this.LblNombre.AutoSize = true;
             this.LblNombre.Cursor = System.Windows.Forms.Cursors.Hand;
             this.LblNombre.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.LblNombre.ForeColor = System.Drawing.Color.Gainsboro;
+            this.LblNombre.ForeColor = System.Drawing.Color.Silver;
             this.LblNombre.Location = new System.Drawing.Point(0, 0);
             this.LblNombre.Margin = new System.Windows.Forms.Padding(0, 0, 3, 0);
             this.LblNombre.Name = "LblNombre";

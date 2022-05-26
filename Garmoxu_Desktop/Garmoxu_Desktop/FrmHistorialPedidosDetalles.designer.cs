@@ -324,7 +324,7 @@
             this.LblMetodoPago.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.LblMetodoPago.AutoSize = true;
             this.LblMetodoPago.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.LblMetodoPago.ForeColor = System.Drawing.Color.Gainsboro;
+            this.LblMetodoPago.ForeColor = System.Drawing.Color.White;
             this.LblMetodoPago.Location = new System.Drawing.Point(951, 16);
             this.LblMetodoPago.Name = "LblMetodoPago";
             this.LblMetodoPago.Size = new System.Drawing.Size(94, 33);
@@ -372,7 +372,7 @@
             this.LblPrecioConIVA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.LblPrecioConIVA.AutoSize = true;
             this.LblPrecioConIVA.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.LblPrecioConIVA.ForeColor = System.Drawing.Color.Gainsboro;
+            this.LblPrecioConIVA.ForeColor = System.Drawing.Color.White;
             this.LblPrecioConIVA.Location = new System.Drawing.Point(190, 16);
             this.LblPrecioConIVA.Name = "LblPrecioConIVA";
             this.LblPrecioConIVA.Size = new System.Drawing.Size(79, 33);
@@ -384,7 +384,7 @@
             this.LblPrecioSinIVA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.LblPrecioSinIVA.AutoSize = true;
             this.LblPrecioSinIVA.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.LblPrecioSinIVA.ForeColor = System.Drawing.Color.Gainsboro;
+            this.LblPrecioSinIVA.ForeColor = System.Drawing.Color.White;
             this.LblPrecioSinIVA.Location = new System.Drawing.Point(556, 16);
             this.LblPrecioSinIVA.Name = "LblPrecioSinIVA";
             this.LblPrecioSinIVA.Size = new System.Drawing.Size(79, 33);
@@ -453,7 +453,7 @@
             this.LblTlf.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.LblTlf.AutoSize = true;
             this.LblTlf.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.LblTlf.ForeColor = System.Drawing.Color.Gainsboro;
+            this.LblTlf.ForeColor = System.Drawing.Color.White;
             this.LblTlf.Location = new System.Drawing.Point(1048, 13);
             this.LblTlf.Name = "LblTlf";
             this.LblTlf.Size = new System.Drawing.Size(183, 33);
@@ -465,7 +465,7 @@
             this.LblTipo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.LblTipo.AutoSize = true;
             this.LblTipo.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.LblTipo.ForeColor = System.Drawing.Color.Gainsboro;
+            this.LblTipo.ForeColor = System.Drawing.Color.White;
             this.LblTipo.Location = new System.Drawing.Point(696, 13);
             this.LblTipo.Name = "LblTipo";
             this.LblTipo.Size = new System.Drawing.Size(65, 33);
@@ -477,7 +477,7 @@
             this.LblFecha.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.LblFecha.AutoSize = true;
             this.LblFecha.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.LblFecha.ForeColor = System.Drawing.Color.Gainsboro;
+            this.LblFecha.ForeColor = System.Drawing.Color.White;
             this.LblFecha.Location = new System.Drawing.Point(100, 13);
             this.LblFecha.Name = "LblFecha";
             this.LblFecha.Size = new System.Drawing.Size(145, 33);
@@ -489,7 +489,7 @@
             this.LblHora.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.LblHora.AutoSize = true;
             this.LblHora.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.LblHora.ForeColor = System.Drawing.Color.Gainsboro;
+            this.LblHora.ForeColor = System.Drawing.Color.White;
             this.LblHora.Location = new System.Drawing.Point(375, 13);
             this.LblHora.Name = "LblHora";
             this.LblHora.Size = new System.Drawing.Size(79, 33);

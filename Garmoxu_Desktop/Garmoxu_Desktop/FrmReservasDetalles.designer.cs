@@ -125,7 +125,7 @@
             this.DtpReserva.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.DtpReserva.TabIndex = 63;
             this.DtpReserva.TabStop = false;
-            this.DtpReserva.TextColor = System.Drawing.Color.Gainsboro;
+            this.DtpReserva.TextColor = System.Drawing.Color.White;
             this.DtpReserva.Value = new System.DateTime(2022, 5, 19, 0, 0, 0, 0);
             this.DtpReserva.ValueChanged += new System.EventHandler(this.DtpReserva_ValueChanged);
             // 
@@ -146,7 +146,7 @@
             this.DtpHora.SkinColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.DtpHora.TabIndex = 21;
             this.DtpHora.TabStop = false;
-            this.DtpHora.TextColor = System.Drawing.Color.Silver;
+            this.DtpHora.TextColor = System.Drawing.Color.White;
             this.DtpHora.Value = new System.DateTime(2022, 5, 4, 0, 0, 0, 0);
             this.DtpHora.ValueChanged += new System.EventHandler(this.DtpHora_ValueChanged);
             // 
@@ -219,7 +219,7 @@
             this.TxtNombreCliente.BorderSize = 2;
             this.TxtNombreCliente.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtNombreCliente.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtNombreCliente.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtNombreCliente.ForeColor = System.Drawing.Color.White;
             this.TxtNombreCliente.Location = new System.Drawing.Point(387, 38);
             this.TxtNombreCliente.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.TxtNombreCliente.Multiline = false;
@@ -243,7 +243,7 @@
             this.TxtTelefono.BorderSize = 2;
             this.TxtTelefono.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtTelefono.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtTelefono.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtTelefono.ForeColor = System.Drawing.Color.White;
             this.TxtTelefono.Location = new System.Drawing.Point(0, 38);
             this.TxtTelefono.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.TxtTelefono.Multiline = false;
@@ -293,8 +293,8 @@
             this.CboMesa.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CboMesa.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CboMesa.Font = new System.Drawing.Font("Source Sans Pro", 14.2F, System.Drawing.FontStyle.Bold);
-            this.CboMesa.ForeColor = System.Drawing.Color.Gainsboro;
-            this.CboMesa.IconColor = System.Drawing.Color.Gainsboro;
+            this.CboMesa.ForeColor = System.Drawing.Color.White;
+            this.CboMesa.IconColor = System.Drawing.Color.White;
             this.CboMesa.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
             this.CboMesa.ListTextColor = System.Drawing.Color.DimGray;
             this.CboMesa.Location = new System.Drawing.Point(0, 0);

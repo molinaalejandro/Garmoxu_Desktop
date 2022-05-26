@@ -166,8 +166,8 @@ namespace Garmoxu_Desktop
             this.TxtNombre.BorderSize = 2;
             this.TxtNombre.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtNombre.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtNombre.ForeColor = System.Drawing.Color.Gainsboro;
-            this.TxtNombre.Location = new System.Drawing.Point(5, 91);
+            this.TxtNombre.ForeColor = System.Drawing.Color.White;
+            this.TxtNombre.Location = new System.Drawing.Point(5, 93);
             this.TxtNombre.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.TxtNombre.Multiline = false;
             this.TxtNombre.Name = "TxtNombre";
@@ -175,7 +175,7 @@ namespace Garmoxu_Desktop
             this.TxtNombre.PasswordChar = false;
             this.TxtNombre.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtNombre.PlaceholderText = "";
-            this.TxtNombre.Size = new System.Drawing.Size(284, 55);
+            this.TxtNombre.Size = new System.Drawing.Size(284, 52);
             this.TxtNombre.TabIndex = 3;
             this.TxtNombre.TabStop = false;
             this.TxtNombre.Texts = "";
@@ -188,7 +188,7 @@ namespace Garmoxu_Desktop
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Silver;
-            this.label1.Location = new System.Drawing.Point(0, 53);
+            this.label1.Location = new System.Drawing.Point(0, 55);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(294, 33);

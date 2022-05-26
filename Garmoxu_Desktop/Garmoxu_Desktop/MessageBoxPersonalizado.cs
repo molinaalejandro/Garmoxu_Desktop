@@ -591,7 +591,6 @@ namespace Garmoxu_Desktop
 
                 case IconChar.QuestionCircle:
                     BtnIcon.IconColor = Color.DeepSkyBlue;
-                    System.Media.SystemSounds.Hand.Play();
                     break;
             }
         }

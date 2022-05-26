@@ -76,7 +76,7 @@
             // 
             panel1.Controls.Add(this.CboCategorias);
             panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            panel1.Location = new System.Drawing.Point(3, 375);
+            panel1.Location = new System.Drawing.Point(3, 372);
             panel1.Name = "panel1";
             panel1.Size = new System.Drawing.Size(355, 41);
             panel1.TabIndex = 14;
@@ -89,8 +89,8 @@
             this.CboCategorias.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CboCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CboCategorias.Font = new System.Drawing.Font("Source Sans Pro", 14.2F, System.Drawing.FontStyle.Bold);
-            this.CboCategorias.ForeColor = System.Drawing.Color.Gainsboro;
-            this.CboCategorias.IconColor = System.Drawing.Color.Gainsboro;
+            this.CboCategorias.ForeColor = System.Drawing.Color.White;
+            this.CboCategorias.IconColor = System.Drawing.Color.White;
             this.CboCategorias.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
             this.CboCategorias.ListTextColor = System.Drawing.Color.DimGray;
             this.CboCategorias.Location = new System.Drawing.Point(0, 0);
@@ -229,7 +229,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Silver;
-            this.label1.Location = new System.Drawing.Point(0, 107);
+            this.label1.Location = new System.Drawing.Point(0, 110);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(106, 33);
@@ -245,8 +245,8 @@
             this.TxtNombre.BorderSize = 2;
             this.TxtNombre.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtNombre.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtNombre.ForeColor = System.Drawing.Color.Gainsboro;
-            this.TxtNombre.Location = new System.Drawing.Point(5, 145);
+            this.TxtNombre.ForeColor = System.Drawing.Color.White;
+            this.TxtNombre.Location = new System.Drawing.Point(5, 148);
             this.TxtNombre.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.TxtNombre.Multiline = false;
             this.TxtNombre.Name = "TxtNombre";
@@ -254,7 +254,7 @@
             this.TxtNombre.PasswordChar = false;
             this.TxtNombre.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtNombre.PlaceholderText = "";
-            this.TxtNombre.Size = new System.Drawing.Size(345, 55);
+            this.TxtNombre.Size = new System.Drawing.Size(345, 52);
             this.TxtNombre.TabIndex = 3;
             this.TxtNombre.Texts = "";
             this.TxtNombre.UnderlinedStyle = false;
@@ -269,7 +269,7 @@
             this.TxtIdPlato.BorderSize = 2;
             this.TxtIdPlato.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtIdPlato.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtIdPlato.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtIdPlato.ForeColor = System.Drawing.Color.White;
             this.TxtIdPlato.Location = new System.Drawing.Point(5, 38);
             this.TxtIdPlato.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.TxtIdPlato.Multiline = false;
@@ -278,7 +278,7 @@
             this.TxtIdPlato.PasswordChar = false;
             this.TxtIdPlato.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtIdPlato.PlaceholderText = "";
-            this.TxtIdPlato.Size = new System.Drawing.Size(345, 55);
+            this.TxtIdPlato.Size = new System.Drawing.Size(345, 52);
             this.TxtIdPlato.TabIndex = 1;
             this.TxtIdPlato.Texts = "";
             this.TxtIdPlato.UnderlinedStyle = false;
@@ -301,7 +301,7 @@
             this.label7.AutoSize = true;
             this.label7.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.Silver;
-            this.label7.Location = new System.Drawing.Point(431, 439);
+            this.label7.Location = new System.Drawing.Point(431, 436);
             this.label7.Margin = new System.Windows.Forms.Padding(0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(149, 33);
@@ -313,7 +313,7 @@
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.Silver;
-            this.label3.Location = new System.Drawing.Point(0, 439);
+            this.label3.Location = new System.Drawing.Point(0, 436);
             this.label3.Margin = new System.Windows.Forms.Padding(0);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(128, 33);
@@ -329,8 +329,8 @@
             this.TxtListaAlergenos.BorderSize = 2;
             this.TxtListaAlergenos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtListaAlergenos.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtListaAlergenos.ForeColor = System.Drawing.Color.Gainsboro;
-            this.TxtListaAlergenos.Location = new System.Drawing.Point(5, 477);
+            this.TxtListaAlergenos.ForeColor = System.Drawing.Color.White;
+            this.TxtListaAlergenos.Location = new System.Drawing.Point(5, 474);
             this.TxtListaAlergenos.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.TxtListaAlergenos.Multiline = true;
             this.TxtListaAlergenos.Name = "TxtListaAlergenos";
@@ -338,7 +338,7 @@
             this.TxtListaAlergenos.PasswordChar = false;
             this.TxtListaAlergenos.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtListaAlergenos.PlaceholderText = "";
-            this.TxtListaAlergenos.Size = new System.Drawing.Size(351, 123);
+            this.TxtListaAlergenos.Size = new System.Drawing.Size(351, 126);
             this.TxtListaAlergenos.TabIndex = 11;
             this.TxtListaAlergenos.Texts = "";
             this.TxtListaAlergenos.UnderlinedStyle = false;
@@ -372,7 +372,7 @@
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
             this.label5.ForeColor = System.Drawing.Color.Silver;
-            this.label5.Location = new System.Drawing.Point(0, 339);
+            this.label5.Location = new System.Drawing.Point(0, 336);
             this.label5.Margin = new System.Windows.Forms.Padding(0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(126, 33);
@@ -384,7 +384,7 @@
             this.label9.AutoSize = true;
             this.label9.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
             this.label9.ForeColor = System.Drawing.Color.Silver;
-            this.label9.Location = new System.Drawing.Point(431, 339);
+            this.label9.Location = new System.Drawing.Point(431, 336);
             this.label9.Margin = new System.Windows.Forms.Padding(0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(182, 33);
@@ -397,7 +397,7 @@
             this.ChkDisponibilidad.Checked = true;
             this.ChkDisponibilidad.CheckState = System.Windows.Forms.CheckState.Checked;
             this.ChkDisponibilidad.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ChkDisponibilidad.Location = new System.Drawing.Point(435, 376);
+            this.ChkDisponibilidad.Location = new System.Drawing.Point(435, 373);
             this.ChkDisponibilidad.Margin = new System.Windows.Forms.Padding(4);
             this.ChkDisponibilidad.MinimumSize = new System.Drawing.Size(60, 27);
             this.ChkDisponibilidad.Name = "ChkDisponibilidad";
@@ -419,8 +419,8 @@
             this.TxtDescripcion.BorderSize = 2;
             this.TxtDescripcion.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtDescripcion.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtDescripcion.ForeColor = System.Drawing.Color.Gainsboro;
-            this.TxtDescripcion.Location = new System.Drawing.Point(436, 477);
+            this.TxtDescripcion.ForeColor = System.Drawing.Color.White;
+            this.TxtDescripcion.Location = new System.Drawing.Point(436, 474);
             this.TxtDescripcion.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.TxtDescripcion.Multiline = true;
             this.TxtDescripcion.Name = "TxtDescripcion";
@@ -428,7 +428,7 @@
             this.TxtDescripcion.PasswordChar = false;
             this.TxtDescripcion.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtDescripcion.PlaceholderText = "";
-            this.TxtDescripcion.Size = new System.Drawing.Size(351, 123);
+            this.TxtDescripcion.Size = new System.Drawing.Size(351, 126);
             this.TxtDescripcion.TabIndex = 13;
             this.TxtDescripcion.Texts = "";
             this.TxtDescripcion.UnderlinedStyle = false;
@@ -442,7 +442,7 @@
             this.TxtPrecioConIva.BorderSize = 2;
             this.TxtPrecioConIva.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtPrecioConIva.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtPrecioConIva.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtPrecioConIva.ForeColor = System.Drawing.Color.White;
             this.TxtPrecioConIva.Location = new System.Drawing.Point(5, 264);
             this.TxtPrecioConIva.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.TxtPrecioConIva.Multiline = false;
@@ -451,7 +451,7 @@
             this.TxtPrecioConIva.PasswordChar = false;
             this.TxtPrecioConIva.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtPrecioConIva.PlaceholderText = "";
-            this.TxtPrecioConIva.Size = new System.Drawing.Size(351, 55);
+            this.TxtPrecioConIva.Size = new System.Drawing.Size(351, 52);
             this.TxtPrecioConIva.TabIndex = 3;
             this.TxtPrecioConIva.Texts = "";
             this.TxtPrecioConIva.UnderlinedStyle = false;
@@ -467,7 +467,7 @@
             this.TxtPrecioSinIva.BorderSize = 2;
             this.TxtPrecioSinIva.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtPrecioSinIva.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtPrecioSinIva.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtPrecioSinIva.ForeColor = System.Drawing.Color.White;
             this.TxtPrecioSinIva.Location = new System.Drawing.Point(436, 264);
             this.TxtPrecioSinIva.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.TxtPrecioSinIva.Multiline = false;
@@ -476,7 +476,7 @@
             this.TxtPrecioSinIva.PasswordChar = false;
             this.TxtPrecioSinIva.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtPrecioSinIva.PlaceholderText = "";
-            this.TxtPrecioSinIva.Size = new System.Drawing.Size(351, 55);
+            this.TxtPrecioSinIva.Size = new System.Drawing.Size(351, 52);
             this.TxtPrecioSinIva.TabIndex = 5;
             this.TxtPrecioSinIva.Texts = "";
             this.TxtPrecioSinIva.UnderlinedStyle = false;

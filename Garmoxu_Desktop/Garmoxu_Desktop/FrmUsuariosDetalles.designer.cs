@@ -99,7 +99,7 @@ namespace Garmoxu_Desktop
             this.TxtUsuario.BorderSize = 2;
             this.TxtUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtUsuario.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtUsuario.ForeColor = System.Drawing.Color.Gainsboro;
+            this.TxtUsuario.ForeColor = System.Drawing.Color.White;
             this.TxtUsuario.Location = new System.Drawing.Point(75, 38);
             this.TxtUsuario.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.TxtUsuario.Multiline = false;
@@ -108,7 +108,7 @@ namespace Garmoxu_Desktop
             this.TxtUsuario.PasswordChar = false;
             this.TxtUsuario.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtUsuario.PlaceholderText = "";
-            this.TxtUsuario.Size = new System.Drawing.Size(448, 55);
+            this.TxtUsuario.Size = new System.Drawing.Size(448, 52);
             this.TxtUsuario.TabIndex = 1;
             this.TxtUsuario.Texts = "";
             this.TxtUsuario.UnderlinedStyle = false;
@@ -120,7 +120,7 @@ namespace Garmoxu_Desktop
             this.label2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label2.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
             this.label2.ForeColor = System.Drawing.Color.Silver;
-            this.label2.Location = new System.Drawing.Point(73, 113);
+            this.label2.Location = new System.Drawing.Point(73, 110);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(452, 33);
             this.label2.TabIndex = 36;
@@ -135,8 +135,8 @@ namespace Garmoxu_Desktop
             this.TxtNombre.BorderSize = 2;
             this.TxtNombre.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtNombre.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.TxtNombre.ForeColor = System.Drawing.Color.Gainsboro;
-            this.TxtNombre.Location = new System.Drawing.Point(75, 151);
+            this.TxtNombre.ForeColor = System.Drawing.Color.White;
+            this.TxtNombre.Location = new System.Drawing.Point(75, 148);
             this.TxtNombre.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.TxtNombre.Multiline = false;
             this.TxtNombre.Name = "TxtNombre";
@@ -144,7 +144,7 @@ namespace Garmoxu_Desktop
             this.TxtNombre.PasswordChar = false;
             this.TxtNombre.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtNombre.PlaceholderText = "";
-            this.TxtNombre.Size = new System.Drawing.Size(448, 55);
+            this.TxtNombre.Size = new System.Drawing.Size(448, 52);
             this.TxtNombre.TabIndex = 2;
             this.TxtNombre.Texts = "";
             this.TxtNombre.UnderlinedStyle = false;
@@ -156,7 +156,7 @@ namespace Garmoxu_Desktop
             this.label3.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label3.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
             this.label3.ForeColor = System.Drawing.Color.Silver;
-            this.label3.Location = new System.Drawing.Point(73, 226);
+            this.label3.Location = new System.Drawing.Point(73, 220);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(452, 33);
             this.label3.TabIndex = 26;
@@ -170,11 +170,11 @@ namespace Garmoxu_Desktop
             this.CboTipoUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CboTipoUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CboTipoUsuario.Font = new System.Drawing.Font("Source Sans Pro", 14.2F, System.Drawing.FontStyle.Bold);
-            this.CboTipoUsuario.ForeColor = System.Drawing.Color.Gainsboro;
-            this.CboTipoUsuario.IconColor = System.Drawing.Color.Gainsboro;
+            this.CboTipoUsuario.ForeColor = System.Drawing.Color.White;
+            this.CboTipoUsuario.IconColor = System.Drawing.Color.White;
             this.CboTipoUsuario.ListBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(228)))), ((int)(((byte)(245)))));
             this.CboTipoUsuario.ListTextColor = System.Drawing.Color.DimGray;
-            this.CboTipoUsuario.Location = new System.Drawing.Point(75, 264);
+            this.CboTipoUsuario.Location = new System.Drawing.Point(75, 258);
             this.CboTipoUsuario.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
             this.CboTipoUsuario.MinimumSize = new System.Drawing.Size(200, 30);
             this.CboTipoUsuario.Name = "CboTipoUsuario";
