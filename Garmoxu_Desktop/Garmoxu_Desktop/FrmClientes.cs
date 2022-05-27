@@ -20,7 +20,7 @@ namespace Garmoxu_Desktop
         private DataSet Ds;
         private List<string> DatosIniciales;
         private int RegistrosCargados;
-        private const int CantidadRegistrosCargadosPorIteraccion = 50;
+        private const int REGISTROSCARGADOSPORITERACCION = 50;
 
         public FrmClientes()
         {
@@ -55,7 +55,7 @@ namespace Garmoxu_Desktop
 
         private void RellenarDataGrid()
         {
-            for (int i = 0; i < CantidadRegistrosCargadosPorIteraccion; i++)
+            for (int i = 0; i < REGISTROSCARGADOSPORITERACCION; i++)
             {
                 if (RegistrosCargados < Ds.Tables["Clientes"].Rows.Count)
                 {

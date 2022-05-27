@@ -244,15 +244,5 @@ namespace Garmoxu_Desktop
             ShowInfoMessage(mensaje, "");
         }
         #endregion
-
-        #region Cierre del formulario
-        #region Boton de cerrar
-        //private void BtnCerrar_Click(object sender, EventArgs e)
-        //{
-        //    this.Close();
-        //}
-        #endregion
-
-        #endregion
     }
 }
