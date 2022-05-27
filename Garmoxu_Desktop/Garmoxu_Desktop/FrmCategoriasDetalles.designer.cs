@@ -123,6 +123,7 @@ namespace Garmoxu_Desktop
             // 
             // PicImagenCategoria
             // 
+            this.PicImagenCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
             this.PicImagenCategoria.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.PicImagenCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PicImagenCategoria.Dock = System.Windows.Forms.DockStyle.Top;

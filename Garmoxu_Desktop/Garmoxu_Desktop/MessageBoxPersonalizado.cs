@@ -113,6 +113,7 @@ namespace Garmoxu_Desktop
 
         public static DialogResult ShowErrorMessage(string mensaje, string titulo)
         {
+            
             return ShowMeDialog(mensaje, titulo, ButtonYes(), IconError());
         }
 
@@ -133,6 +134,7 @@ namespace Garmoxu_Desktop
 
         public static DialogResult ShowMeDialog(string mensaje, string titulo, int button, IconChar icon)
         {
+            
             MessageBoxPersonalizado frm = new MessageBoxPersonalizado();
 
             frm.LblText.Text = mensaje;

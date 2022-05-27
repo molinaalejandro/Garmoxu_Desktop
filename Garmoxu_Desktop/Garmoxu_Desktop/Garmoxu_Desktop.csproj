@@ -397,13 +397,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Garmoxu_Logo_Circle_New.ico" />
+    <None Include="Resources\image_border.png" />
+    <None Include="Resources\User_Default_Icon.png" />
     <None Include="Resources\Garmoxu_Logo_Circle_Red_New_Icono.ico" />
     <None Include="Resources\Garmoxu_Logo_Circle_Red_New.png" />
     <None Include="Resources\Garmoxu_Logo_Circle_New_Red_Less_Opacity.png" />
     <None Include="Resources\Garmoxu_Logo_Circle_New_Blue_Less_Opacity.png" />
     <None Include="Resources\Garmoxu_Logo_Circle_New_Blue.png" />
     <None Include="Resources\Power_On_Off.png" />
-    <None Include="Resources\User_Default_Icon.png" />
     <None Include="Resources\No_Image_Found.jpg" />
   </ItemGroup>
   <ItemGroup>

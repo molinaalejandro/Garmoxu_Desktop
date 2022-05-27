@@ -120,6 +120,7 @@ namespace Garmoxu_Desktop
             this.tableLayoutPanel3.RowCount = 2;
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
+            this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel3.Size = new System.Drawing.Size(1022, 930);
             this.tableLayoutPanel3.TabIndex = 1;
             // 
@@ -358,7 +359,7 @@ namespace Garmoxu_Desktop
             // 
             // PicUsuario
             // 
-            this.PicUsuario.BackColor = System.Drawing.Color.LightGray;
+            this.PicUsuario.BackColor = System.Drawing.Color.Silver;
             this.PicUsuario.BorderCapStyle = System.Drawing.Drawing2D.DashCap.Triangle;
             this.PicUsuario.BorderColor = System.Drawing.Color.White;
             this.PicUsuario.BorderColor2 = System.Drawing.Color.White;
@@ -366,7 +367,7 @@ namespace Garmoxu_Desktop
             this.PicUsuario.BorderSize = 3;
             this.PicUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PicUsuario.GradientAngle = 50F;
-            this.PicUsuario.Image = global::Garmoxu_Desktop.Properties.Resources.User_Default_Icon;
+            this.PicUsuario.Image = ((System.Drawing.Image)(resources.GetObject("PicUsuario.Image")));
             this.PicUsuario.Location = new System.Drawing.Point(220, 3);
             this.PicUsuario.Name = "PicUsuario";
             this.PicUsuario.Size = new System.Drawing.Size(180, 180);
@@ -678,6 +679,11 @@ namespace Garmoxu_Desktop
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
         private System.Windows.Forms.DataGridView DtgUsuarios;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
+        private FontAwesome.Sharp.IconButton BtnNuevo;
+        private FontAwesome.Sharp.IconButton BtnQuitar;
+        private FontAwesome.Sharp.IconButton BtnBuscar;
+        private RJCodeAdvance.RJControls.RJTextBox TxtBuscar;
         private MyGroupBox GrpUsuario;
         private System.Windows.Forms.TableLayoutPanel PnlDetalles;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
@@ -696,10 +702,5 @@ namespace Garmoxu_Desktop
         private RJCodeAdvance.RJControls.RJButton BtnGuardar;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
         private RJCodeAdvance.RJControls.RJButton BtnEliminar;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel6;
-        private FontAwesome.Sharp.IconButton BtnNuevo;
-        private FontAwesome.Sharp.IconButton BtnQuitar;
-        private FontAwesome.Sharp.IconButton BtnBuscar;
-        private RJCodeAdvance.RJControls.RJTextBox TxtBuscar;
     }
 }

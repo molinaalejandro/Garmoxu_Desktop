@@ -121,15 +121,24 @@ namespace Garmoxu_Desktop
 
         private void CargarImagen(MySqlDataReader lector)
         {
-            if (!string.IsNullOrEmpty(lector[5].ToString()))
+            try
             {
-                int tamañoMaximoArchivo = 16000000;
-                byte[] imagenBytes = new byte[tamañoMaximoArchivo];
+                if (!string.IsNullOrEmpty(lector[5].ToString()))
+                {
+                    int tamañoMaximoArchivo = 16000000;
+                    byte[] imagenBytes = new byte[tamañoMaximoArchivo];
 
-                lector.GetBytes(5, 0, imagenBytes, 0, tamañoMaximoArchivo);
-                ImagenInicial = (Bitmap)((new ImageConverter()).ConvertFrom(imagenBytes));
+                    lector.GetBytes(5, 0, imagenBytes, 0, tamañoMaximoArchivo);
+                    ImagenInicial = (Bitmap)((new ImageConverter()).ConvertFrom(imagenBytes));
+                }
+                else ImagenInicial = Properties.Resources.No_Image_Found;
             }
-            else ImagenInicial = Properties.Resources.No_Image_Found;
+            catch (Exception ex)
+            {
+                string mensaje = "¡No se ha podido cargar la imagen debido a que tiene un formato incompatible! Pruebe a cambiarla por otra.";
+                ShowErrorMessage(mensaje, "");
+                ImagenInicial = Properties.Resources.No_Image_Found;
+            }
 
             PicFotoPlato.Image = ImagenInicial;
             PicFotoPlato.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -295,13 +304,20 @@ namespace Garmoxu_Desktop
                 if (i != datosModificados.Count - 1) valores += ", ";
             }
 
-            Image fotoActual = PicFotoPlato.Image;
-            if (!ImagenInicial.Equals(fotoActual))
+            try
             {
-                imagenBytes = (byte[])(new ImageConverter()).ConvertTo(fotoActual, typeof(byte[]));
-                if (!string.IsNullOrEmpty(valores)) valores += ", ";
-                valores += "ImagenPlato = @imagen";
-                modificacionRealizada = true;
+                if (ImagenCambiada)
+                {
+                    imagenBytes = (byte[])new ImageConverter().ConvertTo(PicFotoPlato.Image, typeof(byte[]));
+                    if (!string.IsNullOrEmpty(valores)) valores += ", ";
+                    valores += "ImagenPlato = @imagen";
+                    modificacionRealizada = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                string mensaje = "¡La imagen seleccionada tiene un formato incompatible! Pruebe a cambiarla por otra.";
+                ShowErrorMessage(mensaje, "");
             }
 
             if (!modificacionRealizada) this.Close();
@@ -428,15 +444,23 @@ namespace Garmoxu_Desktop
             ofd.Title = "Selecciona una imagen para tu plato";
             ofd.Filter = "Archivo de imagen |*.jpg| Archivo PNG|*.png";
 
-            if (ofd.ShowDialog().Equals(DialogResult.OK))
+            try
             {
-                string ruta = ofd.FileName;
-                if (new FileInfo(ruta).Length <= 15000000)
+                if (ofd.ShowDialog().Equals(DialogResult.OK))
                 {
-                    PicFotoPlato.Image = Image.FromFile(ruta); ;
-                    ImagenCambiada = true;
+                    string ruta = ofd.FileName;
+                    if (new FileInfo(ruta).Length <= 15000000)
+                    {
+                        PicFotoPlato.Image = Image.FromFile(ruta); ;
+                        ImagenCambiada = true;
+                    }
+                    else ShowWarningMessage("¡La imagen no puede ser mayor de 15MB!", "");
                 }
-                else ShowWarningMessage("¡La imagen no puede ser mayor de 15MB!", "");
+            }
+            catch (Exception ex)
+            {
+                string mensaje = "¡La imagen seleccionada tiene un formato incompatible! Pruebe a cambiarla por otra.";
+                ShowErrorMessage(mensaje, "");
             }
         }
         #endregion

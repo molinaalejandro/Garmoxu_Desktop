@@ -188,6 +188,7 @@
             // 
             // PicFotoPlato
             // 
+            this.PicFotoPlato.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
             this.PicFotoPlato.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.PicFotoPlato.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PicFotoPlato.Dock = System.Windows.Forms.DockStyle.Fill;

@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using static Garmoxu_Desktop.MessageBoxPersonalizado;
 using static Garmoxu_Desktop.ConexionMySql;
+using System.IO;
 
 namespace Garmoxu_Desktop
 {
@@ -32,35 +33,42 @@ namespace Garmoxu_Desktop
 
         private void RellenarListView(string sql)
         {
-            LstCategorias.Items.Clear();
-            ImgImagenesCateg.Images.Clear();
-
-            MySqlDataReader lector = EjecutarConsulta(sql);
-
-            while (lector.Read())
+            try
             {
-                ImgImagenesCateg.Images.Add(CargarImagen(lector));
-                LstCategorias.Items.Add(lector[1].ToString(), ImgImagenesCateg.Images.Count - 1);
-                LstCategorias.Items[LstCategorias.Items.Count - 1].Tag = lector[0].ToString(); // ClavePrimaria guardada en tag
-            }
-            lector.Close();
-            CerrarConexion();
-        }
+                MySqlDataReader lector = EjecutarConsulta(sql);
 
-        private Image CargarImagen(MySqlDataReader lector)
-        {
-            if (!string.IsNullOrEmpty(lector[2].ToString()))
+                LstCategorias.BeginUpdate();
+                LstCategorias.Items.Clear();
+                ImgImagenesCateg.Images.Clear();
+                while (lector.Read())
+                {
+                    try
+                    {
+                        if (!string.IsNullOrEmpty(lector[2].ToString()))
+                            ImgImagenesCateg.Images.Add(Image.FromStream(lector.GetStream(2)));
+                        else
+                            ImgImagenesCateg.Images.Add(Properties.Resources.No_Image_Found);
+                    }
+                    catch (Exception ex)
+                    {
+                        string message = "¡No se ha podido cargar la imagen de la categoría '" + lector[1].ToString() + "' debido a que su imagen adjunta está corrupta!";
+                        ShowErrorMessage(message, "");
+                        ImgImagenesCateg.Images.Add(Properties.Resources.No_Image_Found);
+                    }
+
+                    LstCategorias.Items.Add(lector[1].ToString(), ImgImagenesCateg.Images.Count - 1);
+                    LstCategorias.Items[LstCategorias.Items.Count - 1].Tag = lector[0].ToString(); // ClavePrimaria guardada en tag
+
+                }
+                CerrarConexion();
+                lector.Close();
+                LstCategorias.EndUpdate();
+            }
+            catch (Exception ex)
             {
-                int tamañoMaximoArchivo = 16000000;
-                byte[] imagenBytes = new byte[tamañoMaximoArchivo];
-
-                lector.GetBytes(2, 0, imagenBytes, 0, tamañoMaximoArchivo);
-                Image fotoconvertida = (Bitmap)((new ImageConverter()).ConvertFrom(imagenBytes));
-
-                return fotoconvertida;
+                string message = "¡No se han podido cargar todas las categorías debido a que hay algunas imágenes corruptas!";
+                ShowErrorMessage(message, "");
             }
-            else
-                return Properties.Resources.No_Image_Found;
         }
         #endregion
         #endregion
@@ -134,8 +142,7 @@ namespace Garmoxu_Desktop
                     "WHERE Nombre LIKE '%" + TxtBusqueda.Texts.Trim() + "%' ORDER BY Nombre ASC";
                 RellenarListView(sql);
             }
-            else
-                CargarCategorias(); // Carga sin filtro
+            else CargarCategorias(); // Carga sin filtro
         }
 
         private void TxtBusqueda_KeyPress(object sender, KeyPressEventArgs e)
@@ -169,6 +176,7 @@ namespace Garmoxu_Desktop
             Form frmShadow = new Form();
             FrmCategoriasDetalles frm = new FrmCategoriasDetalles(clavePrimaria, ref frmShadow);
             BtnEliminar.Enabled = false;
+
 
             frm.ShowDialog();
             frmShadow.Close();

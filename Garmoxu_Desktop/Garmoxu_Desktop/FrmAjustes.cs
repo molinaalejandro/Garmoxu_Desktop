@@ -225,7 +225,7 @@ namespace Garmoxu_Desktop
         private void BtnGuardar_Click(object sender, EventArgs e)
         {
             string datosActuales = string.Empty;
-            if (ComprobarCamposNoVacios() && ValidarFormatoNombreUsuario() && ValidarFormatoNombreRestaurante()
+            if (ComprobarCamposNoVacios() && ValidarFormatoNombreUsuario() && ValidarFormatoNombreRestaurante() && ValidarNumeroMesas()
                 && ComprobarDatosModificados(ref datosActuales) && ConfirmarAccion("guardar los cambios realizados")
                 && ValidarUsuarioNoExistente())
             {
@@ -286,18 +286,28 @@ namespace Garmoxu_Desktop
             decimal numeroMesasActuales = NucNumeroMesas.Value;
             decimal diferenciaNumeroMesas = 0;
             sql = string.Empty;
+            string sql2 = string.Empty;
             if (numeroMesasBase < NucNumeroMesas.Value)
             {
                 diferenciaNumeroMesas = numeroMesasActuales - numeroMesasBase;
                 sql = "INSERT INTO Mesas (Estado, NumeroComensales) VALUES ('Libre', 1)";
+                sql2 = "";
             }
             else if (numeroMesasBase > NucNumeroMesas.Value)
             {
                 diferenciaNumeroMesas = numeroMesasBase - numeroMesasActuales;
                 sql = "DELETE FROM Mesas ORDER BY IdMesa DESC LIMIT 1";
+                sql2 = "SELECT IdMesa FROM Mesas ORDER BY IdMesa DESC LIMIT 1";
             }
 
-            for (int i = 0; i < diferenciaNumeroMesas; i++) EjecutarSentencia(sql);
+            string scalar2 = string.Empty;
+            for (int i = 0; i < diferenciaNumeroMesas; i++)
+            {
+                if(!string.IsNullOrEmpty(sql2)) scalar2 = EjecutarScalar(sql2);
+                if (string.IsNullOrEmpty(sql2) || (!ComprobarPedidosEnCurso(scalar2) && ConfirmarEliminacionConReservas(scalar2)))
+                    EjecutarSentencia(sql);
+                else break;
+            }
 
             sql = "SELECT COUNT(*) FROM Mesas";
             string numeroMesasTotales = EjecutarScalar(sql);
@@ -382,6 +392,18 @@ namespace Garmoxu_Desktop
             return true;
         }
 
+        private bool ValidarNumeroMesas()
+        {
+            if (NucNumeroMesas.Value == 0)
+            {
+                string mensaje = "¡No puedes eliminar todas las mesas!";
+                ShowWarningMessage(mensaje, "");
+                return false;
+            }
+            else return true;
+
+        }
+
         private bool ValidarUsuarioNoExistente()
         {
             string sql = "SELECT NombreUsuario FROM Usuarios WHERE NombreUsuario = '" + TxtNombreUsuario.Texts + "'";
@@ -395,6 +417,29 @@ namespace Garmoxu_Desktop
                 return false;
             }
             return true;
+        }
+
+        private bool ComprobarPedidosEnCurso(string idMesa)
+        {
+            string sql = string.Format("SELECT IdMesa FROM PedidosEnCurso WHERE IdMesa = '{0}'", idMesa);
+            if (string.IsNullOrEmpty(EjecutarScalar(sql))) return false;
+
+            string mensaje = "¡No se puede eliminar la mesa " + idMesa + " debido a que tiene pedidos en curso asociados! " +
+                "Finalice o cancele todos los pedidos en curso antes de continuar.";
+            ShowWarningMessage(mensaje, "");
+
+            return true;
+        }
+
+        private bool ConfirmarEliminacionConReservas(string idMesa)
+        {
+            string sql = string.Format("SELECT IdMesa FROM Reservas WHERE IdMesa = '{0}'", idMesa);
+            if (string.IsNullOrEmpty(EjecutarScalar(sql))) return true;
+
+            string mensaje = "La mesa " + idMesa + " tiene asociadas algunas reservas, tenga en cuenta que todas ellas serán eliminadas. " +
+                "¿Desea continuar?";
+            if (ShowQuestionDialog(mensaje, "").Equals(DialogResult.Yes)) return true;
+            else return false;
         }
         #endregion
 

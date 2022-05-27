@@ -26,7 +26,7 @@ namespace Garmoxu_Desktop
         private string UsuarioActual;
 
         // Nivel de permisos que tiene el usuario.
-        private int NivelPermisos;
+        private string NivelPermisos;
 
         // Imagen del usuario actual.
         private Image ImagenUsuario;

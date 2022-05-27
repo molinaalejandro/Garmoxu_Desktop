@@ -57,7 +57,7 @@
             // 
             // ImgImagenesPlatos
             // 
-            this.ImgImagenesPlatos.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.ImgImagenesPlatos.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
             this.ImgImagenesPlatos.ImageSize = new System.Drawing.Size(128, 128);
             this.ImgImagenesPlatos.TransparentColor = System.Drawing.Color.Transparent;
             // 
@@ -456,8 +456,6 @@
         private FontAwesome.Sharp.IconButton BtnEliminar;
         private FontAwesome.Sharp.IconButton BtnBuscar;
         private RJCodeAdvance.RJControls.RJComboBox CboCategoria;
-        private MyGroupBox myGroupBox1;
-        private System.Windows.Forms.ListView LstPlatos;
         private RJCodeAdvance.RJControls.RJToggleButton TgbDisponibilidad;
         private MyCheckBox myCheckBox1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
@@ -467,5 +465,7 @@
         private System.Windows.Forms.Label LblNombre;
         private System.Windows.Forms.Label LblCategoria;
         private MyCheckBox ChkCategoría;
+        private MyGroupBox myGroupBox1;
+        private System.Windows.Forms.ListView LstPlatos;
     }
 }

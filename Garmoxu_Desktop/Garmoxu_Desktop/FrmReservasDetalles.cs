@@ -117,18 +117,18 @@ namespace Garmoxu_Desktop
             PnlBotones.Controls.Add(BtnBorrar, 2, 0);
             BtnConfirmar.Visible = false;
 
-            DtpReserva.Enabled = false;
-            DtpReserva.TextColor = Color.DimGray;
+            //DtpReserva.Enabled = false;
+            //DtpReserva.TextColor = Color.DimGray;
 
-            DtpHora.Enabled = false;
-            DtpHora.TextColor = Color.DimGray;
+            //DtpHora.Enabled = false;
+            //DtpHora.TextColor = Color.DimGray;
 
-            CboMesa.Enabled = false;
-            CboMesa.IconColor = Color.DimGray;
-            LblCboDisabled.Visible = true;
+            //CboMesa.Enabled = false;
+            //CboMesa.IconColor = Color.DimGray;
+            //LblCboDisabled.Visible = true;
 
-            TxtTelefono.Enabled = false;
-            TxtNombreCliente.Enabled = false;
+            //TxtTelefono.Enabled = false;
+            //TxtNombreCliente.Enabled = false;
         }
         #endregion
 

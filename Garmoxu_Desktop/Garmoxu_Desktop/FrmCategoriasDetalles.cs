@@ -68,15 +68,24 @@ namespace Garmoxu_Desktop
         {
             Image imagen;
 
-            if (!string.IsNullOrEmpty(lector["ImagenCategoria"].ToString()))
+            try
             {
-                int tamañoMaximoArchivo = 16000000;
-                byte[] imagenBytes = new byte[tamañoMaximoArchivo];
+                if (!string.IsNullOrEmpty(lector["ImagenCategoria"].ToString()))
+                {
+                    int tamañoMaximoArchivo = 16000000;
+                    byte[] imagenBytes = new byte[tamañoMaximoArchivo];
 
-                lector.GetBytes(2, 0, imagenBytes, 0, tamañoMaximoArchivo);
-                imagen = (Bitmap)new ImageConverter().ConvertFrom(imagenBytes);
+                    lector.GetBytes(2, 0, imagenBytes, 0, tamañoMaximoArchivo);
+                    imagen = (Bitmap)new ImageConverter().ConvertFrom(imagenBytes);
+                }
+                else imagen = Properties.Resources.No_Image_Found;
             }
-            else imagen = Properties.Resources.No_Image_Found;
+            catch (Exception ex)
+            {
+                string mensaje = "¡No se ha podido cargar la imagen debido a que tiene un formato incompatible! Pruebe a cambiarla por otra.";
+                ShowErrorMessage(mensaje, "");
+                imagen = Properties.Resources.No_Image_Found;
+            }
 
             ImagenInicial = imagen;
             PicImagenCategoria.Image = imagen;
@@ -151,15 +160,24 @@ namespace Garmoxu_Desktop
             ofd.Title = "Selecciona una imagen para asignarla a la categoría";
             ofd.Filter = "Archivo de imagen |*.jpg| Archivo PNG|*.png";
 
-            if (ofd.ShowDialog().Equals(DialogResult.OK))
+            try
             {
-                string ruta = ofd.FileName;
-                if (new FileInfo(ruta).Length <= 15000000)
+                if (ofd.ShowDialog().Equals(DialogResult.OK))
                 {
-                    PicImagenCategoria.Image = Image.FromFile(ruta);
-                    ImagenCambiada = true;
+                    string ruta = ofd.FileName;
+
+                    if (new FileInfo(ruta).Length <= 15000000)
+                    {
+                        PicImagenCategoria.Image = Image.FromFile(ruta);
+                        ImagenCambiada = true;
+                    }
+                    else ShowWarningMessage("¡La imagen no puede ser mayor de 15MB!", "");
                 }
-                else ShowWarningMessage("¡La imagen no puede ser mayor de 15MB!", "");
+            }
+            catch (Exception ex)
+            {
+                string mensaje = "¡La imagen seleccionada tiene un formato incompatible! Pruebe a cambiarla por otra.";
+                ShowErrorMessage(mensaje, "");
             }
         }
         #endregion
@@ -185,7 +203,7 @@ namespace Garmoxu_Desktop
         {
             if (ValidarDatosCompletados() && ValidarFormatoNombre() && ConfirmarAccion("dar de alta") && ValidarNombreNoRegistrado())
             {
-                string sql = string.Format("INSERT INTO Categorias (Nombre, ImagenCategoria) VALUES ('{0}', {1})", 
+                string sql = string.Format("INSERT INTO Categorias (Nombre, ImagenCategoria) VALUES ('{0}', {1})",
                     TxtNombre.Texts.Trim(), ImagenCambiada ? "@imagen" : "NULL");
 
                 if (ImagenCambiada)
@@ -286,13 +304,20 @@ namespace Garmoxu_Desktop
                 if (i != datosModificados.Count - 1) valores += ", ";
             }
 
-            Image fotoActual = PicImagenCategoria.Image;
-            if (!ImagenInicial.Equals(fotoActual))
+            try
             {
-                imagenBytes = (byte[])(new ImageConverter()).ConvertTo(fotoActual, typeof(byte[]));
-                if (!string.IsNullOrEmpty(valores)) valores += ", ";
-                valores += "ImagenCategoria = @imagen";
-                modificacionRealizada = true;
+                if (ImagenCambiada)
+                {
+                    imagenBytes = (byte[])new ImageConverter().ConvertTo(PicImagenCategoria.Image, typeof(byte[]));
+                    if (!string.IsNullOrEmpty(valores)) valores += ", ";
+                    valores += "ImagenCategoria = @imagen";
+                    modificacionRealizada = true;
+                }
+            }
+            catch (Exception ex)
+            {
+                string mensaje = "¡La imagen seleccionada tiene un formato incompatible! Pruebe a cambiarla por otra.";
+                ShowErrorMessage(mensaje, "");
             }
 
             if (!modificacionRealizada) this.Close();

@@ -401,7 +401,7 @@
             this.PicPerfil.Cursor = System.Windows.Forms.Cursors.Hand;
             this.PicPerfil.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PicPerfil.GradientAngle = 50F;
-            this.PicPerfil.Image = global::Garmoxu_Desktop.Properties.Resources.User_Default_Icon;
+            this.PicPerfil.Image = ((System.Drawing.Image)(resources.GetObject("PicPerfil.Image")));
             this.PicPerfil.Location = new System.Drawing.Point(55, 0);
             this.PicPerfil.Margin = new System.Windows.Forms.Padding(0);
             this.PicPerfil.Name = "PicPerfil";

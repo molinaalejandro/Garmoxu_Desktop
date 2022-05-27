@@ -47,7 +47,7 @@ namespace Garmoxu_Desktop
             // 
             // ImgImagenesCateg
             // 
-            this.ImgImagenesCateg.ColorDepth = System.Windows.Forms.ColorDepth.Depth8Bit;
+            this.ImgImagenesCateg.ColorDepth = System.Windows.Forms.ColorDepth.Depth32Bit;
             this.ImgImagenesCateg.ImageSize = new System.Drawing.Size(128, 128);
             this.ImgImagenesCateg.TransparentColor = System.Drawing.Color.Transparent;
             // 
@@ -150,7 +150,7 @@ namespace Garmoxu_Desktop
             this.TxtBusqueda.BorderSize = 2;
             this.TxtBusqueda.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
             this.TxtBusqueda.ForeColor = System.Drawing.Color.Gray;
-            this.TxtBusqueda.Location = new System.Drawing.Point(121, 5);
+            this.TxtBusqueda.Location = new System.Drawing.Point(121, 6);
             this.TxtBusqueda.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.TxtBusqueda.Multiline = false;
             this.TxtBusqueda.Name = "TxtBusqueda";
@@ -158,7 +158,7 @@ namespace Garmoxu_Desktop
             this.TxtBusqueda.PasswordChar = false;
             this.TxtBusqueda.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtBusqueda.PlaceholderText = "";
-            this.TxtBusqueda.Size = new System.Drawing.Size(857, 55);
+            this.TxtBusqueda.Size = new System.Drawing.Size(857, 52);
             this.TxtBusqueda.TabIndex = 49;
             this.TxtBusqueda.Texts = "Buscar por nombre de categoría";
             this.TxtBusqueda.UnderlinedStyle = false;
@@ -199,6 +199,7 @@ namespace Garmoxu_Desktop
             this.myGroupBox1.BorderSize = 5;
             this.myGroupBox1.Controls.Add(this.LstCategorias);
             this.myGroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.myGroupBox1.EnabledText = false;
             this.myGroupBox1.Location = new System.Drawing.Point(73, 131);
             this.myGroupBox1.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.myGroupBox1.Name = "myGroupBox1";
@@ -207,14 +208,13 @@ namespace Garmoxu_Desktop
             this.myGroupBox1.TabIndex = 1;
             this.myGroupBox1.TabStop = false;
             this.myGroupBox1.Text = "Platos";
-            this.myGroupBox1.EnabledText = false;
             // 
             // LstCategorias
             // 
             this.LstCategorias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(90)))));
             this.LstCategorias.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.LstCategorias.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.LstCategorias.Font = new System.Drawing.Font("Source Sans Pro", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.LstCategorias.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
             this.LstCategorias.ForeColor = System.Drawing.Color.White;
             this.LstCategorias.HideSelection = false;
             this.LstCategorias.LargeImageList = this.ImgImagenesCateg;
