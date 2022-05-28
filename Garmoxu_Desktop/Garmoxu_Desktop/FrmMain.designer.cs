@@ -588,6 +588,7 @@
             // 
             // PnlCabeceraMenu
             // 
+            this.PnlCabeceraMenu.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.PnlCabeceraMenu.ColumnCount = 2;
             this.PnlCabeceraMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.PnlCabeceraMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -614,7 +615,7 @@
             this.PicUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PicUsuario.GradientAngle = 50F;
             this.PicUsuario.Image = global::Garmoxu_Desktop.Properties.Resources.User_Default_Icon;
-            this.PicUsuario.Location = new System.Drawing.Point(25, 0);
+            this.PicUsuario.Location = new System.Drawing.Point(26, 1);
             this.PicUsuario.Margin = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.PicUsuario.Name = "PicUsuario";
             this.PicUsuario.Size = new System.Drawing.Size(150, 150);
@@ -628,7 +629,7 @@
             // BtnEsconderMenu
             // 
             this.BtnEsconderMenu.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnEsconderMenu.Dock = System.Windows.Forms.DockStyle.Right;
+            this.BtnEsconderMenu.Dock = System.Windows.Forms.DockStyle.Fill;
             this.BtnEsconderMenu.FlatAppearance.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(42)))), ((int)(((byte)(45)))));
             this.BtnEsconderMenu.FlatAppearance.BorderSize = 0;
             this.BtnEsconderMenu.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(73)))), ((int)(((byte)(74)))), ((int)(((byte)(78)))));
@@ -639,10 +640,10 @@
             this.BtnEsconderMenu.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
             this.BtnEsconderMenu.IconColor = System.Drawing.Color.Gainsboro;
             this.BtnEsconderMenu.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnEsconderMenu.Location = new System.Drawing.Point(175, 0);
+            this.BtnEsconderMenu.Location = new System.Drawing.Point(177, 1);
             this.BtnEsconderMenu.Margin = new System.Windows.Forms.Padding(0);
             this.BtnEsconderMenu.Name = "BtnEsconderMenu";
-            this.BtnEsconderMenu.Size = new System.Drawing.Size(75, 155);
+            this.BtnEsconderMenu.Size = new System.Drawing.Size(72, 155);
             this.BtnEsconderMenu.TabIndex = 0;
             this.BtnEsconderMenu.TabStop = false;
             this.BtnEsconderMenu.Tag = "";

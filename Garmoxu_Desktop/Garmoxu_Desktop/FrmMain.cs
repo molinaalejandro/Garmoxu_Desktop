@@ -48,6 +48,8 @@ namespace Garmoxu_Desktop
                 PnlTitleBar.Padding = new Padding(20, 0, 5, 0);
                 PnlBody.Padding = new Padding(0, 0, 5, 0);
             }
+            PnlMenuLateral.Width = 250;
+            PicUsuario.Size = new Size(150, 150);
             LblHora.Text = DateTime.Now.ToString("HH:mm");
             InstanciaInicioSesion = instanciaInicioSesion;
             UsuarioActual = usuarioActual;
@@ -203,7 +205,7 @@ namespace Garmoxu_Desktop
         {
             PnlMenuLateral.Width = 100;
             BtnEsconderMenu.IconChar = IconChar.ChevronRight;
-            BtnEsconderMenu.Dock = DockStyle.Top;
+            //BtnEsconderMenu.Dock = DockStyle.Top;
             PicUsuario.Visible = false;
             LblUsuarioActual.Visible = false;
             foreach (Button b in PnlMenuLateral.Controls.OfType<Button>())
@@ -219,7 +221,7 @@ namespace Garmoxu_Desktop
             PnlMenuLateral.Width = 250;
             //PnlCabeceraMenu.ColumnStyles[0].SizeType = SizeType.Percent;
             BtnEsconderMenu.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
-            BtnEsconderMenu.Dock = DockStyle.Right;
+            //BtnEsconderMenu.Dock = DockStyle.Right;
             PicUsuario.Visible = true;
             LblUsuarioActual.Visible = true;
             foreach (Button b in PnlMenuLateral.Controls.OfType<Button>())
