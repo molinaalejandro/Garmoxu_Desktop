@@ -588,7 +588,6 @@
             // 
             // PnlCabeceraMenu
             // 
-            this.PnlCabeceraMenu.CellBorderStyle = System.Windows.Forms.TableLayoutPanelCellBorderStyle.Single;
             this.PnlCabeceraMenu.ColumnCount = 2;
             this.PnlCabeceraMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle());
             this.PnlCabeceraMenu.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));

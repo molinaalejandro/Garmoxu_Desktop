@@ -28,21 +28,45 @@ namespace Garmoxu_Desktop
         #region Apertura del formulario
         private void RellenarListView(string sql)
         {
-            bool continuar = ValidarCategoriaExistente();
-            if (continuar)
+            try
             {
-                MySqlDataReader lector = EjecutarConsulta(sql);
+                bool continuar = ValidarCategoriaExistente();
 
-                LstPlatos.Items.Clear();
-                ImgImagenesPlatos.Images.Clear();
-                while (lector.Read())
+                if (continuar)
                 {
-                    ImgImagenesPlatos.Images.Add(CargarImagen(lector));
-                    LstPlatos.Items.Add(lector[1].ToString(), ImgImagenesPlatos.Images.Count - 1); // Metemos nombre y fotos
-                    LstPlatos.Items[LstPlatos.Items.Count - 1].Tag = lector[0].ToString(); // Guardamos el código de plato para organizar en detalles
+                    MySqlDataReader lector = EjecutarConsulta(sql);
+
+                    LstPlatos.BeginUpdate();
+                    LstPlatos.Items.Clear();
+                    ImgImagenesPlatos.Images.Clear();
+                    while (lector.Read())
+                    {
+                        try
+                        {
+                            if (!string.IsNullOrEmpty(lector[2].ToString()))
+                                ImgImagenesPlatos.Images.Add(Image.FromStream(lector.GetStream(2)));
+                            else
+                                ImgImagenesPlatos.Images.Add(Properties.Resources.No_Image_Found);
+                        }
+                        catch (Exception ex)
+                        {
+                            string message = "¡No se ha podido cargar la imagen del plato '" + lector[1].ToString() + "' debido a que el formato de la imagen no es compatible! Pruebe a cambiar la imagen.";
+                            ShowErrorMessage(message, "");
+                            ImgImagenesPlatos.Images.Add(Properties.Resources.No_Image_Found);
+                        }
+
+                        LstPlatos.Items.Add(lector[1].ToString(), ImgImagenesPlatos.Images.Count - 1); // Metemos nombre y fotos
+                        LstPlatos.Items[LstPlatos.Items.Count - 1].Tag = lector[0].ToString(); // Guardamos el código de plato para organizar en detalles
+                    }
+                    CerrarConexion();
+                    lector.Close();
+                    LstPlatos.EndUpdate();
                 }
-                CerrarConexion();
-                lector.Close();
+            }
+            catch (Exception ex)
+            {
+                string message = "¡No se han podido cargar todos los platos debido a que hay algunas imágenes incompatibles!";
+                ShowErrorMessage(message, "");
             }
         }
 
@@ -60,21 +84,6 @@ namespace Garmoxu_Desktop
                 }
             }
             return true;
-        }
-
-        private Image CargarImagen(MySqlDataReader lector)
-        {
-            if (!string.IsNullOrEmpty(lector[2].ToString()))
-            {
-                int tamañoMaximoArchivo = 16000000;
-                byte[] imagenBytes = new byte[tamañoMaximoArchivo];
-
-                lector.GetBytes(2, 0, imagenBytes, 0, tamañoMaximoArchivo);
-                Image fotoconvertida = (Bitmap)((new ImageConverter()).ConvertFrom(imagenBytes));
-
-                return fotoconvertida;
-            }
-            else return Properties.Resources.No_Image_Found;
         }
 
         private void CargarComboBoxCategorias()

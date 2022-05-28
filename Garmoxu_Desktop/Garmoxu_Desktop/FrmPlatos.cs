@@ -271,7 +271,7 @@ namespace Garmoxu_Desktop
         {
             if (e.KeyChar.Equals((char)Keys.Enter))
             {
-                if (!string.IsNullOrEmpty(TxtNombre.Texts.Trim())) e.Handled = true;
+                e.Handled = true;
                 BuscarPlatos();
             }
         }

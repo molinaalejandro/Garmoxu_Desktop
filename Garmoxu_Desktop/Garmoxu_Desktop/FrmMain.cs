@@ -291,7 +291,6 @@ namespace Garmoxu_Desktop
 
         // Recibe un formulario para comprobar si está abierto, de ser así, lo trae al frente.
         // En caso contrario, lo abre dentro del panel principal.
-        //private void AbrirFormulario(Form form)
         private void AbrirFormulario(Type clase, object[] argumentos)
         {
             bool encontrado = false;

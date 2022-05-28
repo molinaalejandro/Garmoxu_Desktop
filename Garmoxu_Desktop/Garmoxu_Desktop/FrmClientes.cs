@@ -20,7 +20,7 @@ namespace Garmoxu_Desktop
         private DataSet Ds;
         private List<string> DatosIniciales;
         private int RegistrosCargados;
-        private const int REGISTROSCARGADOSPORITERACCION = 50;
+        private const int REGISTROSCARGADOSPORITERACCION = 35;
 
         public FrmClientes()
         {
