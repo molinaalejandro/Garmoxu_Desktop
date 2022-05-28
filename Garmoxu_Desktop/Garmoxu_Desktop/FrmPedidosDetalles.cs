@@ -309,8 +309,8 @@ namespace Garmoxu_Desktop
         {
             ListaDatosOpcionales.Add(TxtNombreDomicilioTipo);
             ListaDatosOpcionales.Add(TxtNombreDomicilioDetalles);
-            ListaDatosOpcionales.Add(TxtNombreRecogerDetalles);
-            ListaDatosOpcionales.Add(TxtNombreRecogerTipo);
+            //ListaDatosOpcionales.Add(TxtNombreRecogerDetalles);
+            //ListaDatosOpcionales.Add(TxtNombreRecogerTipo);
         }
         #endregion
         #endregion
@@ -498,19 +498,46 @@ namespace Garmoxu_Desktop
         // Valida que todas las text box obligatorias del tab page actual estén completadas.
         private bool ValidarDatosCompletados(TabControl tab)
         {
-            foreach (Control control in tab.SelectedTab.Controls)
+            List<RJTextBox> textBoxChequear = new List<RJTextBox>();
+            if (TabPrincipal.SelectedIndex == 0)
             {
-                try
+                switch (tab.SelectedIndex)
                 {
-                    RJTextBox txt = (RJTextBox)control;
-                    if (!ListaDatosOpcionales.Contains(txt) && string.IsNullOrEmpty(txt.Texts.Trim()))
-                    {
-                        string mensaje = "¡Debes completar todos los datos!";
-                        ShowWarningMessage(mensaje, "");
-                        return false;
-                    }
+                    case 1:
+                        textBoxChequear.Add(TxtTlfDomicilioTipo);
+                        textBoxChequear.Add(TxtDirDomicilioTipo);
+                        break;
+
+                    case 2:
+                        textBoxChequear.Add(TxtTlfRecogerTipo);
+                        textBoxChequear.Add(TxtNombreRecogerTipo);
+                        break;
                 }
-                catch (InvalidCastException ex) { }
+            }
+            else
+            {
+                switch (tab.SelectedIndex)
+                {
+                    case 1:
+                        textBoxChequear.Add(TxtTlfDomicilioDetalles);
+                        textBoxChequear.Add(TxtDirDomicilioDetalles);
+                        break;
+
+                    case 2:
+                        textBoxChequear.Add(TxtTlfRecogerDetalles);
+                        textBoxChequear.Add(TxtNombreRecogerDetalles);
+                        break;
+                }
+            }
+
+            foreach (RJTextBox txt in textBoxChequear)
+            {
+                if (string.IsNullOrEmpty(txt.Texts.Trim()))
+                {
+                    string mensaje = "¡Debes completar todos los datos!";
+                    ShowWarningMessage(mensaje, "");
+                    return false;
+                }
             }
 
             if (TabPrincipal.SelectedIndex == 0 && TabTipoDatosTipo.SelectedIndex == 0 && CboMesasLocalTipo.SelectedIndex == -1)
@@ -1899,7 +1926,7 @@ namespace Garmoxu_Desktop
 
                             if (!string.IsNullOrEmpty(scalar))
                             {
-                                if (!scalar.Equals(TxtNombreRecogerDetalles.Texts.Trim())) 
+                                if (!scalar.Equals(TxtNombreRecogerDetalles.Texts.Trim()))
                                     modificacionRealizada = true;
                             }
                             else modificacionRealizada = true;
