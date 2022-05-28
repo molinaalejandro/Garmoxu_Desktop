@@ -18,18 +18,14 @@ namespace Garmoxu_Desktop
     public partial class FrmReservasDetalles : Form
     {
         private string ClavePrimaria;
-        private string HoraApertura;
-        private string HoraCierre;
         private int NivelPermisos;
         private List<string> DatosIniciales;
 
-        public FrmReservasDetalles(string clavePrimaria, ref Form frmShadow, string horaApertura, string horaCierre, int nivelPermisos)
+        public FrmReservasDetalles(string clavePrimaria, ref Form frmShadow, int nivelPermisos)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
             ClavePrimaria = clavePrimaria;
-            HoraApertura = horaApertura;
-            HoraCierre = horaCierre;
             NivelPermisos = nivelPermisos;
             LimitarPermisos();
             CargarTipoForm();
@@ -522,7 +518,7 @@ namespace Garmoxu_Desktop
         #region Cierre del formulario
         private void BtnClose_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(ClavePrimaria) || ComprobarCualquierDatoModificado())
+            if (BtnConfirmar.Visible && (string.IsNullOrEmpty(ClavePrimaria) || ComprobarCualquierDatoModificado()))
             {
                 string mensaje = "¿Desea salir sin guardar? Se perderán todos los cambios realizados.";
                 if (ShowQuestionDialog(mensaje, "").Equals(DialogResult.Yes)) this.Close();

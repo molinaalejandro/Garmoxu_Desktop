@@ -253,7 +253,7 @@
             this.BtnMesa.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnMesa.Font = new System.Drawing.Font("Source Sans Pro", 12.2F, System.Drawing.FontStyle.Bold);
             this.BtnMesa.ForeColor = System.Drawing.Color.White;
-            this.BtnMesa.Location = new System.Drawing.Point(288, 5);
+            this.BtnMesa.Location = new System.Drawing.Point(293, 5);
             this.BtnMesa.Margin = new System.Windows.Forms.Padding(20, 5, 0, 5);
             this.BtnMesa.Name = "BtnMesa";
             this.BtnMesa.Size = new System.Drawing.Size(95, 33);

@@ -18,7 +18,6 @@ namespace Garmoxu_Desktop
     public partial class FrmCategoriasDetalles : Form
     {
         private string ClavePrimaria;
-        private Image ImagenInicial;
         private List<string> DatosIniciales;
         private bool ImagenCambiada;
 
@@ -87,7 +86,6 @@ namespace Garmoxu_Desktop
                 imagen = Properties.Resources.No_Image_Found;
             }
 
-            ImagenInicial = imagen;
             PicImagenCategoria.Image = imagen;
         }
         #endregion

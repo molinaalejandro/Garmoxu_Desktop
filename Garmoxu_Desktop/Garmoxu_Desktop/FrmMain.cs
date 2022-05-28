@@ -234,37 +234,44 @@ namespace Garmoxu_Desktop
 
         private void BtnPedidos_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(new FrmPedidos(UsuarioActual, IVA));
+            //AbrirFormulario(new FrmPedidos(UsuarioActual, IVA));
+            AbrirFormulario(typeof(FrmPedidos), new object[] { UsuarioActual, IVA });
         }
 
         private void BtnReservas_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(new FrmReservas(HoraApertura, HoraCierre, NivelPermisos));
+            //AbrirFormulario(new FrmReservas(HoraApertura, HoraCierre, NivelPermisos));
+            AbrirFormulario(typeof(FrmReservas), new object[] { HoraApertura, HoraCierre, NivelPermisos });
         }
 
         private void BtnHistorial_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(new FrmHistorialPedidos(NivelPermisos, IVA));
+            //AbrirFormulario(new FrmHistorialPedidos(NivelPermisos, IVA));
+            AbrirFormulario(typeof(FrmHistorialPedidos), new object[] { NivelPermisos, IVA });
         }
 
         private void BtnPlatos_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(new FrmPlatos(IVA));
+            //AbrirFormulario(new FrmPlatos(IVA));
+            AbrirFormulario(typeof(FrmPlatos), new object[] { IVA });
         }
 
         private void BtnCliente_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(new FrmClientes());
+            //AbrirFormulario(new FrmClientes());
+            AbrirFormulario(typeof(FrmClientes), new object[] { });
         }
 
         private void BtnCategoria_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(new FrmCategorias());
+            //AbrirFormulario(new FrmCategorias());
+            AbrirFormulario(typeof(FrmCategorias), new object[] { });
         }
 
         private void BtnUsers_Click(object sender, EventArgs e)
         {
-            AbrirFormulario(new FrmUsuarios(UsuarioActual));
+            //AbrirFormulario(new FrmUsuarios(UsuarioActual));
+            AbrirFormulario(typeof(FrmUsuarios), new object[] { UsuarioActual });
         }
 
         private void BtnAjustes_Click(object sender, EventArgs e)
@@ -282,25 +289,33 @@ namespace Garmoxu_Desktop
 
         // Recibe un formulario para comprobar si está abierto, de ser así, lo trae al frente.
         // En caso contrario, lo abre dentro del panel principal.
-        private void AbrirFormulario(Form form)
+        //private void AbrirFormulario(Form form)
+        private void AbrirFormulario(Type clase, object[] argumentos)
         {
-            LblSeccion.Text = form.Tag.ToString();
-            BtnCerrarSeccion.Visible = true;
-            LblSeccion.Cursor = Cursors.Hand;
-
             bool encontrado = false;
             foreach (Form f in Application.OpenForms)
             {
-                if (f.GetType().Equals(form.GetType()))
+                if (f.GetType().Equals(clase))
                 {
                     encontrado = true;
+                    LblSeccion.Text = f.Tag.ToString();
+                    BtnCerrarSeccion.Visible = true;
+                    LblSeccion.Cursor = Cursors.Hand;
                     f.Show();
                     f.BringToFront();
+                    return;
                 }
             }
 
             if (!encontrado)
             {
+                Form form;
+                if (argumentos.Length != 0) form = (Form)Activator.CreateInstance(clase, argumentos);
+                else form = (Form)Activator.CreateInstance(clase);
+
+                LblSeccion.Text = form.Tag.ToString();
+                BtnCerrarSeccion.Visible = true;
+                LblSeccion.Cursor = Cursors.Hand;
                 form.TopLevel = false;
                 form.Dock = DockStyle.Fill;
                 PnlFormularios.Controls.Add(form);

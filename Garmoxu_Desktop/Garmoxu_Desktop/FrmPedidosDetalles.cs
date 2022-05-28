@@ -49,13 +49,11 @@ namespace Garmoxu_Desktop
 
         private int IVA;
 
-        private Form FrmShadow;
-
-        public FrmPedidosDetalles(string clavePrimariaPedidoEnCurso, string usuarioActual, int iva)
+        public FrmPedidosDetalles(string clavePrimariaPedidoEnCurso, string usuarioActual, int iva, ref Form frmShadow)
         {
             InitializeComponent();
             this.FormBorderStyle = FormBorderStyle.None;
-            SombrearPantalla();
+            SombrearPantalla(ref frmShadow);
             ClavePrimariaPedidoEnCurso = clavePrimariaPedidoEnCurso;
             UsuarioActual = usuarioActual;
             IVA = iva;
@@ -347,20 +345,20 @@ namespace Garmoxu_Desktop
         #endregion
 
         #region Sombreado de pantalla
-        private void SombrearPantalla()
+        private void SombrearPantalla(ref Form frmShadow)
         {
-            FrmShadow = new Form();
-            FrmShadow.ShowInTaskbar = false;
-            FrmShadow.Text = "";
-            FrmShadow.FormBorderStyle = FormBorderStyle.None;
-            FrmShadow.Size = Size;
-            FrmShadow.WindowState = FormWindowState.Maximized;
-            FrmShadow.BackColor = Color.Black;
-            FrmShadow.Opacity = 0.7;
-            FrmShadow.Show();
-            FrmShadow.Location = Location;
-            FrmShadow.Enabled = false;
-            FrmShadow.TopMost = true;
+            frmShadow = new Form();
+            frmShadow.ShowInTaskbar = false;
+            frmShadow.Text = "";
+            frmShadow.FormBorderStyle = FormBorderStyle.None;
+            frmShadow.Size = Size;
+            frmShadow.WindowState = FormWindowState.Maximized;
+            frmShadow.BackColor = Color.Black;
+            frmShadow.Opacity = 0.7;
+            frmShadow.Show();
+            frmShadow.Location = Location;
+            frmShadow.Enabled = false;
+            frmShadow.TopMost = true;
         }
         #endregion
         #endregion
@@ -857,7 +855,7 @@ namespace Garmoxu_Desktop
 
             if (!string.IsNullOrEmpty(scalar) && !scalar.Equals(ClavePrimariaPedidoEnCurso))
             {
-                string mensaje = "¡Ya existe un pedido asociado a '" + clienteAsociado + "'!";
+                string mensaje = "¡Ya existe un pedido asociado a " + clienteAsociado + "!";
                 ShowWarningMessage(mensaje, "");
                 return false;
             }
@@ -1919,17 +1917,6 @@ namespace Garmoxu_Desktop
                 return modificacionRealizada;
             }
             else return true;
-        }
-
-        // No poner muchas cosas aquí, ya que varias funciones llaman al this.Close() y se ejecuta lo que haya aquí.
-        private void FrmDetallesPedido_FormClosing(object sender, FormClosingEventArgs e)
-        {
-            QuitarSombreadoPantalla();
-        }
-
-        private void QuitarSombreadoPantalla()
-        {
-            if (FrmShadow != null) FrmShadow.Close();
         }
         #endregion
 

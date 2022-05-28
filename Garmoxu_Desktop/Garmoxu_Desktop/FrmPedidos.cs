@@ -435,8 +435,10 @@ namespace Garmoxu_Desktop
         private void BtnPedidoEnCurso_Click(object sender, EventArgs e)
         {
             string clavePrimaria = ((RJButton)sender).Tag.ToString();
-            FrmPedidosDetalles frm = new FrmPedidosDetalles(clavePrimaria, UsuarioActual, IVA);
-            frm.Show();
+            Form frmShadow = new Form();
+            FrmPedidosDetalles frm = new FrmPedidosDetalles(clavePrimaria, UsuarioActual, IVA, ref frmShadow);
+            frm.ShowDialog();
+            frmShadow.Close();
         }
         #endregion
 
@@ -481,8 +483,10 @@ namespace Garmoxu_Desktop
             string clave = EjecutarScalar(sql);
             if (!string.IsNullOrEmpty(clave))
             {
-                FrmPedidosDetalles frm = new FrmPedidosDetalles(clave, UsuarioActual, IVA);
-                frm.Show();
+                Form frmShadow = new Form();
+                FrmPedidosDetalles frm = new FrmPedidosDetalles(clave, UsuarioActual, IVA, ref frmShadow);
+                frm.ShowDialog();
+                frmShadow.Close();
                 TxtBuscar.Texts = string.Empty;
                 return true;
             }
@@ -493,9 +497,11 @@ namespace Garmoxu_Desktop
         #region Botón Nuevo
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
-            FrmPedidosDetalles frm = new FrmPedidosDetalles("", UsuarioActual, IVA);
+            Form frmShadow = new Form();
+            FrmPedidosDetalles frm = new FrmPedidosDetalles("", UsuarioActual, IVA, ref frmShadow);
             frm.Size = new Size(750, 750); // Solo se aplica pedidos nuevos para adaptarse a la pestaña de selección de tipo de pedido
-            frm.Show();
+            frm.ShowDialog();
+            frmShadow.Close();
         }
         #endregion
     }

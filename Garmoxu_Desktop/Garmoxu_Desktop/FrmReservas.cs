@@ -280,7 +280,7 @@ namespace Garmoxu_Desktop
         private void BtnNuevo_Click(object sender, EventArgs e)
         {
             Form frmShadow = new Form();
-            FrmReservasDetalles f = new FrmReservasDetalles(string.Empty, ref frmShadow, HoraApertura, HoraCierre, NivelPermisos);
+            FrmReservasDetalles f = new FrmReservasDetalles(string.Empty, ref frmShadow, NivelPermisos);
 
             f.ShowDialog();
             frmShadow.Close();
@@ -296,7 +296,7 @@ namespace Garmoxu_Desktop
             {
                 Form frmShadow = new Form();
                 string clavePrimaria = DtgReservas.CurrentRow.Cells[0].Value.ToString();
-                FrmReservasDetalles f = new FrmReservasDetalles(clavePrimaria, ref frmShadow, HoraApertura, HoraCierre, NivelPermisos);
+                FrmReservasDetalles f = new FrmReservasDetalles(clavePrimaria, ref frmShadow, NivelPermisos);
 
                 f.ShowDialog();
                 frmShadow.Close();

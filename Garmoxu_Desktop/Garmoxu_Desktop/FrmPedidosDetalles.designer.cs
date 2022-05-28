@@ -1767,7 +1767,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Nuevo pedido - Garmoxu";
             this.TopMost = true;
-            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.FrmDetallesPedido_FormClosing);
             this.PnlBody.ResumeLayout(false);
             this.TabPrincipal.ResumeLayout(false);
             this.tabPage4.ResumeLayout(false);
