@@ -155,10 +155,10 @@
             this.BtnCerrarSeccion.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.BtnCerrarSeccion.IconSize = 35;
             this.BtnCerrarSeccion.ImageAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.BtnCerrarSeccion.Location = new System.Drawing.Point(387, 0);
-            this.BtnCerrarSeccion.Margin = new System.Windows.Forms.Padding(0);
+            this.BtnCerrarSeccion.Location = new System.Drawing.Point(387, 5);
+            this.BtnCerrarSeccion.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.BtnCerrarSeccion.Name = "BtnCerrarSeccion";
-            this.BtnCerrarSeccion.Size = new System.Drawing.Size(30, 80);
+            this.BtnCerrarSeccion.Size = new System.Drawing.Size(30, 75);
             this.BtnCerrarSeccion.TabIndex = 7;
             this.BtnCerrarSeccion.TabStop = false;
             this.BtnCerrarSeccion.UseVisualStyleBackColor = false;
@@ -614,7 +614,7 @@
             this.PicUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.PicUsuario.GradientAngle = 50F;
             this.PicUsuario.Image = global::Garmoxu_Desktop.Properties.Resources.User_Default_Icon;
-            this.PicUsuario.Location = new System.Drawing.Point(26, 1);
+            this.PicUsuario.Location = new System.Drawing.Point(25, 0);
             this.PicUsuario.Margin = new System.Windows.Forms.Padding(25, 0, 0, 0);
             this.PicUsuario.Name = "PicUsuario";
             this.PicUsuario.Size = new System.Drawing.Size(150, 150);
@@ -639,10 +639,10 @@
             this.BtnEsconderMenu.IconChar = FontAwesome.Sharp.IconChar.ChevronLeft;
             this.BtnEsconderMenu.IconColor = System.Drawing.Color.Gainsboro;
             this.BtnEsconderMenu.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnEsconderMenu.Location = new System.Drawing.Point(177, 1);
+            this.BtnEsconderMenu.Location = new System.Drawing.Point(175, 0);
             this.BtnEsconderMenu.Margin = new System.Windows.Forms.Padding(0);
             this.BtnEsconderMenu.Name = "BtnEsconderMenu";
-            this.BtnEsconderMenu.Size = new System.Drawing.Size(72, 155);
+            this.BtnEsconderMenu.Size = new System.Drawing.Size(75, 155);
             this.BtnEsconderMenu.TabIndex = 0;
             this.BtnEsconderMenu.TabStop = false;
             this.BtnEsconderMenu.Tag = "";
@@ -652,8 +652,7 @@
             // 
             // FrmMain
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(41)))), ((int)(((byte)(42)))), ((int)(((byte)(45)))));
             this.ClientSize = new System.Drawing.Size(1924, 1055);
             this.Controls.Add(this.PnlPrincipal);

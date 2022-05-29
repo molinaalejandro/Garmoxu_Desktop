@@ -45,6 +45,10 @@ namespace Garmoxu_Desktop
         private void FrmPlatosDetalles_Shown(object sender, EventArgs e)
         {
             PicFotoPlato.Width = PicFotoPlato.Height;
+            TxtIdPlato.Height = 52;
+            TxtNombre.Height = 52;
+            TxtPrecioConIva.Height = 52;
+            TxtPrecioSinIva.Height = 52;
         }
 
         #region Cargar categorias
@@ -198,7 +202,7 @@ namespace Garmoxu_Desktop
         #region Picture Plato
         private void PicFotoPlato_MouseEnter(object sender, EventArgs e)
         {
-            PnlBordeImagen.BackColor = Color.Silver;
+            PnlBordeImagen.BackColor = Color.White;
         }
 
         private void PicFotoPlato_MouseLeave(object sender, EventArgs e)

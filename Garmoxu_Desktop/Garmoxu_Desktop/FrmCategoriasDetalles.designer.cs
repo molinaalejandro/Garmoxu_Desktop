@@ -168,15 +168,15 @@ namespace Garmoxu_Desktop
             this.TxtNombre.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtNombre.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
             this.TxtNombre.ForeColor = System.Drawing.Color.White;
-            this.TxtNombre.Location = new System.Drawing.Point(5, 93);
-            this.TxtNombre.Margin = new System.Windows.Forms.Padding(5, 5, 5, 0);
+            this.TxtNombre.Location = new System.Drawing.Point(0, 116);
+            this.TxtNombre.Margin = new System.Windows.Forms.Padding(0, 5, 5, 0);
             this.TxtNombre.Multiline = false;
             this.TxtNombre.Name = "TxtNombre";
             this.TxtNombre.Padding = new System.Windows.Forms.Padding(13, 12, 13, 3);
             this.TxtNombre.PasswordChar = false;
             this.TxtNombre.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtNombre.PlaceholderText = "";
-            this.TxtNombre.Size = new System.Drawing.Size(284, 52);
+            this.TxtNombre.Size = new System.Drawing.Size(361, 52);
             this.TxtNombre.TabIndex = 3;
             this.TxtNombre.TabStop = false;
             this.TxtNombre.Texts = "";
@@ -189,10 +189,9 @@ namespace Garmoxu_Desktop
             this.label1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label1.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
             this.label1.ForeColor = System.Drawing.Color.Silver;
-            this.label1.Location = new System.Drawing.Point(0, 55);
-            this.label1.Margin = new System.Windows.Forms.Padding(0);
+            this.label1.Location = new System.Drawing.Point(3, 55);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(294, 33);
+            this.label1.Size = new System.Drawing.Size(288, 33);
             this.label1.TabIndex = 2;
             this.label1.Text = "Nombre";
             // 
@@ -338,8 +337,7 @@ namespace Garmoxu_Desktop
             // 
             // FrmCategoriasDetalles
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
             this.ClientSize = new System.Drawing.Size(798, 533);
             this.Controls.Add(this.tableLayoutPanel1);
@@ -349,6 +347,7 @@ namespace Garmoxu_Desktop
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Gestión de detalles de categoría - Garmoxu";
             this.TopMost = true;
+            this.Shown += new System.EventHandler(this.FrmCategoriasDetalles_Shown);
             this.tableLayoutPanel5.ResumeLayout(false);
             this.tableLayoutPanel11.ResumeLayout(false);
             this.tableLayoutPanel6.ResumeLayout(false);

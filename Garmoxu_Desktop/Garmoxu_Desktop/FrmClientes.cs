@@ -34,6 +34,7 @@ namespace Garmoxu_Desktop
         private void FrmClientes_Shown(object sender, EventArgs e)
         {
             DtgClientes.ClearSelection();
+            TxtBuscar.Height = 52;
         }
 
         #region Cargar datos

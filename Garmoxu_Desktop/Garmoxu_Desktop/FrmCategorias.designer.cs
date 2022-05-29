@@ -65,7 +65,7 @@ namespace Garmoxu_Desktop
             this.PnlMain.RowCount = 2;
             this.PnlMain.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.PnlMain.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.PnlMain.Size = new System.Drawing.Size(1186, 629);
+            this.PnlMain.Size = new System.Drawing.Size(1640, 850);
             this.PnlMain.TabIndex = 1;
             // 
             // tableLayoutPanel4
@@ -90,7 +90,7 @@ namespace Garmoxu_Desktop
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
             this.tableLayoutPanel4.RowCount = 1;
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel4.Size = new System.Drawing.Size(1040, 65);
+            this.tableLayoutPanel4.Size = new System.Drawing.Size(1494, 55);
             this.tableLayoutPanel4.TabIndex = 0;
             // 
             // BtnNuevo
@@ -108,7 +108,7 @@ namespace Garmoxu_Desktop
             this.BtnNuevo.Location = new System.Drawing.Point(0, 0);
             this.BtnNuevo.Margin = new System.Windows.Forms.Padding(0);
             this.BtnNuevo.Name = "BtnNuevo";
-            this.BtnNuevo.Size = new System.Drawing.Size(35, 65);
+            this.BtnNuevo.Size = new System.Drawing.Size(35, 55);
             this.BtnNuevo.TabIndex = 43;
             this.BtnNuevo.TabStop = false;
             this.BtnNuevo.UseVisualStyleBackColor = true;
@@ -132,7 +132,7 @@ namespace Garmoxu_Desktop
             this.BtnEliminar.Location = new System.Drawing.Point(50, 0);
             this.BtnEliminar.Margin = new System.Windows.Forms.Padding(15, 0, 0, 0);
             this.BtnEliminar.Name = "BtnEliminar";
-            this.BtnEliminar.Size = new System.Drawing.Size(61, 65);
+            this.BtnEliminar.Size = new System.Drawing.Size(61, 55);
             this.BtnEliminar.TabIndex = 44;
             this.BtnEliminar.TabStop = false;
             this.BtnEliminar.UseVisualStyleBackColor = true;
@@ -142,15 +142,15 @@ namespace Garmoxu_Desktop
             // 
             // TxtBusqueda
             // 
-            this.TxtBusqueda.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.TxtBusqueda.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.TxtBusqueda.BorderColor = System.Drawing.Color.Transparent;
             this.TxtBusqueda.BorderFocusColor = System.Drawing.Color.Gainsboro;
             this.TxtBusqueda.BorderRadius = 10;
             this.TxtBusqueda.BorderSize = 2;
+            this.TxtBusqueda.Dock = System.Windows.Forms.DockStyle.Top;
             this.TxtBusqueda.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
             this.TxtBusqueda.ForeColor = System.Drawing.Color.Gray;
-            this.TxtBusqueda.Location = new System.Drawing.Point(121, 6);
+            this.TxtBusqueda.Location = new System.Drawing.Point(121, 0);
             this.TxtBusqueda.Margin = new System.Windows.Forms.Padding(10, 0, 0, 0);
             this.TxtBusqueda.Multiline = false;
             this.TxtBusqueda.Name = "TxtBusqueda";
@@ -158,7 +158,7 @@ namespace Garmoxu_Desktop
             this.TxtBusqueda.PasswordChar = false;
             this.TxtBusqueda.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtBusqueda.PlaceholderText = "";
-            this.TxtBusqueda.Size = new System.Drawing.Size(857, 52);
+            this.TxtBusqueda.Size = new System.Drawing.Size(1639, 52);
             this.TxtBusqueda.TabIndex = 49;
             this.TxtBusqueda.Texts = "Buscar por nombre de categoría";
             this.TxtBusqueda.UnderlinedStyle = false;
@@ -180,10 +180,10 @@ namespace Garmoxu_Desktop
             this.BtnBuscar.IconChar = FontAwesome.Sharp.IconChar.Search;
             this.BtnBuscar.IconColor = System.Drawing.Color.MediumSlateBlue;
             this.BtnBuscar.IconFont = FontAwesome.Sharp.IconFont.Auto;
-            this.BtnBuscar.Location = new System.Drawing.Point(998, 0);
+            this.BtnBuscar.Location = new System.Drawing.Point(1452, 0);
             this.BtnBuscar.Margin = new System.Windows.Forms.Padding(20, 0, 0, 0);
             this.BtnBuscar.Name = "BtnBuscar";
-            this.BtnBuscar.Size = new System.Drawing.Size(42, 65);
+            this.BtnBuscar.Size = new System.Drawing.Size(42, 55);
             this.BtnBuscar.TabIndex = 45;
             this.BtnBuscar.TabStop = false;
             this.BtnBuscar.UseVisualStyleBackColor = true;
@@ -200,11 +200,11 @@ namespace Garmoxu_Desktop
             this.myGroupBox1.Controls.Add(this.LstCategorias);
             this.myGroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.myGroupBox1.EnabledText = false;
-            this.myGroupBox1.Location = new System.Drawing.Point(73, 131);
+            this.myGroupBox1.Location = new System.Drawing.Point(73, 121);
             this.myGroupBox1.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.myGroupBox1.Name = "myGroupBox1";
             this.myGroupBox1.Padding = new System.Windows.Forms.Padding(20, 30, 20, 20);
-            this.myGroupBox1.Size = new System.Drawing.Size(1040, 445);
+            this.myGroupBox1.Size = new System.Drawing.Size(1494, 676);
             this.myGroupBox1.TabIndex = 1;
             this.myGroupBox1.TabStop = false;
             this.myGroupBox1.Text = "Platos";
@@ -222,7 +222,7 @@ namespace Garmoxu_Desktop
             this.LstCategorias.Margin = new System.Windows.Forms.Padding(4, 20, 4, 4);
             this.LstCategorias.MultiSelect = false;
             this.LstCategorias.Name = "LstCategorias";
-            this.LstCategorias.Size = new System.Drawing.Size(1000, 380);
+            this.LstCategorias.Size = new System.Drawing.Size(1454, 611);
             this.LstCategorias.TabIndex = 7;
             this.LstCategorias.TabStop = false;
             this.LstCategorias.UseCompatibleStateImageBehavior = false;
@@ -231,10 +231,9 @@ namespace Garmoxu_Desktop
             // 
             // FrmCategorias
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
-            this.ClientSize = new System.Drawing.Size(1186, 629);
+            this.ClientSize = new System.Drawing.Size(1640, 850);
             this.Controls.Add(this.PnlMain);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
@@ -242,6 +241,7 @@ namespace Garmoxu_Desktop
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "Categorias";
             this.Text = "Gestión de categorías - Garmoxu";
+            this.Shown += new System.EventHandler(this.FrmCategorias_Shown);
             this.EnabledChanged += new System.EventHandler(this.FrmCategoria_EnabledChanged);
             this.PnlMain.ResumeLayout(false);
             this.tableLayoutPanel4.ResumeLayout(false);

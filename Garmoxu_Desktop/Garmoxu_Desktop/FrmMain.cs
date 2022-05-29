@@ -41,15 +41,14 @@ namespace Garmoxu_Desktop
         public FrmMain(string usuarioActual, int nivelPermisos, Image imagenUsuario, FrmInicioSesion instanciaInicioSesion)
         {
             InitializeComponent();
+            ConfigurarTamañoControles();
             CargarConfiguracion();
             if (VentanaCompleta)
             {
                 this.FormBorderStyle = FormBorderStyle.None;
                 PnlTitleBar.Padding = new Padding(20, 0, 5, 0);
                 PnlBody.Padding = new Padding(0, 0, 5, 0);
-            }
-            PnlMenuLateral.Width = 250;
-            PicUsuario.Size = new Size(150, 150);
+            }            
             LblHora.Text = DateTime.Now.ToString("HH:mm");
             InstanciaInicioSesion = instanciaInicioSesion;
             UsuarioActual = usuarioActual;
@@ -88,6 +87,28 @@ namespace Garmoxu_Desktop
             this.Close();
         }
         #endregion
+        #endregion
+        #endregion
+
+        #region Funciones y diseños de controles
+        #region Configuración de tamaño de controles
+        private void ConfigurarTamañoControles()
+        {
+            //PnlTitleBar.Height = 90;
+            //PnlCabeceraMenu.Height = 155;
+            //PnlMenuLateral.Width = 250;
+            //PicUsuario.Size = new Size(150, 150);
+            //BtnEsconderMenu.Size = new Size(75, 150);
+            //BtnPedidos.Height = 62;
+            //BtnReservas.Height = 62;
+            //BtnHistorial.Height = 62;
+            //BtnPlatos.Height = 62;
+            //BtnCategorias.Height = 62;
+            //BtnClientes.Height = 62;
+            //BtnUsuarios.Height = 62;
+            //BtnAjustes.Height = 62;
+            BtnPedidos.Font = new Font(BtnPedidos.Font.FontFamily, 13, BtnPedidos.Font.Style);
+        }
         #endregion
         #endregion
 

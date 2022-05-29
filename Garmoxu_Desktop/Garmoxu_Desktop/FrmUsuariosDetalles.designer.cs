@@ -167,6 +167,7 @@ namespace Garmoxu_Desktop
             this.CboTipoUsuario.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.CboTipoUsuario.BorderColor = System.Drawing.Color.Transparent;
             this.CboTipoUsuario.BorderSize = 0;
+            this.CboTipoUsuario.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CboTipoUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CboTipoUsuario.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CboTipoUsuario.Font = new System.Drawing.Font("Source Sans Pro", 14.2F, System.Drawing.FontStyle.Bold);
@@ -327,8 +328,7 @@ namespace Garmoxu_Desktop
             // 
             // FrmUsuariosDetalles
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
             this.ClientSize = new System.Drawing.Size(604, 628);
             this.Controls.Add(this.PnlPrincipal);
@@ -339,6 +339,7 @@ namespace Garmoxu_Desktop
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Crear nuevo usuario - Garmoxu";
             this.TopMost = true;
+            this.Shown += new System.EventHandler(this.FrmUsuariosDetalles_Shown);
             this.PnlDatos.ResumeLayout(false);
             this.PnlDatos.PerformLayout();
             this.PnlBotones.ResumeLayout(false);

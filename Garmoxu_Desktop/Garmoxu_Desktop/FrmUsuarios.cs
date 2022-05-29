@@ -53,6 +53,7 @@ namespace Garmoxu_Desktop
         private void FrmUsuarios_Shown(object sender, EventArgs e)
         {
             DtgUsuarios.ClearSelection();
+            TxtBuscar.Height = 52;
         }
         #endregion
 

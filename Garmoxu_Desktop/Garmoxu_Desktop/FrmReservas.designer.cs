@@ -155,7 +155,7 @@
             this.DtpBuscar.BorderSize = 0;
             this.DtpBuscar.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.DtpBuscar.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.DtpBuscar.Location = new System.Drawing.Point(131, 51);
+            this.DtpBuscar.Location = new System.Drawing.Point(164, 64);
             this.DtpBuscar.Margin = new System.Windows.Forms.Padding(30, 5, 0, 0);
             this.DtpBuscar.MinimumSize = new System.Drawing.Size(4, 35);
             this.DtpBuscar.Name = "DtpBuscar";
@@ -174,7 +174,7 @@
             this.TxtBuscar.BorderFocusColor = System.Drawing.Color.Gainsboro;
             this.TxtBuscar.BorderRadius = 10;
             this.TxtBuscar.BorderSize = 2;
-            this.TxtBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TxtBuscar.Dock = System.Windows.Forms.DockStyle.Top;
             this.TxtBuscar.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
             this.TxtBuscar.ForeColor = System.Drawing.Color.Gray;
             this.TxtBuscar.Location = new System.Drawing.Point(601, 48);
@@ -185,7 +185,7 @@
             this.TxtBuscar.PasswordChar = false;
             this.TxtBuscar.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtBuscar.PlaceholderText = "";
-            this.TxtBuscar.Size = new System.Drawing.Size(1118, 55);
+            this.TxtBuscar.Size = new System.Drawing.Size(1398, 55);
             this.TxtBuscar.TabIndex = 49;
             this.TxtBuscar.TabStop = false;
             this.TxtBuscar.Texts = "Buscar por teléfono de cliente";
@@ -427,8 +427,7 @@
             // 
             // FrmReservas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
             this.ClientSize = new System.Drawing.Size(1924, 1055);
             this.Controls.Add(this.PnlMain);

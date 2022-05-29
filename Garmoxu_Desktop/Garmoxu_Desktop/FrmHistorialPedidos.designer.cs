@@ -183,7 +183,7 @@
             this.DtpFechaPedido.BorderSize = 0;
             this.DtpFechaPedido.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.DtpFechaPedido.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.DtpFechaPedido.Location = new System.Drawing.Point(0, 51);
+            this.DtpFechaPedido.Location = new System.Drawing.Point(0, 64);
             this.DtpFechaPedido.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.DtpFechaPedido.MinimumSize = new System.Drawing.Size(4, 35);
             this.DtpFechaPedido.Name = "DtpFechaPedido";
@@ -202,7 +202,7 @@
             this.TxtTelefono.BorderFocusColor = System.Drawing.Color.Gainsboro;
             this.TxtTelefono.BorderRadius = 10;
             this.TxtTelefono.BorderSize = 2;
-            this.TxtTelefono.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TxtTelefono.Dock = System.Windows.Forms.DockStyle.Top;
             this.TxtTelefono.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
             this.TxtTelefono.ForeColor = System.Drawing.Color.Gray;
             this.TxtTelefono.Location = new System.Drawing.Point(470, 48);
@@ -213,7 +213,7 @@
             this.TxtTelefono.PasswordChar = false;
             this.TxtTelefono.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtTelefono.PlaceholderText = "";
-            this.TxtTelefono.Size = new System.Drawing.Size(585, 55);
+            this.TxtTelefono.Size = new System.Drawing.Size(731, 55);
             this.TxtTelefono.TabIndex = 49;
             this.TxtTelefono.TabStop = false;
             this.TxtTelefono.Texts = "Buscar por teléfono de cliente";
@@ -228,6 +228,7 @@
             this.CboTipos.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.CboTipos.BorderColor = System.Drawing.Color.Transparent;
             this.CboTipos.BorderSize = 0;
+            this.CboTipos.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CboTipos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CboTipos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CboTipos.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
@@ -296,7 +297,6 @@
             // 
             // ChkTipo
             // 
-            this.ChkTipo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ChkTipo.BackColor = System.Drawing.Color.Transparent;
             this.ChkTipo.Background = System.Drawing.Color.Transparent;
             this.ChkTipo.BorderColor = System.Drawing.Color.Silver;
@@ -304,15 +304,16 @@
             this.ChkTipo.BorderWidth = 15;
             this.ChkTipo.Checked = false;
             this.ChkTipo.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ChkTipo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ChkTipo.EnterColor = System.Drawing.Color.White;
             this.ChkTipo.Font = new System.Drawing.Font("Source Sans Pro Black", 14F, System.Drawing.FontStyle.Bold);
             this.ChkTipo.ForeColor = System.Drawing.Color.Silver;
             this.ChkTipo.LeaveColor = System.Drawing.Color.Silver;
-            this.ChkTipo.Location = new System.Drawing.Point(218, 7);
+            this.ChkTipo.Location = new System.Drawing.Point(218, 3);
             this.ChkTipo.Name = "ChkTipo";
             this.ChkTipo.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
             this.ChkTipo.PaddingCheck = new System.Windows.Forms.Padding(0);
-            this.ChkTipo.Size = new System.Drawing.Size(35, 28);
+            this.ChkTipo.Size = new System.Drawing.Size(35, 37);
             this.ChkTipo.TabIndex = 57;
             this.ChkTipo.TabStop = false;
             this.ChkTipo.MouseEnter += new System.EventHandler(this.ChkTipo_MouseEnter);
@@ -355,7 +356,6 @@
             // 
             // ChkTelefono
             // 
-            this.ChkTelefono.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ChkTelefono.BackColor = System.Drawing.Color.Transparent;
             this.ChkTelefono.Background = System.Drawing.Color.Transparent;
             this.ChkTelefono.BorderColor = System.Drawing.Color.Silver;
@@ -363,15 +363,16 @@
             this.ChkTelefono.BorderWidth = 15;
             this.ChkTelefono.Checked = false;
             this.ChkTelefono.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ChkTelefono.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ChkTelefono.EnterColor = System.Drawing.Color.White;
             this.ChkTelefono.Font = new System.Drawing.Font("Source Sans Pro Black", 14F, System.Drawing.FontStyle.Bold);
             this.ChkTelefono.ForeColor = System.Drawing.Color.Silver;
             this.ChkTelefono.LeaveColor = System.Drawing.Color.Silver;
-            this.ChkTelefono.Location = new System.Drawing.Point(263, 7);
+            this.ChkTelefono.Location = new System.Drawing.Point(263, 3);
             this.ChkTelefono.Name = "ChkTelefono";
             this.ChkTelefono.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
             this.ChkTelefono.PaddingCheck = new System.Windows.Forms.Padding(0);
-            this.ChkTelefono.Size = new System.Drawing.Size(35, 28);
+            this.ChkTelefono.Size = new System.Drawing.Size(35, 37);
             this.ChkTelefono.TabIndex = 59;
             this.ChkTelefono.TabStop = false;
             this.ChkTelefono.Text = "myCheckBox2";
@@ -398,8 +399,7 @@
             // 
             // FrmHistorialPedidos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
             this.ClientSize = new System.Drawing.Size(1587, 897);
             this.Controls.Add(this.tableLayoutPanel2);

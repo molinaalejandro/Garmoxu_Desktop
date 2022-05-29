@@ -142,7 +142,7 @@ namespace Garmoxu_Desktop
         #region Funciones y diseños de controles
         private void PicImagenCategoria_MouseEnter(object sender, EventArgs e)
         {
-            PnlBordeImagen.BackColor = Color.Silver;
+            PnlBordeImagen.BackColor = Color.White;
         }
 
         private void PicImagenCategoria_MouseLeave(object sender, EventArgs e)
@@ -372,5 +372,10 @@ namespace Garmoxu_Desktop
             }
         }
         #endregion
+
+        private void FrmCategoriasDetalles_Shown(object sender, EventArgs e)
+        {
+            TxtNombre.Height = 52;
+        }
     }
 }

@@ -200,6 +200,7 @@ namespace Garmoxu_Desktop
             this.CboCategoria.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.CboCategoria.BorderColor = System.Drawing.Color.Transparent;
             this.CboCategoria.BorderSize = 0;
+            this.CboCategoria.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CboCategoria.Dock = System.Windows.Forms.DockStyle.Top;
             this.CboCategoria.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CboCategoria.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
@@ -466,8 +467,7 @@ namespace Garmoxu_Desktop
             // 
             // FrmPedidosPlatosConsulta
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
             this.ClientSize = new System.Drawing.Size(1536, 961);
             this.Controls.Add(this.tableLayoutPanel6);

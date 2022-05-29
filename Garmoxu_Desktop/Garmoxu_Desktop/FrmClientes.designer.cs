@@ -195,7 +195,7 @@
             this.tableLayoutPanel9.Name = "tableLayoutPanel9";
             this.tableLayoutPanel9.RowCount = 8;
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 62F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel9.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -518,7 +518,7 @@
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 7;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 62F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
@@ -537,7 +537,7 @@
             this.TxtDireccionTB2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtDireccionTB2.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
             this.TxtDireccionTB2.ForeColor = System.Drawing.Color.White;
-            this.TxtDireccionTB2.Location = new System.Drawing.Point(0, 166);
+            this.TxtDireccionTB2.Location = new System.Drawing.Point(0, 163);
             this.TxtDireccionTB2.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.TxtDireccionTB2.Multiline = true;
             this.TxtDireccionTB2.Name = "TxtDireccionTB2";
@@ -588,11 +588,11 @@
             this.TxtTelefonoTB2.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.TxtTelefonoTB2.Multiline = false;
             this.TxtTelefonoTB2.Name = "TxtTelefonoTB2";
-            this.TxtTelefonoTB2.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtTelefonoTB2.Padding = new System.Windows.Forms.Padding(13, 12, 13, 3);
             this.TxtTelefonoTB2.PasswordChar = false;
             this.TxtTelefonoTB2.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtTelefonoTB2.PlaceholderText = "";
-            this.TxtTelefonoTB2.Size = new System.Drawing.Size(281, 55);
+            this.TxtTelefonoTB2.Size = new System.Drawing.Size(281, 52);
             this.TxtTelefonoTB2.TabIndex = 1;
             this.TxtTelefonoTB2.Texts = "";
             this.TxtTelefonoTB2.UnderlinedStyle = false;
@@ -612,11 +612,11 @@
             this.TxtNombreTB2.Margin = new System.Windows.Forms.Padding(0, 5, 0, 5);
             this.TxtNombreTB2.Multiline = false;
             this.TxtNombreTB2.Name = "TxtNombreTB2";
-            this.TxtNombreTB2.Padding = new System.Windows.Forms.Padding(13, 9, 13, 9);
+            this.TxtNombreTB2.Padding = new System.Windows.Forms.Padding(13, 12, 13, 3);
             this.TxtNombreTB2.PasswordChar = false;
             this.TxtNombreTB2.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtNombreTB2.PlaceholderText = "";
-            this.TxtNombreTB2.Size = new System.Drawing.Size(281, 55);
+            this.TxtNombreTB2.Size = new System.Drawing.Size(281, 52);
             this.TxtNombreTB2.TabIndex = 0;
             this.TxtNombreTB2.Texts = "";
             this.TxtNombreTB2.UnderlinedStyle = false;
@@ -628,7 +628,7 @@
             this.label7.Dock = System.Windows.Forms.DockStyle.Fill;
             this.label7.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
             this.label7.ForeColor = System.Drawing.Color.Silver;
-            this.label7.Location = new System.Drawing.Point(3, 128);
+            this.label7.Location = new System.Drawing.Point(3, 125);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(275, 33);
             this.label7.TabIndex = 4;
@@ -852,8 +852,7 @@
             // 
             // FrmClientes
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
             this.ClientSize = new System.Drawing.Size(1924, 1042);
             this.Controls.Add(this.PnlMain);
@@ -906,10 +905,6 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel7;
         private System.Windows.Forms.Label LblCantidadPedidos;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
-        private RJCodeAdvance.RJControls.RJButton BtnModificarCliente;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
-        private RJCodeAdvance.RJControls.RJButton BtnBorrarCliente;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
@@ -930,5 +925,9 @@
         private FontAwesome.Sharp.IconButton BtnBuscar;
         private RJCodeAdvance.RJControls.RJTextBox TxtBuscar;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel8;
+        private RJCodeAdvance.RJControls.RJButton BtnModificarCliente;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel10;
+        private RJCodeAdvance.RJControls.RJButton BtnBorrarCliente;
     }
 }

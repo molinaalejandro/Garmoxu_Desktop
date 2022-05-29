@@ -86,6 +86,7 @@
             this.CboCategorias.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.CboCategorias.BorderColor = System.Drawing.Color.Transparent;
             this.CboCategorias.BorderSize = 0;
+            this.CboCategorias.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CboCategorias.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CboCategorias.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CboCategorias.Font = new System.Drawing.Font("Source Sans Pro", 14.2F, System.Drawing.FontStyle.Bold);
@@ -625,8 +626,7 @@
             // 
             // FrmPlatosDetalles
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
             this.ClientSize = new System.Drawing.Size(932, 903);
             this.Controls.Add(this.tableLayoutPanel1);

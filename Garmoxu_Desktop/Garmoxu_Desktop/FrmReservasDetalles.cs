@@ -551,5 +551,11 @@ namespace Garmoxu_Desktop
             return modificacionRealizada;
         }
         #endregion
+
+        private void FrmReservasDetalles_Shown(object sender, EventArgs e)
+        {
+            TxtTelefono.Height = 52;
+            TxtNombreCliente.Height = 52;
+        }
     }
 }

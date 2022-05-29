@@ -351,7 +351,7 @@
             this.BtnBorrar.BorderRadius = 15;
             this.BtnBorrar.BorderSize = 0;
             this.BtnBorrar.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.BtnBorrar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.BtnBorrar.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.BtnBorrar.FlatAppearance.BorderSize = 0;
             this.BtnBorrar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnBorrar.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
@@ -359,7 +359,7 @@
             this.BtnBorrar.Location = new System.Drawing.Point(1154, 0);
             this.BtnBorrar.Margin = new System.Windows.Forms.Padding(0);
             this.BtnBorrar.Name = "BtnBorrar";
-            this.BtnBorrar.Size = new System.Drawing.Size(192, 65);
+            this.BtnBorrar.Size = new System.Drawing.Size(192, 60);
             this.BtnBorrar.TabIndex = 59;
             this.BtnBorrar.TabStop = false;
             this.BtnBorrar.Text = "Eliminar";
@@ -570,8 +570,7 @@
             // 
             // FrmHistorialPedidosDetalles
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
             this.ClientSize = new System.Drawing.Size(1498, 817);
             this.Controls.Add(this.PnlPrincipal);

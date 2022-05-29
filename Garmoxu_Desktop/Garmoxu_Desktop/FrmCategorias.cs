@@ -244,5 +244,10 @@ namespace Garmoxu_Desktop
             ShowInfoMessage(mensaje, "");
         }
         #endregion
+
+        private void FrmCategorias_Shown(object sender, EventArgs e)
+        {
+            TxtBusqueda.Height = 52;
+        }
     }
 }

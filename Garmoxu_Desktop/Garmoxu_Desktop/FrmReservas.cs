@@ -37,6 +37,7 @@ namespace Garmoxu_Desktop
         private void FrmReservas_Shown(object sender, EventArgs e)
         {
             DtgReservas.ClearSelection();
+            TxtBuscar.Height = 52;
         }
 
         #region Cargar tabla reservas

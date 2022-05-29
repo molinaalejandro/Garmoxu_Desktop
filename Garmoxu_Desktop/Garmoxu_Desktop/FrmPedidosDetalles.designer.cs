@@ -447,6 +447,7 @@
             this.CboMesasLocalTipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.CboMesasLocalTipo.BorderColor = System.Drawing.Color.Transparent;
             this.CboMesasLocalTipo.BorderSize = 0;
+            this.CboMesasLocalTipo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CboMesasLocalTipo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CboMesasLocalTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CboMesasLocalTipo.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
@@ -689,7 +690,7 @@
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(1366, 33);
             this.label19.TabIndex = 58;
-            this.label19.Text = "Nombre de cliente";
+            this.label19.Text = "Nombre de cliente*";
             // 
             // TxtTlfRecogerTipo
             // 
@@ -806,6 +807,7 @@
             this.CboTipo.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.CboTipo.BorderColor = System.Drawing.Color.Transparent;
             this.CboTipo.BorderSize = 0;
+            this.CboTipo.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CboTipo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CboTipo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CboTipo.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
@@ -878,6 +880,7 @@
             this.CboMesasLocalDetalles.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.CboMesasLocalDetalles.BorderColor = System.Drawing.Color.Transparent;
             this.CboMesasLocalDetalles.BorderSize = 0;
+            this.CboMesasLocalDetalles.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CboMesasLocalDetalles.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CboMesasLocalDetalles.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CboMesasLocalDetalles.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
@@ -1255,6 +1258,7 @@
             this.CboEstado.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(30)))), ((int)(((byte)(30)))), ((int)(((byte)(30)))));
             this.CboEstado.BorderColor = System.Drawing.Color.Transparent;
             this.CboEstado.BorderSize = 0;
+            this.CboEstado.Cursor = System.Windows.Forms.Cursors.Hand;
             this.CboEstado.Dock = System.Windows.Forms.DockStyle.Fill;
             this.CboEstado.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.CboEstado.Font = new System.Drawing.Font("Source Sans Pro", 14F, System.Drawing.FontStyle.Bold);
@@ -1755,8 +1759,7 @@
             // 
             // FrmPedidosDetalles
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
-            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
             this.ClientSize = new System.Drawing.Size(1536, 961);
             this.Controls.Add(this.PnlPrincipal);

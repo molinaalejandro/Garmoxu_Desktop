@@ -47,12 +47,16 @@ namespace Garmoxu_Desktop
                 string ruta = "Usuario_Recordado.txt";
                 if (File.Exists(ruta))
                 {
-                    string usuarioRecordado = File.ReadAllText(ruta);
-                    if (!string.IsNullOrEmpty(usuarioRecordado))
+                    using (StreamReader streamReader = new StreamReader(ruta, false))
                     {
-                        TxtUsuario.Texts = usuarioRecordado;
-                        TxtContraseña.Focus();
-                        ChkRemember.Checked = true;
+                        string usuarioRecordado = streamReader.ReadToEnd();
+                        if (!string.IsNullOrEmpty(usuarioRecordado))
+                        {
+                            TxtUsuario.Texts = usuarioRecordado;
+                            //TxtContraseña.Focus();
+                            ChkRemember.Checked = true;
+                        }
+                        streamReader.Close();
                     }
                 }
             }
@@ -437,7 +441,13 @@ namespace Garmoxu_Desktop
             {
                 string ruta = "Accesos_Usuarios.csv";
                 string contenidos = string.Format("{0};{1}", UsuarioActual, DateTime.Now.ToString());
-                File.AppendAllText(ruta, contenidos);
+
+                using (StreamWriter streamWriter = new StreamWriter(ruta, true))
+                {
+                    streamWriter.Write(contenidos);
+                    streamWriter.Flush();
+                    streamWriter.Close();
+                }
             }
             catch (Exception ex) { ShowErrorMessage(ex.Message, ""); }
         }
@@ -445,8 +455,16 @@ namespace Garmoxu_Desktop
         private void RecordarUsuario()
         {
             string ruta = "Usuario_Recordado.txt";
-            if (ChkRemember.Checked) File.WriteAllText(ruta, UsuarioActual);
-            else File.WriteAllText(ruta, string.Empty);
+            string usuarioARecordar;
+            if (ChkRemember.Checked) usuarioARecordar = UsuarioActual;
+            else usuarioARecordar = string.Empty;
+
+            using (StreamWriter streamWriter = new StreamWriter(ruta, false))
+            {
+                streamWriter.Write(usuarioARecordar);
+                streamWriter.Flush();
+                streamWriter.Close();
+            }
         }
 
         private int RecogerNivelDePermisos()
@@ -459,19 +477,14 @@ namespace Garmoxu_Desktop
         private Image RecogerImagenDelUsuario()
         {
             string sql = "SELECT ImagenUsuario FROM Usuarios WHERE NombreUsuario = '" + UsuarioActual + "'";
-
             MySqlDataReader lector = EjecutarConsulta(sql);
 
-            int tamañoMaximoArchivo = 16000000;
-            byte[] imagenBytes = new byte[tamañoMaximoArchivo];
-            lector.Read();
-
-            if (!lector[0].ToString().Equals(string.Empty))
+            if (lector.Read() && !string.IsNullOrEmpty(lector[0].ToString()))
             {
-                lector.GetBytes(0, 0, imagenBytes, 0, tamañoMaximoArchivo);
+                Stream stream = lector.GetStream(0);
                 lector.Close();
                 CerrarConexion();
-                return (Bitmap)new ImageConverter().ConvertFrom(imagenBytes);
+                return Image.FromStream(stream);
             }
             else
             {
@@ -501,8 +514,10 @@ namespace Garmoxu_Desktop
         // de ser así, cierra la conexión con la BD.
         private void FrmInicioSesion_FormClosing(object sender, FormClosingEventArgs e)
         {
-            if (ShowQuestionDialog("¿Desea salir de la aplicación?", "").Equals(DialogResult.Yes)) RegistrarCierreDeSesion();
-            else e.Cancel = true;
+            if (ShowQuestionDialog("¿Desea salir de la aplicación?", "").Equals(DialogResult.Yes))
+                RegistrarCierreDeSesion();
+            else
+                e.Cancel = true;
         }
 
         // Registra el cierre de sesion en el fichero de accesos.
@@ -513,7 +528,14 @@ namespace Garmoxu_Desktop
                 if (!string.IsNullOrEmpty(UsuarioActual))
                 {
                     string ruta = "Accesos_Usuarios.csv";
-                    if (File.Exists(ruta)) File.AppendAllText(ruta, ";" + DateTime.Now.ToString() + ";\n");
+
+                    string contenidos = string.Format(";" + DateTime.Now.ToString() + "\n");
+                    using (StreamWriter streamWriter = new StreamWriter(ruta, true))
+                    {
+                        streamWriter.Write(contenidos);
+                        streamWriter.Flush();
+                        streamWriter.Close();
+                    }
                 }
             }
             catch (Exception ex) { ShowErrorMessage(ex.Message, ""); }

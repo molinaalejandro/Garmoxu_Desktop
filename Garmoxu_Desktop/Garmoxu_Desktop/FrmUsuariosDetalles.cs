@@ -356,5 +356,11 @@ namespace Garmoxu_Desktop
             if (ShowQuestionDialog(mensaje, "").Equals(DialogResult.Yes)) this.Close();
         }
         #endregion
+
+        private void FrmUsuariosDetalles_Shown(object sender, EventArgs e)
+        {
+            TxtUsuario.Height = 52;
+            TxtNombre.Height = 52;
+        }
     }
 }

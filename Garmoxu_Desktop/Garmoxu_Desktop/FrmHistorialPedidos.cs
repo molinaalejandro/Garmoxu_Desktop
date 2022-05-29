@@ -51,6 +51,7 @@ namespace Garmoxu_Desktop
             DtgHistorial.Columns[5].Width = 220;
             DtgHistorial.Columns[6].Width = 220;
             DtgHistorial.ClearSelection();
+            TxtTelefono.Height = 52;
         }
         #endregion
 

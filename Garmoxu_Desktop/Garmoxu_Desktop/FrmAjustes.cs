@@ -70,6 +70,8 @@ namespace Garmoxu_Desktop
         {
             RadClaro.TabStop = false;
             RadOscuro.TabStop = false;
+            TxtNombreRestaurante.Height = 52;
+            TxtNombreUsuario.Height = 52;
         }
 
         #region Limitación de permisos
@@ -200,7 +202,7 @@ namespace Garmoxu_Desktop
             PicPerfil.BorderSize += 2;
             PicPerfil.BorderColor = Color.White;
             PicPerfil.BorderColor2 = Color.White;
-            PicPerfil.BackColor = Color.White;
+            //PicPerfil.BackColor = Color.White;
         }
 
         private void PicPerfil_MouseLeave(object sender, EventArgs e)
@@ -208,7 +210,7 @@ namespace Garmoxu_Desktop
             PicPerfil.BorderSize -= 2;
             PicPerfil.BorderColor = Color.Silver;
             PicPerfil.BorderColor2 = Color.Silver;
-            PicPerfil.BackColor = Color.Silver;
+            //PicPerfil.BackColor = Color.Silver;
         }
         #endregion
 

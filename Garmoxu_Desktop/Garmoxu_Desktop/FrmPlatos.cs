@@ -377,5 +377,11 @@ namespace Garmoxu_Desktop
             ShowInfoMessage(mensaje, "");
         }
         #endregion
+
+        private void FrmPlatos_Shown(object sender, EventArgs e)
+        {
+            TxtNombre.Height = 52;
+            CboCategoria.Height = 47;
+        }
     }
 }
