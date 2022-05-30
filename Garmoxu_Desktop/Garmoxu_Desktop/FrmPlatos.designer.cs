@@ -287,23 +287,23 @@
             // 
             // ChkCategoría
             // 
+            this.ChkCategoría.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ChkCategoría.BackColor = System.Drawing.Color.Transparent;
             this.ChkCategoría.Background = System.Drawing.Color.Transparent;
             this.ChkCategoría.BorderColor = System.Drawing.Color.Silver;
-            this.ChkCategoría.BorderHeight = 15;
-            this.ChkCategoría.BorderWidth = 15;
+            this.ChkCategoría.BorderHeight = 20;
+            this.ChkCategoría.BorderWidth = 20;
             this.ChkCategoría.Checked = false;
             this.ChkCategoría.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ChkCategoría.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ChkCategoría.EnterColor = System.Drawing.Color.White;
-            this.ChkCategoría.Font = new System.Drawing.Font("Source Sans Pro Black", 14F, System.Drawing.FontStyle.Bold);
+            this.ChkCategoría.Font = new System.Drawing.Font("Source Sans Pro Black", 15F, System.Drawing.FontStyle.Bold);
             this.ChkCategoría.ForeColor = System.Drawing.Color.Silver;
             this.ChkCategoría.LeaveColor = System.Drawing.Color.Silver;
-            this.ChkCategoría.Location = new System.Drawing.Point(162, 3);
+            this.ChkCategoría.Location = new System.Drawing.Point(162, 4);
             this.ChkCategoría.Name = "ChkCategoría";
             this.ChkCategoría.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
             this.ChkCategoría.PaddingCheck = new System.Windows.Forms.Padding(0);
-            this.ChkCategoría.Size = new System.Drawing.Size(35, 31);
+            this.ChkCategoría.Size = new System.Drawing.Size(28, 28);
             this.ChkCategoría.TabIndex = 57;
             this.ChkCategoría.TabStop = false;
             this.ChkCategoría.MouseEnter += new System.EventHandler(this.ChkCategoría_MouseEnter);
@@ -345,23 +345,23 @@
             // 
             // ChkNombre
             // 
+            this.ChkNombre.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ChkNombre.BackColor = System.Drawing.Color.Transparent;
             this.ChkNombre.Background = System.Drawing.Color.Transparent;
             this.ChkNombre.BorderColor = System.Drawing.Color.Silver;
-            this.ChkNombre.BorderHeight = 15;
-            this.ChkNombre.BorderWidth = 15;
+            this.ChkNombre.BorderHeight = 20;
+            this.ChkNombre.BorderWidth = 20;
             this.ChkNombre.Checked = false;
             this.ChkNombre.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ChkNombre.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ChkNombre.EnterColor = System.Drawing.Color.White;
-            this.ChkNombre.Font = new System.Drawing.Font("Source Sans Pro Black", 14F, System.Drawing.FontStyle.Bold);
+            this.ChkNombre.Font = new System.Drawing.Font("Source Sans Pro Black", 15F, System.Drawing.FontStyle.Bold);
             this.ChkNombre.ForeColor = System.Drawing.Color.Silver;
             this.ChkNombre.LeaveColor = System.Drawing.Color.Silver;
-            this.ChkNombre.Location = new System.Drawing.Point(230, 3);
+            this.ChkNombre.Location = new System.Drawing.Point(230, 4);
             this.ChkNombre.Name = "ChkNombre";
             this.ChkNombre.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
             this.ChkNombre.PaddingCheck = new System.Windows.Forms.Padding(0);
-            this.ChkNombre.Size = new System.Drawing.Size(35, 31);
+            this.ChkNombre.Size = new System.Drawing.Size(28, 28);
             this.ChkNombre.TabIndex = 59;
             this.ChkNombre.TabStop = false;
             this.ChkNombre.Text = "myCheckBox2";
@@ -395,11 +395,11 @@
             this.myGroupBox1.Controls.Add(this.LstPlatos);
             this.myGroupBox1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.myGroupBox1.EnabledText = false;
-            this.myGroupBox1.Location = new System.Drawing.Point(91, 203);
+            this.myGroupBox1.Location = new System.Drawing.Point(73, 162);
             this.myGroupBox1.Margin = new System.Windows.Forms.Padding(3, 10, 3, 3);
             this.myGroupBox1.Name = "myGroupBox1";
             this.myGroupBox1.Padding = new System.Windows.Forms.Padding(20, 30, 20, 20);
-            this.myGroupBox1.Size = new System.Drawing.Size(1454, 491);
+            this.myGroupBox1.Size = new System.Drawing.Size(1163, 393);
             this.myGroupBox1.TabIndex = 1;
             this.myGroupBox1.TabStop = false;
             this.myGroupBox1.Text = "Platos";
@@ -413,11 +413,11 @@
             this.LstPlatos.ForeColor = System.Drawing.Color.White;
             this.LstPlatos.HideSelection = false;
             this.LstPlatos.LargeImageList = this.ImgImagenesPlatos;
-            this.LstPlatos.Location = new System.Drawing.Point(25, 56);
+            this.LstPlatos.Location = new System.Drawing.Point(20, 45);
             this.LstPlatos.Margin = new System.Windows.Forms.Padding(4, 20, 4, 4);
             this.LstPlatos.MultiSelect = false;
             this.LstPlatos.Name = "LstPlatos";
-            this.LstPlatos.Size = new System.Drawing.Size(1768, 533);
+            this.LstPlatos.Size = new System.Drawing.Size(1123, 328);
             this.LstPlatos.TabIndex = 7;
             this.LstPlatos.TabStop = false;
             this.LstPlatos.UseCompatibleStateImageBehavior = false;

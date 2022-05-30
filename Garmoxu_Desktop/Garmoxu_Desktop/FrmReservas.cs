@@ -30,6 +30,7 @@ namespace Garmoxu_Desktop
             HoraCierre = horaCierre;
             NivelPermisos = nivelPermisos;
             DtpBuscar.Value = DateTime.Now;
+            ChkCalendar.Checked = false;
             CargarReservasGridView();
         }
 

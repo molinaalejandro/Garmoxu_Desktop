@@ -1950,5 +1950,29 @@ namespace Garmoxu_Desktop
         #region Getters y setters
         public string MetodoPagoGetSet { get => MetodoPago; set => MetodoPago = value; }
         #endregion
+
+        private void FrmPedidosDetalles_Shown(object sender, EventArgs e)
+        {
+            TxtTlfDomicilioTipo.Height = 52;
+            TxtDirDomicilioTipo.Height = 52;
+            TxtNombreDomicilioTipo.Height = 52;
+
+            TxtTlfRecogerTipo.Height = 52;
+            TxtNombreRecogerTipo.Height = 52;
+
+            TxtTlfDomicilioDetalles.Height = 52;
+            TxtDirDomicilioDetalles.Height = 52;
+            TxtNombreDomicilioDetalles.Height = 52;
+
+            TxtTlfRecogerDetalles.Height = 52;
+            TxtNombreRecogerDetalles.Height = 52;
+
+            TxtTlfDomicilioTipo.Height = 52;
+            TxtTlfDomicilioTipo.Height = 52;
+            TxtTlfDomicilioTipo.Height = 52;
+            TxtTlfDomicilioTipo.Height = 52;
+
+            TxtCodigoPlato.Height = 52;
+        }
     }
 }

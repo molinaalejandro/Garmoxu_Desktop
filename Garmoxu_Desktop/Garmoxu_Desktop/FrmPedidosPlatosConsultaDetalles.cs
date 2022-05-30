@@ -41,6 +41,10 @@ namespace Garmoxu_Desktop
         private void FrmPlatosDetalles_Shown(object sender, EventArgs e)
         {
             PicFotoPlato.Width = PicFotoPlato.Height;
+            TxtIdPlato.Height = 52;
+            TxtNombre.Height = 52;
+            TxtPrecioConIva.Height = 52;
+            TxtPrecioSinIva.Height = 52;
         }
 
         #region Cargar categorias

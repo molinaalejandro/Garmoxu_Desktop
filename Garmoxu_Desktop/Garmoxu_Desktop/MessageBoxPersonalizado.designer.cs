@@ -345,11 +345,11 @@ namespace Garmoxu_Desktop
             this.PnlPassword.Margin = new System.Windows.Forms.Padding(4);
             this.PnlPassword.Name = "PnlPassword";
             this.PnlPassword.RowCount = 6;
-            this.PnlPassword.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.PnlPassword.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 62F));
             this.PnlPassword.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.PnlPassword.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.PnlPassword.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 62F));
             this.PnlPassword.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.PnlPassword.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.PnlPassword.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 62F));
             this.PnlPassword.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.PnlPassword.Size = new System.Drawing.Size(666, 240);
             this.PnlPassword.TabIndex = 0;
@@ -391,7 +391,7 @@ namespace Garmoxu_Desktop
             this.TxtNewPassword.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtNewPassword.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
             this.TxtNewPassword.ForeColor = System.Drawing.Color.Gray;
-            this.TxtNewPassword.Location = new System.Drawing.Point(5, 90);
+            this.TxtNewPassword.Location = new System.Drawing.Point(5, 87);
             this.TxtNewPassword.Margin = new System.Windows.Forms.Padding(5);
             this.TxtNewPassword.Multiline = false;
             this.TxtNewPassword.Name = "TxtNewPassword";
@@ -418,7 +418,7 @@ namespace Garmoxu_Desktop
             this.TxtConfirmPassword.Dock = System.Windows.Forms.DockStyle.Fill;
             this.TxtConfirmPassword.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
             this.TxtConfirmPassword.ForeColor = System.Drawing.Color.Gray;
-            this.TxtConfirmPassword.Location = new System.Drawing.Point(5, 175);
+            this.TxtConfirmPassword.Location = new System.Drawing.Point(5, 169);
             this.TxtConfirmPassword.Margin = new System.Windows.Forms.Padding(5);
             this.TxtConfirmPassword.Multiline = false;
             this.TxtConfirmPassword.Name = "TxtConfirmPassword";
@@ -450,7 +450,7 @@ namespace Garmoxu_Desktop
             this.BtnOldPassword.Location = new System.Drawing.Point(631, 4);
             this.BtnOldPassword.Margin = new System.Windows.Forms.Padding(4);
             this.BtnOldPassword.Name = "BtnOldPassword";
-            this.BtnOldPassword.Size = new System.Drawing.Size(31, 57);
+            this.BtnOldPassword.Size = new System.Drawing.Size(31, 54);
             this.BtnOldPassword.TabIndex = 13;
             this.BtnOldPassword.TabStop = false;
             this.BtnOldPassword.UseVisualStyleBackColor = true;
@@ -470,10 +470,10 @@ namespace Garmoxu_Desktop
             this.BtnConfirmPassword.IconColor = System.Drawing.Color.Gray;
             this.BtnConfirmPassword.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.BtnConfirmPassword.IconSize = 34;
-            this.BtnConfirmPassword.Location = new System.Drawing.Point(631, 174);
+            this.BtnConfirmPassword.Location = new System.Drawing.Point(631, 168);
             this.BtnConfirmPassword.Margin = new System.Windows.Forms.Padding(4);
             this.BtnConfirmPassword.Name = "BtnConfirmPassword";
-            this.BtnConfirmPassword.Size = new System.Drawing.Size(31, 57);
+            this.BtnConfirmPassword.Size = new System.Drawing.Size(31, 54);
             this.BtnConfirmPassword.TabIndex = 11;
             this.BtnConfirmPassword.TabStop = false;
             this.BtnConfirmPassword.UseVisualStyleBackColor = true;
@@ -493,10 +493,10 @@ namespace Garmoxu_Desktop
             this.BtnNewPassword.IconColor = System.Drawing.Color.Gray;
             this.BtnNewPassword.IconFont = FontAwesome.Sharp.IconFont.Solid;
             this.BtnNewPassword.IconSize = 34;
-            this.BtnNewPassword.Location = new System.Drawing.Point(631, 89);
+            this.BtnNewPassword.Location = new System.Drawing.Point(631, 86);
             this.BtnNewPassword.Margin = new System.Windows.Forms.Padding(4);
             this.BtnNewPassword.Name = "BtnNewPassword";
-            this.BtnNewPassword.Size = new System.Drawing.Size(31, 57);
+            this.BtnNewPassword.Size = new System.Drawing.Size(31, 54);
             this.BtnNewPassword.TabIndex = 12;
             this.BtnNewPassword.TabStop = false;
             this.BtnNewPassword.UseVisualStyleBackColor = true;

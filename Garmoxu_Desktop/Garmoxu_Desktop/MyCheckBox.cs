@@ -31,7 +31,7 @@ namespace Garmoxu_Desktop
         {
             DoubleBuffered = true;
             SetStyle(ControlStyles.SupportsTransparentBackColor, true);
-            
+
             this.BackColor = Color.Transparent;
             this.Background = Color.White;
             this.BorderColor = Color.Black;
@@ -49,20 +49,26 @@ namespace Garmoxu_Desktop
         {
             base.OnPaint(e);
 
-            float borderSize = 3;
-            float radius = 5;
+            float borderSize = 4;
+            float radius = 4;
 
-            float X = this.Padding.Left - this.Padding.Right;
-            float Y = this.Padding.Top - this.Padding.Bottom;
             float width = BorderWidth;
             float height = BorderHeight;
 
+            //float X = (this.ClientSize.Width / 2) - width / 2;
+            //float Y = (this.ClientSize.Height / 2) - height / 2;            
+
+            float X = borderSize/2;
+            float Y = borderSize/2;
+
             Graphics g = e.Graphics;
             GraphicsPath gp = new GraphicsPath();
+
+            gp.AddArc(X, Y, radius, radius, 180, 90);
             gp.AddArc(X + width, Y, radius, radius, 270, 90);
             gp.AddArc(X + width, Y + height, radius, radius, 0, 90);
             gp.AddArc(X, Y + height, radius, radius, 90, 90);
-            gp.AddArc(X, Y, radius, radius, 180, 90);
+
             gp.CloseFigure();
             g.FillPath(new SolidBrush(Background), gp);
             g.DrawPath(new Pen(this.BorderColor, borderSize), gp);
@@ -70,15 +76,17 @@ namespace Garmoxu_Desktop
 
             if (Checked)
             {
-                StringFormat stringFormat = new StringFormat();
-                stringFormat.Alignment = StringAlignment.Center;
-                stringFormat.LineAlignment = StringAlignment.Center;
+                //StringFormat sf = new StringFormat();
+                //sf.Alignment = StringAlignment.Center;
+                //sf.LineAlignment = StringAlignment.Center;
                 //Font f = new Font("Arial", (float)rc.Height * 0.5f, FontStyle.Bold, GraphicsUnit.Pixel);
+
                 g.DrawString(
-                    "\u2713", this.Font, 
-                    new SolidBrush(this.ForeColor), 
-                    X-1, 
-                    Y-5.5f);
+                    "\u2713", this.Font,
+                    new SolidBrush(this.ForeColor),
+                    (this.ClientSize.Width/2) - (g.MeasureString("\u2713", this.Font).Width/2),
+                    (this.ClientSize.Height / 2) - (g.MeasureString("\u2713", this.Font).Height / 2)
+                    );
             }
         }
 
@@ -88,21 +96,5 @@ namespace Garmoxu_Desktop
             Checked = !Checked;
             Invalidate();
         }
-
-        //protected override void OnMouseEnter(EventArgs e)
-        //{
-        //    base.OnMouseEnter(e);
-        //    this.BorderColor = EnterColor;
-        //    this.ForeColor = EnterColor;
-        //    Invalidate();
-        //}
-
-        //protected override void OnMouseLeave(EventArgs e)
-        //{
-        //    base.OnMouseEnter(e);
-        //    this.BorderColor = LeaveColor;
-        //    this.ForeColor = LeaveColor;
-        //    Invalidate();
-        //}
     }
 }

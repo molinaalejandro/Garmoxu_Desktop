@@ -504,5 +504,10 @@ namespace Garmoxu_Desktop
             frmShadow.Close();
         }
         #endregion
+
+        private void FrmPedidos_Shown(object sender, EventArgs e)
+        {
+            TxtBuscar.Height = 52;
+        }
     }
 }

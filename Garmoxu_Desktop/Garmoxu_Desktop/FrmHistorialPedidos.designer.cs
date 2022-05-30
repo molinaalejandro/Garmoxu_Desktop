@@ -183,7 +183,7 @@
             this.DtpFechaPedido.BorderSize = 0;
             this.DtpFechaPedido.DropDownAlign = System.Windows.Forms.LeftRightAlignment.Right;
             this.DtpFechaPedido.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
-            this.DtpFechaPedido.Location = new System.Drawing.Point(0, 64);
+            this.DtpFechaPedido.Location = new System.Drawing.Point(0, 51);
             this.DtpFechaPedido.Margin = new System.Windows.Forms.Padding(0, 5, 0, 0);
             this.DtpFechaPedido.MinimumSize = new System.Drawing.Size(4, 35);
             this.DtpFechaPedido.Name = "DtpFechaPedido";
@@ -213,7 +213,7 @@
             this.TxtTelefono.PasswordChar = false;
             this.TxtTelefono.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtTelefono.PlaceholderText = "";
-            this.TxtTelefono.Size = new System.Drawing.Size(731, 55);
+            this.TxtTelefono.Size = new System.Drawing.Size(585, 55);
             this.TxtTelefono.TabIndex = 49;
             this.TxtTelefono.TabStop = false;
             this.TxtTelefono.Texts = "Buscar por teléfono de cliente";
@@ -297,23 +297,23 @@
             // 
             // ChkTipo
             // 
+            this.ChkTipo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ChkTipo.BackColor = System.Drawing.Color.Transparent;
             this.ChkTipo.Background = System.Drawing.Color.Transparent;
             this.ChkTipo.BorderColor = System.Drawing.Color.Silver;
-            this.ChkTipo.BorderHeight = 15;
-            this.ChkTipo.BorderWidth = 15;
+            this.ChkTipo.BorderHeight = 20;
+            this.ChkTipo.BorderWidth = 20;
             this.ChkTipo.Checked = false;
             this.ChkTipo.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ChkTipo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ChkTipo.EnterColor = System.Drawing.Color.White;
-            this.ChkTipo.Font = new System.Drawing.Font("Source Sans Pro Black", 14F, System.Drawing.FontStyle.Bold);
+            this.ChkTipo.Font = new System.Drawing.Font("Source Sans Pro Black", 15F, System.Drawing.FontStyle.Bold);
             this.ChkTipo.ForeColor = System.Drawing.Color.Silver;
             this.ChkTipo.LeaveColor = System.Drawing.Color.Silver;
-            this.ChkTipo.Location = new System.Drawing.Point(218, 3);
+            this.ChkTipo.Location = new System.Drawing.Point(218, 7);
             this.ChkTipo.Name = "ChkTipo";
             this.ChkTipo.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
             this.ChkTipo.PaddingCheck = new System.Windows.Forms.Padding(0);
-            this.ChkTipo.Size = new System.Drawing.Size(35, 37);
+            this.ChkTipo.Size = new System.Drawing.Size(28, 28);
             this.ChkTipo.TabIndex = 57;
             this.ChkTipo.TabStop = false;
             this.ChkTipo.MouseEnter += new System.EventHandler(this.ChkTipo_MouseEnter);
@@ -356,23 +356,23 @@
             // 
             // ChkTelefono
             // 
+            this.ChkTelefono.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.ChkTelefono.BackColor = System.Drawing.Color.Transparent;
             this.ChkTelefono.Background = System.Drawing.Color.Transparent;
             this.ChkTelefono.BorderColor = System.Drawing.Color.Silver;
-            this.ChkTelefono.BorderHeight = 15;
-            this.ChkTelefono.BorderWidth = 15;
+            this.ChkTelefono.BorderHeight = 20;
+            this.ChkTelefono.BorderWidth = 20;
             this.ChkTelefono.Checked = false;
             this.ChkTelefono.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ChkTelefono.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ChkTelefono.EnterColor = System.Drawing.Color.White;
-            this.ChkTelefono.Font = new System.Drawing.Font("Source Sans Pro Black", 14F, System.Drawing.FontStyle.Bold);
+            this.ChkTelefono.Font = new System.Drawing.Font("Source Sans Pro Black", 15F, System.Drawing.FontStyle.Bold);
             this.ChkTelefono.ForeColor = System.Drawing.Color.Silver;
             this.ChkTelefono.LeaveColor = System.Drawing.Color.Silver;
-            this.ChkTelefono.Location = new System.Drawing.Point(263, 3);
+            this.ChkTelefono.Location = new System.Drawing.Point(263, 7);
             this.ChkTelefono.Name = "ChkTelefono";
             this.ChkTelefono.Padding = new System.Windows.Forms.Padding(5, 5, 0, 0);
             this.ChkTelefono.PaddingCheck = new System.Windows.Forms.Padding(0);
-            this.ChkTelefono.Size = new System.Drawing.Size(35, 37);
+            this.ChkTelefono.Size = new System.Drawing.Size(28, 28);
             this.ChkTelefono.TabIndex = 59;
             this.ChkTelefono.TabStop = false;
             this.ChkTelefono.Text = "myCheckBox2";

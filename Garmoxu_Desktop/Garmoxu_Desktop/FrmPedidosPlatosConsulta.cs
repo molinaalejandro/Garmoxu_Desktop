@@ -328,5 +328,11 @@ namespace Garmoxu_Desktop
             this.Close();
         }
         #endregion
+
+        private void FrmPedidosPlatosConsulta_Shown(object sender, EventArgs e)
+        {
+            TxtNombre.Height = 52;
+            CboCategoria.Height = 47;
+        }
     }
 }

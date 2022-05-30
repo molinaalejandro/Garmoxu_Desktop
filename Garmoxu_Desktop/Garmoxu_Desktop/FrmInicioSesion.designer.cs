@@ -52,8 +52,8 @@
             this.tableLayoutPanel7 = new System.Windows.Forms.TableLayoutPanel();
             this.tableLayoutPanel6 = new System.Windows.Forms.TableLayoutPanel();
             this.LblRecordarUsuario = new System.Windows.Forms.Label();
-            this.ChkRemember = new Garmoxu_Desktop.MyCheckBox();
             this.BtnIniciar = new RJCodeAdvance.RJControls.RJButton();
+            this.ChkRemember = new Garmoxu_Desktop.MyCheckBox();
             this.PnlTitle.SuspendLayout();
             this.tableLayoutPanel11.SuspendLayout();
             this.PnlMain.SuspendLayout();
@@ -453,8 +453,9 @@
             this.tableLayoutPanel6.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel6.Location = new System.Drawing.Point(3, 96);
             this.tableLayoutPanel6.Name = "tableLayoutPanel6";
-            this.tableLayoutPanel6.RowCount = 1;
+            this.tableLayoutPanel6.RowCount = 2;
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
+            this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel6.Size = new System.Drawing.Size(393, 84);
             this.tableLayoutPanel6.TabIndex = 3;
             // 
@@ -465,42 +466,16 @@
             this.LblRecordarUsuario.Dock = System.Windows.Forms.DockStyle.Fill;
             this.LblRecordarUsuario.Font = new System.Drawing.Font("Source Sans Pro", 11F, System.Drawing.FontStyle.Bold);
             this.LblRecordarUsuario.ForeColor = System.Drawing.Color.Silver;
-            this.LblRecordarUsuario.Location = new System.Drawing.Point(130, 10);
-            this.LblRecordarUsuario.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
+            this.LblRecordarUsuario.Location = new System.Drawing.Point(132, 0);
+            this.LblRecordarUsuario.Margin = new System.Windows.Forms.Padding(0);
             this.LblRecordarUsuario.Name = "LblRecordarUsuario";
-            this.LblRecordarUsuario.Padding = new System.Windows.Forms.Padding(0, 2, 0, 0);
-            this.LblRecordarUsuario.Size = new System.Drawing.Size(156, 74);
+            this.LblRecordarUsuario.Size = new System.Drawing.Size(156, 28);
             this.LblRecordarUsuario.TabIndex = 1;
             this.LblRecordarUsuario.Text = "Recordar usuario";
+            this.LblRecordarUsuario.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.LblRecordarUsuario.Click += new System.EventHandler(this.LblRecordarUsuario_Click);
             this.LblRecordarUsuario.MouseEnter += new System.EventHandler(this.ChkRemember_MouseEnter);
             this.LblRecordarUsuario.MouseLeave += new System.EventHandler(this.ChkRemember_MouseLeave);
-            // 
-            // ChkRemember
-            // 
-            this.ChkRemember.BackColor = System.Drawing.Color.Transparent;
-            this.ChkRemember.Background = System.Drawing.Color.Transparent;
-            this.ChkRemember.BorderColor = System.Drawing.Color.Silver;
-            this.ChkRemember.BorderHeight = 15;
-            this.ChkRemember.BorderWidth = 15;
-            this.ChkRemember.Checked = false;
-            this.ChkRemember.Cursor = System.Windows.Forms.Cursors.Hand;
-            this.ChkRemember.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.ChkRemember.EnterColor = System.Drawing.Color.White;
-            this.ChkRemember.Font = new System.Drawing.Font("Source Sans Pro Black", 14F, System.Drawing.FontStyle.Bold);
-            this.ChkRemember.ForeColor = System.Drawing.Color.Silver;
-            this.ChkRemember.LeaveColor = System.Drawing.Color.Silver;
-            this.ChkRemember.Location = new System.Drawing.Point(106, 10);
-            this.ChkRemember.Margin = new System.Windows.Forms.Padding(0, 10, 0, 0);
-            this.ChkRemember.Name = "ChkRemember";
-            this.ChkRemember.Padding = new System.Windows.Forms.Padding(2, 5, 0, 0);
-            this.ChkRemember.PaddingCheck = new System.Windows.Forms.Padding(1, 1, 0, 0);
-            this.ChkRemember.Size = new System.Drawing.Size(24, 74);
-            this.ChkRemember.TabIndex = 2;
-            this.ChkRemember.Text = "myCheckBox1";
-            this.ChkRemember.Click += new System.EventHandler(this.LblRecordarUsuario_Click);
-            this.ChkRemember.MouseEnter += new System.EventHandler(this.ChkRemember_MouseEnter);
-            this.ChkRemember.MouseLeave += new System.EventHandler(this.ChkRemember_MouseLeave);
             // 
             // BtnIniciar
             // 
@@ -528,6 +503,31 @@
             this.BtnIniciar.TextColor = System.Drawing.Color.White;
             this.BtnIniciar.UseVisualStyleBackColor = false;
             this.BtnIniciar.Click += new System.EventHandler(this.BtnIniciar_Click);
+            // 
+            // ChkRemember
+            // 
+            this.ChkRemember.BackColor = System.Drawing.Color.Transparent;
+            this.ChkRemember.Background = System.Drawing.Color.Transparent;
+            this.ChkRemember.BorderColor = System.Drawing.Color.Silver;
+            this.ChkRemember.BorderHeight = 20;
+            this.ChkRemember.BorderWidth = 20;
+            this.ChkRemember.Checked = false;
+            this.ChkRemember.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.ChkRemember.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.ChkRemember.EnterColor = System.Drawing.Color.White;
+            this.ChkRemember.Font = new System.Drawing.Font("Source Sans Pro Black", 15F, System.Drawing.FontStyle.Bold);
+            this.ChkRemember.ForeColor = System.Drawing.Color.Silver;
+            this.ChkRemember.LeaveColor = System.Drawing.Color.Silver;
+            this.ChkRemember.Location = new System.Drawing.Point(104, 0);
+            this.ChkRemember.Margin = new System.Windows.Forms.Padding(0);
+            this.ChkRemember.Name = "ChkRemember";
+            this.ChkRemember.PaddingCheck = new System.Windows.Forms.Padding(1, 1, 0, 0);
+            this.ChkRemember.Size = new System.Drawing.Size(28, 28);
+            this.ChkRemember.TabIndex = 2;
+            this.ChkRemember.Text = "myCheckBox1";
+            this.ChkRemember.Click += new System.EventHandler(this.LblRecordarUsuario_Click);
+            this.ChkRemember.MouseEnter += new System.EventHandler(this.ChkRemember_MouseEnter);
+            this.ChkRemember.MouseLeave += new System.EventHandler(this.ChkRemember_MouseLeave);
             // 
             // FrmInicioSesion
             // 

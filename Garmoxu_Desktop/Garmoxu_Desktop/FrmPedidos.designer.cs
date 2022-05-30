@@ -154,14 +154,14 @@
             this.TxtBuscar.BorderFocusColor = System.Drawing.Color.Gainsboro;
             this.TxtBuscar.BorderRadius = 10;
             this.TxtBuscar.BorderSize = 2;
-            this.TxtBuscar.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.TxtBuscar.Dock = System.Windows.Forms.DockStyle.Top;
             this.TxtBuscar.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
             this.TxtBuscar.ForeColor = System.Drawing.Color.Gray;
             this.TxtBuscar.Location = new System.Drawing.Point(85, 0);
             this.TxtBuscar.Margin = new System.Windows.Forms.Padding(20, 0, 20, 0);
             this.TxtBuscar.Multiline = false;
             this.TxtBuscar.Name = "TxtBuscar";
-            this.TxtBuscar.Padding = new System.Windows.Forms.Padding(13, 14, 13, 3);
+            this.TxtBuscar.Padding = new System.Windows.Forms.Padding(13, 12, 13, 3);
             this.TxtBuscar.PasswordChar = false;
             this.TxtBuscar.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtBuscar.PlaceholderText = "";
@@ -301,6 +301,7 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Tag = "Pedidos";
             this.Text = "Gestión de Pedidos - Garmoxu";
+            this.Shown += new System.EventHandler(this.FrmPedidos_Shown);
             this.PnlMain.ResumeLayout(false);
             this.PnlFoot.ResumeLayout(false);
             this.PnlFoot.PerformLayout();
