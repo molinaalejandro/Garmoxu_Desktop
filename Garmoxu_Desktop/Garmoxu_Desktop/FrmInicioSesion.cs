@@ -27,8 +27,7 @@ namespace Garmoxu_Desktop
         {
             InitializeComponent();
             FormBorderStyle = FormBorderStyle.None;
-
-            TxtContraseña.Texts = "1234abcd";
+            //TxtContraseña.Texts = "1234abcd";
         }
 
         #region Apertura del formulario

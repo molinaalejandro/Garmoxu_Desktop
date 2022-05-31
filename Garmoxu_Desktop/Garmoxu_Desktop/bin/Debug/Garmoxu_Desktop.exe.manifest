@@ -4,7 +4,7 @@
   <description asmv2:iconFile="Garmoxu_Logo_Circle_New.ico" xmlns="urn:schemas-microsoft-com:asm.v1" />
   <application />
   <entryPoint>
-    <assemblyIdentity name="Garmoxu_Desktop" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+    <assemblyIdentity name="Garmoxu_Desktop" version="1.0.1.0" language="neutral" processorArchitecture="msil" />
     <commandLine file="Garmoxu_Desktop.exe" parameters="" />
   </entryPoint>
   <trustInfo>
@@ -80,13 +80,13 @@
   </dependency>
   <dependency>
     <dependentAssembly dependencyType="install" allowDelayedBinding="true" codebase="Garmoxu_Desktop.exe" size="3363808">
-      <assemblyIdentity name="Garmoxu_Desktop" version="1.0.0.0" language="neutral" processorArchitecture="msil" />
+      <assemblyIdentity name="Garmoxu_Desktop" version="1.0.1.0" language="neutral" processorArchitecture="msil" />
       <hash>
         <dsig:Transforms>
           <dsig:Transform Algorithm="urn:schemas-microsoft-com:HashTransforms.Identity" />
         </dsig:Transforms>
         <dsig:DigestMethod Algorithm="http://www.w3.org/2000/09/xmldsig#sha256" />
-        <dsig:DigestValue>fqX1eaCv3x1SsioM5BDYmRSwp3Mb5AvYrVkPMGs6Bns=</dsig:DigestValue>
+        <dsig:DigestValue>4O61PdsbJQHrVnqeG/RKh+/C6N3iDRzepRkytolmGkQ=</dsig:DigestValue>
       </hash>
     </dependentAssembly>
   </dependency>
