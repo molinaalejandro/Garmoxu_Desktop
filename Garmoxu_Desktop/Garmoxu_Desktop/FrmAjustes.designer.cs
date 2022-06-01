@@ -312,7 +312,7 @@
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(326, 32);
             this.label12.TabIndex = 2;
-            this.label12.Text = "Restablecer contraseña";
+            this.label12.Text = "Cambiar contraseña";
             // 
             // LblPerfil
             // 
