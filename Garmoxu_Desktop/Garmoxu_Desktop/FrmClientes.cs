@@ -20,7 +20,7 @@ namespace Garmoxu_Desktop
         private DataSet Ds;
         private List<string> DatosIniciales;
         private int RegistrosCargados;
-        private const int REGISTROSCARGADOSPORITERACCION = 35;
+        //private const int REGISTROSCARGADOSPORITERACCION = 35;
 
         public FrmClientes()
         {
@@ -54,17 +54,17 @@ namespace Garmoxu_Desktop
             RegistrosCargados = 0;
         }
 
-        private void RellenarDataGrid()
-        {
-            for (int i = 0; i < REGISTROSCARGADOSPORITERACCION; i++)
-            {
-                if (RegistrosCargados < Ds.Tables["Clientes"].Rows.Count)
-                {
-                    DtgClientes.Rows.Add(Ds.Tables["Clientes"].Rows[RegistrosCargados].ItemArray[0]);
-                    RegistrosCargados++;
-                }
-            }
-        }
+        //private void RellenarDataGrid()
+        //{
+        //    for (int i = 0; i < REGISTROSCARGADOSPORITERACCION; i++)
+        //    {
+        //        if (RegistrosCargados < Ds.Tables["Clientes"].Rows.Count)
+        //        {
+        //            DtgClientes.Rows.Add(Ds.Tables["Clientes"].Rows[RegistrosCargados].ItemArray[0]);
+        //            RegistrosCargados++;
+        //        }
+        //    }
+        //}
         #endregion
         #endregion
 
@@ -119,6 +119,20 @@ namespace Garmoxu_Desktop
             int count = DtgClientes.Rows[DtgClientes.FirstDisplayedScrollingRowIndex].Height;
             count = DtgClientes.Height / count;
             return count;
+        }
+
+        private const int REGISTROSCARGADOSPORITERACCION = 35;
+
+        private void RellenarDataGrid()
+        {
+            for (int i = 0; i < REGISTROSCARGADOSPORITERACCION; i++)
+            {
+                if (RegistrosCargados < Ds.Tables["Clientes"].Rows.Count)
+                {
+                    DtgClientes.Rows.Add(Ds.Tables["Clientes"].Rows[RegistrosCargados].ItemArray[0]);
+                    RegistrosCargados++;
+                }
+            }
         }
         #endregion
 

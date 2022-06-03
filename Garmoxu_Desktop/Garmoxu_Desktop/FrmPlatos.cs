@@ -229,6 +229,8 @@ namespace Garmoxu_Desktop
             string sql = "SELECT IdPlatoComida, pc.Nombre, ImagenPlato FROM PlatosComida pc, Categorias c " +
                 "WHERE pc.IdCategoria = c.IdCategoria AND " + filtro + " ORDER BY pc.Nombre ASC";
 
+            BtnEliminar.Enabled = false;
+
             RellenarListView(sql);
         }
 
