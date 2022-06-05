@@ -16,7 +16,8 @@ namespace Garmoxu_Desktop
         //private const string SERVIDOR = "localhost"; // Nombre o IP del servidor.
         //private const string BD = "garmoxu"; // Nombre de la base de datos.
         //private const string USUARIO = "root"; // Usuario de acceso.
-        //private const string PASSWORD = "root"; // Contraseña de usuario de acceso.
+        //private const string PASSWORD = ""; // Contraseña de usuario de acceso.
+        ////private const string PASSWORD = "root"; // Contraseña de usuario de acceso.
 
         // Conexión remota
         private const string SERVIDOR = "sql781.main-hosting.eu"; // Nombre o IP del servidor.
