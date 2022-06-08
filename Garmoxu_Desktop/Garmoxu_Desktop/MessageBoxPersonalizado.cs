@@ -323,7 +323,7 @@ namespace Garmoxu_Desktop
 
             string sql = string.Format("SELECT * FROM Usuarios WHERE NombreUsuario = '{0}' AND Contraseña = '{1}'",
                 UsuarioActual, contraseñaEncriptada);
-            if (string.IsNullOrEmpty(EjecutarScalar(sql))) return true;
+            if (!string.IsNullOrEmpty(EjecutarScalar(sql))) return true;
 
             string user = UsuarioActual;
             UsuarioActual = string.Empty;
