@@ -1338,7 +1338,7 @@ namespace Garmoxu_Desktop
 
         private string RecogerNombreRestaurante()
         {
-            string nombreRestaurante = string.Empty;
+            string nombreRestaurante = "Garmoxu";
             string rutaAjustes = @"Ajustes\Ajustes.csv";
             if (File.Exists(rutaAjustes))
                 nombreRestaurante = File.ReadAllText(rutaAjustes).Split(';')[0];
