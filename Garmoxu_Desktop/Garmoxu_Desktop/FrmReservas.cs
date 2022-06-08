@@ -236,7 +236,7 @@ namespace Garmoxu_Desktop
         #region Eliminación de reservas
         private void DtgReservas_SelectionChanged(object sender, EventArgs e)
         {
-            BtnEliminar.Enabled = DtgReservas.SelectedRows.Count < 1 ? false : true;
+            BtnEliminar.Enabled = DtgReservas.SelectedRows.Count < 1 ? false : (true && NivelPermisos > 0);
         }
 
         private void BtnEliminar_Click(object sender, EventArgs e)
