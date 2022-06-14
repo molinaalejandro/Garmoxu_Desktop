@@ -54,9 +54,9 @@
             this.CboMesasLocalTipo = new RJCodeAdvance.RJControls.RJComboBox();
             this.tabPage6 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel12 = new System.Windows.Forms.TableLayoutPanel();
+            this.label14 = new System.Windows.Forms.Label();
             this.TxtNombreDomicilioTipo = new RJCodeAdvance.RJControls.RJTextBox();
             this.TxtTlfDomicilioTipo = new RJCodeAdvance.RJControls.RJTextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.TxtDirDomicilioTipo = new RJCodeAdvance.RJControls.RJTextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
@@ -212,7 +212,7 @@
             this.PnlBody.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.PnlBody.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 789F));
             this.PnlBody.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 789F));
-            this.PnlBody.Size = new System.Drawing.Size(1606, 836);
+            this.PnlBody.Size = new System.Drawing.Size(1305, 653);
             this.PnlBody.TabIndex = 53;
             // 
             // TabPrincipal
@@ -227,7 +227,7 @@
             this.TabPrincipal.Name = "TabPrincipal";
             this.TabPrincipal.Padding = new System.Drawing.Point(0, 0);
             this.TabPrincipal.SelectedIndex = 0;
-            this.TabPrincipal.Size = new System.Drawing.Size(1606, 836);
+            this.TabPrincipal.Size = new System.Drawing.Size(1305, 653);
             this.TabPrincipal.TabIndex = 0;
             this.TabPrincipal.TabStop = false;
             // 
@@ -239,7 +239,7 @@
             this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage4.Name = "tabPage4";
             this.tabPage4.Padding = new System.Windows.Forms.Padding(4);
-            this.tabPage4.Size = new System.Drawing.Size(1598, 807);
+            this.tabPage4.Size = new System.Drawing.Size(1297, 624);
             this.tabPage4.TabIndex = 0;
             this.tabPage4.Text = "Tipo";
             // 
@@ -258,7 +258,7 @@
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel6.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel6.Size = new System.Drawing.Size(1590, 799);
+            this.tableLayoutPanel6.Size = new System.Drawing.Size(1289, 616);
             this.tableLayoutPanel6.TabIndex = 1;
             // 
             // BtnNext
@@ -274,7 +274,7 @@
             this.BtnNext.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnNext.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
             this.BtnNext.ForeColor = System.Drawing.Color.White;
-            this.BtnNext.Location = new System.Drawing.Point(1393, 735);
+            this.BtnNext.Location = new System.Drawing.Point(1092, 552);
             this.BtnNext.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.BtnNext.Name = "BtnNext";
             this.BtnNext.Size = new System.Drawing.Size(192, 60);
@@ -302,7 +302,7 @@
             this.PnlElegirTipoPedido.Name = "PnlElegirTipoPedido";
             this.PnlElegirTipoPedido.RowCount = 1;
             this.PnlElegirTipoPedido.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.PnlElegirTipoPedido.Size = new System.Drawing.Size(1590, 82);
+            this.PnlElegirTipoPedido.Size = new System.Drawing.Size(1289, 82);
             this.PnlElegirTipoPedido.TabIndex = 0;
             // 
             // BtnRecoger
@@ -320,10 +320,10 @@
             this.BtnRecoger.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnRecoger.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
             this.BtnRecoger.ForeColor = System.Drawing.Color.White;
-            this.BtnRecoger.Location = new System.Drawing.Point(1084, 4);
+            this.BtnRecoger.Location = new System.Drawing.Point(883, 4);
             this.BtnRecoger.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.BtnRecoger.Name = "BtnRecoger";
-            this.BtnRecoger.Size = new System.Drawing.Size(501, 74);
+            this.BtnRecoger.Size = new System.Drawing.Size(401, 74);
             this.BtnRecoger.TabIndex = 7;
             this.BtnRecoger.TabStop = false;
             this.BtnRecoger.Text = "Recoger";
@@ -346,10 +346,10 @@
             this.BtnDomicilio.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.BtnDomicilio.Font = new System.Drawing.Font("Source Sans Pro", 16.2F, System.Drawing.FontStyle.Bold);
             this.BtnDomicilio.ForeColor = System.Drawing.Color.White;
-            this.BtnDomicilio.Location = new System.Drawing.Point(544, 4);
+            this.BtnDomicilio.Location = new System.Drawing.Point(444, 4);
             this.BtnDomicilio.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.BtnDomicilio.Name = "BtnDomicilio";
-            this.BtnDomicilio.Size = new System.Drawing.Size(500, 74);
+            this.BtnDomicilio.Size = new System.Drawing.Size(399, 74);
             this.BtnDomicilio.TabIndex = 6;
             this.BtnDomicilio.TabStop = false;
             this.BtnDomicilio.Text = "Domicilio";
@@ -375,7 +375,7 @@
             this.BtnLocal.Location = new System.Drawing.Point(5, 4);
             this.BtnLocal.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.BtnLocal.Name = "BtnLocal";
-            this.BtnLocal.Size = new System.Drawing.Size(499, 74);
+            this.BtnLocal.Size = new System.Drawing.Size(399, 74);
             this.BtnLocal.TabIndex = 5;
             this.BtnLocal.TabStop = false;
             this.BtnLocal.Text = "Local";
@@ -396,7 +396,7 @@
             this.TabTipoDatosTipo.Name = "TabTipoDatosTipo";
             this.TabTipoDatosTipo.Padding = new System.Drawing.Point(0, 0);
             this.TabTipoDatosTipo.SelectedIndex = 0;
-            this.TabTipoDatosTipo.Size = new System.Drawing.Size(1590, 619);
+            this.TabTipoDatosTipo.Size = new System.Drawing.Size(1289, 436);
             this.TabTipoDatosTipo.TabIndex = 3;
             this.TabTipoDatosTipo.TabStop = false;
             // 
@@ -407,7 +407,7 @@
             this.tabPage5.Location = new System.Drawing.Point(4, 25);
             this.tabPage5.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Size = new System.Drawing.Size(1582, 590);
+            this.tabPage5.Size = new System.Drawing.Size(1281, 407);
             this.tabPage5.TabIndex = 0;
             this.tabPage5.Text = "Local";
             // 
@@ -427,7 +427,7 @@
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel8.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel8.Size = new System.Drawing.Size(1582, 590);
+            this.tableLayoutPanel8.Size = new System.Drawing.Size(1281, 407);
             this.tableLayoutPanel8.TabIndex = 13;
             // 
             // label3
@@ -438,7 +438,7 @@
             this.label3.ForeColor = System.Drawing.Color.Silver;
             this.label3.Location = new System.Drawing.Point(3, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(1576, 33);
+            this.label3.Size = new System.Drawing.Size(1275, 33);
             this.label3.TabIndex = 42;
             this.label3.Text = "Número de mesa";
             // 
@@ -459,7 +459,7 @@
             this.CboMesasLocalTipo.Margin = new System.Windows.Forms.Padding(5);
             this.CboMesasLocalTipo.MinimumSize = new System.Drawing.Size(200, 30);
             this.CboMesasLocalTipo.Name = "CboMesasLocalTipo";
-            this.CboMesasLocalTipo.Size = new System.Drawing.Size(1572, 47);
+            this.CboMesasLocalTipo.Size = new System.Drawing.Size(1271, 47);
             this.CboMesasLocalTipo.TabIndex = 0;
             this.CboMesasLocalTipo.TabStop = false;
             this.CboMesasLocalTipo.Texts = "";
@@ -501,6 +501,18 @@
             this.tableLayoutPanel12.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel12.Size = new System.Drawing.Size(1582, 590);
             this.tableLayoutPanel12.TabIndex = 2;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.label14.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
+            this.label14.ForeColor = System.Drawing.Color.Silver;
+            this.label14.Location = new System.Drawing.Point(3, 121);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(1576, 33);
+            this.label14.TabIndex = 57;
+            this.label14.Text = "Dirección de cliente*";
             // 
             // TxtNombreDomicilioTipo
             // 
@@ -550,18 +562,6 @@
             this.TxtTlfDomicilioTipo.UnderlinedStyle = false;
             this.TxtTlfDomicilioTipo._TextChanged += new System.EventHandler(this.TextBoxTlf__TextChanged);
             this.TxtTlfDomicilioTipo.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.TextBoxSiguiente_KeyPress);
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.label14.Font = new System.Drawing.Font("Source Sans Pro", 15.2F, System.Drawing.FontStyle.Bold);
-            this.label14.ForeColor = System.Drawing.Color.Silver;
-            this.label14.Location = new System.Drawing.Point(3, 121);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(1576, 33);
-            this.label14.TabIndex = 57;
-            this.label14.Text = "Dirección de cliente*";
             // 
             // TxtDirDomicilioTipo
             // 
@@ -855,7 +855,7 @@
             this.tabPage9.Location = new System.Drawing.Point(4, 34);
             this.tabPage9.Margin = new System.Windows.Forms.Padding(0);
             this.tabPage9.Name = "tabPage9";
-            this.tabPage9.Size = new System.Drawing.Size(351, 381);
+            this.tabPage9.Size = new System.Drawing.Size(351, 428);
             this.tabPage9.TabIndex = 0;
             this.tabPage9.Text = "Local";
             // 
@@ -872,7 +872,7 @@
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.tableLayoutPanel17.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel17.Size = new System.Drawing.Size(351, 381);
+            this.tableLayoutPanel17.Size = new System.Drawing.Size(351, 428);
             this.tableLayoutPanel17.TabIndex = 1;
             // 
             // CboMesasLocalDetalles
@@ -1410,7 +1410,7 @@
             this.TxtCodigoPlato.PasswordChar = false;
             this.TxtCodigoPlato.PlaceholderColor = System.Drawing.Color.DarkGray;
             this.TxtCodigoPlato.PlaceholderText = "";
-            this.TxtCodigoPlato.Size = new System.Drawing.Size(767, 54);
+            this.TxtCodigoPlato.Size = new System.Drawing.Size(767, 52);
             this.TxtCodigoPlato.TabIndex = 2;
             this.TxtCodigoPlato.TabStop = false;
             this.TxtCodigoPlato.Texts = "Introducir código de plato";
@@ -1698,7 +1698,7 @@
             this.PnlPrincipal.RowCount = 2;
             this.PnlPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.PnlPrincipal.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.PnlPrincipal.Size = new System.Drawing.Size(1746, 1008);
+            this.PnlPrincipal.Size = new System.Drawing.Size(1445, 825);
             this.PnlPrincipal.TabIndex = 0;
             // 
             // PnlTitleBar
@@ -1715,7 +1715,7 @@
             this.PnlTitleBar.Name = "PnlTitleBar";
             this.PnlTitleBar.RowCount = 1;
             this.PnlTitleBar.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.PnlTitleBar.Size = new System.Drawing.Size(1746, 72);
+            this.PnlTitleBar.Size = new System.Drawing.Size(1445, 72);
             this.PnlTitleBar.TabIndex = 54;
             // 
             // BtnClose
@@ -1732,7 +1732,7 @@
             this.BtnClose.IconColor = System.Drawing.Color.White;
             this.BtnClose.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.BtnClose.IconSize = 25;
-            this.BtnClose.Location = new System.Drawing.Point(1679, 0);
+            this.BtnClose.Location = new System.Drawing.Point(1378, 0);
             this.BtnClose.Margin = new System.Windows.Forms.Padding(0);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(67, 72);
@@ -1752,7 +1752,7 @@
             this.LblTitulo.Location = new System.Drawing.Point(14, 0);
             this.LblTitulo.Margin = new System.Windows.Forms.Padding(14, 0, 0, 0);
             this.LblTitulo.Name = "LblTitulo";
-            this.LblTitulo.Size = new System.Drawing.Size(1665, 72);
+            this.LblTitulo.Size = new System.Drawing.Size(1364, 72);
             this.LblTitulo.TabIndex = 1;
             this.LblTitulo.Text = "Seleccionar tipo de pedido";
             this.LblTitulo.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -1761,7 +1761,7 @@
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(53)))), ((int)(((byte)(54)))), ((int)(((byte)(58)))));
-            this.ClientSize = new System.Drawing.Size(1746, 1008);
+            this.ClientSize = new System.Drawing.Size(1445, 825);
             this.Controls.Add(this.PnlPrincipal);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4);
